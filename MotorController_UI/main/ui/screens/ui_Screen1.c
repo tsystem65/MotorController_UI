@@ -9,23 +9,71 @@ void ui_Screen1_screen_init(void)
 {
     ui_Screen1 = lv_obj_create(NULL);
     lv_obj_clear_flag(ui_Screen1, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_flex_flow(ui_Screen1, LV_FLEX_FLOW_COLUMN_WRAP);
+    lv_obj_set_flex_align(ui_Screen1, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
 
     ui_Button1 = lv_btn_create(ui_Screen1);
-    lv_obj_set_width(ui_Button1, 381);
-    lv_obj_set_height(ui_Button1, 122);
-    lv_obj_set_x(ui_Button1, 5);
-    lv_obj_set_y(ui_Button1, -18);
+    lv_obj_set_width(ui_Button1, 263);
+    lv_obj_set_height(ui_Button1, 72);
+    lv_obj_set_x(ui_Button1, 12);
+    lv_obj_set_y(ui_Button1, -97);
     lv_obj_set_align(ui_Button1, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_Button1, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
     lv_obj_clear_flag(ui_Button1, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_bg_color(ui_Button1, lv_color_hex(0x00C82C), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_Button1, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui_Button1, 22, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui_Button1, 22, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui_Button1, 22, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui_Button1, 22, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_Label1 = lv_label_create(ui_Screen1);
-    lv_obj_set_width(ui_Label1, LV_SIZE_CONTENT);   /// 1
-    lv_obj_set_height(ui_Label1, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_Label1, 17);
-    lv_obj_set_y(ui_Label1, -20);
-    lv_obj_set_align(ui_Label1, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_Label1, "Click Me :)");
-    lv_obj_set_style_text_font(ui_Label1, &lv_font_montserrat_32, LV_PART_MAIN | LV_STATE_DEFAULT);
+    ui_StartButtonLabel = lv_label_create(ui_Button1);
+    lv_obj_set_width(ui_StartButtonLabel, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_StartButtonLabel, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_StartButtonLabel, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_StartButtonLabel, "START");
+    lv_obj_set_style_text_color(ui_StartButtonLabel, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui_StartButtonLabel, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui_StartButtonLabel, &lv_font_montserrat_24, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_Button2 = lv_btn_create(ui_Screen1);
+    lv_obj_set_width(ui_Button2, 263);
+    lv_obj_set_height(ui_Button2, 72);
+    lv_obj_set_x(ui_Button2, -5);
+    lv_obj_set_y(ui_Button2, 63);
+    lv_obj_set_align(ui_Button2, LV_ALIGN_TOP_MID);
+    lv_obj_add_flag(ui_Button2, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_Button2, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_bg_color(ui_Button2, lv_color_hex(0xFFB700), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_Button2, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_StopButtonLabel = lv_label_create(ui_Button2);
+    lv_obj_set_width(ui_StopButtonLabel, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_StopButtonLabel, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_StopButtonLabel, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_StopButtonLabel, "STOP");
+    lv_obj_set_style_text_font(ui_StopButtonLabel, &lv_font_montserrat_24, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_Button3 = lv_btn_create(ui_Screen1);
+    lv_obj_set_width(ui_Button3, 263);
+    lv_obj_set_height(ui_Button3, 72);
+    lv_obj_set_x(ui_Button3, -7);
+    lv_obj_set_y(ui_Button3, -115);
+    lv_obj_set_align(ui_Button3, LV_ALIGN_BOTTOM_MID);
+    lv_obj_add_flag(ui_Button3, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_Button3, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_bg_color(ui_Button3, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_Button3, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_ImmediateStopButtonLabel = lv_label_create(ui_Button3);
+    lv_obj_set_width(ui_ImmediateStopButtonLabel, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_ImmediateStopButtonLabel, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_align(ui_ImmediateStopButtonLabel, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_ImmediateStopButtonLabel, "IMMEDIATE STOP");
+    lv_obj_set_style_text_font(ui_ImmediateStopButtonLabel, &lv_font_montserrat_24, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    lv_obj_add_event_cb(ui_Button1, ui_event_Button1, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_Button2, ui_event_Button2, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_Button3, ui_event_Button3, LV_EVENT_ALL, NULL);
 
 }

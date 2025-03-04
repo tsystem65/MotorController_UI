@@ -10,6 +10,10 @@
 extern "C" {
 #endif
 
+void StartMotors(lv_event_t * e);
+void StopMotors(lv_event_t * e);
+void ImmediateStop(lv_event_t * e);
+
 #ifdef __cplusplus
 } /*extern "C"*/
 #endif
