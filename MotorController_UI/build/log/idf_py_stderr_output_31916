@@ -1,0 +1,63 @@
+[0;33m--- esp-idf-monitor 1.5.0 on /dev/ttyACM0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x400570e8: memset in ROM
+0x400570f3: memset in ROM
+[0m
+[0;33m--- 0x40382441: esp_log_write at /home/tsystem/esp/esp-idf/components/log/src/os/log_write.c:44
+0x420097f3: uart_driver_delete at /home/tsystem/esp/esp-idf/components/esp_driver_uart/src/uart.c:1788 (discriminator 1)
+0x4200b81c: uart_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c:24
+0x4200b84b: app_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c:31
+0x4201a623: main_task at /home/tsystem/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037c86d: vPortTaskWrapper at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40375cf1: esp_restart_noos at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x400570e8: memset in ROM
+0x400570f3: memset in ROM
+[0m
+[0;33m--- 0x40382441: esp_log_write at /home/tsystem/esp/esp-idf/components/log/src/os/log_write.c:44
+0x420097f3: uart_driver_delete at /home/tsystem/esp/esp-idf/components/esp_driver_uart/src/uart.c:1788 (discriminator 1)
+0x4200b81c: uart_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c:24
+0x4200b84b: app_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c:31
+0x4201a623: main_task at /home/tsystem/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037c86d: vPortTaskWrapper at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40375cf1: esp_restart_noos at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x400570e8: memset in ROM
+0x400570f3: memset in ROM
+[0m
+[0;33m--- 0x40382441: esp_log_write at /home/tsystem/esp/esp-idf/components/log/src/os/log_write.c:44
+0x420097f3: uart_driver_delete at /home/tsystem/esp/esp-idf/components/esp_driver_uart/src/uart.c:1788 (discriminator 1)
+0x4200b81c: uart_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c:24
+0x4200b84b: app_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c:31
+0x4201a623: main_task at /home/tsystem/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037c86d: vPortTaskWrapper at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40375cf1: esp_restart_noos at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x400570e8: memset in ROM
+0x400570f3: memset in ROM
+[0m
+[0;33m--- 0x40382441: esp_log_write at /home/tsystem/esp/esp-idf/components/log/src/os/log_write.c:44
+0x420097f3: uart_driver_delete at /home/tsystem/esp/esp-idf/components/esp_driver_uart/src/uart.c:1788 (discriminator 1)
+0x4200b81c: uart_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c:24
+0x4200b84b: app_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c:31
+0x4201a623: main_task at /home/tsystem/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037c86d: vPortTaskWrapper at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40375cf1: esp_restart_noos at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x400570e8: memset in ROM
+0x400570f3: memset in ROM
+[0m
+[0;33m--- 0x40382441: esp_log_write at /home/tsystem/esp/esp-idf/components/log/src/os/log_write.c:44
+0x420097f3: uart_driver_delete at /home/tsystem/esp/esp-idf/components/esp_driver_uart/src/uart.c:1788 (discriminator 1)
+0x4200b81c: uart_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c:24
+0x4200b84b: app_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c:31
+0x4201a623: main_task at /home/tsystem/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037c86d: vPortTaskWrapper at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40375cf1: esp_restart_noos at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0m

@@ -1,0 +1,33 @@
+[0;33m--- esp-idf-monitor 1.5.0 on /dev/ttyACM0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x4200c2f9: uart_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c:45 (discriminator 1)
+[0m
+[0;33m--- 0x4037d24b: _esp_error_check_failed at /home/tsystem/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40375e99: panic_abort at /home/tsystem/esp/esp-idf/components/esp_system/panic.c:454
+0x4037d255: esp_system_abort at /home/tsystem/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40383dd9: abort at /home/tsystem/esp/esp-idf/components/newlib/abort.c:38
+0x4037d24b: _esp_error_check_failed at /home/tsystem/esp/esp-idf/components/esp_system/esp_err.c:49
+0x4200c2f9: uart_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c:45 (discriminator 1)
+0x4200c92f: app_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c:96
+0x4205070f: main_task at /home/tsystem/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037dcc1: vPortTaskWrapper at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40375dd9: esp_restart_noos at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x4200c2f9: uart_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c:45 (discriminator 1)
+[0m
+[0;33m--- 0x4037d24b: _esp_error_check_failed at /home/tsystem/esp/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40375e99: panic_abort at /home/tsystem/esp/esp-idf/components/esp_system/panic.c:454
+0x4037d255: esp_system_abort at /home/tsystem/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x40383dd9: abort at /home/tsystem/esp/esp-idf/components/newlib/abort.c:38
+0x4037d24b: _esp_error_check_failed at /home/tsystem/esp/esp-idf/components/esp_system/esp_err.c:49
+0x4200c2f9: uart_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c:45 (discriminator 1)
+0x4200c92f: app_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c:96
+0x4205070f: main_task at /home/tsystem/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037dcc1: vPortTaskWrapper at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40375dd9: esp_restart_noos at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0m

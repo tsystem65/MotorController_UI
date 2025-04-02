@@ -22,6 +22,45 @@ lv_obj_t * ui_Button3;
 lv_obj_t * ui_ImmediateStopButtonLabel;
 // CUSTOM VARIABLES
 
+lv_obj_t * operation_params_cont;
+lv_obj_t * operation_params_input_cont;
+lv_obj_t * operation_mode_cont;
+lv_obj_t * control_buttons_cont;
+lv_obj_t * buttons_telemetry_cont;
+lv_obj_t * control_buttons_cont;
+lv_obj_t * telemetry_cont;
+
+lv_obj_t * rotate_per_sec_label;
+lv_obj_t * carriage_movement_label;
+lv_obj_t * general_winding_length_label;
+lv_obj_t * current_speed_label;
+lv_obj_t * current_winding_length_label;
+lv_obj_t * used_cable_total_length_label;
+lv_obj_t * operating_time_label;
+
+lv_obj_t * rotate_per_sec_entry;
+lv_obj_t * carriage_movement_entry;
+lv_obj_t * general_winding_length_entry;
+
+lv_obj_t * start_button;
+lv_obj_t * stop_button;
+lv_obj_t * immediate_stop_button;
+lv_obj_t * manual_acceleration_button;
+lv_obj_t * manual_deceleration_button;
+lv_obj_t * home_point_button;
+lv_obj_t * reset_info_panel_button;
+
+lv_obj_t * start_button_label;
+lv_obj_t * stop_button_label;
+lv_obj_t * immediate_stop_button_label;
+lv_obj_t * manual_acceleration_button_label;
+lv_obj_t * manual_deceleration_button_label;
+lv_obj_t * home_point_button_label;
+lv_obj_t * reset_info_panel_button_label;
+
+lv_obj_t * grinding_mode_checkbox;
+lv_obj_t * conical_winding_checkbox;
+
 // EVENTS
 lv_obj_t * ui____initial_actions0;
 

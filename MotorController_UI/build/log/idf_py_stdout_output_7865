@@ -1,0 +1,571 @@
+[1/12] Performing build step for 'bootloader'
+[1/1] cd /home/tsystem/esp/MotorController_UI/MotorController_UI/build/bootloader/esp-idf/esptool_py && /home/tsystem/.espressif/python_env/idf5.4_py3.12_env/bin/python /home/tsystem/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/tsystem/esp/MotorController_UI/MotorController_UI/build/bootloader/bootloader.bin
+Bootloader binary size 0x5210 bytes. 0x2df0 bytes (36%) free.
+[2/12] No install step for 'bootloader'
+[3/12] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ui/ui.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/ui/ui.c.obj 
+/home/tsystem/.espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc -DESP_PLATFORM -DIDF_VER=\"v5.4\" -DLV_CONF_INCLUDE_SIMPLE -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -DUNITY_INCLUDE_CONFIG_H -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -I/home/tsystem/esp/MotorController_UI/MotorController_UI/build/config -I/home/tsystem/esp/MotorController_UI/MotorController_UI/main -I/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui -I/home/tsystem/esp/esp-idf/components/newlib/platform_include -I/home/tsystem/esp/esp-idf/components/freertos/config/include -I/home/tsystem/esp/esp-idf/components/freertos/config/include/freertos -I/home/tsystem/esp/esp-idf/components/freertos/config/xtensa/include -I/home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/tsystem/esp/esp-idf/components/freertos/esp_additions/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/include/soc -I/home/tsystem/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/tsystem/esp/esp-idf/components/esp_hw_support/dma/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/ldo/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/home/tsystem/esp/esp-idf/components/heap/include -I/home/tsystem/esp/esp-idf/components/heap/tlsf -I/home/tsystem/esp/esp-idf/components/log/include -I/home/tsystem/esp/esp-idf/components/soc/include -I/home/tsystem/esp/esp-idf/components/soc/esp32s3 -I/home/tsystem/esp/esp-idf/components/soc/esp32s3/include -I/home/tsystem/esp/esp-idf/components/soc/esp32s3/register -I/home/tsystem/esp/esp-idf/components/hal/platform_port/include -I/home/tsystem/esp/esp-idf/components/hal/esp32s3/include -I/home/tsystem/esp/esp-idf/components/hal/include -I/home/tsystem/esp/esp-idf/components/esp_rom/include -I/home/tsystem/esp/esp-idf/components/esp_rom/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/home/tsystem/esp/esp-idf/components/esp_rom/esp32s3 -I/home/tsystem/esp/esp-idf/components/esp_common/include -I/home/tsystem/esp/esp-idf/components/esp_system/include -I/home/tsystem/esp/esp-idf/components/esp_system/port/soc -I/home/tsystem/esp/esp-idf/components/esp_system/port/include/private -I/home/tsystem/esp/esp-idf/components/xtensa/esp32s3/include -I/home/tsystem/esp/esp-idf/components/xtensa/include -I/home/tsystem/esp/esp-idf/components/xtensa/deprecated_include -I/home/tsystem/esp/esp-idf/components/lwip/include -I/home/tsystem/esp/esp-idf/components/lwip/include/apps -I/home/tsystem/esp/esp-idf/components/lwip/include/apps/sntp -I/home/tsystem/esp/esp-idf/components/lwip/lwip/src/include -I/home/tsystem/esp/esp-idf/components/lwip/port/include -I/home/tsystem/esp/esp-idf/components/lwip/port/freertos/include -I/home/tsystem/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/tsystem/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/tsystem/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/espressif__esp_lcd_touch_gt911/include -I/home/tsystem/esp/esp-idf/components/esp_lcd/include -I/home/tsystem/esp/esp-idf/components/esp_lcd/interface -I/home/tsystem/esp/esp-idf/components/esp_lcd/rgb/include -I/home/tsystem/esp/esp-idf/components/driver/deprecated -I/home/tsystem/esp/esp-idf/components/driver/i2c/include -I/home/tsystem/esp/esp-idf/components/driver/touch_sensor/include -I/home/tsystem/esp/esp-idf/components/driver/twai/include -I/home/tsystem/esp/esp-idf/components/driver/touch_sensor/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_pm/include -I/home/tsystem/esp/esp-idf/components/esp_ringbuf/include -I/home/tsystem/esp/esp-idf/components/esp_driver_gpio/include -I/home/tsystem/esp/esp-idf/components/esp_driver_pcnt/include -I/home/tsystem/esp/esp-idf/components/esp_driver_gptimer/include -I/home/tsystem/esp/esp-idf/components/esp_driver_spi/include -I/home/tsystem/esp/esp-idf/components/esp_driver_mcpwm/include -I/home/tsystem/esp/esp-idf/components/esp_driver_ana_cmpr/include -I/home/tsystem/esp/esp-idf/components/esp_driver_i2s/include -I/home/tsystem/esp/esp-idf/components/esp_driver_sdmmc/include -I/home/tsystem/esp/esp-idf/components/sdmmc/include -I/home/tsystem/esp/esp-idf/components/esp_driver_sdspi/include -I/home/tsystem/esp/esp-idf/components/esp_driver_sdio/include -I/home/tsystem/esp/esp-idf/components/esp_driver_dac/include -I/home/tsystem/esp/esp-idf/components/esp_driver_rmt/include -I/home/tsystem/esp/esp-idf/components/esp_driver_tsens/include -I/home/tsystem/esp/esp-idf/components/esp_driver_sdm/include -I/home/tsystem/esp/esp-idf/components/esp_driver_i2c/include -I/home/tsystem/esp/esp-idf/components/esp_driver_uart/include -I/home/tsystem/esp/esp-idf/components/vfs/include -I/home/tsystem/esp/esp-idf/components/esp_driver_ledc/include -I/home/tsystem/esp/esp-idf/components/esp_driver_parlio/include -I/home/tsystem/esp/esp-idf/components/esp_driver_usb_serial_jtag/include -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/espressif__esp_lcd_touch/include -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/examples -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/demos -I/home/tsystem/esp/esp-idf/components/esp_timer/include -I/home/tsystem/esp/esp-idf/components/mbedtls/port/include -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/include -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/library -I/home/tsystem/esp/esp-idf/components/mbedtls/esp_crt_bundle/include -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m -I/home/tsystem/esp/esp-idf/components/esp_app_format/include -I/home/tsystem/esp/esp-idf/components/esp_bootloader_format/include -I/home/tsystem/esp/esp-idf/components/app_update/include -I/home/tsystem/esp/esp-idf/components/bootloader_support/include -I/home/tsystem/esp/esp-idf/components/bootloader_support/bootloader_flash/include -I/home/tsystem/esp/esp-idf/components/esp_partition/include -I/home/tsystem/esp/esp-idf/components/efuse/include -I/home/tsystem/esp/esp-idf/components/efuse/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_mm/include -I/home/tsystem/esp/esp-idf/components/spi_flash/include -I/home/tsystem/esp/esp-idf/components/esp_security/include -I/home/tsystem/esp/esp-idf/components/pthread/include -I/home/tsystem/esp/esp-idf/components/app_trace/include -I/home/tsystem/esp/esp-idf/components/esp_event/include -I/home/tsystem/esp/esp-idf/components/nvs_flash/include -I/home/tsystem/esp/esp-idf/components/esp_phy/include -I/home/tsystem/esp/esp-idf/components/esp_phy/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_vfs_console/include -I/home/tsystem/esp/esp-idf/components/esp_netif/include -I/home/tsystem/esp/esp-idf/components/wpa_supplicant/include -I/home/tsystem/esp/esp-idf/components/wpa_supplicant/port/include -I/home/tsystem/esp/esp-idf/components/wpa_supplicant/esp_supplicant/include -I/home/tsystem/esp/esp-idf/components/esp_coex/include -I/home/tsystem/esp/esp-idf/components/esp_wifi/include -I/home/tsystem/esp/esp-idf/components/esp_wifi/include/local -I/home/tsystem/esp/esp-idf/components/esp_wifi/wifi_apps/include -I/home/tsystem/esp/esp-idf/components/esp_wifi/wifi_apps/nan_app/include -I/home/tsystem/esp/esp-idf/components/unity/include -I/home/tsystem/esp/esp-idf/components/unity/unity/src -I/home/tsystem/esp/esp-idf/components/cmock/CMock/src -I/home/tsystem/esp/esp-idf/components/console -I/home/tsystem/esp/esp-idf/components/http_parser -I/home/tsystem/esp/esp-idf/components/esp-tls -I/home/tsystem/esp/esp-idf/components/esp-tls/esp-tls-crypto -I/home/tsystem/esp/esp-idf/components/esp_adc/include -I/home/tsystem/esp/esp-idf/components/esp_adc/interface -I/home/tsystem/esp/esp-idf/components/esp_adc/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_adc/deprecated/include -I/home/tsystem/esp/esp-idf/components/esp_driver_isp/include -I/home/tsystem/esp/esp-idf/components/esp_driver_cam/include -I/home/tsystem/esp/esp-idf/components/esp_driver_cam/interface -I/home/tsystem/esp/esp-idf/components/esp_driver_jpeg/include -I/home/tsystem/esp/esp-idf/components/esp_driver_ppa/include -I/home/tsystem/esp/esp-idf/components/esp_eth/include -I/home/tsystem/esp/esp-idf/components/esp_gdbstub/include -I/home/tsystem/esp/esp-idf/components/esp_hid/include -I/home/tsystem/esp/esp-idf/components/tcp_transport/include -I/home/tsystem/esp/esp-idf/components/esp_http_client/include -I/home/tsystem/esp/esp-idf/components/esp_http_server/include -I/home/tsystem/esp/esp-idf/components/esp_https_ota/include -I/home/tsystem/esp/esp-idf/components/esp_https_server/include -I/home/tsystem/esp/esp-idf/components/esp_psram/include -I/home/tsystem/esp/esp-idf/components/protobuf-c/protobuf-c -I/home/tsystem/esp/esp-idf/components/protocomm/include/common -I/home/tsystem/esp/esp-idf/components/protocomm/include/security -I/home/tsystem/esp/esp-idf/components/protocomm/include/transports -I/home/tsystem/esp/esp-idf/components/protocomm/include/crypto/srp6a -I/home/tsystem/esp/esp-idf/components/protocomm/proto-c -I/home/tsystem/esp/esp-idf/components/esp_local_ctrl/include -I/home/tsystem/esp/esp-idf/components/espcoredump/include -I/home/tsystem/esp/esp-idf/components/espcoredump/include/port/xtensa -I/home/tsystem/esp/esp-idf/components/wear_levelling/include -I/home/tsystem/esp/esp-idf/components/fatfs/diskio -I/home/tsystem/esp/esp-idf/components/fatfs/src -I/home/tsystem/esp/esp-idf/components/fatfs/vfs -I/home/tsystem/esp/esp-idf/components/idf_test/include -I/home/tsystem/esp/esp-idf/components/idf_test/include/esp32s3 -I/home/tsystem/esp/esp-idf/components/ieee802154/include -I/home/tsystem/esp/esp-idf/components/json/cJSON -I/home/tsystem/esp/esp-idf/components/mqtt/esp-mqtt/include -I/home/tsystem/esp/esp-idf/components/nvs_sec_provider/include -I/home/tsystem/esp/esp-idf/components/perfmon/include -I/home/tsystem/esp/esp-idf/components/rt/include -I/home/tsystem/esp/esp-idf/components/spiffs/include -I/home/tsystem/esp/esp-idf/components/touch_element/include -I/home/tsystem/esp/esp-idf/components/usb/include -I/home/tsystem/esp/esp-idf/components/wifi_provisioning/include -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -fdiagnostics-color=always -Wno-format -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -mdisable-hardware-atomics -Og -fno-shrink-wrap -fmacro-prefix-map=/home/tsystem/esp/MotorController_UI/MotorController_UI=. -fmacro-prefix-map=/home/tsystem/esp/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu17 -Wno-old-style-declaration -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/ui/ui.c.obj -MF esp-idf/main/CMakeFiles/__idf_main.dir/ui/ui.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/ui/ui.c.obj -c /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c
+In file included from /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:6:
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:32:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   32 | extern lb_obj_t * operation_params_cont;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:33:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   33 | extern lb_obj_t * operation_params_input_cont;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:34:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   34 | extern lb_obj_t * operation_mode_cont;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:36:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   36 | extern lb_obj_t * rotate_per_sec_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:37:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   37 | extern lb_obj_t * carriage_movement_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:38:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   38 | extern lb_obj_t * general_winding_length_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:39:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   39 | extern lb_obj_t * current_speed_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:40:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   40 | extern lb_obj_t * current_winding_length_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:41:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   41 | extern lb_obj_t * used_cable_total_length_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:42:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   42 | extern lb_obj_t * operating_time_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:44:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   44 | extern lb_obj_t * rotate_per_sec_entry;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:45:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   45 | extern lb_obj_t * carriage_movement_entry;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:46:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   46 | extern lb_obj_t * general_winding_length_entry;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:48:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   48 | extern lb_obj_t * start_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:49:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   49 | extern lb_obj_t * stop_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:50:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   50 | extern lb_obj_t * immediate_stop_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:51:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   51 | extern lb_obj_t * manual_acceleration_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:52:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   52 | extern lb_obj_t * manual_deceleration_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:53:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   53 | extern lb_obj_t * home_point_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:54:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   54 | extern lb_obj_t * reset_info_panel_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:25:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   25 | lb_obj_t * operation_params_cont;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:26:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   26 | lb_obj_t * operation_params_input_cont;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:27:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   27 | lb_obj_t * operation_mode_cont;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:29:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   29 | lb_obj_t * rotate_per_sec_label;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:30:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   30 | lb_obj_t * carriage_movement_label;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:31:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   31 | lb_obj_t * general_winding_length_label;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:32:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   32 | lb_obj_t * current_speed_label;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:33:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   33 | lb_obj_t * current_winding_length_label;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:34:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   34 | lb_obj_t * used_cable_total_length_label;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:35:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   35 | lb_obj_t * operating_time_label;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:37:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   37 | lb_obj_t * rotate_per_sec_entry;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:38:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   38 | lb_obj_t * carriage_movement_entry;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:39:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   39 | lb_obj_t * general_winding_length_entry;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:41:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   41 | lb_obj_t * start_button;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:42:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   42 | lb_obj_t * stop_button;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:43:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   43 | lb_obj_t * immediate_stop_button;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:44:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   44 | lb_obj_t * manual_acceleration_button;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:45:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   45 | lb_obj_t * manual_deceleration_button;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:46:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   46 | lb_obj_t * home_point_button;
+      | ^~~~~~~~
+      | lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:47:1: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   47 | lb_obj_t * reset_info_panel_button;
+      | ^~~~~~~~
+      | lv_obj_t
+[4/12] Completed 'bootloader'
+[5/12] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ui/ui_helpers.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/ui/ui_helpers.c.obj 
+/home/tsystem/.espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc -DESP_PLATFORM -DIDF_VER=\"v5.4\" -DLV_CONF_INCLUDE_SIMPLE -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -DUNITY_INCLUDE_CONFIG_H -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -I/home/tsystem/esp/MotorController_UI/MotorController_UI/build/config -I/home/tsystem/esp/MotorController_UI/MotorController_UI/main -I/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui -I/home/tsystem/esp/esp-idf/components/newlib/platform_include -I/home/tsystem/esp/esp-idf/components/freertos/config/include -I/home/tsystem/esp/esp-idf/components/freertos/config/include/freertos -I/home/tsystem/esp/esp-idf/components/freertos/config/xtensa/include -I/home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/tsystem/esp/esp-idf/components/freertos/esp_additions/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/include/soc -I/home/tsystem/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/tsystem/esp/esp-idf/components/esp_hw_support/dma/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/ldo/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/home/tsystem/esp/esp-idf/components/heap/include -I/home/tsystem/esp/esp-idf/components/heap/tlsf -I/home/tsystem/esp/esp-idf/components/log/include -I/home/tsystem/esp/esp-idf/components/soc/include -I/home/tsystem/esp/esp-idf/components/soc/esp32s3 -I/home/tsystem/esp/esp-idf/components/soc/esp32s3/include -I/home/tsystem/esp/esp-idf/components/soc/esp32s3/register -I/home/tsystem/esp/esp-idf/components/hal/platform_port/include -I/home/tsystem/esp/esp-idf/components/hal/esp32s3/include -I/home/tsystem/esp/esp-idf/components/hal/include -I/home/tsystem/esp/esp-idf/components/esp_rom/include -I/home/tsystem/esp/esp-idf/components/esp_rom/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/home/tsystem/esp/esp-idf/components/esp_rom/esp32s3 -I/home/tsystem/esp/esp-idf/components/esp_common/include -I/home/tsystem/esp/esp-idf/components/esp_system/include -I/home/tsystem/esp/esp-idf/components/esp_system/port/soc -I/home/tsystem/esp/esp-idf/components/esp_system/port/include/private -I/home/tsystem/esp/esp-idf/components/xtensa/esp32s3/include -I/home/tsystem/esp/esp-idf/components/xtensa/include -I/home/tsystem/esp/esp-idf/components/xtensa/deprecated_include -I/home/tsystem/esp/esp-idf/components/lwip/include -I/home/tsystem/esp/esp-idf/components/lwip/include/apps -I/home/tsystem/esp/esp-idf/components/lwip/include/apps/sntp -I/home/tsystem/esp/esp-idf/components/lwip/lwip/src/include -I/home/tsystem/esp/esp-idf/components/lwip/port/include -I/home/tsystem/esp/esp-idf/components/lwip/port/freertos/include -I/home/tsystem/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/tsystem/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/tsystem/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/espressif__esp_lcd_touch_gt911/include -I/home/tsystem/esp/esp-idf/components/esp_lcd/include -I/home/tsystem/esp/esp-idf/components/esp_lcd/interface -I/home/tsystem/esp/esp-idf/components/esp_lcd/rgb/include -I/home/tsystem/esp/esp-idf/components/driver/deprecated -I/home/tsystem/esp/esp-idf/components/driver/i2c/include -I/home/tsystem/esp/esp-idf/components/driver/touch_sensor/include -I/home/tsystem/esp/esp-idf/components/driver/twai/include -I/home/tsystem/esp/esp-idf/components/driver/touch_sensor/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_pm/include -I/home/tsystem/esp/esp-idf/components/esp_ringbuf/include -I/home/tsystem/esp/esp-idf/components/esp_driver_gpio/include -I/home/tsystem/esp/esp-idf/components/esp_driver_pcnt/include -I/home/tsystem/esp/esp-idf/components/esp_driver_gptimer/include -I/home/tsystem/esp/esp-idf/components/esp_driver_spi/include -I/home/tsystem/esp/esp-idf/components/esp_driver_mcpwm/include -I/home/tsystem/esp/esp-idf/components/esp_driver_ana_cmpr/include -I/home/tsystem/esp/esp-idf/components/esp_driver_i2s/include -I/home/tsystem/esp/esp-idf/components/esp_driver_sdmmc/include -I/home/tsystem/esp/esp-idf/components/sdmmc/include -I/home/tsystem/esp/esp-idf/components/esp_driver_sdspi/include -I/home/tsystem/esp/esp-idf/components/esp_driver_sdio/include -I/home/tsystem/esp/esp-idf/components/esp_driver_dac/include -I/home/tsystem/esp/esp-idf/components/esp_driver_rmt/include -I/home/tsystem/esp/esp-idf/components/esp_driver_tsens/include -I/home/tsystem/esp/esp-idf/components/esp_driver_sdm/include -I/home/tsystem/esp/esp-idf/components/esp_driver_i2c/include -I/home/tsystem/esp/esp-idf/components/esp_driver_uart/include -I/home/tsystem/esp/esp-idf/components/vfs/include -I/home/tsystem/esp/esp-idf/components/esp_driver_ledc/include -I/home/tsystem/esp/esp-idf/components/esp_driver_parlio/include -I/home/tsystem/esp/esp-idf/components/esp_driver_usb_serial_jtag/include -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/espressif__esp_lcd_touch/include -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/examples -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/demos -I/home/tsystem/esp/esp-idf/components/esp_timer/include -I/home/tsystem/esp/esp-idf/components/mbedtls/port/include -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/include -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/library -I/home/tsystem/esp/esp-idf/components/mbedtls/esp_crt_bundle/include -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m -I/home/tsystem/esp/esp-idf/components/esp_app_format/include -I/home/tsystem/esp/esp-idf/components/esp_bootloader_format/include -I/home/tsystem/esp/esp-idf/components/app_update/include -I/home/tsystem/esp/esp-idf/components/bootloader_support/include -I/home/tsystem/esp/esp-idf/components/bootloader_support/bootloader_flash/include -I/home/tsystem/esp/esp-idf/components/esp_partition/include -I/home/tsystem/esp/esp-idf/components/efuse/include -I/home/tsystem/esp/esp-idf/components/efuse/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_mm/include -I/home/tsystem/esp/esp-idf/components/spi_flash/include -I/home/tsystem/esp/esp-idf/components/esp_security/include -I/home/tsystem/esp/esp-idf/components/pthread/include -I/home/tsystem/esp/esp-idf/components/app_trace/include -I/home/tsystem/esp/esp-idf/components/esp_event/include -I/home/tsystem/esp/esp-idf/components/nvs_flash/include -I/home/tsystem/esp/esp-idf/components/esp_phy/include -I/home/tsystem/esp/esp-idf/components/esp_phy/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_vfs_console/include -I/home/tsystem/esp/esp-idf/components/esp_netif/include -I/home/tsystem/esp/esp-idf/components/wpa_supplicant/include -I/home/tsystem/esp/esp-idf/components/wpa_supplicant/port/include -I/home/tsystem/esp/esp-idf/components/wpa_supplicant/esp_supplicant/include -I/home/tsystem/esp/esp-idf/components/esp_coex/include -I/home/tsystem/esp/esp-idf/components/esp_wifi/include -I/home/tsystem/esp/esp-idf/components/esp_wifi/include/local -I/home/tsystem/esp/esp-idf/components/esp_wifi/wifi_apps/include -I/home/tsystem/esp/esp-idf/components/esp_wifi/wifi_apps/nan_app/include -I/home/tsystem/esp/esp-idf/components/unity/include -I/home/tsystem/esp/esp-idf/components/unity/unity/src -I/home/tsystem/esp/esp-idf/components/cmock/CMock/src -I/home/tsystem/esp/esp-idf/components/console -I/home/tsystem/esp/esp-idf/components/http_parser -I/home/tsystem/esp/esp-idf/components/esp-tls -I/home/tsystem/esp/esp-idf/components/esp-tls/esp-tls-crypto -I/home/tsystem/esp/esp-idf/components/esp_adc/include -I/home/tsystem/esp/esp-idf/components/esp_adc/interface -I/home/tsystem/esp/esp-idf/components/esp_adc/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_adc/deprecated/include -I/home/tsystem/esp/esp-idf/components/esp_driver_isp/include -I/home/tsystem/esp/esp-idf/components/esp_driver_cam/include -I/home/tsystem/esp/esp-idf/components/esp_driver_cam/interface -I/home/tsystem/esp/esp-idf/components/esp_driver_jpeg/include -I/home/tsystem/esp/esp-idf/components/esp_driver_ppa/include -I/home/tsystem/esp/esp-idf/components/esp_eth/include -I/home/tsystem/esp/esp-idf/components/esp_gdbstub/include -I/home/tsystem/esp/esp-idf/components/esp_hid/include -I/home/tsystem/esp/esp-idf/components/tcp_transport/include -I/home/tsystem/esp/esp-idf/components/esp_http_client/include -I/home/tsystem/esp/esp-idf/components/esp_http_server/include -I/home/tsystem/esp/esp-idf/components/esp_https_ota/include -I/home/tsystem/esp/esp-idf/components/esp_https_server/include -I/home/tsystem/esp/esp-idf/components/esp_psram/include -I/home/tsystem/esp/esp-idf/components/protobuf-c/protobuf-c -I/home/tsystem/esp/esp-idf/components/protocomm/include/common -I/home/tsystem/esp/esp-idf/components/protocomm/include/security -I/home/tsystem/esp/esp-idf/components/protocomm/include/transports -I/home/tsystem/esp/esp-idf/components/protocomm/include/crypto/srp6a -I/home/tsystem/esp/esp-idf/components/protocomm/proto-c -I/home/tsystem/esp/esp-idf/components/esp_local_ctrl/include -I/home/tsystem/esp/esp-idf/components/espcoredump/include -I/home/tsystem/esp/esp-idf/components/espcoredump/include/port/xtensa -I/home/tsystem/esp/esp-idf/components/wear_levelling/include -I/home/tsystem/esp/esp-idf/components/fatfs/diskio -I/home/tsystem/esp/esp-idf/components/fatfs/src -I/home/tsystem/esp/esp-idf/components/fatfs/vfs -I/home/tsystem/esp/esp-idf/components/idf_test/include -I/home/tsystem/esp/esp-idf/components/idf_test/include/esp32s3 -I/home/tsystem/esp/esp-idf/components/ieee802154/include -I/home/tsystem/esp/esp-idf/components/json/cJSON -I/home/tsystem/esp/esp-idf/components/mqtt/esp-mqtt/include -I/home/tsystem/esp/esp-idf/components/nvs_sec_provider/include -I/home/tsystem/esp/esp-idf/components/perfmon/include -I/home/tsystem/esp/esp-idf/components/rt/include -I/home/tsystem/esp/esp-idf/components/spiffs/include -I/home/tsystem/esp/esp-idf/components/touch_element/include -I/home/tsystem/esp/esp-idf/components/usb/include -I/home/tsystem/esp/esp-idf/components/wifi_provisioning/include -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -fdiagnostics-color=always -Wno-format -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -mdisable-hardware-atomics -Og -fno-shrink-wrap -fmacro-prefix-map=/home/tsystem/esp/MotorController_UI/MotorController_UI=. -fmacro-prefix-map=/home/tsystem/esp/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu17 -Wno-old-style-declaration -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/ui/ui_helpers.c.obj -MF esp-idf/main/CMakeFiles/__idf_main.dir/ui/ui_helpers.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/ui/ui_helpers.c.obj -c /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui_helpers.c
+In file included from /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui_helpers.h:13,
+                 from /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui_helpers.c:6:
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:32:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   32 | extern lb_obj_t * operation_params_cont;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:33:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   33 | extern lb_obj_t * operation_params_input_cont;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:34:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   34 | extern lb_obj_t * operation_mode_cont;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:36:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   36 | extern lb_obj_t * rotate_per_sec_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:37:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   37 | extern lb_obj_t * carriage_movement_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:38:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   38 | extern lb_obj_t * general_winding_length_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:39:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   39 | extern lb_obj_t * current_speed_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:40:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   40 | extern lb_obj_t * current_winding_length_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:41:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   41 | extern lb_obj_t * used_cable_total_length_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:42:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   42 | extern lb_obj_t * operating_time_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:44:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   44 | extern lb_obj_t * rotate_per_sec_entry;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:45:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   45 | extern lb_obj_t * carriage_movement_entry;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:46:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   46 | extern lb_obj_t * general_winding_length_entry;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:48:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   48 | extern lb_obj_t * start_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:49:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   49 | extern lb_obj_t * stop_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:50:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   50 | extern lb_obj_t * immediate_stop_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:51:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   51 | extern lb_obj_t * manual_acceleration_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:52:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   52 | extern lb_obj_t * manual_deceleration_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:53:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   53 | extern lb_obj_t * home_point_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:54:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   54 | extern lb_obj_t * reset_info_panel_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+[6/12] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ui/screens/ui_Screen1.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/ui/screens/ui_Screen1.c.obj 
+/home/tsystem/.espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc -DESP_PLATFORM -DIDF_VER=\"v5.4\" -DLV_CONF_INCLUDE_SIMPLE -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -DUNITY_INCLUDE_CONFIG_H -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -I/home/tsystem/esp/MotorController_UI/MotorController_UI/build/config -I/home/tsystem/esp/MotorController_UI/MotorController_UI/main -I/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui -I/home/tsystem/esp/esp-idf/components/newlib/platform_include -I/home/tsystem/esp/esp-idf/components/freertos/config/include -I/home/tsystem/esp/esp-idf/components/freertos/config/include/freertos -I/home/tsystem/esp/esp-idf/components/freertos/config/xtensa/include -I/home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/tsystem/esp/esp-idf/components/freertos/esp_additions/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/include/soc -I/home/tsystem/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/tsystem/esp/esp-idf/components/esp_hw_support/dma/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/ldo/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/home/tsystem/esp/esp-idf/components/heap/include -I/home/tsystem/esp/esp-idf/components/heap/tlsf -I/home/tsystem/esp/esp-idf/components/log/include -I/home/tsystem/esp/esp-idf/components/soc/include -I/home/tsystem/esp/esp-idf/components/soc/esp32s3 -I/home/tsystem/esp/esp-idf/components/soc/esp32s3/include -I/home/tsystem/esp/esp-idf/components/soc/esp32s3/register -I/home/tsystem/esp/esp-idf/components/hal/platform_port/include -I/home/tsystem/esp/esp-idf/components/hal/esp32s3/include -I/home/tsystem/esp/esp-idf/components/hal/include -I/home/tsystem/esp/esp-idf/components/esp_rom/include -I/home/tsystem/esp/esp-idf/components/esp_rom/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/home/tsystem/esp/esp-idf/components/esp_rom/esp32s3 -I/home/tsystem/esp/esp-idf/components/esp_common/include -I/home/tsystem/esp/esp-idf/components/esp_system/include -I/home/tsystem/esp/esp-idf/components/esp_system/port/soc -I/home/tsystem/esp/esp-idf/components/esp_system/port/include/private -I/home/tsystem/esp/esp-idf/components/xtensa/esp32s3/include -I/home/tsystem/esp/esp-idf/components/xtensa/include -I/home/tsystem/esp/esp-idf/components/xtensa/deprecated_include -I/home/tsystem/esp/esp-idf/components/lwip/include -I/home/tsystem/esp/esp-idf/components/lwip/include/apps -I/home/tsystem/esp/esp-idf/components/lwip/include/apps/sntp -I/home/tsystem/esp/esp-idf/components/lwip/lwip/src/include -I/home/tsystem/esp/esp-idf/components/lwip/port/include -I/home/tsystem/esp/esp-idf/components/lwip/port/freertos/include -I/home/tsystem/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/tsystem/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/tsystem/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/espressif__esp_lcd_touch_gt911/include -I/home/tsystem/esp/esp-idf/components/esp_lcd/include -I/home/tsystem/esp/esp-idf/components/esp_lcd/interface -I/home/tsystem/esp/esp-idf/components/esp_lcd/rgb/include -I/home/tsystem/esp/esp-idf/components/driver/deprecated -I/home/tsystem/esp/esp-idf/components/driver/i2c/include -I/home/tsystem/esp/esp-idf/components/driver/touch_sensor/include -I/home/tsystem/esp/esp-idf/components/driver/twai/include -I/home/tsystem/esp/esp-idf/components/driver/touch_sensor/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_pm/include -I/home/tsystem/esp/esp-idf/components/esp_ringbuf/include -I/home/tsystem/esp/esp-idf/components/esp_driver_gpio/include -I/home/tsystem/esp/esp-idf/components/esp_driver_pcnt/include -I/home/tsystem/esp/esp-idf/components/esp_driver_gptimer/include -I/home/tsystem/esp/esp-idf/components/esp_driver_spi/include -I/home/tsystem/esp/esp-idf/components/esp_driver_mcpwm/include -I/home/tsystem/esp/esp-idf/components/esp_driver_ana_cmpr/include -I/home/tsystem/esp/esp-idf/components/esp_driver_i2s/include -I/home/tsystem/esp/esp-idf/components/esp_driver_sdmmc/include -I/home/tsystem/esp/esp-idf/components/sdmmc/include -I/home/tsystem/esp/esp-idf/components/esp_driver_sdspi/include -I/home/tsystem/esp/esp-idf/components/esp_driver_sdio/include -I/home/tsystem/esp/esp-idf/components/esp_driver_dac/include -I/home/tsystem/esp/esp-idf/components/esp_driver_rmt/include -I/home/tsystem/esp/esp-idf/components/esp_driver_tsens/include -I/home/tsystem/esp/esp-idf/components/esp_driver_sdm/include -I/home/tsystem/esp/esp-idf/components/esp_driver_i2c/include -I/home/tsystem/esp/esp-idf/components/esp_driver_uart/include -I/home/tsystem/esp/esp-idf/components/vfs/include -I/home/tsystem/esp/esp-idf/components/esp_driver_ledc/include -I/home/tsystem/esp/esp-idf/components/esp_driver_parlio/include -I/home/tsystem/esp/esp-idf/components/esp_driver_usb_serial_jtag/include -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/espressif__esp_lcd_touch/include -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/examples -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/demos -I/home/tsystem/esp/esp-idf/components/esp_timer/include -I/home/tsystem/esp/esp-idf/components/mbedtls/port/include -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/include -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/library -I/home/tsystem/esp/esp-idf/components/mbedtls/esp_crt_bundle/include -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m -I/home/tsystem/esp/esp-idf/components/esp_app_format/include -I/home/tsystem/esp/esp-idf/components/esp_bootloader_format/include -I/home/tsystem/esp/esp-idf/components/app_update/include -I/home/tsystem/esp/esp-idf/components/bootloader_support/include -I/home/tsystem/esp/esp-idf/components/bootloader_support/bootloader_flash/include -I/home/tsystem/esp/esp-idf/components/esp_partition/include -I/home/tsystem/esp/esp-idf/components/efuse/include -I/home/tsystem/esp/esp-idf/components/efuse/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_mm/include -I/home/tsystem/esp/esp-idf/components/spi_flash/include -I/home/tsystem/esp/esp-idf/components/esp_security/include -I/home/tsystem/esp/esp-idf/components/pthread/include -I/home/tsystem/esp/esp-idf/components/app_trace/include -I/home/tsystem/esp/esp-idf/components/esp_event/include -I/home/tsystem/esp/esp-idf/components/nvs_flash/include -I/home/tsystem/esp/esp-idf/components/esp_phy/include -I/home/tsystem/esp/esp-idf/components/esp_phy/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_vfs_console/include -I/home/tsystem/esp/esp-idf/components/esp_netif/include -I/home/tsystem/esp/esp-idf/components/wpa_supplicant/include -I/home/tsystem/esp/esp-idf/components/wpa_supplicant/port/include -I/home/tsystem/esp/esp-idf/components/wpa_supplicant/esp_supplicant/include -I/home/tsystem/esp/esp-idf/components/esp_coex/include -I/home/tsystem/esp/esp-idf/components/esp_wifi/include -I/home/tsystem/esp/esp-idf/components/esp_wifi/include/local -I/home/tsystem/esp/esp-idf/components/esp_wifi/wifi_apps/include -I/home/tsystem/esp/esp-idf/components/esp_wifi/wifi_apps/nan_app/include -I/home/tsystem/esp/esp-idf/components/unity/include -I/home/tsystem/esp/esp-idf/components/unity/unity/src -I/home/tsystem/esp/esp-idf/components/cmock/CMock/src -I/home/tsystem/esp/esp-idf/components/console -I/home/tsystem/esp/esp-idf/components/http_parser -I/home/tsystem/esp/esp-idf/components/esp-tls -I/home/tsystem/esp/esp-idf/components/esp-tls/esp-tls-crypto -I/home/tsystem/esp/esp-idf/components/esp_adc/include -I/home/tsystem/esp/esp-idf/components/esp_adc/interface -I/home/tsystem/esp/esp-idf/components/esp_adc/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_adc/deprecated/include -I/home/tsystem/esp/esp-idf/components/esp_driver_isp/include -I/home/tsystem/esp/esp-idf/components/esp_driver_cam/include -I/home/tsystem/esp/esp-idf/components/esp_driver_cam/interface -I/home/tsystem/esp/esp-idf/components/esp_driver_jpeg/include -I/home/tsystem/esp/esp-idf/components/esp_driver_ppa/include -I/home/tsystem/esp/esp-idf/components/esp_eth/include -I/home/tsystem/esp/esp-idf/components/esp_gdbstub/include -I/home/tsystem/esp/esp-idf/components/esp_hid/include -I/home/tsystem/esp/esp-idf/components/tcp_transport/include -I/home/tsystem/esp/esp-idf/components/esp_http_client/include -I/home/tsystem/esp/esp-idf/components/esp_http_server/include -I/home/tsystem/esp/esp-idf/components/esp_https_ota/include -I/home/tsystem/esp/esp-idf/components/esp_https_server/include -I/home/tsystem/esp/esp-idf/components/esp_psram/include -I/home/tsystem/esp/esp-idf/components/protobuf-c/protobuf-c -I/home/tsystem/esp/esp-idf/components/protocomm/include/common -I/home/tsystem/esp/esp-idf/components/protocomm/include/security -I/home/tsystem/esp/esp-idf/components/protocomm/include/transports -I/home/tsystem/esp/esp-idf/components/protocomm/include/crypto/srp6a -I/home/tsystem/esp/esp-idf/components/protocomm/proto-c -I/home/tsystem/esp/esp-idf/components/esp_local_ctrl/include -I/home/tsystem/esp/esp-idf/components/espcoredump/include -I/home/tsystem/esp/esp-idf/components/espcoredump/include/port/xtensa -I/home/tsystem/esp/esp-idf/components/wear_levelling/include -I/home/tsystem/esp/esp-idf/components/fatfs/diskio -I/home/tsystem/esp/esp-idf/components/fatfs/src -I/home/tsystem/esp/esp-idf/components/fatfs/vfs -I/home/tsystem/esp/esp-idf/components/idf_test/include -I/home/tsystem/esp/esp-idf/components/idf_test/include/esp32s3 -I/home/tsystem/esp/esp-idf/components/ieee802154/include -I/home/tsystem/esp/esp-idf/components/json/cJSON -I/home/tsystem/esp/esp-idf/components/mqtt/esp-mqtt/include -I/home/tsystem/esp/esp-idf/components/nvs_sec_provider/include -I/home/tsystem/esp/esp-idf/components/perfmon/include -I/home/tsystem/esp/esp-idf/components/rt/include -I/home/tsystem/esp/esp-idf/components/spiffs/include -I/home/tsystem/esp/esp-idf/components/touch_element/include -I/home/tsystem/esp/esp-idf/components/usb/include -I/home/tsystem/esp/esp-idf/components/wifi_provisioning/include -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -fdiagnostics-color=always -Wno-format -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -mdisable-hardware-atomics -Og -fno-shrink-wrap -fmacro-prefix-map=/home/tsystem/esp/MotorController_UI/MotorController_UI=. -fmacro-prefix-map=/home/tsystem/esp/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu17 -Wno-old-style-declaration -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/ui/screens/ui_Screen1.c.obj -MF esp-idf/main/CMakeFiles/__idf_main.dir/ui/screens/ui_Screen1.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/ui/screens/ui_Screen1.c.obj -c /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c
+In file included from /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:1:
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:32:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   32 | extern lb_obj_t * operation_params_cont;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:33:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   33 | extern lb_obj_t * operation_params_input_cont;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:34:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   34 | extern lb_obj_t * operation_mode_cont;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:36:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   36 | extern lb_obj_t * rotate_per_sec_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:37:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   37 | extern lb_obj_t * carriage_movement_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:38:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   38 | extern lb_obj_t * general_winding_length_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:39:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   39 | extern lb_obj_t * current_speed_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:40:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   40 | extern lb_obj_t * current_winding_length_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:41:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   41 | extern lb_obj_t * used_cable_total_length_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:42:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   42 | extern lb_obj_t * operating_time_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:44:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   44 | extern lb_obj_t * rotate_per_sec_entry;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:45:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   45 | extern lb_obj_t * carriage_movement_entry;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:46:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   46 | extern lb_obj_t * general_winding_length_entry;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:48:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   48 | extern lb_obj_t * start_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:49:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   49 | extern lb_obj_t * stop_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:50:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   50 | extern lb_obj_t * immediate_stop_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:51:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   51 | extern lb_obj_t * manual_acceleration_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:52:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   52 | extern lb_obj_t * manual_deceleration_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:53:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   53 | extern lb_obj_t * home_point_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:54:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   54 | extern lb_obj_t * reset_info_panel_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c: In function 'ui_Screen1_screen_init':
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:56:33: error: assignment to 'int *' from incompatible pointer type 'lv_obj_t *' {aka 'struct _lv_obj_t *'} [-Wincompatible-pointer-types]
+   56 |     operation_params_input_cont = lv_obj_create(operation_params_cont);
+      |                                 ^
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:57:21: error: passing argument 1 of 'lv_obj_set_size' from incompatible pointer type [-Wincompatible-pointer-types]
+   57 |     lv_obj_set_size(operation_params_input_cont, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                     |
+      |                     int *
+In file included from /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/hal/../draw/sw/lv_draw_sw_dither.h:16,
+                 from /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/hal/../draw/sw/lv_draw_sw_gradient.h:18,
+                 from /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/hal/../draw/lv_draw_rect.h:20,
+                 from /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/hal/../draw/lv_draw.h:23,
+                 from /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/hal/lv_hal_disp.h:21,
+                 from /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/hal/lv_hal.h:16,
+                 from /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/lvgl.h:33,
+                 from /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/../ui.h:13:
+/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/hal/../draw/sw/../../core/lv_obj_pos.h:82:41: note: expected 'struct _lv_obj_t *' but argument is of type 'int *'
+   82 | void lv_obj_set_size(struct _lv_obj_t * obj, lv_coord_t w, lv_coord_t h);
+      |                      ~~~~~~~~~~~~~~~~~~~^~~
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:58:22: error: passing argument 1 of 'lv_obj_set_align' from incompatible pointer type [-Wincompatible-pointer-types]
+   58 |     lv_obj_set_align(operation_params_input_cont, LV_ALIGN_TOP_MID);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                      |
+      |                      int *
+/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/hal/../draw/sw/../../core/lv_obj_pos.h:168:42: note: expected 'struct _lv_obj_t *' but argument is of type 'int *'
+  168 | void lv_obj_set_align(struct _lv_obj_t * obj, lv_align_t align);
+      |                       ~~~~~~~~~~~~~~~~~~~^~~
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:59:23: error: passing argument 1 of 'lv_obj_set_layout' from incompatible pointer type [-Wincompatible-pointer-types]
+   59 |     lv_obj_set_layout(operation_params_input_cont, LV_LAYOUT_FLEX);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                       |
+      |                       int *
+/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/hal/../draw/sw/../../core/lv_obj_pos.h:134:43: note: expected 'struct _lv_obj_t *' but argument is of type 'int *'
+  134 | void lv_obj_set_layout(struct _lv_obj_t * obj, uint32_t layout);
+      |                        ~~~~~~~~~~~~~~~~~~~^~~
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60:26: error: passing argument 1 of 'lv_obj_set_flex_flow' from incompatible pointer type [-Wincompatible-pointer-types]
+   60 |     lv_obj_set_flex_flow(operation_params_input_cont, LV_FLEX_FLOW_COLUMN);
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                          |
+      |                          int *
+In file included from /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/extra/layouts/lv_layouts.h:16,
+                 from /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/extra/lv_extra.h:17,
+                 from /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/lvgl.h:69:
+/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/extra/layouts/flex/lv_flex.h:82:38: note: expected 'lv_obj_t *' {aka 'struct _lv_obj_t *'} but argument is of type 'int *'
+   82 | void lv_obj_set_flex_flow(lv_obj_t * obj, lv_flex_flow_t flow);
+      |                           ~~~~~~~~~~~^~~
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:61:27: error: passing argument 1 of 'lv_obj_set_flex_align' from incompatible pointer type [-Wincompatible-pointer-types]
+   61 |     lv_obj_set_flex_align(operation_params_input_cont, LV_FLEX_ALIGN_SPACE_EVENLY, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_START);
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                           |
+      |                           int *
+/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/extra/layouts/flex/lv_flex.h:91:39: note: expected 'lv_obj_t *' {aka 'struct _lv_obj_t *'} but argument is of type 'int *'
+   91 | void lv_obj_set_flex_align(lv_obj_t * obj, lv_flex_align_t main_place, lv_flex_align_t cross_place,
+      |                            ~~~~~~~~~~~^~~
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:62:30: error: passing argument 1 of 'lv_obj_set_style_pad_row' from incompatible pointer type [-Wincompatible-pointer-types]
+   62 |     lv_obj_set_style_pad_row(operation_params_input_cont, 15, 0);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              |
+      |                              int *
+In file included from /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_obj_style.h:203,
+                 from /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_obj.h:140,
+                 from /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/lvgl.h:35:
+/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_obj_style_gen.h:592:50: note: expected 'struct _lv_obj_t *' but argument is of type 'int *'
+  592 | void lv_obj_set_style_pad_row(struct _lv_obj_t * obj, lv_coord_t value, lv_style_selector_t selector);
+      |                               ~~~~~~~~~~~~~~~~~~~^~~
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:65:44: error: passing argument 1 of 'lv_label_create' from incompatible pointer type [-Wincompatible-pointer-types]
+   65 |     rotate_per_sec_label = lv_label_create(operation_params_input_cont);
+      |                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                            |
+      |                                            int *
+In file included from /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/lvgl.h:49:
+/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_label.h:90:39: note: expected 'lv_obj_t *' {aka 'struct _lv_obj_t *'} but argument is of type 'int *'
+   90 | lv_obj_t * lv_label_create(lv_obj_t * parent);
+      |                            ~~~~~~~~~~~^~~~~~
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:65:26: error: assignment to 'int *' from incompatible pointer type 'lv_obj_t *' {aka 'struct _lv_obj_t *'} [-Wincompatible-pointer-types]
+   65 |     rotate_per_sec_label = lv_label_create(operation_params_input_cont);
+      |                          ^
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:66:22: error: passing argument 1 of 'lv_obj_set_width' from incompatible pointer type [-Wincompatible-pointer-types]
+   66 |     lv_obj_set_width(rotate_per_sec_label, 180);
+      |                      ^~~~~~~~~~~~~~~~~~~~
+      |                      |
+      |                      int *
+/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/hal/../draw/sw/../../core/lv_obj_pos.h:101:42: note: expected 'struct _lv_obj_t *' but argument is of type 'int *'
+  101 | void lv_obj_set_width(struct _lv_obj_t * obj, lv_coord_t w);
+      |                       ~~~~~~~~~~~~~~~~~~~^~~
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:67:23: error: passing argument 1 of 'lv_label_set_text' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |     lv_label_set_text(rotate_per_sec_label, "Rotation Speed (rps):");
+      |                       ^~~~~~~~~~~~~~~~~~~~
+      |                       |
+      |                       int *
+/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_label.h:101:35: note: expected 'lv_obj_t *' {aka 'struct _lv_obj_t *'} but argument is of type 'int *'
+  101 | void lv_label_set_text(lv_obj_t * obj, const char * text);
+      |                        ~~~~~~~~~~~^~~
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:69:47: error: passing argument 1 of 'lv_label_create' from incompatible pointer type [-Wincompatible-pointer-types]
+   69 |     carriage_movement_label = lv_label_create(operation_params_input_cont);
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                               |
+      |                                               int *
+/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_label.h:90:39: note: expected 'lv_obj_t *' {aka 'struct _lv_obj_t *'} but argument is of type 'int *'
+   90 | lv_obj_t * lv_label_create(lv_obj_t * parent);
+      |                            ~~~~~~~~~~~^~~~~~
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:69:29: error: assignment to 'int *' from incompatible pointer type 'lv_obj_t *' {aka 'struct _lv_obj_t *'} [-Wincompatible-pointer-types]
+   69 |     carriage_movement_label = lv_label_create(operation_params_input_cont);
+      |                             ^
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:70:22: error: passing argument 1 of 'lv_obj_set_width' from incompatible pointer type [-Wincompatible-pointer-types]
+   70 |     lv_obj_set_width(carriage_movement_label, 180);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~
+      |                      |
+      |                      int *
+/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/hal/../draw/sw/../../core/lv_obj_pos.h:101:42: note: expected 'struct _lv_obj_t *' but argument is of type 'int *'
+  101 | void lv_obj_set_width(struct _lv_obj_t * obj, lv_coord_t w);
+      |                       ~~~~~~~~~~~~~~~~~~~^~~
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:71:23: error: passing argument 1 of 'lv_label_set_text' from incompatible pointer type [-Wincompatible-pointer-types]
+   71 |     lv_label_set_text(carriage_movement_label, "Winding Step (mm):");
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~
+      |                       |
+      |                       int *
+/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_label.h:101:35: note: expected 'lv_obj_t *' {aka 'struct _lv_obj_t *'} but argument is of type 'int *'
+  101 | void lv_label_set_text(lv_obj_t * obj, const char * text);
+      |                        ~~~~~~~~~~~^~~
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:73:52: error: passing argument 1 of 'lv_label_create' from incompatible pointer type [-Wincompatible-pointer-types]
+   73 |     general_winding_length_label = lv_label_create(operation_params_input_cont);
+      |                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                    |
+      |                                                    int *
+/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_label.h:90:39: note: expected 'lv_obj_t *' {aka 'struct _lv_obj_t *'} but argument is of type 'int *'
+   90 | lv_obj_t * lv_label_create(lv_obj_t * parent);
+      |                            ~~~~~~~~~~~^~~~~~
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:73:34: error: assignment to 'int *' from incompatible pointer type 'lv_obj_t *' {aka 'struct _lv_obj_t *'} [-Wincompatible-pointer-types]
+   73 |     general_winding_length_label = lv_label_create(operation_params_input_cont);
+      |                                  ^
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:74:22: error: passing argument 1 of 'lv_obj_set_width' from incompatible pointer type [-Wincompatible-pointer-types]
+   74 |     lv_obj_set_width(general_winding_length_label, 180);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                      |
+      |                      int *
+/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/hal/../draw/sw/../../core/lv_obj_pos.h:101:42: note: expected 'struct _lv_obj_t *' but argument is of type 'int *'
+  101 | void lv_obj_set_width(struct _lv_obj_t * obj, lv_coord_t w);
+      |                       ~~~~~~~~~~~~~~~~~~~^~~
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:75:23: error: passing argument 1 of 'lv_label_set_text' from incompatible pointer type [-Wincompatible-pointer-types]
+   75 |     lv_label_set_text(general_winding_length_label, "Total Length (m):");
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                       |
+      |                       int *
+/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_label.h:101:35: note: expected 'lv_obj_t *' {aka 'struct _lv_obj_t *'} but argument is of type 'int *'
+  101 | void lv_label_set_text(lv_obj_t * obj, const char * text);
+      |                        ~~~~~~~~~~~^~~
+[7/12] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj 
+/home/tsystem/.espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc -DESP_PLATFORM -DIDF_VER=\"v5.4\" -DLV_CONF_INCLUDE_SIMPLE -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -DUNITY_INCLUDE_CONFIG_H -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -I/home/tsystem/esp/MotorController_UI/MotorController_UI/build/config -I/home/tsystem/esp/MotorController_UI/MotorController_UI/main -I/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui -I/home/tsystem/esp/esp-idf/components/newlib/platform_include -I/home/tsystem/esp/esp-idf/components/freertos/config/include -I/home/tsystem/esp/esp-idf/components/freertos/config/include/freertos -I/home/tsystem/esp/esp-idf/components/freertos/config/xtensa/include -I/home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/tsystem/esp/esp-idf/components/freertos/esp_additions/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/include/soc -I/home/tsystem/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/tsystem/esp/esp-idf/components/esp_hw_support/dma/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/ldo/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/home/tsystem/esp/esp-idf/components/heap/include -I/home/tsystem/esp/esp-idf/components/heap/tlsf -I/home/tsystem/esp/esp-idf/components/log/include -I/home/tsystem/esp/esp-idf/components/soc/include -I/home/tsystem/esp/esp-idf/components/soc/esp32s3 -I/home/tsystem/esp/esp-idf/components/soc/esp32s3/include -I/home/tsystem/esp/esp-idf/components/soc/esp32s3/register -I/home/tsystem/esp/esp-idf/components/hal/platform_port/include -I/home/tsystem/esp/esp-idf/components/hal/esp32s3/include -I/home/tsystem/esp/esp-idf/components/hal/include -I/home/tsystem/esp/esp-idf/components/esp_rom/include -I/home/tsystem/esp/esp-idf/components/esp_rom/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/home/tsystem/esp/esp-idf/components/esp_rom/esp32s3 -I/home/tsystem/esp/esp-idf/components/esp_common/include -I/home/tsystem/esp/esp-idf/components/esp_system/include -I/home/tsystem/esp/esp-idf/components/esp_system/port/soc -I/home/tsystem/esp/esp-idf/components/esp_system/port/include/private -I/home/tsystem/esp/esp-idf/components/xtensa/esp32s3/include -I/home/tsystem/esp/esp-idf/components/xtensa/include -I/home/tsystem/esp/esp-idf/components/xtensa/deprecated_include -I/home/tsystem/esp/esp-idf/components/lwip/include -I/home/tsystem/esp/esp-idf/components/lwip/include/apps -I/home/tsystem/esp/esp-idf/components/lwip/include/apps/sntp -I/home/tsystem/esp/esp-idf/components/lwip/lwip/src/include -I/home/tsystem/esp/esp-idf/components/lwip/port/include -I/home/tsystem/esp/esp-idf/components/lwip/port/freertos/include -I/home/tsystem/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/tsystem/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/tsystem/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/espressif__esp_lcd_touch_gt911/include -I/home/tsystem/esp/esp-idf/components/esp_lcd/include -I/home/tsystem/esp/esp-idf/components/esp_lcd/interface -I/home/tsystem/esp/esp-idf/components/esp_lcd/rgb/include -I/home/tsystem/esp/esp-idf/components/driver/deprecated -I/home/tsystem/esp/esp-idf/components/driver/i2c/include -I/home/tsystem/esp/esp-idf/components/driver/touch_sensor/include -I/home/tsystem/esp/esp-idf/components/driver/twai/include -I/home/tsystem/esp/esp-idf/components/driver/touch_sensor/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_pm/include -I/home/tsystem/esp/esp-idf/components/esp_ringbuf/include -I/home/tsystem/esp/esp-idf/components/esp_driver_gpio/include -I/home/tsystem/esp/esp-idf/components/esp_driver_pcnt/include -I/home/tsystem/esp/esp-idf/components/esp_driver_gptimer/include -I/home/tsystem/esp/esp-idf/components/esp_driver_spi/include -I/home/tsystem/esp/esp-idf/components/esp_driver_mcpwm/include -I/home/tsystem/esp/esp-idf/components/esp_driver_ana_cmpr/include -I/home/tsystem/esp/esp-idf/components/esp_driver_i2s/include -I/home/tsystem/esp/esp-idf/components/esp_driver_sdmmc/include -I/home/tsystem/esp/esp-idf/components/sdmmc/include -I/home/tsystem/esp/esp-idf/components/esp_driver_sdspi/include -I/home/tsystem/esp/esp-idf/components/esp_driver_sdio/include -I/home/tsystem/esp/esp-idf/components/esp_driver_dac/include -I/home/tsystem/esp/esp-idf/components/esp_driver_rmt/include -I/home/tsystem/esp/esp-idf/components/esp_driver_tsens/include -I/home/tsystem/esp/esp-idf/components/esp_driver_sdm/include -I/home/tsystem/esp/esp-idf/components/esp_driver_i2c/include -I/home/tsystem/esp/esp-idf/components/esp_driver_uart/include -I/home/tsystem/esp/esp-idf/components/vfs/include -I/home/tsystem/esp/esp-idf/components/esp_driver_ledc/include -I/home/tsystem/esp/esp-idf/components/esp_driver_parlio/include -I/home/tsystem/esp/esp-idf/components/esp_driver_usb_serial_jtag/include -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/espressif__esp_lcd_touch/include -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/examples -I/home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/demos -I/home/tsystem/esp/esp-idf/components/esp_timer/include -I/home/tsystem/esp/esp-idf/components/mbedtls/port/include -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/include -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/library -I/home/tsystem/esp/esp-idf/components/mbedtls/esp_crt_bundle/include -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m -I/home/tsystem/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m -I/home/tsystem/esp/esp-idf/components/esp_app_format/include -I/home/tsystem/esp/esp-idf/components/esp_bootloader_format/include -I/home/tsystem/esp/esp-idf/components/app_update/include -I/home/tsystem/esp/esp-idf/components/bootloader_support/include -I/home/tsystem/esp/esp-idf/components/bootloader_support/bootloader_flash/include -I/home/tsystem/esp/esp-idf/components/esp_partition/include -I/home/tsystem/esp/esp-idf/components/efuse/include -I/home/tsystem/esp/esp-idf/components/efuse/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_mm/include -I/home/tsystem/esp/esp-idf/components/spi_flash/include -I/home/tsystem/esp/esp-idf/components/esp_security/include -I/home/tsystem/esp/esp-idf/components/pthread/include -I/home/tsystem/esp/esp-idf/components/app_trace/include -I/home/tsystem/esp/esp-idf/components/esp_event/include -I/home/tsystem/esp/esp-idf/components/nvs_flash/include -I/home/tsystem/esp/esp-idf/components/esp_phy/include -I/home/tsystem/esp/esp-idf/components/esp_phy/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_vfs_console/include -I/home/tsystem/esp/esp-idf/components/esp_netif/include -I/home/tsystem/esp/esp-idf/components/wpa_supplicant/include -I/home/tsystem/esp/esp-idf/components/wpa_supplicant/port/include -I/home/tsystem/esp/esp-idf/components/wpa_supplicant/esp_supplicant/include -I/home/tsystem/esp/esp-idf/components/esp_coex/include -I/home/tsystem/esp/esp-idf/components/esp_wifi/include -I/home/tsystem/esp/esp-idf/components/esp_wifi/include/local -I/home/tsystem/esp/esp-idf/components/esp_wifi/wifi_apps/include -I/home/tsystem/esp/esp-idf/components/esp_wifi/wifi_apps/nan_app/include -I/home/tsystem/esp/esp-idf/components/unity/include -I/home/tsystem/esp/esp-idf/components/unity/unity/src -I/home/tsystem/esp/esp-idf/components/cmock/CMock/src -I/home/tsystem/esp/esp-idf/components/console -I/home/tsystem/esp/esp-idf/components/http_parser -I/home/tsystem/esp/esp-idf/components/esp-tls -I/home/tsystem/esp/esp-idf/components/esp-tls/esp-tls-crypto -I/home/tsystem/esp/esp-idf/components/esp_adc/include -I/home/tsystem/esp/esp-idf/components/esp_adc/interface -I/home/tsystem/esp/esp-idf/components/esp_adc/esp32s3/include -I/home/tsystem/esp/esp-idf/components/esp_adc/deprecated/include -I/home/tsystem/esp/esp-idf/components/esp_driver_isp/include -I/home/tsystem/esp/esp-idf/components/esp_driver_cam/include -I/home/tsystem/esp/esp-idf/components/esp_driver_cam/interface -I/home/tsystem/esp/esp-idf/components/esp_driver_jpeg/include -I/home/tsystem/esp/esp-idf/components/esp_driver_ppa/include -I/home/tsystem/esp/esp-idf/components/esp_eth/include -I/home/tsystem/esp/esp-idf/components/esp_gdbstub/include -I/home/tsystem/esp/esp-idf/components/esp_hid/include -I/home/tsystem/esp/esp-idf/components/tcp_transport/include -I/home/tsystem/esp/esp-idf/components/esp_http_client/include -I/home/tsystem/esp/esp-idf/components/esp_http_server/include -I/home/tsystem/esp/esp-idf/components/esp_https_ota/include -I/home/tsystem/esp/esp-idf/components/esp_https_server/include -I/home/tsystem/esp/esp-idf/components/esp_psram/include -I/home/tsystem/esp/esp-idf/components/protobuf-c/protobuf-c -I/home/tsystem/esp/esp-idf/components/protocomm/include/common -I/home/tsystem/esp/esp-idf/components/protocomm/include/security -I/home/tsystem/esp/esp-idf/components/protocomm/include/transports -I/home/tsystem/esp/esp-idf/components/protocomm/include/crypto/srp6a -I/home/tsystem/esp/esp-idf/components/protocomm/proto-c -I/home/tsystem/esp/esp-idf/components/esp_local_ctrl/include -I/home/tsystem/esp/esp-idf/components/espcoredump/include -I/home/tsystem/esp/esp-idf/components/espcoredump/include/port/xtensa -I/home/tsystem/esp/esp-idf/components/wear_levelling/include -I/home/tsystem/esp/esp-idf/components/fatfs/diskio -I/home/tsystem/esp/esp-idf/components/fatfs/src -I/home/tsystem/esp/esp-idf/components/fatfs/vfs -I/home/tsystem/esp/esp-idf/components/idf_test/include -I/home/tsystem/esp/esp-idf/components/idf_test/include/esp32s3 -I/home/tsystem/esp/esp-idf/components/ieee802154/include -I/home/tsystem/esp/esp-idf/components/json/cJSON -I/home/tsystem/esp/esp-idf/components/mqtt/esp-mqtt/include -I/home/tsystem/esp/esp-idf/components/nvs_sec_provider/include -I/home/tsystem/esp/esp-idf/components/perfmon/include -I/home/tsystem/esp/esp-idf/components/rt/include -I/home/tsystem/esp/esp-idf/components/spiffs/include -I/home/tsystem/esp/esp-idf/components/touch_element/include -I/home/tsystem/esp/esp-idf/components/usb/include -I/home/tsystem/esp/esp-idf/components/wifi_provisioning/include -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -fdiagnostics-color=always -Wno-format -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -mdisable-hardware-atomics -Og -fno-shrink-wrap -fmacro-prefix-map=/home/tsystem/esp/MotorController_UI/MotorController_UI=. -fmacro-prefix-map=/home/tsystem/esp/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu17 -Wno-old-style-declaration -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj -MF esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj -c /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c
+In file included from /home/tsystem/esp/MotorController_UI/MotorController_UI/main/main.c:21:
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:32:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   32 | extern lb_obj_t * operation_params_cont;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:33:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   33 | extern lb_obj_t * operation_params_input_cont;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:34:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   34 | extern lb_obj_t * operation_mode_cont;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:36:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   36 | extern lb_obj_t * rotate_per_sec_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:37:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   37 | extern lb_obj_t * carriage_movement_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:38:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   38 | extern lb_obj_t * general_winding_length_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:39:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   39 | extern lb_obj_t * current_speed_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:40:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   40 | extern lb_obj_t * current_winding_length_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:41:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   41 | extern lb_obj_t * used_cable_total_length_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:42:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   42 | extern lb_obj_t * operating_time_label;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:44:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   44 | extern lb_obj_t * rotate_per_sec_entry;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:45:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   45 | extern lb_obj_t * carriage_movement_entry;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:46:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   46 | extern lb_obj_t * general_winding_length_entry;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:48:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   48 | extern lb_obj_t * start_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:49:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   49 | extern lb_obj_t * stop_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:50:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   50 | extern lb_obj_t * immediate_stop_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:51:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   51 | extern lb_obj_t * manual_acceleration_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:52:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   52 | extern lb_obj_t * manual_deceleration_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:53:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   53 | extern lb_obj_t * home_point_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+/home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.h:54:8: error: unknown type name 'lb_obj_t'; did you mean 'lv_obj_t'?
+   54 | extern lb_obj_t * reset_info_panel_button;
+      |        ^~~~~~~~
+      |        lv_obj_t
+ninja: build stopped: subcommand failed.

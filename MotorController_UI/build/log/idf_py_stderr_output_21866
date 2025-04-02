@@ -1,0 +1,19 @@
+[0;33m--- esp-idf-monitor 1.5.0 on /dev/ttyACM0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x420151cb: layout_update_core at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_obj_pos.c:1137
+[0m
+[0;33m--- 0x40056f5c: memcpy in ROM
+0x40056f72: memcpy in ROM
+[0m
+[0;33m--- 0x420151c8: layout_update_core at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_obj_pos.c:1136
+0x420151cd: layout_update_core at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_obj_pos.c:1137
+0x4201526c: lv_obj_update_layout at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_obj_pos.c:316
+0x4201910d: _lv_disp_refr_timer at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_refr.c:309
+0x42026ec9: lv_timer_exec at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/misc/lv_timer.c:313 (discriminator 2)
+0x42026f73: lv_timer_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/misc/lv_timer.c:109
+0x4200c390: example_lvgl_port_task at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/../components/espressif__esp_lcd_touch/display.h:128
+0x4037dcc1: vPortTaskWrapper at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40375dd9: esp_restart_noos at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0m

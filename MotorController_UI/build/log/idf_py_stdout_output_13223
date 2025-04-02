@@ -1,0 +1,401 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x29 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+load:0x403cb700,len:0x2ee4
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar  4 2025 15:57:14[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (27) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (33) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (37) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (78) boot: End of partition table[0m
+[0;32mI (81) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0fa30h ( 64048) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=0001fa58 vaddr=3fc93300 size=005c0h (  1472) load[0m
+[0;32mI (100) esp_image: segment 2: paddr=00020020 vaddr=42000020 size=1d13ch (119100) map[0m
+[0;32mI (125) esp_image: segment 3: paddr=0003d164 vaddr=3fc938c0 size=02490h (  9360) load[0m
+[0;32mI (127) esp_image: segment 4: paddr=0003f5fc vaddr=40374000 size=0f234h ( 62004) load[0m
+[0;32mI (142) esp_image: segment 5: paddr=0004e838 vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (148) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (148) boot: Disabling RNG early entropy source...[0m
+[0;32mI (160) cpu_start: Multicore app[0m
+[0;32mI (169) cpu_start: Pro cpu start user code[0m
+[0;32mI (169) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (169) app_init: Application information:[0m
+[0;32mI (169) app_init: Project name:     UART_RX_TEST[0m
+[0;32mI (173) app_init: App version:      1[0m
+[0;32mI (177) app_init: Compile time:     Mar  4 2025 15:56:57[0m
+[0;32mI (182) app_init: ELF file SHA256:  5f5b0ea83...[0m
+[0;32mI (186) app_init: ESP-IDF:          v5.4[0m
+[0;32mI (191) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (193) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (197) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (201) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (208) heap_init: At 3FC96678 len 00053098 (332 KiB): RAM[0m
+[0;32mI (213) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (218) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (223) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: winbond[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;32mI (235) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (241) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (248) main_task: Started on CPU0[0m
+[0;32mI (258) main_task: Calling app_main()[0m
+[0;32mI (258) UART_RX: Initializing UART1...[0m
+[0;32mI (258) uart: queue free spaces: 20[0m
+[0;32mI (258) UART_RX: Initializing GPIO...[0m
+[0;32mI (268) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1318) UART_RX: Waiting for UART data...[0m
+[0;32mI (2318) UART_RX: Waiting for UART data...[0m
+[0;32mI (3318) UART_RX: Waiting for UART data...[0m
+[0;32mI (4318) UART_RX: Waiting for UART data...[0m
+[0;32mI (5318) UART_RX: Waiting for UART data...[0m
+[0;32mI (6318) UART_RX: Waiting for UART data...[0m
+[0;32mI (7318) UART_RX: Waiting for UART data...[0m
+[0;32mI (8318) UART_RX: Waiting for UART data...[0m
+[0;32mI (9318) UART_RX: Waiting for UART data...[0m
+[0;32mI (9878) UART_RX: Received: [0;32mI (25933) INFO: Starting Motors...[0m[0m
+[0;32mI (25933) UART_TX: Sent command: CMD_1[0m
+
+[0;32mI (10318) UART_RX: Waiting for UART data...[0m
+
+assert failed: xQueueSemaphoreTake queue.c:1713 (pxQueue->uxItemSize == 0)
+
+
+Backtrace: 0x40375b75:0x3fc9b300 0x4037a9a1:0x3fc9b320 0x4038128d:0x3fc9b340 0x4037b206:0x3fc9b460 0x420096a5:0x3fc9b4a0 0x4200b4e7:0x3fc9b4f0 0x4037b40d:0x3fc9b920
+
+
+
+
+ELF file SHA256: 5f5b0ea83
+
+Rebooting...
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x29 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40375ab4
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+load:0x403cb700,len:0x2ee4
+entry 0x403c8928
+[0;32mI (31) boot: ESP-IDF v5.4 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Mar  4 2025 15:57:14[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (32) boot: chip revision: v0.2[0m
+[0;32mI (34) boot: efuse block revision: v1.3[0m
+[0;32mI (38) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (42) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (45) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (49) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (56) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (69) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (82) boot: End of partition table[0m
+[0;32mI (85) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0fa30h ( 64048) map[0m
+[0;32mI (104) esp_image: segment 1: paddr=0001fa58 vaddr=3fc93300 size=005c0h (  1472) load[0m
+[0;32mI (105) esp_image: segment 2: paddr=00020020 vaddr=42000020 size=1d13ch (119100) map[0m
+[0;32mI (129) esp_image: segment 3: paddr=0003d164 vaddr=3fc938c0 size=02490h (  9360) load[0m
+[0;32mI (131) esp_image: segment 4: paddr=0003f5fc vaddr=40374000 size=0f234h ( 62004) load[0m
+[0;32mI (146) esp_image: segment 5: paddr=0004e838 vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (152) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (153) boot: Disabling RNG early entropy source...[0m
+[0;32mI (164) cpu_start: Multicore app[0m
+[0;32mI (173) cpu_start: Pro cpu start user code[0m
+[0;32mI (173) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (173) app_init: Application information:[0m
+[0;32mI (173) app_init: Project name:     UART_RX_TEST[0m
+[0;32mI (178) app_init: App version:      1[0m
+[0;32mI (181) app_init: Compile time:     Mar  4 2025 15:56:57[0m
+[0;32mI (186) app_init: ELF file SHA256:  5f5b0ea83...[0m
+[0;32mI (190) app_init: ESP-IDF:          v5.4[0m
+[0;32mI (194) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (198) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (202) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (206) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (212) heap_init: At 3FC96678 len 00053098 (332 KiB): RAM[0m
+[0;32mI (217) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (222) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (227) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (234) spi_flash: detected chip: winbond[0m
+[0;32mI (237) spi_flash: flash io: dio[0m
+[0;32mI (240) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (246) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (253) main_task: Started on CPU0[0m
+[0;32mI (293) main_task: Calling app_main()[0m
+[0;32mI (293) UART_RX: Initializing UART1...[0m
+[0;32mI (293) uart: queue free spaces: 20[0m
+[0;32mI (293) UART_RX: Initializing GPIO...[0m
+[0;32mI (293) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1303) UART_RX: Waiting for UART data...[0m
+[0;32mI (2303) UART_RX: Waiting for UART data...[0m
+[0;32mI (3143) UART_RX: Received: [0;32mI (30233) INFO: Starting Motors...[0m[0m
+[0;32mI (30233) UART_TX: Sent command: CMD_1[0m
+
+[0;32mI (3303) UART_RX: Waiting for UART data...[0m
+
+assert failed: xQueueSemaphoreTake queue.c:1713 (pxQueue->uxItemSize == 0)
+
+
+Backtrace: 0x40375b75:0x3fc9b300 0x4037a9a1:0x3fc9b320 0x4038128d:0x3fc9b340 0x4037b206:0x3fc9b460 0x420096a5:0x3fc9b4a0 0x4200b4e7:0x3fc9b4f0 0x4037b40d:0x3fc9b920
+
+
+
+
+ELF file SHA256: 5f5b0ea83
+
+Rebooting...
+���ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x29 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40375ab4
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+load:0x403cb700,len:0x2ee4
+entry 0x403c8928
+[0;32mI (31) boot: ESP-IDF v5.4 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Mar  4 2025 15:57:14[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (32) boot: chip revision: v0.2[0m
+[0;32mI (34) boot: efuse block revision: v1.3[0m
+[0;32mI (38) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (42) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (45) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (49) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (56) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (69) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (82) boot: End of partition table[0m
+[0;32mI (85) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0fa30h ( 64048) map[0m
+[0;32mI (104) esp_image: segment 1: paddr=0001fa58 vaddr=3fc93300 size=005c0h (  1472) load[0m
+[0;32mI (105) esp_image: segment 2: paddr=00020020 vaddr=42000020 size=1d13ch (119100) map[0m
+[0;32mI (129) esp_image: segment 3: paddr=0003d164 vaddr=3fc938c0 size=02490h (  9360) load[0m
+[0;32mI (131) esp_image: segment 4: paddr=0003f5fc vaddr=40374000 size=0f234h ( 62004) load[0m
+[0;32mI (146) esp_image: segment 5: paddr=0004e838 vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (152) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (153) boot: Disabling RNG early entropy source...[0m
+[0;32mI (164) cpu_start: Multicore app[0m
+[0;32mI (173) cpu_start: Pro cpu start user code[0m
+[0;32mI (173) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (173) app_init: Application information:[0m
+[0;32mI (173) app_init: Project name:     UART_RX_TEST[0m
+[0;32mI (178) app_init: App version:      1[0m
+[0;32mI (181) app_init: Compile time:     Mar  4 2025 15:56:57[0m
+[0;32mI (186) app_init: ELF file SHA256:  5f5b0ea83...[0m
+[0;32mI (190) app_init: ESP-IDF:          v5.4[0m
+[0;32mI (194) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (198) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (202) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (206) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (212) heap_init: At 3FC96678 len 00053098 (332 KiB): RAM[0m
+[0;32mI (217) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (222) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (228) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (234) spi_flash: detected chip: winbond[0m
+[0;32mI (237) spi_flash: flash io: dio[0m
+[0;32mI (240) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (246) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (253) main_task: Started on CPU0[0m
+[0;32mI (293) main_task: Calling app_main()[0m
+[0;32mI (293) UART_RX: Initializing UART1...[0m
+[0;32mI (293) uart: queue free spaces: 20[0m
+[0;32mI (293) UART_RX: Initializing GPIO...[0m
+[0;32mI (293) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1303) UART_RX: Waiting for UART data...[0m
+[0;32mI (2303) UART_RX: Waiting for UART data...[0m
+[0;32mI (3303) UART_RX: Waiting for UART data...[0m
+[0;32mI (4303) UART_RX: Waiting for UART data...[0m
+[0;32mI (5303) UART_RX: Waiting for UART data...[0m
+[0;32mI (6303) UART_RX: Waiting for UART data...[0m
+[0;32mI (7303) UART_RX: Waiting for UART data...[0m
+[0;32mI (8303) UART_RX: Waiting for UART data...[0m
+[0;32mI (9303) UART_RX: Waiting for UART data...[0m
+[0;32mI (10303) UART_RX: Waiting for UART data...[0m
+[0;32mI (11303) UART_RX: Waiting for UART data...[0m
+[0;32mI (12303) UART_RX: Waiting for UART data...[0m
+[0;32mI (13303) UART_RX: Waiting for UART data...[0m
+[0;32mI (14303) UART_RX: Waiting for UART data...[0m
+[0;32mI (15303) UART_RX: Waiting for UART data...[0m
+[0;32mI (16303) UART_RX: Waiting for UART data...[0m
+[0;32mI (17303) UART_RX: Waiting for UART data...[0m
+[0;32mI (18303) UART_RX: Waiting for UART data...[0m
+[0;32mI (19303) UART_RX: Waiting for UART data...[0m
+[0;32mI (20303) UART_RX: Waiting for UART data...[0m
+[0;32mI (21303) UART_RX: Waiting for UART data...[0m
+[0;32mI (22303) UART_RX: Waiting for UART data...[0m
+[0;32mI (23303) UART_RX: Waiting for UART data...[0m
+[0;32mI (24303) UART_RX: Waiting for UART data...[0m
+[0;32mI (25303) UART_RX: Waiting for UART data...[0m
+[0;32mI (26303) UART_RX: Waiting for UART data...[0m
+[0;32mI (27303) UART_RX: Waiting for UART data...[0m
+[0;32mI (28303) UART_RX: Waiting for UART data...[0m
+[0;32mI (29303) UART_RX: Waiting for UART data...[0m
+[0;32mI (30303) UART_RX: Waiting for UART data...[0m
+[0;32mI (31303) UART_RX: Waiting for UART data...[0m
+[0;32mI (32303) UART_RX: Waiting for UART data...[0m
+[0;32mI (33303) UART_RX: Waiting for UART data...[0m
+[0;32mI (34303) UART_RX: Waiting for UART data...[0m
+[0;32mI (35303) UART_RX: Waiting for UART data...[0m
+[0;32mI (36303) UART_RX: Waiting for UART data...[0m
+[0;32mI (37303) UART_RX: Waiting for UART data...[0m
+[0;32mI (38303) UART_RX: Waiting for UART data...[0m
+[0;32mI (39303) UART_RX: Waiting for UART data...[0m
+[0;32mI (40303) UART_RX: Waiting for UART data...[0m
+[0;32mI (41303) UART_RX: Waiting for UART data...[0m
+[0;32mI (42303) UART_RX: Waiting for UART data...[0m
+[0;32mI (43303) UART_RX: Waiting for UART data...[0m
+[0;32mI (44303) UART_RX: Waiting for UART data...[0m
+[0;32mI (45303) UART_RX: Waiting for UART data...[0m
+[0;32mI (46303) UART_RX: Waiting for UART data...[0m
+[0;32mI (47303) UART_RX: Waiting for UART data...[0m
+[0;32mI (48303) UART_RX: Waiting for UART data...[0m
+[0;32mI (49303) UART_RX: Waiting for UART data...[0m
+[0;32mI (50303) UART_RX: Waiting for UART data...[0m
+[0;32mI (51303) UART_RX: Waiting for UART data...[0m
+[0;32mI (52303) UART_RX: Waiting for UART data...[0m
+[0;32mI (53303) UART_RX: Waiting for UART data...[0m
+[0;32mI (54303) UART_RX: Waiting for UART data...[0m
+[0;32mI (55303) UART_RX: Waiting for UART data...[0m
+[0;32mI (56303) UART_RX: Waiting for UART data...[0m
+[0;32mI (57303) UART_RX: Waiting for UART data...[0m
+[0;32mI (58303) UART_RX: Waiting for UART data...[0m
+[0;32mI (59303) UART_RX: Waiting for UART data...[0m
+[0;32mI (60303) UART_RX: Waiting for UART data...[0m
+[0;32mI (61303) UART_RX: Waiting for UART data...[0m
+[0;32mI (62303) UART_RX: Waiting for UART data...[0m
+[0;32mI (63303) UART_RX: Waiting for UART data...[0m
+[0;32mI (64303) UART_RX: Waiting for UART data...[0m
+[0;32mI (65303) UART_RX: Waiting for UART data...[0m
+[0;32mI (66303) UART_RX: Waiting for UART data...[0m
+[0;32mI (67303) UART_RX: Waiting for UART data...[0m
+[0;32mI (68303) UART_RX: Waiting for UART data...[0m
+[0;32mI (69303) UART_RX: Waiting for UART data...[0m
+[0;32mI (70303) UART_RX: Waiting for UART data...[0m
+[0;32mI (71303) UART_RX: Waiting for UART data...[0m
+[0;32mI (72303) UART_RX: Waiting for UART data...[0m
+[0;32mI (73303) UART_RX: Waiting for UART data...[0m
+[0;32mI (74303) UART_RX: Waiting for UART data...[0m
+[0;32mI (75303) UART_RX: Waiting for UART data...[0m
+[0;32mI (76303) UART_RX: Waiting for UART data...[0m
+[0;32mI (77303) UART_RX: Waiting for UART data...[0m
+[0;32mI (78303) UART_RX: Waiting for UART data...[0m
+[0;32mI (79303) UART_RX: Waiting for UART data...[0m
+[0;32mI (80303) UART_RX: Waiting for UART data...[0m
+[0;32mI (81303) UART_RX: Waiting for UART data...[0m
+[0;32mI (82303) UART_RX: Waiting for UART data...[0m
+[0;32mI (83303) UART_RX: Waiting for UART data...[0m
+[0;32mI (84303) UART_RX: Waiting for UART data...[0m
+[0;32mI (85303) UART_RX: Waiting for UART data...[0m
+[0;32mI (86303) UART_RX: Waiting for UART data...[0m
+[0;32mI (87303) UART_RX: Waiting for UART data...[0m
+[0;32mI (88303) UART_RX: Waiting for UART data...[0m
+[0;32mI (89303) UART_RX: Waiting for UART data...[0m
+[0;32mI (90303) UART_RX: Waiting for UART data...[0m
+[0;32mI (91303) UART_RX: Waiting for UART data...[0m
+[0;32mI (92303) UART_RX: Waiting for UART data...[0m
+[0;32mI (93303) UART_RX: Waiting for UART data...[0m
+[0;32mI (94303) UART_RX: Waiting for UART data...[0m
+[0;32mI (95303) UART_RX: Waiting for UART data...[0m
+[0;32mI (96303) UART_RX: Waiting for UART data...[0m
+[0;32mI (97303) UART_RX: Waiting for UART data...[0m
+[0;32mI (98303) UART_RX: Waiting for UART data...[0m
+[0;32mI (99303) UART_RX: Waiting for UART data...[0m
+[0;32mI (100303) UART_RX: Waiting for UART data...[0m
+[0;32mI (101303) UART_RX: Waiting for UART data...[0m
+[0;32mI (102303) UART_RX: Waiting for UART data...[0m
+[0;32mI (103303) UART_RX: Waiting for UART data...[0m
+[0;32mI (104303) UART_RX: Waiting for UART data...[0m
+[0;32mI (105303) UART_RX: Waiting for UART data...[0m
+[0;32mI (106303) UART_RX: Waiting for UART data...[0m
+[0;32mI (107303) UART_RX: Waiting for UART data...[0m
+[0;32mI (108303) UART_RX: Waiting for UART data...[0m
+[0;32mI (109303) UART_RX: Waiting for UART data...[0m
+[0;32mI (110303) UART_RX: Waiting for UART data...[0m
+[0;32mI (111303) UART_RX: Waiting for UART data...[0m
+[0;32mI (112303) UART_RX: Waiting for UART data...[0m
+[0;32mI (113303) UART_RX: Waiting for UART data...[0m
+[0;32mI (114303) UART_RX: Waiting for UART data...[0m
+[0;32mI (115303) UART_RX: Waiting for UART data...[0m
+[0;32mI (116303) UART_RX: Waiting for UART data...[0m
+[0;32mI (117303) UART_RX: Waiting for UART data...[0m
+[0;32mI (118303) UART_RX: Waiting for UART data...[0m
+[0;32mI (119303) UART_RX: Waiting for UART data...[0m
+[0;32mI (120303) UART_RX: Waiting for UART data...[0m
+[0;32mI (121303) UART_RX: Waiting for UART data...[0m
+[0;32mI (122303) UART_RX: Waiting for UART data...[0m
+[0;32mI (123303) UART_RX: Waiting for UART data...[0m
+[0;32mI (124303) UART_RX: Waiting for UART data...[0m
+[0;32mI (125303) UART_RX: Waiting for UART data...[0m
+[0;32mI (126303) UART_RX: Waiting for UART data...[0m
+[0;32mI (127303) UART_RX: Waiting for UART data...[0m
+[0;32mI (128303) UART_RX: Waiting for UART data...[0m
+[0;32mI (129303) UART_RX: Waiting for UART data...[0m
+[0;32mI (130303) UART_RX: Waiting for UART data...[0m
+[0;32mI (131303) UART_RX: Waiting for UART data...[0m
+[0;32mI (132303) UART_RX: Waiting for UART data...[0m
+[0;32mI (133303) UART_RX: Waiting for UART data...[0m
+[0;32mI (134303) UART_RX: Waiting for UART data...[0m
+[0;32mI (135303) UART_RX: Waiting for UART data...[0m
+[0;32mI (136303) UART_RX: Waiting for UART data...[0m
+[0;32mI (137303) UART_RX: Waiting for UART data...[0m
+[0;32mI (138303) UART_RX: Waiting for UART data...[0m
+[0;32mI (139303) UART_RX: Waiting for UART data...[0m
+[0;32mI (140303) UART_RX: Waiting for UART data...[0m
+[0;32mI (141303) UART_RX: Waiting for UART data...[0m
+[0;32mI (142303) UART_RX: Waiting for UART data...[0m
+[0;32mI (143303) UART_RX: Waiting for UART data...[0m
+[0;32mI (144303) UART_RX: Waiting for UART data...[0m
+[0;32mI (145303) UART_RX: Waiting for UART data...[0m
+[0;32mI (146303) UART_RX: Waiting for UART data...[0m
+[0;32mI (147303) UART_RX: Waiting for UART data...[0m
+[0;32mI (148303) UART_RX: Waiting for UART data...[0m
+[0;32mI (149303) UART_RX: Waiting for UART data...[0m
+[0;32mI (150303) UART_RX: Waiting for UART data...[0m
+[0;32mI (151303) UART_RX: Waiting for UART data...[0m
+[0;32mI (152303) UART_RX: Waiting for UART data...[0m
+[0;32mI (153303) UART_RX: Waiting for UART data...[0m
+[0;32mI (154303) UART_RX: Waiting for UART data...[0m
+[0;32mI (155303) UART_RX: Waiting for UART data...[0m
+[0;32mI (156303) UART_RX: Waiting for UART data...[0m
+[0;32mI (157303) UART_RX: Waiting for UART data...[0m
+[0;32mI (158303) UART_RX: Waiting for UART data...[0m
+[0;32mI (159303) UART_RX: Waiting for UART data...[0m
+[0;32mI (160303) UART_RX: Waiting for UART data...[0m
+[0;32mI (161303) UART_RX: Waiting for UART data...[0m
+[0;32mI (162303) UART_RX: Waiting for UART data...[0m
+[0;32mI (163303) UART_RX: Waiting for UART data...[0m
+[0;32mI (164303) UART_RX: Waiting for UART data...[0m
+[0;32mI (165303) UART_RX: Waiting for UART data...[0m
+[0;32mI (166303) UART_RX: Waiting for UART data...[0m
+[0;32mI (167303) UART_RX: Waiting for UART data...[0m
+[0;32mI (168303) UART_RX: Waiting for UART data...[0m
+[0;32mI (169303) UART_RX: Waiting for UART data...[0m
+[0;32mI (170303) UART_RX: Waiting for UART data...[0m
+[0;32mI (171303) UART_RX: Waiting for UART data...[0m
+[0;32mI (172303) UART_RX: Waiting for UART data...[0m
+[0;32mI (173303) UART_RX: Waiting for UART data...[0m
+[0;32mI (174303) UART_RX: Waiting for UART data...[0m
+[0;32mI (175303) UART_RX: Waiting for UART data...[0m
+[0;32mI (176303) UART_RX: Waiting for UART data...[0m

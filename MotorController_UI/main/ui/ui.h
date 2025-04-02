@@ -30,6 +30,51 @@ extern lv_obj_t * ui_Button3;
 extern lv_obj_t * ui_ImmediateStopButtonLabel;
 // CUSTOM VARIABLES
 
+// --- Containers ---
+extern lv_obj_t * operation_params_cont;
+extern lv_obj_t * operation_params_input_cont;
+extern lv_obj_t * operation_mode_cont;
+extern lv_obj_t * control_buttons_cont;
+extern lv_obj_t * buttons_telemetry_cont;
+extern lv_obj_t * control_buttons_cont;
+extern lv_obj_t * telemetry_cont;
+
+// --- Labels ---
+extern lv_obj_t * rotate_per_sec_label;
+extern lv_obj_t * carriage_movement_label;
+extern lv_obj_t * general_winding_length_label;
+extern lv_obj_t * current_speed_label;
+extern lv_obj_t * current_winding_length_label;
+extern lv_obj_t * used_cable_total_length_label;
+extern lv_obj_t * operating_time_label;
+
+// --- Entry (Textarea) ---
+extern lv_obj_t * rotate_per_sec_entry;
+extern lv_obj_t * carriage_movement_entry;
+extern lv_obj_t * general_winding_length_entry;
+
+// --- Buttons ---
+extern lv_obj_t * start_button;
+extern lv_obj_t * stop_button;
+extern lv_obj_t * immediate_stop_button;
+extern lv_obj_t * manual_acceleration_button;
+extern lv_obj_t * manual_deceleration_button;
+extern lv_obj_t * home_point_button;
+extern lv_obj_t * reset_info_panel_button;
+
+// --- Buttons Labels ---
+extern lv_obj_t * start_button_label;
+extern lv_obj_t * stop_button_label;
+extern lv_obj_t * immediate_stop_button_label;
+extern lv_obj_t * manual_acceleration_button_label;
+extern lv_obj_t * manual_deceleration_button_label;
+extern lv_obj_t * home_point_button_label;
+extern lv_obj_t * reset_info_panel_button_label;
+
+// --- Checkboxes ---
+extern lv_obj_t * grinding_mode_checkbox;
+extern lv_obj_t * conical_winding_checkbox;
+
 // EVENTS
 
 extern lv_obj_t * ui____initial_actions0;

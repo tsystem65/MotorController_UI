@@ -1,0 +1,6 @@
+{
+    "idf.pythonInstallPath": "/home/tsystem/.espressif/python_env/idf5.4_py3.12_env/bin/python",
+    "files.associations": {
+        "display.h": "c"
+    }
+}
