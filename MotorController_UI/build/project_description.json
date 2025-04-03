@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "MotorController_UI",
-    "project_version":    "7aea67d-dirty",
+    "project_version":    "d0eeeb9-dirty",
     "project_path":       "/home/tsystem/esp/MotorController_UI/MotorController_UI",
     "idf_path":           "/home/tsystem/esp/esp-idf",
     "build_dir":          "/home/tsystem/esp/MotorController_UI/MotorController_UI/build",

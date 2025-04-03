@@ -23,17 +23,79 @@
 // static void home_point_button_event_handler(lv_event_t *e) {
 //     send_command("Home Point");
 // }
+// static lv_obj_t * kb;
+
+// static void ta_event_cb(lv_event_t * e)
+// {
+//     lv_event_code_t code = lv_event_get_code(e);
+//     lv_obj_t * ta = lv_event_get_target(e);
+//     if(code == LV_EVENT_CLICKED || code == LV_EVENT_FOCUSED) {
+//         /*Focus on the clicked text area*/
+//         if(kb != NULL) lv_keyboard_set_textarea(kb, ta);
+//     }
+
+//     lv_obj_clear_flag(kb, LV_OBJ_FLAG_HIDDEN); // Показуємо клавіатуру
+//     lv_obj_add_state(ta, LV_STATE_FOCUSED); // Фокус на полі
+// }
+
+static const lv_btnmatrix_ctrl_t custom_styles[] = {
+    1, 1, 1, 1, // "1", "2", "3", "\n"
+    1, 1, 1, 1, // "4", "5", "6", "\n"
+    1, 1, 1, 1, // "7", "8", "9", "\n"
+    1, 1, 1, 1                         // LV_SYMBOL_BACKSPACE, "0", LV_SYMBOL_OK, "Close"
+};
+
+static const char *custom_map[] = {
+    "1", "2", "3", "\n",
+    "4", "5", "6", "\n",
+    "7", "8", "9", "\n",
+    ".", "0", LV_SYMBOL_BACKSPACE, LV_SYMBOL_OK, ""
+};
+
+static void kb_event_handler(lv_event_t *e) {
+    lv_obj_t *kb = lv_event_get_target(e);
+    lv_obj_t *ta = lv_keyboard_get_textarea(kb);
+    lv_event_code_t code = lv_event_get_code(e);
+
+    if (code == LV_EVENT_READY) {
+        LV_LOG_USER("Enter pressed. Text: %s", lv_textarea_get_text(ta));
+        lv_obj_add_flag(kb, LV_OBJ_FLAG_HIDDEN);
+    } else if (code == LV_EVENT_VALUE_CHANGED) {
+        const char *txt = lv_keyboard_get_btn_text(kb, lv_keyboard_get_selected_btn(kb));
+        if (txt && strcmp(txt, "Close") == 0) {
+            LV_LOG_USER("Close pressed");
+            lv_obj_add_flag(kb, LV_OBJ_FLAG_HIDDEN);
+        }
+    }
+}
+
+static void ta_focus_handler(lv_event_t *e) {
+    lv_obj_t *ta = lv_event_get_target(e);
+    lv_obj_t *kb = lv_event_get_user_data(e);
+
+    lv_keyboard_set_textarea(kb, ta); // Прив’язуємо клавіатуру до натиснутого поля
+    lv_obj_clear_flag(kb, LV_OBJ_FLAG_HIDDEN); // Показуємо клавіатуру
+    lv_obj_add_state(ta, LV_STATE_FOCUSED); // Фокус на полі
+}
 
 void ui_Screen1_screen_init(void)
 {
     ui_Screen1 = lv_obj_create(NULL);
     lv_obj_clear_flag(ui_Screen1, LV_OBJ_FLAG_SCROLLABLE);
-    lv_obj_set_layout(ui_Screen1, LV_LAYOUT_FLEX);
-    lv_obj_set_flex_flow(ui_Screen1, LV_FLEX_FLOW_COLUMN);
-    lv_obj_set_flex_align(ui_Screen1, LV_ALIGN_TOP_MID, LV_ALIGN_CENTER, LV_ALIGN_DEFAULT);
-    lv_obj_set_style_pad_all(ui_Screen1, 0, 0); 
+    // lv_obj_set_layout(ui_Screen1, LV_LAYOUT_FLEX);
+    // lv_obj_set_flex_flow(ui_Screen1, LV_FLEX_FLOW_COLUMN);
+    // lv_obj_set_flex_align(ui_Screen1, LV_ALIGN_TOP_MID, LV_ALIGN_CENTER, LV_ALIGN_DEFAULT);
+    // lv_obj_set_style_pad_all(ui_Screen1, 0, 0); 
 
-    lv_obj_t *operation_params_cont = lv_obj_create(ui_Screen1);
+    lv_obj_t * main_screen_cont = lv_obj_create(ui_Screen1);
+    lv_obj_set_size(main_screen_cont, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+    //lv_obj_clear_flag(main_screen_cont, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_layout(main_screen_cont, LV_LAYOUT_FLEX);
+    lv_obj_set_flex_flow(main_screen_cont, LV_FLEX_FLOW_COLUMN);
+    lv_obj_set_flex_align(main_screen_cont, LV_ALIGN_TOP_MID, LV_ALIGN_CENTER, LV_ALIGN_DEFAULT);
+    lv_obj_set_style_pad_all(main_screen_cont, 0, 0); 
+
+    lv_obj_t * operation_params_cont = lv_obj_create(main_screen_cont);
     lv_obj_set_size(operation_params_cont, 800, LV_SIZE_CONTENT);
     lv_obj_set_align(operation_params_cont, LV_ALIGN_TOP_MID);
     lv_obj_set_layout(operation_params_cont, LV_LAYOUT_FLEX);
@@ -119,7 +181,7 @@ void ui_Screen1_screen_init(void)
     conical_winding_checkbox = lv_checkbox_create(operation_mode_cont);
     lv_checkbox_set_text(conical_winding_checkbox, " Conical winding");
 
-    buttons_telemetry_cont = lv_obj_create(ui_Screen1);
+    buttons_telemetry_cont = lv_obj_create(main_screen_cont);
     lv_obj_set_size(buttons_telemetry_cont, 800, LV_SIZE_CONTENT);
     lv_obj_set_align(buttons_telemetry_cont, LV_ALIGN_TOP_MID);
     lv_obj_set_layout(buttons_telemetry_cont, LV_LAYOUT_FLEX);
@@ -221,4 +283,25 @@ void ui_Screen1_screen_init(void)
 
     operating_time_label = lv_label_create(telemetry_cont);
     lv_label_set_text(operating_time_label, "Operating Time: 01:32:33");
+    
+    /*Create a keyboard*/
+    // kb = lv_keyboard_create(ui_Screen1);
+    // lv_obj_set_size(kb,  LV_HOR_RES, LV_VER_RES / 2);
+
+    // lv_keyboard_set_textarea(kb, rotate_per_sec_entry);
+    // lv_obj_add_event_cb(rotate_per_sec_entry, ta_event_cb, LV_EVENT_ALL, NULL);
+
+    lv_obj_t *kb = lv_keyboard_create(lv_layer_top());
+    lv_keyboard_set_mode(kb, LV_KEYBOARD_MODE_USER_1);
+    lv_keyboard_set_map(kb, LV_KEYBOARD_MODE_USER_1, custom_map, custom_styles);
+    lv_obj_set_size(kb, LV_PCT(100), LV_PCT(50));
+    lv_obj_align(kb, LV_ALIGN_BOTTOM_MID, 0, 0);
+    lv_obj_add_flag(kb, LV_OBJ_FLAG_HIDDEN);
+    lv_obj_add_event_cb(kb, kb_event_handler, LV_EVENT_ALL, NULL);
+
+    lv_obj_add_event_cb(rotate_per_sec_entry, ta_focus_handler, LV_EVENT_CLICKED, kb);
+    lv_obj_add_event_cb(carriage_movement_entry, ta_focus_handler, LV_EVENT_CLICKED, kb);
+    lv_obj_add_event_cb(general_winding_length_entry, ta_focus_handler, LV_EVENT_CLICKED, kb);
+
+    //lv_obj_add_state(rotate_per_sec_entry, LV_STATE_FOCUSED);
 }
