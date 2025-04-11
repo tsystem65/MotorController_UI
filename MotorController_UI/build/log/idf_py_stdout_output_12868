@@ -1,0 +1,1445 @@
+�0m�ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+load:0x403cb700,len:0x2ee4
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar  4 2025 14:11:09[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (27) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (33) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (37) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (78) boot: End of partition table[0m
+[0;32mI (81) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=14bd0h ( 84944) map[0m
+[0;32mI (103) esp_image: segment 1: paddr=00024bf8 vaddr=3fc95f00 size=034f4h ( 13556) load[0m
+[0;32mI (106) esp_image: segment 2: paddr=000280f4 vaddr=40374000 size=07f24h ( 32548) load[0m
+[0;32mI (114) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=5c6b4h (378548) map[0m
+[0;32mI (181) esp_image: segment 4: paddr=0008c6dc vaddr=4037bf24 size=09fa0h ( 40864) load[0m
+[0;32mI (191) esp_image: segment 5: paddr=00096684 vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (198) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (198) boot: Disabling RNG early entropy source...[0m
+[0;32mI (208) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (209) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (209) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (214) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (219) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (224) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (229) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (235) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (241) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (246) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (252) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (258) MSPI Timing: PSRAM timing tuning index: 10[0m
+[0;32mI (263) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (268) esp_psram: Speed: 80MHz[0m
+[0;32mI (285) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (325) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (326) cpu_start: Multicore app[0m
+[0;32mI (725) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (734) cpu_start: Pro cpu start user code[0m
+[0;32mI (734) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (734) app_init: Application information:[0m
+[0;32mI (737) app_init: Project name:     MotorController_UI[0m
+[0;32mI (742) app_init: App version:      7e09904-dirty[0m
+[0;32mI (748) app_init: Compile time:     Apr  4 2025 13:40:53[0m
+[0;32mI (754) app_init: ELF file SHA256:  413feb3f6...[0m
+[0;32mI (759) app_init: ESP-IDF:          v5.4[0m
+[0;32mI (764) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (769) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (773) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (778) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (786) heap_init: At 3FC9A308 len 0004F408 (317 KiB): RAM[0m
+[0;32mI (792) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (798) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (804) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (810) esp_psram: Adding pool of 7680K of PSRAM memory to heap allocator[0m
+[0;32mI (818) spi_flash: detected chip: gd[0m
+[0;32mI (822) spi_flash: flash io: dio[0m
+[0;33mW (826) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (837) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (844) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (852) main_task: Started on CPU0[0m
+[0;32mI (862) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (862) main_task: Calling app_main()[0m
+[0;32mI (872) UART_TRANSMITTER: Starting app_main...[0m
+[0;32mI (872) UART_TRANSMITTER: Calling display...[0m
+[0;32mI (882) example: Install RGB LCD panel driver[0m
+[0;32mI (932) example: Register event callbacks[0m
+[0;32mI (932) example: Initialize RGB LCD panel[0m
+[0;32mI (932) example: I2C initialized successfully[0m
+[0;32mI (932) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1342) example: Initialize I2C[0m
+[0;32mI (1342) example: Initialize touch IO (I2C)[0m
+[0;32mI (1342) example: Initialize touch controller GT911[0m
+[0;32mI (1342) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1352) GT911: TouchPad_Config_Version:88[0m
+[0;32mI (1352) example: Initialize LVGL library[0m
+[0;32mI (1362) example: Use frame buffers as LVGL draw buffers[0m
+[0;32mI (1362) example: Register display driver to LVGL[0m
+[0;32mI (1372) example: Install LVGL tick timer[0m
+[0;32mI (1372) example: Create LVGL task[0m
+[0;32mI (1382) example: Starting LVGL task[0m
+[0;32mI (1422) example: Display LVGL Scatter Chart[0m
+[0�I (3063) MCPWM: Received data: 
+[1;31mE (3063) MCPWM: No data received[0m
+[0;32mI (3063) UART_TRANSMITTER: Received: [0m
+[0;32mI (15853) MCPWM: Received data: {"command": "stop"}[0m
+
+[0;32mI (15853) UART_TRANSMITTER: Received: {"command": "stop"}[0m
+
+[0;32mI (35153) MCPWM: Received data: {"command":"start","speed":5,"carriage_movement":2,"general_length":2000}[0m
+
+[0;32mI (35153) STARTUP_PARAMS: : MASTER_FREQ - 32000, CARRIAGE_FREQ - 20, TOTAL_WINDING - 2000.000000,[0m
+[0;32mI (35163) UART_TRANSMITTER: Received: {"command":"start","speed":5,"carriage_movement":2,"general_length":2000}[0m
+
+[0;32mI (35313) MCPWM: Freq: 400 Hz, period_ticks: 40000[0m
+[0;32mI (35313) MCPWM: Freq: 400 Hz, period_ticks: 40000[0m
+[0;32mI (35313) MCPWM: Freq: 20 Hz, period_ticks: 32767[0m
+[0;33mW (35313) mcpwm: adjust timer resolution to 655737Hz[0m
+[0;32mI (35313) MCPWM: Timer 0 started[0m
+[0;32mI (35323) MCPWM: Timer 1 started[0m
+[0;32mI (35323) MCPWM: Timer 2 started[0m
+[0;32mI (35323) gpio: GPIO[8]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (35333) gpio: GPIO[9]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (35343) gpio: GPIO[33]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (35353) gpio: GPIO[17]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (35363) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (35373) MCPWM: Freq: 400 Hz, period_ticks: 40000[0m
+[0;32mI (35373) MCPWM: Freq: 20 Hz, period_ticks: 32767[0m
+[0;32mI (35373) MCPWM: Calc time: 189 us[0m
+[0;32mI (35383) MCPWM: Frequency on GPIO 18 updated to 400 Hz[0m
+[0;32mI (35383) MCPWM: Frequency on GPIO 5 updated to 400 Hz[0m
+[0;32mI (35393) MCPWM: Frequency on GPIO 7 updated to 20 Hz[0m
+[0;32mI (35593) MCPWM: Freq: 800 Hz, period_ticks: 20000[0m
+[0;32mI (35593) MCPWM: Freq: 21 Hz, period_ticks: 31207[0m
+[0;32mI (35593) MCPWM: Calc time: 112 us[0m
+[0;32mI (35593) MCPWM: Frequency on GPIO 18 updated to 800 Hz[0m
+[0;32mI (35593) MCPWM: Frequency on GPIO 5 updated to 800 Hz[0m
+[0;32mI (35603) MCPWM: Frequency on GPIO 7 updated to 21 Hz[0m
+[0;32mI (35803) MCPWM: Freq: 1200 Hz, period_ticks: 13333[0m
+[0;32mI (35803) MCPWM: Freq: 22 Hz, period_ticks: 29788[0m
+[0;32mI (35803) MCPWM: Calc time: 112 us[0m
+[0;32mI (35803) MCPWM: Frequency on GPIO 18 updated to 1200 Hz[0m
+[0;32mI (35803) MCPWM: Frequency on GPIO 5 updated to 1200 Hz[0m
+[0;32mI (35813) MCPWM: Frequency on GPIO 7 updated to 22 Hz[0m
+[0;32mI (36013) MCPWM: Freq: 1600 Hz, period_ticks: 10000[0m
+[0;32mI (36013) MCPWM: Freq: 23 Hz, period_ticks: 28493[0m
+[0;32mI (36013) MCPWM: Calc time: 112 us[0m
+[0;32mI (36013) MCPWM: Frequency on GPIO 18 updated to 1600 Hz[0m
+[0;32mI (36013) MCPWM: Frequency on GPIO 5 updated to 1600 Hz[0m
+[0;32mI (36023) MCPWM: Frequency on GPIO 7 updated to 23 Hz[0m
+[0;32mI (36223) MCPWM: Freq: 2000 Hz, period_ticks: 8000[0m
+[0;32mI (36223) MCPWM: Freq: 24 Hz, period_ticks: 27306[0m
+[0;32mI (36223) MCPWM: Calc time: 112 us[0m
+[0;32mI (36223) MCPWM: Frequency on GPIO 18 updated to 2000 Hz[0m
+[0;32mI (36223) MCPWM: Frequency on GPIO 5 updated to 2000 Hz[0m
+[0;32mI (36233) MCPWM: Frequency on GPIO 7 updated to 24 Hz[0m
+[0;32mI (36373) UART_TRANSMITTER: Sent command: {"speed":0.3125,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (36433) MCPWM: Freq: 2400 Hz, period_ticks: 6666[0m
+[0;32mI (36433) MCPWM: Freq: 25 Hz, period_ticks: 26214[0m
+[0;32mI (36433) MCPWM: Calc time: 166 us[0m
+[0;32mI (36433) MCPWM: Frequency on GPIO 18 updated to 2400 Hz[0m
+[0;32mI (36433) MCPWM: Frequency on GPIO 5 updated to 2400 Hz[0m
+[0;32mI (36443) MCPWM: Frequency on GPIO 7 updated to 25 Hz[0m
+[0;32mI (36643) MCPWM: Freq: 2800 Hz, period_ticks: 5714[0m
+[0;32mI (36643) MCPWM: Freq: 26 Hz, period_ticks: 25205[0m
+[0;32mI (36643) MCPWM: Calc time: 112 us[0m
+[0;32mI (36643) MCPWM: Frequency on GPIO 18 updated to 2800 Hz[0m
+[0;32mI (36643) MCPWM: Frequency on GPIO 5 updated to 2800 Hz[0m
+[0;32mI (36653) MCPWM: Frequency on GPIO 7 updated to 26 Hz[0m
+[0;32mI (36853) MCPWM: Freq: 3200 Hz, period_ticks: 5000[0m
+[0;32mI (36853) MCPWM: Freq: 27 Hz, period_ticks: 24272[0m
+[0;32mI (36853) MCPWM: Calc time: 112 us[0m
+[0;32mI (36853) MCPWM: Frequency on GPIO 18 updated to 3200 Hz[0m
+[0;32mI (36853) MCPWM: Frequency on GPIO 5 updated to 3200 Hz[0m
+[0;32mI (36863) MCPWM: Frequency on GPIO 7 updated to 27 Hz[0m
+[0;32mI (37063) MCPWM: Freq: 3600 Hz, period_ticks: 4444[0m
+[0;32mI (37063) MCPWM: Freq: 28 Hz, period_ticks: 23405[0m
+[0;32mI (37063) MCPWM: Calc time: 112 us[0m
+[0;32mI (37063) MCPWM: Frequency on GPIO 18 updated to 3600 Hz[0m
+[0;32mI (37063) MCPWM: Frequency on GPIO 5 updated to 3600 Hz[0m
+[0;32mI (37073) MCPWM: Frequency on GPIO 7 updated to 28 Hz[0m
+[0;32mI (37273) MCPWM: Freq: 4000 Hz, period_ticks: 4000[0m
+[0;32mI (37273) MCPWM: Freq: 29 Hz, period_ticks: 22598[0m
+[0;32mI (37273) MCPWM: Calc time: 112 us[0m
+[0;32mI (37273) MCPWM: Frequency on GPIO 18 updated to 4000 Hz[0m
+[0;32mI (37273) MCPWM: Frequency on GPIO 5 updated to 4000 Hz[0m
+[0;32mI (37283) MCPWM: Frequency on GPIO 7 updated to 29 Hz[0m
+[0;32mI (37373) UART_TRANSMITTER: Sent command: {"speed":0.625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (37483) MCPWM: Freq: 4400 Hz, period_ticks: 3636[0m
+[0;32mI (37483) MCPWM: Freq: 30 Hz, period_ticks: 21845[0m
+[0;32mI (37483) MCPWM: Calc time: 166 us[0m
+[0;32mI (37483) MCPWM: Frequency on GPIO 18 updated to 4400 Hz[0m
+[0;32mI (37483) MCPWM: Frequency on GPIO 5 updated to 4400 Hz[0m
+[0;32mI (37493) MCPWM: Frequency on GPIO 7 updated to 30 Hz[0m
+[0;32mI (37693) MCPWM: Freq: 4800 Hz, period_ticks: 3333[0m
+[0;32mI (37693) MCPWM: Freq: 31 Hz, period_ticks: 21140[0m
+[0;32mI (37693) MCPWM: Calc time: 112 us[0m
+[0;32mI (37693) MCPWM: Frequency on GPIO 18 updated to 4800 Hz[0m
+[0;32mI (37693) MCPWM: Frequency on GPIO 5 updated to 4800 Hz[0m
+[0;32mI (37703) MCPWM: Frequency on GPIO 7 updated to 31 Hz[0m
+[0;33mW (37903) MCPWM: Requested 5200 Hz, actual 5201 Hz[0m
+[0;32mI (37903) MCPWM: Freq: 5200 Hz, period_ticks: 3076[0m
+[0;32mI (37903) MCPWM: Freq: 32 Hz, period_ticks: 20479[0m
+[0;32mI (37903) MCPWM: Calc time: 112 us[0m
+[0;32mI (37903) MCPWM: Frequency on GPIO 18 updated to 5200 Hz[0m
+[0;32mI (37913) MCPWM: Frequency on GPIO 5 updated to 5200 Hz[0m
+[0;32mI (37913) MCPWM: Frequency on GPIO 7 updated to 32 Hz[0m
+[0;32mI (38123) MCPWM: Freq: 5600 Hz, period_ticks: 2857[0m
+[0;32mI (38123) MCPWM: Freq: 33 Hz, period_ticks: 19859[0m
+[0;32mI (38123) MCPWM: Calc time: 112 us[0m
+[0;32mI (38123) MCPWM: Frequency on GPIO 18 updated to 5600 Hz[0m
+[0;32mI (38123) MCPWM: Frequency on GPIO 5 updated to 5600 Hz[0m
+[0;32mI (38133) MCPWM: Frequency on GPIO 7 updated to 33 Hz[0m
+[0;33mW (38333) MCPWM: Requested 6000 Hz, actual 6001 Hz[0m
+[0;32mI (38333) MCPWM: Freq: 6000 Hz, period_ticks: 2666[0m
+[0;32mI (38333) MCPWM: Freq: 34 Hz, period_ticks: 19275[0m
+[0;32mI (38333) MCPWM: Calc time: 112 us[0m
+[0;32mI (38333) MCPWM: Frequency on GPIO 18 updated to 6000 Hz[0m
+[0;32mI (38343) MCPWM: Frequency on GPIO 5 updated to 6000 Hz[0m
+[0;32mI (38343) MCPWM: Frequency on GPIO 7 updated to 34 Hz[0m
+[0;32mI (38373) UART_TRANSMITTER: Sent command: {"speed":0.9375,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (38553) MCPWM: Freq: 6400 Hz, period_ticks: 2500[0m
+[0;32mI (38553) MCPWM: Freq: 35 Hz, period_ticks: 18724[0m
+[0;32mI (38553) MCPWM: Calc time: 165 us[0m
+[0;32mI (38553) MCPWM: Frequency on GPIO 18 updated to 6400 Hz[0m
+[0;32mI (38553) MCPWM: Frequency on GPIO 5 updated to 6400 Hz[0m
+[0;32mI (38563) MCPWM: Frequency on GPIO 7 updated to 35 Hz[0m
+[0;33mW (38763) MCPWM: Requested 6800 Hz, actual 6802 Hz[0m
+[0;32mI (38763) MCPWM: Freq: 6800 Hz, period_ticks: 2352[0m
+[0;32mI (38763) MCPWM: Freq: 36 Hz, period_ticks: 18204[0m
+[0;32mI (38763) MCPWM: Calc time: 111 us[0m
+[0;32mI (38763) MCPWM: Frequency on GPIO 18 updated to 6800 Hz[0m
+[0;32mI (38773) MCPWM: Frequency on GPIO 5 updated to 6800 Hz[0m
+[0;32mI (38773) MCPWM: Frequency on GPIO 7 updated to 36 Hz[0m
+[0;32mI (38983) MCPWM: Freq: 7200 Hz, period_ticks: 2222[0m
+[0;32mI (38983) MCPWM: Freq: 37 Hz, period_ticks: 17712[0m
+[0;32mI (38983) MCPWM: Calc time: 112 us[0m
+[0;32mI (38983) MCPWM: Frequency on GPIO 18 updated to 7200 Hz[0m
+[0;32mI (38983) MCPWM: Frequency on GPIO 5 updated to 7200 Hz[0m
+[0;32mI (38993) MCPWM: Frequency on GPIO 7 updated to 37 Hz[0m
+[0;32mI (39193) MCPWM: Freq: 7600 Hz, period_ticks: 2105[0m
+[0;32mI (39193) MCPWM: Freq: 38 Hz, period_ticks: 17246[0m
+[0;32mI (39193) MCPWM: Calc time: 112 us[0m
+[0;32mI (39193) MCPWM: Frequency on GPIO 18 updated to 7600 Hz[0m
+[0;32mI (39193) MCPWM: Frequency on GPIO 5 updated to 7600 Hz[0m
+[0;32mI (39203) MCPWM: Frequency on GPIO 7 updated to 38 Hz[0m
+[0;32mI (39373) UART_TRANSMITTER: Sent command: {"speed":1.1875,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (39403) MCPWM: Freq: 8000 Hz, period_ticks: 2000[0m
+[0;32mI (39403) MCPWM: Freq: 39 Hz, period_ticks: 16803[0m
+[0;32mI (39403) MCPWM: Calc time: 168 us[0m
+[0;32mI (39403) MCPWM: Frequency on GPIO 18 updated to 8000 Hz[0m
+[0;32mI (39403) MCPWM: Frequency on GPIO 5 updated to 8000 Hz[0m
+[0;32mI (39413) MCPWM: Frequency on GPIO 7 updated to 39 Hz[0m
+[0;33mW (39613) MCPWM: Requested 8400 Hz, actual 8403 Hz[0m
+[0;32mI (39613) MCPWM: Freq: 8400 Hz, period_ticks: 1904[0m
+[0;32mI (39613) MCPWM: Freq: 40 Hz, period_ticks: 16383[0m
+[0;32mI (39613) MCPWM: Calc time: 112 us[0m
+[0;32mI (39613) MCPWM: Frequency on GPIO 18 updated to 8400 Hz[0m
+[0;32mI (39623) MCPWM: Frequency on GPIO 5 updated to 8400 Hz[0m
+[0;32mI (39623) MCPWM: Frequency on GPIO 7 updated to 40 Hz[0m
+[0;32mI (39833) MCPWM: Freq: 8800 Hz, period_ticks: 1818[0m
+[0;32mI (39833) MCPWM: Freq: 41 Hz, period_ticks: 15984[0m
+[0;32mI (39833) MCPWM: Calc time: 112 us[0m
+[0;32mI (39833) MCPWM: Frequency on GPIO 18 updated to 8800 Hz[0m
+[0;32mI (39833) MCPWM: Frequency on GPIO 5 updated to 8800 Hz[0m
+[0;32mI (39843) MCPWM: Frequency on GPIO 7 updated to 41 Hz[0m
+[0;32mI (40043) MCPWM: Freq: 9200 Hz, period_ticks: 1739[0m
+[0;32mI (40043) MCPWM: Freq: 42 Hz, period_ticks: 15603[0m
+[0;32mI (40043) MCPWM: Calc time: 112 us[0m
+[0;32mI (40043) MCPWM: Frequency on GPIO 18 updated to 9200 Hz[0m
+[0;32mI (40043) MCPWM: Frequency on GPIO 5 updated to 9200 Hz[0m
+[0;32mI (40053) MCPWM: Frequency on GPIO 7 updated to 42 Hz[0m
+[0;33mW (40253) MCPWM: Requested 9600 Hz, actual 9603 Hz[0m
+[0;32mI (40253) MCPWM: Freq: 9600 Hz, period_ticks: 1666[0m
+[0;32mI (40253) MCPWM: Freq: 43 Hz, period_ticks: 15240[0m
+[0;32mI (40253) MCPWM: Calc time: 112 us[0m
+[0;32mI (40253) MCPWM: Frequency on GPIO 18 updated to 9600 Hz[0m
+[0;32mI (40263) MCPWM: Frequency on GPIO 5 updated to 9600 Hz[0m
+[0;32mI (40263) MCPWM: Frequency on GPIO 7 updated to 43 Hz[0m
+[0;32mI (40373) UART_TRANSMITTER: Sent command: {"speed":1.5,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (40473) MCPWM: Freq: 10000 Hz, period_ticks: 1600[0m
+[0;32mI (40473) MCPWM: Freq: 44 Hz, period_ticks: 14894[0m
+[0;32mI (40473) MCPWM: Calc time: 166 us[0m
+[0;32mI (40473) MCPWM: Frequency on GPIO 18 updated to 10000 Hz[0m
+[0;32mI (40473) MCPWM: Frequency on GPIO 5 updated to 10000 Hz[0m
+[0;32mI (40483) MCPWM: Frequency on GPIO 7 updated to 44 Hz[0m
+[0;33mW (40683) MCPWM: Requested 10400 Hz, actual 10403 Hz[0m
+[0;32mI (40683) MCPWM: Freq: 10400 Hz, period_ticks: 1538[0m
+[0;32mI (40683) MCPWM: Freq: 45 Hz, period_ticks: 14563[0m
+[0;32mI (40683) MCPWM: Calc time: 112 us[0m
+[0;32mI (40683) MCPWM: Frequency on GPIO 18 updated to 10400 Hz[0m
+[0;32mI (40693) MCPWM: Frequency on GPIO 5 updated to 10400 Hz[0m
+[0;32mI (40693) MCPWM: Frequency on GPIO 7 updated to 45 Hz[0m
+[0;33mW (40903) MCPWM: Requested 10800 Hz, actual 10803 Hz[0m
+[0;32mI (40903) MCPWM: Freq: 10800 Hz, period_ticks: 1481[0m
+[0;32mI (40903) MCPWM: Freq: 46 Hz, period_ticks: 14246[0m
+[0;32mI (40903) MCPWM: Calc time: 112 us[0m
+[0;32mI (40903) MCPWM: Frequency on GPIO 18 updated to 10800 Hz[0m
+[0;32mI (40913) MCPWM: Frequency on GPIO 5 updated to 10800 Hz[0m
+[0;32mI (40913) MCPWM: Frequency on GPIO 7 updated to 46 Hz[0m
+[0;33mW (41123) MCPWM: Requested 11200 Hz, actual 11204 Hz[0m
+[0;32mI (41123) MCPWM: Freq: 11200 Hz, period_ticks: 1428[0m
+[0;32mI (41123) MCPWM: Freq: 47 Hz, period_ticks: 13943[0m
+[0;32mI (41123) MCPWM: Calc time: 112 us[0m
+[0;32mI (41123) MCPWM: Frequency on GPIO 18 updated to 11200 Hz[0m
+[0;32mI (41133) MCPWM: Frequency on GPIO 5 updated to 11200 Hz[0m
+[0;32mI (41133) MCPWM: Frequency on GPIO 7 updated to 47 Hz[0m
+[0;33mW (41343) MCPWM: Requested 11600 Hz, actual 11602 Hz[0m
+[0;32mI (41343) MCPWM: Freq: 11600 Hz, period_ticks: 1379[0m
+[0;32mI (41343) MCPWM: Freq: 48 Hz, period_ticks: 13653[0m
+[0;32mI (41343) MCPWM: Calc time: 112 us[0m
+[0;32mI (41343) MCPWM: Frequency on GPIO 18 updated to 11600 Hz[0m
+[0;32mI (41353) MCPWM: Frequency on GPIO 5 updated to 11600 Hz[0m
+[0;32mI (41353) MCPWM: Frequency on GPIO 7 updated to 48 Hz[0m
+[0;32mI (41373) UART_TRANSMITTER: Sent command: {"speed":1.8125,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (41563) MCPWM: Requested 12000 Hz, actual 12003 Hz[0m
+[0;32mI (41563) MCPWM: Freq: 12000 Hz, period_ticks: 1333[0m
+[0;32mI (41563) MCPWM: Freq: 49 Hz, period_ticks: 13374[0m
+[0;32mI (41563) MCPWM: Calc time: 166 us[0m
+[0;32mI (41563) MCPWM: Frequency on GPIO 18 updated to 12000 Hz[0m
+[0;32mI (41573) MCPWM: Frequency on GPIO 5 updated to 12000 Hz[0m
+[0;32mI (41573) MCPWM: Frequency on GPIO 7 updated to 49 Hz[0m
+[0;33mW (41783) MCPWM: Requested 12400 Hz, actual 12403 Hz[0m
+[0;32mI (41783) MCPWM: Freq: 12400 Hz, period_ticks: 1290[0m
+[0;32mI (41783) MCPWM: Freq: 50 Hz, period_ticks: 13107[0m
+[0;32mI (41783) MCPWM: Calc time: 112 us[0m
+[0;32mI (41783) MCPWM: Frequency on GPIO 18 updated to 12400 Hz[0m
+[0;32mI (41793) MCPWM: Frequency on GPIO 5 updated to 12400 Hz[0m
+[0;32mI (41793) MCPWM: Frequency on GPIO 7 updated to 50 Hz[0m
+[0;32mI (42003) MCPWM: Freq: 12800 Hz, period_ticks: 1250[0m
+[0;32mI (42003) MCPWM: Freq: 51 Hz, period_ticks: 12850[0m
+[0;32mI (42003) MCPWM: Calc time: 112 us[0m
+[0;32mI (42003) MCPWM: Frequency on GPIO 18 updated to 12800 Hz[0m
+[0;32mI (42003) MCPWM: Frequency on GPIO 5 updated to 12800 Hz[0m
+[0;32mI (42013) MCPWM: Frequency on GPIO 7 updated to 51 Hz[0m
+[0;33mW (42213) MCPWM: Requested 13200 Hz, actual 13201 Hz[0m
+[0;32mI (42213) MCPWM: Freq: 13200 Hz, period_ticks: 1212[0m
+[0;32mI (42213) MCPWM: Freq: 52 Hz, period_ticks: 12602[0m
+[0;32mI (42213) MCPWM: Calc time: 112 us[0m
+[0;32mI (42213) MCPWM: Frequency on GPIO 18 updated to 13200 Hz[0m
+[0;32mI (42223) MCPWM: Frequency on GPIO 5 updated to 13200 Hz[0m
+[0;32mI (42223) MCPWM: Frequency on GPIO 7 updated to 52 Hz[0m
+[0;32mI (42373) UART_TRANSMITTER: Sent command: {"speed":2.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (42433) MCPWM: Requested 13600 Hz, actual 13605 Hz[0m
+[0;32mI (42433) MCPWM: Freq: 13600 Hz, period_ticks: 1176[0m
+[0;32mI (42433) MCPWM: Freq: 53 Hz, period_ticks: 12365[0m
+[0;32mI (42433) MCPWM: Calc time: 166 us[0m
+[0;32mI (42433) MCPWM: Frequency on GPIO 18 updated to 13600 Hz[0m
+[0;32mI (42443) MCPWM: Frequency on GPIO 5 updated to 13600 Hz[0m
+[0;32mI (42443) MCPWM: Frequency on GPIO 7 updated to 53 Hz[0m
+[0;33mW (42653) MCPWM: Requested 14000 Hz, actual 14010 Hz[0m
+[0;32mI (42653) MCPWM: Freq: 14000 Hz, period_ticks: 1142[0m
+[0;32mI (42653) MCPWM: Freq: 54 Hz, period_ticks: 12136[0m
+[0;32mI (42653) MCPWM: Calc time: 112 us[0m
+[0;32mI (42653) MCPWM: Frequency on GPIO 18 updated to 14000 Hz[0m
+[0;32mI (42663) MCPWM: Frequency on GPIO 5 updated to 14000 Hz[0m
+[0;32mI (42663) MCPWM: Frequency on GPIO 7 updated to 54 Hz[0m
+[0;33mW (42873) MCPWM: Requested 14400 Hz, actual 14401 Hz[0m
+[0;32mI (42873) MCPWM: Freq: 14400 Hz, period_ticks: 1111[0m
+[0;32mI (42873) MCPWM: Freq: 55 Hz, period_ticks: 11915[0m
+[0;32mI (42873) MCPWM: Calc time: 112 us[0m
+[0;32mI (42873) MCPWM: Frequency on GPIO 18 updated to 14400 Hz[0m
+[0;32mI (42883) MCPWM: Frequency on GPIO 5 updated to 14400 Hz[0m
+[0;32mI (42883) MCPWM: Frequency on GPIO 7 updated to 55 Hz[0m
+[0;33mW (43093) MCPWM: Requested 14800 Hz, actual 14801 Hz[0m
+[0;32mI (43093) MCPWM: Freq: 14800 Hz, period_ticks: 1081[0m
+[0;32mI (43093) MCPWM: Freq: 56 Hz, period_ticks: 11702[0m
+[0;32mI (43093) MCPWM: Calc time: 112 us[0m
+[0;32mI (43093) MCPWM: Frequency on GPIO 18 updated to 14800 Hz[0m
+[0;32mI (43103) MCPWM: Frequency on GPIO 5 updated to 14800 Hz[0m
+[0;32mI (43103) MCPWM: Frequency on GPIO 7 updated to 56 Hz[0m
+[0;33mW (43313) MCPWM: Requested 15200 Hz, actual 15209 Hz[0m
+[0;32mI (43313) MCPWM: Freq: 15200 Hz, period_ticks: 1052[0m
+[0;32mI (43313) MCPWM: Freq: 57 Hz, period_ticks: 11497[0m
+[0;32mI (43313) MCPWM: Calc time: 112 us[0m
+[0;32mI (43313) MCPWM: Frequency on GPIO 18 updated to 15200 Hz[0m
+[0;32mI (43323) MCPWM: Frequency on GPIO 5 updated to 15200 Hz[0m
+[0;32mI (43323) MCPWM: Frequency on GPIO 7 updated to 57 Hz[0m
+[0;32mI (43373) UART_TRANSMITTER: Sent command: {"speed":2.375,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (43533) MCPWM: Requested 15600 Hz, actual 15609 Hz[0m
+[0;32mI (43533) MCPWM: Freq: 15600 Hz, period_ticks: 1025[0m
+[0;32mI (43533) MCPWM: Freq: 58 Hz, period_ticks: 11299[0m
+[0;32mI (43533) MCPWM: Calc time: 166 us[0m
+[0;32mI (43533) MCPWM: Frequency on GPIO 18 updated to 15600 Hz[0m
+[0;32mI (43543) MCPWM: Frequency on GPIO 5 updated to 15600 Hz[0m
+[0;32mI (43543) MCPWM: Frequency on GPIO 7 updated to 58 Hz[0m
+[0;32mI (43753) MCPWM: Freq: 16000 Hz, period_ticks: 1000[0m
+[0;32mI (43753) MCPWM: Freq: 59 Hz, period_ticks: 11107[0m
+[0;32mI (43753) MCPWM: Calc time: 111 us[0m
+[0;32mI (43753) MCPWM: Frequency on GPIO 18 updated to 16000 Hz[0m
+[0;32mI (43753) MCPWM: Frequency on GPIO 5 updated to 16000 Hz[0m
+[0;32mI (43763) MCPWM: Frequency on GPIO 7 updated to 59 Hz[0m
+[0;33mW (43963) MCPWM: Requested 16400 Hz, actual 16410 Hz[0m
+[0;32mI (43963) MCPWM: Freq: 16400 Hz, period_ticks: 975[0m
+[0;32mI (43963) MCPWM: Freq: 60 Hz, period_ticks: 10922[0m
+[0;32mI (43963) MCPWM: Calc time: 112 us[0m
+[0;32mI (43963) MCPWM: Frequency on GPIO 18 updated to 16400 Hz[0m
+[0;32mI (43973) MCPWM: Frequency on GPIO 5 updated to 16400 Hz[0m
+[0;32mI (43973) MCPWM: Frequency on GPIO 7 updated to 60 Hz[0m
+[0;33mW (44183) MCPWM: Requested 16800 Hz, actual 16806 Hz[0m
+[0;32mI (44183) MCPWM: Freq: 16800 Hz, period_ticks: 952[0m
+[0;32mI (44183) MCPWM: Freq: 61 Hz, period_ticks: 10743[0m
+[0;32mI (44183) MCPWM: Calc time: 112 us[0m
+[0;32mI (44183) MCPWM: Frequency on GPIO 18 updated to 16800 Hz[0m
+[0;32mI (44193) MCPWM: Frequency on GPIO 5 updated to 16800 Hz[0m
+[0;32mI (44193) MCPWM: Frequency on GPIO 7 updated to 61 Hz[0m
+[0;32mI (44373) UART_TRANSMITTER: Sent command: {"speed":2.625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (44403) MCPWM: Requested 17200 Hz, actual 17204 Hz[0m
+[0;32mI (44403) MCPWM: Freq: 17200 Hz, period_ticks: 930[0m
+[0;32mI (44403) MCPWM: Freq: 62 Hz, period_ticks: 10570[0m
+[0;32mI (44403) MCPWM: Calc time: 165 us[0m
+[0;32mI (44403) MCPWM: Frequency on GPIO 18 updated to 17200 Hz[0m
+[0;32mI (44413) MCPWM: Frequency on GPIO 5 updated to 17200 Hz[0m
+[0;32mI (44413) MCPWM: Frequency on GPIO 7 updated to 62 Hz[0m
+[0;33mW (44623) MCPWM: Requested 17600 Hz, actual 17601 Hz[0m
+[0;32mI (44623) MCPWM: Freq: 17600 Hz, period_ticks: 909[0m
+[0;32mI (44623) MCPWM: Freq: 63 Hz, period_ticks: 10402[0m
+[0;32mI (44623) MCPWM: Calc time: 112 us[0m
+[0;32mI (44623) MCPWM: Frequency on GPIO 18 updated to 17600 Hz[0m
+[0;32mI (44633) MCPWM: Frequency on GPIO 5 updated to 17600 Hz[0m
+[0;32mI (44633) MCPWM: Frequency on GPIO 7 updated to 63 Hz[0m
+[0;33mW (44843) MCPWM: Requested 18000 Hz, actual 18018 Hz[0m
+[0;32mI (44843) MCPWM: Freq: 18000 Hz, period_ticks: 888[0m
+[0;32mI (44843) MCPWM: Freq: 64 Hz, period_ticks: 10239[0m
+[0;32mI (44843) MCPWM: Calc time: 112 us[0m
+[0;32mI (44843) MCPWM: Frequency on GPIO 18 updated to 18000 Hz[0m
+[0;32mI (44853) MCPWM: Frequency on GPIO 5 updated to 18000 Hz[0m
+[0;32mI (44853) MCPWM: Frequency on GPIO 7 updated to 64 Hz[0m
+[0;33mW (45063) MCPWM: Requested 18400 Hz, actual 18411 Hz[0m
+[0;32mI (45063) MCPWM: Freq: 18400 Hz, period_ticks: 869[0m
+[0;32mI (45063) MCPWM: Freq: 65 Hz, period_ticks: 10082[0m
+[0;32mI (45063) MCPWM: Calc time: 112 us[0m
+[0;32mI (45063) MCPWM: Frequency on GPIO 18 updated to 18400 Hz[0m
+[0;32mI (45073) MCPWM: Frequency on GPIO 5 updated to 18400 Hz[0m
+[0;32mI (45073) MCPWM: Frequency on GPIO 7 updated to 65 Hz[0m
+[0;33mW (45283) MCPWM: Requested 18800 Hz, actual 18801 Hz[0m
+[0;32mI (45283) MCPWM: Freq: 18800 Hz, period_ticks: 851[0m
+[0;32mI (45283) MCPWM: Freq: 66 Hz, period_ticks: 9929[0m
+[0;32mI (45283) MCPWM: Calc time: 111 us[0m
+[0;32mI (45283) MCPWM: Frequency on GPIO 18 updated to 18800 Hz[0m
+[0;32mI (45293) MCPWM: Frequency on GPIO 5 updated to 18800 Hz[0m
+[0;32mI (45293) MCPWM: Frequency on GPIO 7 updated to 66 Hz[0m
+[0;32mI (45373) UART_TRANSMITTER: Sent command: {"speed":2.9375,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (45503) MCPWM: Requested 19200 Hz, actual 19207 Hz[0m
+[0;32mI (45503) MCPWM: Freq: 19200 Hz, period_ticks: 833[0m
+[0;32mI (45503) MCPWM: Freq: 67 Hz, period_ticks: 9781[0m
+[0;32mI (45503) MCPWM: Calc time: 166 us[0m
+[0;32mI (45503) MCPWM: Frequency on GPIO 18 updated to 19200 Hz[0m
+[0;32mI (45513) MCPWM: Frequency on GPIO 5 updated to 19200 Hz[0m
+[0;32mI (45513) MCPWM: Frequency on GPIO 7 updated to 67 Hz[0m
+[0;33mW (45723) MCPWM: Requested 19600 Hz, actual 19607 Hz[0m
+[0;32mI (45723) MCPWM: Freq: 19600 Hz, period_ticks: 816[0m
+[0;32mI (45723) MCPWM: Freq: 68 Hz, period_ticks: 9637[0m
+[0;32mI (45723) MCPWM: Calc time: 111 us[0m
+[0;32mI (45723) MCPWM: Frequency on GPIO 18 updated to 19600 Hz[0m
+[0;32mI (45733) MCPWM: Frequency on GPIO 5 updated to 19600 Hz[0m
+[0;32mI (45733) MCPWM: Frequency on GPIO 7 updated to 68 Hz[0m
+[0;32mI (45943) MCPWM: Freq: 20000 Hz, period_ticks: 800[0m
+[0;32mI (45943) MCPWM: Freq: 69 Hz, period_ticks: 9497[0m
+[0;32mI (45943) MCPWM: Calc time: 112 us[0m
+[0;32mI (45943) MCPWM: Frequency on GPIO 18 updated to 20000 Hz[0m
+[0;32mI (45943) MCPWM: Frequency on GPIO 5 updated to 20000 Hz[0m
+[0;32mI (45953) MCPWM: Frequency on GPIO 7 updated to 69 Hz[0m
+[0;33mW (46153) MCPWM: Requested 20400 Hz, actual 20408 Hz[0m
+[0;32mI (46153) MCPWM: Freq: 20400 Hz, period_ticks: 784[0m
+[0;32mI (46153) MCPWM: Freq: 70 Hz, period_ticks: 9362[0m
+[0;32mI (46153) MCPWM: Calc time: 111 us[0m
+[0;32mI (46153) MCPWM: Frequency on GPIO 18 updated to 20400 Hz[0m
+[0;32mI (46163) MCPWM: Frequency on GPIO 5 updated to 20400 Hz[0m
+[0;32mI (46163) MCPWM: Frequency on GPIO 7 updated to 70 Hz[0m
+[0;32mI (46373) UART_TRANSMITTER: Sent command: {"speed":3.1875,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (46373) MCPWM: Requested 20800 Hz, actual 20806 Hz[0m
+[0;32mI (46373) MCPWM: Freq: 20800 Hz, period_ticks: 769[0m
+[0;32mI (46373) MCPWM: Freq: 71 Hz, period_ticks: 9230[0m
+[0;32mI (46383) MCPWM: Calc time: 166 us[0m
+[0;32mI (46383) MCPWM: Frequency on GPIO 18 updated to 20800 Hz[0m
+[0;32mI (46393) MCPWM: Frequency on GPIO 5 updated to 20800 Hz[0m
+[0;32mI (46393) MCPWM: Frequency on GPIO 7 updated to 71 Hz[0m
+[0;33mW (46603) MCPWM: Requested 21200 Hz, actual 21220 Hz[0m
+[0;32mI (46603) MCPWM: Freq: 21200 Hz, period_ticks: 754[0m
+[0;32mI (46603) MCPWM: Freq: 72 Hz, period_ticks: 9102[0m
+[0;32mI (46603) MCPWM: Calc time: 111 us[0m
+[0;32mI (46603) MCPWM: Frequency on GPIO 18 updated to 21200 Hz[0m
+[0;32mI (46613) MCPWM: Frequency on GPIO 5 updated to 21200 Hz[0m
+[0;32mI (46613) MCPWM: Frequency on GPIO 7 updated to 72 Hz[0m
+[0;33mW (46823) MCPWM: Requested 21600 Hz, actual 21621 Hz[0m
+[0;32mI (46823) MCPWM: Freq: 21600 Hz, period_ticks: 740[0m
+[0;32mI (46823) MCPWM: Freq: 73 Hz, period_ticks: 8977[0m
+[0;32mI (46823) MCPWM: Calc time: 111 us[0m
+[0;32mI (46823) MCPWM: Frequency on GPIO 18 updated to 21600 Hz[0m
+[0;32mI (46833) MCPWM: Frequency on GPIO 5 updated to 21600 Hz[0m
+[0;32mI (46833) MCPWM: Frequency on GPIO 7 updated to 73 Hz[0m
+[0;33mW (47043) MCPWM: Requested 22000 Hz, actual 22008 Hz[0m
+[0;32mI (47043) MCPWM: Freq: 22000 Hz, period_ticks: 727[0m
+[0;32mI (47043) MCPWM: Freq: 74 Hz, period_ticks: 8856[0m
+[0;32mI (47043) MCPWM: Calc time: 111 us[0m
+[0;32mI (47043) MCPWM: Frequency on GPIO 18 updated to 22000 Hz[0m
+[0;32mI (47053) MCPWM: Frequency on GPIO 5 updated to 22000 Hz[0m
+[0;32mI (47053) MCPWM: Frequency on GPIO 7 updated to 74 Hz[0m
+[0;33mW (47263) MCPWM: Requested 22400 Hz, actual 22408 Hz[0m
+[0;32mI (47263) MCPWM: Freq: 22400 Hz, period_ticks: 714[0m
+[0;32mI (47263) MCPWM: Freq: 75 Hz, period_ticks: 8738[0m
+[0;32mI (47263) MCPWM: Calc time: 112 us[0m
+[0;32mI (47263) MCPWM: Frequency on GPIO 18 updated to 22400 Hz[0m
+[0;32mI (47273) MCPWM: Frequency on GPIO 5 updated to 22400 Hz[0m
+[0;32mI (47273) MCPWM: Frequency on GPIO 7 updated to 75 Hz[0m
+[0;32mI (47373) UART_TRANSMITTER: Sent command: {"speed":3.5,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (47483) MCPWM: Requested 22800 Hz, actual 22824 Hz[0m
+[0;32mI (47483) MCPWM: Freq: 22800 Hz, period_ticks: 701[0m
+[0;32mI (47483) MCPWM: Freq: 76 Hz, period_ticks: 8623[0m
+[0;32mI (47483) MCPWM: Calc time: 166 us[0m
+[0;32mI (47483) MCPWM: Frequency on GPIO 18 updated to 22800 Hz[0m
+[0;32mI (47493) MCPWM: Frequency on GPIO 5 updated to 22800 Hz[0m
+[0;32mI (47493) MCPWM: Frequency on GPIO 7 updated to 76 Hz[0m
+[0;33mW (47703) MCPWM: Requested 23200 Hz, actual 23222 Hz[0m
+[0;32mI (47703) MCPWM: Freq: 23200 Hz, period_ticks: 689[0m
+[0;32mI (47703) MCPWM: Freq: 77 Hz, period_ticks: 8511[0m
+[0;32mI (47703) MCPWM: Calc time: 111 us[0m
+[0;32mI (47703) MCPWM: Frequency on GPIO 18 updated to 23200 Hz[0m
+[0;32mI (47713) MCPWM: Frequency on GPIO 5 updated to 23200 Hz[0m
+[0;32mI (47713) MCPWM: Frequency on GPIO 7 updated to 77 Hz[0m
+[0;33mW (47923) MCPWM: Requested 23600 Hz, actual 23633 Hz[0m
+[0;32mI (47923) MCPWM: Freq: 23600 Hz, period_ticks: 677[0m
+[0;32mI (47923) MCPWM: Freq: 78 Hz, period_ticks: 8401[0m
+[0;32mI (47923) MCPWM: Calc time: 111 us[0m
+[0;32mI (47923) MCPWM: Frequency on GPIO 18 updated to 23600 Hz[0m
+[0;32mI (47933) MCPWM: Frequency on GPIO 5 updated to 23600 Hz[0m
+[0;32mI (47933) MCPWM: Frequency on GPIO 7 updated to 78 Hz[0m
+[0;33mW (48143) MCPWM: Requested 24000 Hz, actual 24024 Hz[0m
+[0;32mI (48143) MCPWM: Freq: 24000 Hz, period_ticks: 666[0m
+[0;32mI (48143) MCPWM: Freq: 79 Hz, period_ticks: 8295[0m
+[0;32mI (48143) MCPWM: Calc time: 111 us[0m
+[0;32mI (48143) MCPWM: Frequency on GPIO 18 updated to 24000 Hz[0m
+[0;32mI (48153) MCPWM: Frequency on GPIO 5 updated to 24000 Hz[0m
+[0;32mI (48153) MCPWM: Frequency on GPIO 7 updated to 79 Hz[0m
+[0;33mW (48363) MCPWM: Requested 24400 Hz, actual 24427 Hz[0m
+[0;32mI (48363) MCPWM: Freq: 24400 Hz, period_ticks: 655[0m
+[0;32mI (48363) MCPWM: Freq: 80 Hz, period_ticks: 8191[0m
+[0;32mI (48363) MCPWM: Calc time: 112 us[0m
+[0;32mI (48363) MCPWM: Frequency on GPIO 18 updated to 24400 Hz[0m
+[0;32mI (48373) UART_TRANSMITTER: Sent command: {"speed":3.8125,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (48383) MCPWM: Frequency on GPIO 5 updated to 24400 Hz[0m
+[0;32mI (48383) MCPWM: Frequency on GPIO 7 updated to 80 Hz[0m
+[0;33mW (48593) MCPWM: Requested 24800 Hz, actual 24806 Hz[0m
+[0;32mI (48593) MCPWM: Freq: 24800 Hz, period_ticks: 645[0m
+[0;32mI (48593) MCPWM: Freq: 81 Hz, period_ticks: 8090[0m
+[0;32mI (48593) MCPWM: Calc time: 166 us[0m
+[0;32mI (48593) MCPWM: Frequency on GPIO 18 updated to 24800 Hz[0m
+[0;32mI (48603) MCPWM: Frequency on GPIO 5 updated to 24800 Hz[0m
+[0;32mI (48603) MCPWM: Frequency on GPIO 7 updated to 81 Hz[0m
+[0;33mW (48813) MCPWM: Requested 25200 Hz, actual 25236 Hz[0m
+[0;32mI (48813) MCPWM: Freq: 25200 Hz, period_ticks: 634[0m
+[0;32mI (48813) MCPWM: Freq: 82 Hz, period_ticks: 7992[0m
+[0;32mI (48813) MCPWM: Calc time: 111 us[0m
+[0;32mI (48813) MCPWM: Frequency on GPIO 18 updated to 25200 Hz[0m
+[0;32mI (48823) MCPWM: Frequency on GPIO 5 updated to 25200 Hz[0m
+[0;32mI (48823) MCPWM: Frequency on GPIO 7 updated to 82 Hz[0m
+[0;32mI (49033) MCPWM: Freq: 25600 Hz, period_ticks: 625[0m
+[0;32mI (49033) MCPWM: Freq: 83 Hz, period_ticks: 7895[0m
+[0;32mI (49033) MCPWM: Calc time: 112 us[0m
+[0;32mI (49033) MCPWM: Frequency on GPIO 18 updated to 25600 Hz[0m
+[0;32mI (49033) MCPWM: Frequency on GPIO 5 updated to 25600 Hz[0m
+[0;32mI (49043) MCPWM: Frequency on GPIO 7 updated to 83 Hz[0m
+[0;33mW (49243) MCPWM: Requested 26000 Hz, actual 26016 Hz[0m
+[0;32mI (49243) MCPWM: Freq: 26000 Hz, period_ticks: 615[0m
+[0;32mI (49243) MCPWM: Freq: 84 Hz, period_ticks: 7801[0m
+[0;32mI (49243) MCPWM: Calc time: 111 us[0m
+[0;32mI (49243) MCPWM: Frequency on GPIO 18 updated to 26000 Hz[0m
+[0;32mI (49253) MCPWM: Frequency on GPIO 5 updated to 26000 Hz[0m
+[0;32mI (49253) MCPWM: Frequency on GPIO 7 updated to 84 Hz[0m
+[0;32mI (49383) UART_TRANSMITTER: Sent command: {"speed":4.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (49463) MCPWM: Requested 26400 Hz, actual 26402 Hz[0m
+[0;32mI (49463) MCPWM: Freq: 26400 Hz, period_ticks: 606[0m
+[0;32mI (49463) MCPWM: Freq: 85 Hz, period_ticks: 7710[0m
+[0;32mI (49463) MCPWM: Calc time: 166 us[0m
+[0;32mI (49463) MCPWM: Frequency on GPIO 18 updated to 26400 Hz[0m
+[0;32mI (49473) MCPWM: Frequency on GPIO 5 updated to 26400 Hz[0m
+[0;32mI (49473) MCPWM: Frequency on GPIO 7 updated to 85 Hz[0m
+[0;32mI (49683) MCPWM: Freq: 26800 Hz, period_ticks: 597[0m
+[0;32mI (49683) MCPWM: Freq: 86 Hz, period_ticks: 7620[0m
+[0;32mI (49683) MCPWM: Calc time: 112 us[0m
+[0;32mI (49683) MCPWM: Frequency on GPIO 18 updated to 26800 Hz[0m
+[0;32mI (49683) MCPWM: Frequency on GPIO 5 updated to 26800 Hz[0m
+[0;32mI (49693) MCPWM: Frequency on GPIO 7 updated to 86 Hz[0m
+[0;33mW (49893) MCPWM: Requested 27200 Hz, actual 27210 Hz[0m
+[0;32mI (49893) MCPWM: Freq: 27200 Hz, period_ticks: 588[0m
+[0;32mI (49893) MCPWM: Freq: 87 Hz, period_ticks: 7532[0m
+[0;32mI (49893) MCPWM: Calc time: 112 us[0m
+[0;32mI (49893) MCPWM: Frequency on GPIO 18 updated to 27200 Hz[0m
+[0;32mI (49903) MCPWM: Frequency on GPIO 5 updated to 27200 Hz[0m
+[0;32mI (49903) MCPWM: Frequency on GPIO 7 updated to 87 Hz[0m
+[0;33mW (50113) MCPWM: Requested 27600 Hz, actual 27633 Hz[0m
+[0;32mI (50113) MCPWM: Freq: 27600 Hz, period_ticks: 579[0m
+[0;32mI (50113) MCPWM: Freq: 88 Hz, period_ticks: 7447[0m
+[0;32mI (50113) MCPWM: Calc time: 112 us[0m
+[0;32mI (50113) MCPWM: Frequency on GPIO 18 updated to 27600 Hz[0m
+[0;32mI (50123) MCPWM: Frequency on GPIO 5 updated to 27600 Hz[0m
+[0;32mI (50123) MCPWM: Frequency on GPIO 7 updated to 88 Hz[0m
+[0;33mW (50333) MCPWM: Requested 28000 Hz, actual 28021 Hz[0m
+[0;32mI (50333) MCPWM: Freq: 28000 Hz, period_ticks: 571[0m
+[0;32mI (50333) MCPWM: Freq: 89 Hz, period_ticks: 7363[0m
+[0;32mI (50333) MCPWM: Calc time: 112 us[0m
+[0;32mI (50333) MCPWM: Frequency on GPIO 18 updated to 28000 Hz[0m
+[0;32mI (50343) MCPWM: Frequency on GPIO 5 updated to 28000 Hz[0m
+[0;32mI (50343) MCPWM: Frequency on GPIO 7 updated to 89 Hz[0m
+[0;32mI (50383) UART_TRANSMITTER: Sent command: {"speed":4.375,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (50553) MCPWM: Requested 28400 Hz, actual 28419 Hz[0m
+[0;32mI (50553) MCPWM: Freq: 28400 Hz, period_ticks: 563[0m
+[0;32mI (50553) MCPWM: Freq: 90 Hz, period_ticks: 7281[0m
+[0;32mI (50553) MCPWM: Calc time: 165 us[0m
+[0;32mI (50553) MCPWM: Frequency on GPIO 18 updated to 28400 Hz[0m
+[0;32mI (50563) MCPWM: Frequency on GPIO 5 updated to 28400 Hz[0m
+[0;32mI (50563) MCPWM: Frequency on GPIO 7 updated to 90 Hz[0m
+[0;33mW (50773) MCPWM: Requested 28800 Hz, actual 28828 Hz[0m
+[0;32mI (50773) MCPWM: Freq: 28800 Hz, period_ticks: 555[0m
+[0;32mI (50773) MCPWM: Freq: 91 Hz, period_ticks: 7201[0m
+[0;32mI (50773) MCPWM: Calc time: 112 us[0m
+[0;32mI (50773) MCPWM: Frequency on GPIO 18 updated to 28800 Hz[0m
+[0;32mI (50783) MCPWM: Frequency on GPIO 5 updated to 28800 Hz[0m
+[0;32mI (50783) MCPWM: Frequency on GPIO 7 updated to 91 Hz[0m
+[0;33mW (50993) MCPWM: Requested 29200 Hz, actual 29250 Hz[0m
+[0;32mI (50993) MCPWM: Freq: 29200 Hz, period_ticks: 547[0m
+[0;32mI (50993) MCPWM: Freq: 92 Hz, period_ticks: 7123[0m
+[0;32mI (50993) MCPWM: Calc time: 112 us[0m
+[0;32mI (50993) MCPWM: Frequency on GPIO 18 updated to 29200 Hz[0m
+[0;32mI (51003) MCPWM: Frequency on GPIO 5 updated to 29200 Hz[0m
+[0;32mI (51003) MCPWM: Frequency on GPIO 7 updated to 92 Hz[0m
+[0;33mW (51213) MCPWM: Requested 29600 Hz, actual 29629 Hz[0m
+[0;32mI (51213) MCPWM: Freq: 29600 Hz, period_ticks: 540[0m
+[0;32mI (51213) MCPWM: Freq: 93 Hz, period_ticks: 7046[0m
+[0;32mI (51213) MCPWM: Calc time: 112 us[0m
+[0;32mI (51213) MCPWM: Frequency on GPIO 18 updated to 29600 Hz[0m
+[0;32mI (51223) MCPWM: Frequency on GPIO 5 updated to 29600 Hz[0m
+[0;32mI (51223) MCPWM: Frequency on GPIO 7 updated to 93 Hz[0m
+[0;32mI (51383) UART_TRANSMITTER: Sent command: {"speed":4.625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (51433) MCPWM: Requested 30000 Hz, actual 30018 Hz[0m
+[0;32mI (51433) MCPWM: Freq: 30000 Hz, period_ticks: 533[0m
+[0;32mI (51433) MCPWM: Freq: 94 Hz, period_ticks: 6971[0m
+[0;32mI (51433) MCPWM: Calc time: 166 us[0m
+[0;32mI (51433) MCPWM: Frequency on GPIO 18 updated to 30000 Hz[0m
+[0;32mI (51443) MCPWM: Frequency on GPIO 5 updated to 30000 Hz[0m
+[0;32mI (51443) MCPWM: Frequency on GPIO 7 updated to 94 Hz[0m
+[0;33mW (51653) MCPWM: Requested 30400 Hz, actual 30418 Hz[0m
+[0;32mI (51653) MCPWM: Freq: 30400 Hz, period_ticks: 526[0m
+[0;32mI (51653) MCPWM: Freq: 95 Hz, period_ticks: 6898[0m
+[0;32mI (51653) MCPWM: Calc time: 111 us[0m
+[0;32mI (51653) MCPWM: Frequency on GPIO 18 updated to 30400 Hz[0m
+[0;32mI (51663) MCPWM: Frequency on GPIO 5 updated to 30400 Hz[0m
+[0;32mI (51663) MCPWM: Frequency on GPIO 7 updated to 95 Hz[0m
+[0;33mW (51873) MCPWM: Requested 30800 Hz, actual 30828 Hz[0m
+[0;32mI (51873) MCPWM: Freq: 30800 Hz, period_ticks: 519[0m
+[0;32mI (51873) MCPWM: Freq: 96 Hz, period_ticks: 6826[0m
+[0;32mI (51873) MCPWM: Calc time: 111 us[0m
+[0;32mI (51873) MCPWM: Frequency on GPIO 18 updated to 30800 Hz[0m
+[0;32mI (51883) MCPWM: Frequency on GPIO 5 updated to 30800 Hz[0m
+[0;32mI (51883) MCPWM: Frequency on GPIO 7 updated to 96 Hz[0m
+[0;33mW (52093) MCPWM: Requested 31200 Hz, actual 31250 Hz[0m
+[0;32mI (52093) MCPWM: Freq: 31200 Hz, period_ticks: 512[0m
+[0;32mI (52093) MCPWM: Freq: 97 Hz, period_ticks: 6756[0m
+[0;32mI (52093) MCPWM: Calc time: 112 us[0m
+[0;32mI (52093) MCPWM: Frequency on GPIO 18 updated to 31200 Hz[0m
+[0;32mI (52103) MCPWM: Frequency on GPIO 5 updated to 31200 Hz[0m
+[0;32mI (52103) MCPWM: Frequency on GPIO 7 updated to 97 Hz[0m
+[0;33mW (52313) MCPWM: Requested 31600 Hz, actual 31620 Hz[0m
+[0;32mI (52313) MCPWM: Freq: 31600 Hz, period_ticks: 506[0m
+[0;32mI (52313) MCPWM: Freq: 98 Hz, period_ticks: 6687[0m
+[0;32mI (52313) MCPWM: Calc time: 112 us[0m
+[0;32mI (52313) MCPWM: Frequency on GPIO 18 updated to 31600 Hz[0m
+[0;32mI (52323) MCPWM: Frequency on GPIO 5 updated to 31600 Hz[0m
+[0;32mI (52323) MCPWM: Frequency on GPIO 7 updated to 98 Hz[0m
+[0;32mI (52383) UART_TRANSMITTER: Sent command: {"speed":4.9375,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (52533) MCPWM: Freq: 32000 Hz, period_ticks: 500[0m
+[0;32mI (52533) MCPWM: Freq: 99 Hz, period_ticks: 6619[0m
+[0;32mI (52533) MCPWM: Calc time: 166 us[0m
+[0;32mI (52533) MCPWM: Frequency on GPIO 18 updated to 32000 Hz[0m
+[0;32mI (52533) MCPWM: Frequency on GPIO 5 updated to 32000 Hz[0m
+[0;32mI (52543) MCPWM: Frequency on GPIO 7 updated to 99 Hz[0m
+[0;32mI (52743) MCPWM: Max frequency reached. Waiting for stop signal[0m
+[0;32mI (53383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (54383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (55383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (56383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (57383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (58383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (59383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (60383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (61383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (62383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (63383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (64383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (65383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (66383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (67383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (68383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (69383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (70383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (71383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (72383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (73383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (74383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (75383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (76383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (77383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (78383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (79383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (80383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (81383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (82383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (83383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (84383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (85383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (86383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (87383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (88383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (89383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (90383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (91383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (92383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (93383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (94383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (95383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (96383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (97383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (98383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (99383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (100383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (101383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (102383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (103383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (104383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (105383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (106383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (107383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (108383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (109383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (110383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (111383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (112383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (113383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (114383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (115383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (116383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (117383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (118383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (119383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (120383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (121383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (122383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (123383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (124383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (125383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (126383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (127383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (128383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (129383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (130383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (131383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (132383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (133383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (134383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (135383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (136383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (137383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (138383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (139383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (140383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (141383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (142383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (143383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (144383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (145383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (146383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (147383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (148383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (149383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (150383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (151383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (152383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (153383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (154383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (155383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (156383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (157383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (158383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (159383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (160383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (161383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (162383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (163383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (164383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (165383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (166383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (167383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (168383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (169383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (170383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (171383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (172383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (173383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (174383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (175383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (176383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (177383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (178383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (179383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (180383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (181383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (182383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (183383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (184383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (185383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (186383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (187383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (188383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (189383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (190383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (191383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (192383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (193383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (194383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (195383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (196383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (197383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (198383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (199383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (200383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (201383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (202383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (203383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (204383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (205383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (206383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (207383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (208383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (209383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (210383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (211383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (212383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (213383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (214383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (215383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (216383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (217383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (218383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (219383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (220383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (221383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (222383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (223383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (224383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (225383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (226383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (227383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (228383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (229383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (230383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (231383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (232383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (233383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (234383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (235383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (236383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (237383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (238383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (239383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (240383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (241383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (242383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (243383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (244383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (245383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (246383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (247383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (248383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (249383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (250383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (251383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (252383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (253383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (254383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (255383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (256383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (257383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (258383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (259383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (260383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (261383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (262383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (263383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (264383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (265383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (266383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (267383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (268383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (269383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (270383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (271383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (272383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (273383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (274383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (275383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (276383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (277383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (278383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (279383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (280383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (281383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (282383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (283383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (284383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (285383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":2,"total_cable_length":2,"time":3600}[0m
+[0;32mI (286383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":37,"total_cable_length":37,"time":3600}[0m
+[0;32mI (287383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":153,"total_cable_length":153,"time":3600}[0m
+[0;32mI (288383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (289383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (290383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (291383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (292383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (293383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (294383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (295383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (296383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (297383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (298383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (299383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (300383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (301383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (302383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (303383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (304383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (305383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (306383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (307383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (308383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (309383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (310383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (311383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (312383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (313383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (314383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (315383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (316383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (317383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (318383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (319383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (320383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (321383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (322383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (323383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (324383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (325383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (326383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (327383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (328383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (329383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (330383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (331383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (332383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (333383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (334383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (335383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (336383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (337383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (338383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (339383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (340383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (341383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (342383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (343383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (344383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (345383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (346383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (347383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (348383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (349383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (350383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (351383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (352383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (353383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (354383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (355383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (356383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (357383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (358383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (359383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (360383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (361383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (362383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (363383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (364383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (365383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (366383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (367383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (368383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (369383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (370383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (371383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (371683) MCPWM: Received data: ESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037944
+[1;31mE (371693) MCPWM: Failed to parse JSON: ESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037944
+[0;32mI (371703) UART_TRANSMITTER: Received: ESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037944
+[0;32mI (371733) MCPWM: Received data: a[0m
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+lo
+[1;31mE (371733) MCPWM: Failed to parse JSON: a[0m
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+lo
+[0;32mI (371743) UART_TRANSMITTER: Received: a[0m
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+lo
+[0;32mI (371773) MCPWM: Received data: ad:0x403cb700,len:0x2ee4[0m
+entry 0x403c8928
+[0;32mI (31) boot: ESP-IDF v5.4 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Ma[0m
+[1;31mE (371773) MCPWM: Failed to parse JSON: ad:0x403cb700,len:0x2ee4[0m
+entry 0x403c8928
+[0;32mI (31) boot: ESP-IDF v5.4 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Ma[0m
+[0;32mI (371793) UART_TRANSMITTER: Received: ad:0x403cb700,len:0x2ee4[0m
+entry 0x403c8928
+[0;32mI (31) boot: ESP-IDF v5.4 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Ma[0m
+[0;32mI (371813) MCPWM: Received data: r  4 2025 14:11:09[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v0.2[0m
+[0;32mI (34) boot: efuse block revisi[0m
+[1;31mE (371813) MCPWM: Failed to parse JSON: r  4 2025 14:11:09[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v0.2[0m
+[0;32mI (34) boot: efuse block revisi[0m
+[0;32mI (371833) UART_TRANSMITTER: Received: r  4 2025 14:11:09[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v0.2[0m
+[0;32mI (34) boot: efuse block revisi[0m
+[0;32mI (371853) MCPWM: Received data: on: v1.3[0m
+[0;32mI (38) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (42) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (45) boot.esp32s3: S[0m
+[1;31mE (371863) MCPWM: Failed to parse JSON: on: v1.3[0m
+[0;32mI (38) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (42) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (45) boot.esp32s3: S[0m
+[0;32mI (371873) UART_TRANSMITTER: Received: on: v1.3[0m
+[0;32mI (38) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (42) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (45) boot.esp32s3: S[0m
+[0;32mI (371903) MCPWM: Received data: PI Flash Size : 8MB[0m
+[0;32mI (49) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (56) boot: ## L[0m
+[1;31mE (371903) MCPWM: Failed to parse JSON: PI Flash Size : 8MB[0m
+[0;32mI (49) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (56) boot: ## L[0m
+[0;32mI (371913) UART_TRANSMITTER: Received: PI Flash Size : 8MB[0m
+[0;32mI (49) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (56) boot: ## L[0m
+[0;32mI (371943) MCPWM: Received data: abel            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000[0m
+[1;31mE (371943) MCPWM: Failed to parse JSON: abel            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000[0m
+[0;32mI (371963) UART_TRANSMITTER: Received: abel            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000[0m
+[0;32mI (371983) MCPWM: Received data:  00006000[0m
+[0;32mI (69) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (75) boot:  2 factory          f[0m
+[0;32mI (371983) UART_TRANSMITTER: Received:  00006000[0m
+[0;32mI (69) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (75) boot:  2 factory          f[0m
+[0;32mI (372013) MCPWM: Received data: actory app      00 00 00010000 00100000[0m
+[0;32mI (82) boot: End of partition table[0m
+[0;32mI (85) esp_image: segment 0: paddr=0001002[0m
+[1;31mE (372013) MCPWM: Failed to parse JSON: actory app      00 00 00010000 00100000[0m
+[0;32mI (82) boot: End of partition table[0m
+[0;32mI (85) esp_image: segment 0: paddr=0001002[0m
+[0;32mI (372023) UART_TRANSMITTER: Received: actory app      00 00 00010000 00100000[0m
+[0;32mI (82) boot: End of partition table[0m
+[0;32mI (85) esp_image: segment 0: paddr=0001002[0m
+[0;32mI (372053) MCPWM: Received data: 0 vaddr=3c060020 size=14bd0h ( 84944) map[0m
+
+[0;32mI (372053) UART_TRANSMITTER: Received: 0 vaddr=3c060020 size=14bd0h ( 84944) map[0m
+
+[0;32mI (372063) MCPWM: Received data: I (108) esp_image: segment 1: paddr=00024bf8 vaddr=3fc95f00 size=034f4h ( 13556) load[0m
+[0;32mI (111) esp_image: segment 2: pad[0m
+[1;31mE (372073) MCPWM: Failed to parse JSON: I (108) esp_image: segment 1: paddr=00024bf8 vaddr=3fc95f00 size=034f4h ( 13556) load[0m
+[0;32mI (111) esp_image: segment 2: pad[0m
+[0;32mI (372083) UART_TRANSMITTER: Received: I (108) esp_image: segment 1: paddr=00024bf8 vaddr=3fc95f00 size=034f4h ( 13556) load[0m
+[0;32mI (111) esp_image: segment 2: pad[0m
+[0;32mI (372113) MCPWM: Received data: dr=000280f4 vaddr=40374000 size=07f24h ( 32548) load[0m
+[0;32mI (119) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=5[0m
+[1;31mE (372113) MCPWM: Failed to parse JSON: dr=000280f4 vaddr=40374000 size=07f24h ( 32548) load[0m
+[0;32mI (119) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=5[0m
+[0;32mI (372123) UART_TRANSMITTER: Received: dr=000280f4 vaddr=40374000 size=07f24h ( 32548) load[0m
+[0;32mI (119) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=5[0m
+[0;32mI (372153) MCPWM: Received data: c6b4h (378548) map[0m
+
+[1;31mE (372153) MCPWM: Failed to parse JSON: c6b4h (378548) map[0m
+
+[0;32mI (372153) UART_TRANSMITTER: Received: c6b4h (378548) map[0m
+
+[0;32mI (372163) MCPWM: Received data: I (186) esp_image: segment 4: paddr=0008c6dc vaddr=4037bf24 size=09fa0h ( 40864) load[0m
+
+[1;31mE (372163) MCPWM: Failed to parse JSON: I (186) esp_image: segment 4: paddr=0008c6dc vaddr=4037bf24 size=09fa0h ( 40864) load[0m
+
+[0;32mI (372173) UART_TRANSMITTER: Received: I (186) esp_image: segment 4: paddr=0008c6dc vaddr=4037bf24 size=09fa0h ( 40864) load[0m
+
+[0;32mI (372203) MCPWM: Received data: I (195) esp_image: segment 5: paddr=00096684 vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (203) boot: Loaded app from par[0m
+[1;31mE (372203) MCPWM: Failed to parse JSON: I (195) esp_image: segment 5: paddr=00096684 vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (203) boot: Loaded app from par[0m
+[0;32mI (372213) UART_TRANSMITTER: Received: I (195) esp_image: segment 5: paddr=00096684 vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (203) boot: Loaded app from par[0m
+[0;32mI (372333) MCPWM: Received data: tition at offset 0x10000[0m
+[0;32mI (203) boot: Disabling RNG early entropy source...[0m
+[0;32mI (213) octal_psram: vendor id 
+[1;31mE (372333) MCPWM: Failed to parse JSON: tition at offset 0x10000[0m
+[0;32mI (203) boot: Disabling RNG early entropy source...[0m
+[0;32mI (213) octal_psram: vendor id 
+[0;32mI (372343) UART_TRANSMITTER: Received: tition at offset 0x10000[0m
+[0;32mI (203) boot: Disabling RNG early entropy source...[0m
+[0;32mI (213) octal_psram: vendor id 
+[0;32mI (372383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (372403) MCPWM: Received data:    : 0x0d (AP)[0m[0m
+[0;32mI (213) octal_psram: dev id 
+[1;31mE (372403) MCPWM: Failed to parse JSON: : 0x0d (AP)[0m[0m
+[0;32mI (213) octal_psram: dev id 
+[0;32mI (372413) UART_TRANSMITTER: Received:    : 0x0d (AP)[0m[0m
+[0;32mI (213) octal_psram: dev id 
+[0;32mI (372433) MCPWM: Received data:       : 0x02 (generation 3)[0m[0m
+[0;32mI (214) octal_psram: density01 (32 Byte)[0m
+[0;32mI (251) octal_psram: Readla
+[1;31mE (372433) MCPWM: Failed to parse JSON: : 0x02 (generation 3)[0m[0m
+[0;32mI (214) octal_psram: density01 (32 Byte)[0m
+[0;32mI (251) octal_psram: Readla
+[0;32mI (372443) UART_TRANSMITTER: Received:       : 0x02 (generation 3)[0m[0m
+[0;32mI (214) octal_psram: density01 (32 Byte)[0m
+[0;32mI (251) octal_psram: Readla
+[0;32mI (372473) MCPWM: Received data: tency  : 0x02 (10 cycles@Fixed)[0m[0m
+[0;32mI (257) octal_psram: Dri0m
+[0;32mI (330) mmu_psram: Instructions copied an
+[1;31mE (372473) MCPWM: Failed to parse JSON: tency  : 0x02 (10 cycles@Fixed)[0m[0m
+[0;32mI (257) octal_psram: Dri0m
+[0;32mI (330) mmu_psram: Instructions copied an
+[0;32mI (372493) UART_TRANSMITTER: Received: tency  : 0x02 (10 cycles@Fixed)[0m[0m
+[0;32mI (257) octal_psram: Dri0m
+[0;32mI (330) mmu_psram: Instructions copied an
+[0;32mI (372513) MCPWM: Received data: d mapped to SPIRAM[0m[0m
+[0;32mI (330) cpu_start: Multicore app[0m
+[0;32mI (730) esp_psram: SPI SRAM memory test OK[
+[1;31mE (372513) MCPWM: Failed to parse JSON: d mapped to SPIRAM[0m[0m
+[0;32mI (330) cpu_start: Multicore app[0m
+[0;32mI (730) esp_psram: SPI SRAM memory test OK[
+[0;32mI (372533) UART_TRANSMITTER: Received: d mapped to SPIRAM[0m[0m
+[0;32mI (330) cpu_start: Multicore app[0m
+[0;32mI (730) esp_psram: SPI SRAM memory test OK[
+[0;32mI (372553) MCPWM: Received data: 0m[0m
+[0;32mI (738) cpu_start: Pro cpu start user code[0m
+[0;32mI (739) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32m
+[0;32mI (372563) UART_TRANSMITTER: Received: 0m[0m
+[0;32mI (738) cpu_start: Pro cpu start user code[0m
+[0;32mI (739) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32m
+[0;32mI (372583) MCPWM: Received data: I (739) app_init: Application information:[0m[0m
+[0;32mI (741) app_init: Project name:     MotorController_UI[0m
+[0;3
+[1;31mE (372583) MCPWM: Failed to parse JSON: I (739) app_init: Application information:[0m[0m
+[0;32mI (741) app_init: Project name:     MotorController_UI[0m
+[0;3
+[0;32mI (372603) UART_TRANSMITTER: Received: I (739) app_init: Application information:[0m[0m
+[0;32mI (741) app_init: Project name:     MotorController_UI[0m
+[0;3
+[0;32mI (372623) MCPWM: Received data: 2mI (747) app_init: App version:      7e09904-dirty[0m[0m
+[0;32mI (753) app_init: Compile time:     Apr  4 2025 13:40:53
+[0;32mI (372633) UART_TRANSMITTER: Received: 2mI (747) app_init: App version:      7e09904-dirty[0m[0m
+[0;32mI (753) app_init: Compile time:     Apr  4 2025 13:40:53
+[0;32mI (372653) MCPWM: Received data: [0m[0m
+[0;32mI (759) app_init: ELF file SHA256:  413feb3f6...[0m
+[0;32mI (764) app_init: ESP-IDF:          v5.4[0m
+
+[1;31mE (372653) MCPWM: Failed to parse JSON: m[0m
+[0;32mI (759) app_init: ELF file SHA256:  413feb3f6...[0m
+[0;32mI (764) app_init: ESP-IDF:          v5.4[0m
+
+[0;32mI (372673) UART_TRANSMITTER: Received: [0m[0m
+[0;32mI (759) app_init: ELF file SHA256:  413feb3f6...[0m
+[0;32mI (764) app_init: ESP-IDF:          v5.4[0m
+
+[0;32mI (372773) MCPWM: Received data: [[0m
+[1;31mE (372773) MCPWM: Failed to parse JSON: [0m
+[0;32mI (372773) UART_TRANSMITTER: Received: [[0m
+[0;32mI (372803) MCPWM: Received data: 0;32mI (769) efuse_init: Min chi[0m
+[0;32mI (372803) UART_TRANSMITTER: Received: 0;32mI (769) efuse_init: Min chi[0m
+[0;32mI (373383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (374383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (375383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (376383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (377383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (378383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (379383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (380383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (381383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (382383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (383383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (384383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (385383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (386383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (387383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (388383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (389383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (390383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (391383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (392383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (393383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (394383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (395383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (396383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (397383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (398383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (399383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (400383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (401383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (402383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (403383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (404383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (405383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (406383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (407383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (408383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (409383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (410383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (411383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (412383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (413383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (414383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (415383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (416383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (417383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (418383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (419383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (420383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (421383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (422383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (423383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (424383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (425383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (426383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (427383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (428383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (429383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (430383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (431383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (432383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (433383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (434383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (435383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (436383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (437383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (438383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (439383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (440383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (441383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (442383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (443383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (444383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (445383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (446383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (447383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (448383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (449383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (450383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (451383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (452383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (453383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (454383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (455383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (456383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (457383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (458383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (459383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (460383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (461383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (462383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (463383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (464383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (465383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (466383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (467383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (468383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (469383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (470383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (471383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (472383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (473383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (474383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (475383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (476383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (477383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (478383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (479383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (480383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (481383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (482383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (483383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (484383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (485383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (486383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (487383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (488383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (489383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (490383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (491383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (492383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (493383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (494383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (495383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (496383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (497383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (498383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (499383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (500383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (501383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (502383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (503383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (504383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (505383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (506383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (507383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (508383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (509383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (510383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (511383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (512383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (513383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (514383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (515383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (516383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (517383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (518383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (519383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (520383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (521383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (522383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (523383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (524383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (525383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (526383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (527383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (528383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (529383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (530383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (531383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (532383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (533383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (534383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (535383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (536383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (537383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (538383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (539383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (540383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (541383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (542383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (543383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (544383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (545383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (546383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (547383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (548383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (549383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (550383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (551383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (552383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (553383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (554383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (555383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (556383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (557383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (558383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (559383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (560383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (561383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (562383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (563383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (564383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (565383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (566383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (567383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (568383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (569383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (570383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (571383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (572383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (573383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (574383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (575383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (576383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (577383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (578383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (579383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (580383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (581383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (582383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (583383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (584383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (585383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (586383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (587383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (588383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (589383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (590383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (591383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (592383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (593383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (594383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (595383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (596383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (597383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (598383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (599383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (600383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (601383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (602383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (603383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (604383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (605383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (606383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (607383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (608383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (609383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m
+[0;32mI (610383) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":161,"total_cable_length":161,"time":3600}[0m

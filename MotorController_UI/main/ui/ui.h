@@ -75,6 +75,15 @@ extern lv_obj_t * reset_info_panel_button_label;
 extern lv_obj_t * grinding_mode_checkbox;
 extern lv_obj_t * conical_winding_checkbox;
 
+void start_button_clicked(lv_event_t * e);
+void stop_button_clicked(lv_event_t * e);
+void accelerate_button_clicked(lv_event_t * e);
+void decelerate_button_clicked(lv_event_t * e);
+void immediate_stop_button_clicked(lv_event_t * e);
+void home_point_button_clicked(lv_event_t * e);
+
+char* gen_json_startup_config();
+
 // EVENTS
 
 extern lv_obj_t * ui____initial_actions0;

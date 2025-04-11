@@ -836,6 +836,13 @@
 /home/tsystem/esp/MotorController_UI/MotorController_UI/build/esp-idf/wifi_provisioning/CMakeFiles/install.dir
 /home/tsystem/esp/MotorController_UI/MotorController_UI/build/esp-idf/wifi_provisioning/CMakeFiles/install/local.dir
 /home/tsystem/esp/MotorController_UI/MotorController_UI/build/esp-idf/wifi_provisioning/CMakeFiles/install/strip.dir
+/home/tsystem/esp/MotorController_UI/MotorController_UI/build/esp-idf/uart_manager/CMakeFiles/__idf_uart_manager.dir
+/home/tsystem/esp/MotorController_UI/MotorController_UI/build/esp-idf/uart_manager/CMakeFiles/edit_cache.dir
+/home/tsystem/esp/MotorController_UI/MotorController_UI/build/esp-idf/uart_manager/CMakeFiles/rebuild_cache.dir
+/home/tsystem/esp/MotorController_UI/MotorController_UI/build/esp-idf/uart_manager/CMakeFiles/list_install_components.dir
+/home/tsystem/esp/MotorController_UI/MotorController_UI/build/esp-idf/uart_manager/CMakeFiles/install.dir
+/home/tsystem/esp/MotorController_UI/MotorController_UI/build/esp-idf/uart_manager/CMakeFiles/install/local.dir
+/home/tsystem/esp/MotorController_UI/MotorController_UI/build/esp-idf/uart_manager/CMakeFiles/install/strip.dir
 /home/tsystem/esp/MotorController_UI/MotorController_UI/build/esp-idf/espressif__esp_lcd_touch/CMakeFiles/__idf_espressif__esp_lcd_touch.dir
 /home/tsystem/esp/MotorController_UI/MotorController_UI/build/esp-idf/espressif__esp_lcd_touch/CMakeFiles/edit_cache.dir
 /home/tsystem/esp/MotorController_UI/MotorController_UI/build/esp-idf/espressif__esp_lcd_touch/CMakeFiles/rebuild_cache.dir

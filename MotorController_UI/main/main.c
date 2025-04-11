@@ -12,6 +12,7 @@
 #include "esp_log.h"
 #include "lvgl.h"
 #include "driver/uart.h"
+#include "uart_manager.h"
 
 // Driver
 #include "driver/i2c.h"
@@ -32,28 +33,28 @@
 static const char *INFO_TAG = "INFO";
 
 // Ініціалізація UART
-static void uart_init(void) {
-    ESP_LOGI(TAG, "Initializing UART on GPIO %d (TX) and %d (RX)...", UART_TX_PIN, UART_RX_PIN);
-    uart_config_t uart_config = {
-        .baud_rate = UART_BAUD_RATE,
-        .data_bits = UART_DATA_8_BITS,
-        .parity = UART_PARITY_DISABLE,
-        .stop_bits = UART_STOP_BITS_1,
-        .flow_ctrl = UART_HW_FLOWCTRL_DISABLE,
-        .source_clk = UART_SCLK_DEFAULT,
-    };
-    ESP_ERROR_CHECK(uart_param_config(UART_NUM, &uart_config));
-    ESP_ERROR_CHECK(uart_set_pin(UART_NUM, UART_TX_PIN, UART_RX_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
-    ESP_ERROR_CHECK(uart_driver_install(UART_NUM, UART_BUFFER_SIZE, UART_BUFFER_SIZE, 0, NULL, 0));
-    ESP_LOGI(TAG, "UART initialized successfully");
-}
+// static void uart_init(void) {
+//     ESP_LOGI(TAG, "Initializing UART on GPIO %d (TX) and %d (RX)...", UART_TX_PIN, UART_RX_PIN);
+//     uart_config_t uart_config = {
+//         .baud_rate = UART_BAUD_RATE,
+//         .data_bits = UART_DATA_8_BITS,
+//         .parity = UART_PARITY_DISABLE,
+//         .stop_bits = UART_STOP_BITS_1,
+//         .flow_ctrl = UART_HW_FLOWCTRL_DISABLE,
+//         .source_clk = UART_SCLK_DEFAULT,
+//     };
+//     ESP_ERROR_CHECK(uart_param_config(UART_NUM, &uart_config));
+//     ESP_ERROR_CHECK(uart_set_pin(UART_NUM, UART_TX_PIN, UART_RX_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
+//     ESP_ERROR_CHECK(uart_driver_install(UART_NUM, UART_BUFFER_SIZE, UART_BUFFER_SIZE, 0, NULL, 0));
+//     ESP_LOGI(TAG, "UART initialized successfully");
+// }
 
-// Відправка команди через UART
-static void send_command(const char *command) {
-    uart_write_bytes(UART_NUM, command, strlen(command));
-    uart_write_bytes(UART_NUM, "\n", 1);  // Додаємо новий рядок як роздільник
-    ESP_LOGI(TAG, "Sent command: %s", command);
-}
+// // Відправка команди через UART
+// static void send_command(const char *command) {
+//     uart_write_bytes(UART_NUM, command, strlen(command));
+//     uart_write_bytes(UART_NUM, "\n", 1);  // Додаємо новий рядок як роздільник
+//     ESP_LOGI(TAG, "Sent command: %s", command);
+// }
 
 // Задача для прийому повідомлень через UART
 static void uart_rx_task(void *arg) {
@@ -83,28 +84,28 @@ static void uart_rx_task(void *arg) {
 // Функції для обробки подій LVGL
 void StartMotors(lv_event_t *e) {
     ESP_LOGI(INFO_TAG, "Starting Motors...");
-    send_command("Start");
+    uart_send_command("Start");
 }
 
 void StopMotors(lv_event_t *e) {
     ESP_LOGI(INFO_TAG, "Decelerating Motors...");
-    send_command("Stop");
+    uart_send_command("Stop");
 }
 
 void ImmediateStop(lv_event_t *e) {
     ESP_LOGI(INFO_TAG, "Immediate Stop Motors...");
-    send_command("ImmediateStop");
+    uart_send_command("ImmediateStop");
 }
 
 // Головна функція
 void app_main(void) {
     ESP_LOGI(TAG, "Starting app_main...");
-    uart_init();
+    //uart_init();
     ESP_LOGI(TAG, "Calling display...");
     display();
 
     // Створюємо задачу для прийому повідомлень
     ESP_LOGI(TAG, "Creating uart_rx_task...");
-    xTaskCreate(uart_rx_task, "uart_rx_task", 4096, NULL, 10, NULL);
+    //xTaskCreate(uart_rx_task, "uart_rx_task", 4096, NULL, 10, NULL);
     ESP_LOGI(TAG, "app_main completed");
 }

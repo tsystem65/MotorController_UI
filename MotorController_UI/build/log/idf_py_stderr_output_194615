@@ -1,0 +1,1120 @@
+[0;33m--- esp-idf-monitor 1.5.0 on /dev/ttyACM0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[0;33m--- 0x420113c2: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:261 (discriminator 1)
+0x420117d8: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:362
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x4037d34e: prvTaskEnterCriticalSafeSMPOnly at /home/tsystem/esp/esp-idf/components/freertos/esp_additions/include/esp_private/freertos_idf_additions_priv.h:66
+ (inlined by) prvNotifyQueueSetContainer at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:3366
+0x4200cafc: stop_button_clicked at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:237
+0x4202b8bf: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:695
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x420113c2: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:261 (discriminator 1)
+0x420117d8: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:362
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x4037d34e: prvTaskEnterCriticalSafeSMPOnly at /home/tsystem/esp/esp-idf/components/freertos/esp_additions/include/esp_private/freertos_idf_additions_priv.h:66
+ (inlined by) prvNotifyQueueSetContainer at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:3366
+0x4200cb1f: decelerate_button_clicked at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:252
+0x4202b8bf: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:695
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x420113c2: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:261 (discriminator 1)
+0x420117d8: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:362
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x400559dd: _xtos_set_intlevel in ROM
+0x4037ba9a: esp_psram_impl_enable at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:320 (discriminator 1)
+0x403784fe: spi_flash_enable_interrupts_caches_and_other_cpu at /home/tsystem/esp/esp-idf/components/spi_flash/cache_utils.c:233 (discriminator 1)
+0x40378525: spi_flash_enable_interrupts_caches_and_other_cpu at /home/tsystem/esp/esp-idf/components/spi_flash/cache_utils.c:236
+0x4037d34e: prvTaskEnterCriticalSafeSMPOnly at /home/tsystem/esp/esp-idf/components/freertos/esp_additions/include/esp_private/freertos_idf_additions_priv.h:66
+ (inlined by) prvNotifyQueueSetContainer at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:3366
+0x4200cb1f: decelerate_button_clicked at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:252
+0x4202b8bf: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:695
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x420113c2: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:261 (discriminator 1)
+0x420117d8: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:362
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x4037d34e: prvTaskEnterCriticalSafeSMPOnly at /home/tsystem/esp/esp-idf/components/freertos/esp_additions/include/esp_private/freertos_idf_additions_priv.h:66
+ (inlined by) prvNotifyQueueSetContainer at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:3366
+0x4200cb1f: decelerate_button_clicked at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:252
+0x4202b8bf: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:695
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x420113c2: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:261 (discriminator 1)
+0x420117d8: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:362
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x400559dd: _xtos_set_intlevel in ROM
+0x4037ba9a: esp_psram_impl_enable at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:320 (discriminator 1)
+0x403784fe: spi_flash_enable_interrupts_caches_and_other_cpu at /home/tsystem/esp/esp-idf/components/spi_flash/cache_utils.c:233 (discriminator 1)
+0x40378525: spi_flash_enable_interrupts_caches_and_other_cpu at /home/tsystem/esp/esp-idf/components/spi_flash/cache_utils.c:236
+0x4037d34e: prvTaskEnterCriticalSafeSMPOnly at /home/tsystem/esp/esp-idf/components/freertos/esp_additions/include/esp_private/freertos_idf_additions_priv.h:66
+ (inlined by) prvNotifyQueueSetContainer at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:3366
+0x4200cb1f: decelerate_button_clicked at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:252
+0x4202b8bf: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:695
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x420113c2: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:261 (discriminator 1)
+0x420117d8: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:362
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x4037d34e: prvTaskEnterCriticalSafeSMPOnly at /home/tsystem/esp/esp-idf/components/freertos/esp_additions/include/esp_private/freertos_idf_additions_priv.h:66
+ (inlined by) prvNotifyQueueSetContainer at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:3366
+0x4200cb1f: decelerate_button_clicked at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:252
+0x4202b8bf: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:695
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x420113c2: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:261 (discriminator 1)
+0x420117d8: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:362
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x400559dd: _xtos_set_intlevel in ROM
+0x4037ba9a: esp_psram_impl_enable at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:320 (discriminator 1)
+0x403784fe: spi_flash_enable_interrupts_caches_and_other_cpu at /home/tsystem/esp/esp-idf/components/spi_flash/cache_utils.c:233 (discriminator 1)
+0x40378525: spi_flash_enable_interrupts_caches_and_other_cpu at /home/tsystem/esp/esp-idf/components/spi_flash/cache_utils.c:236
+0x4037d34e: prvTaskEnterCriticalSafeSMPOnly at /home/tsystem/esp/esp-idf/components/freertos/esp_additions/include/esp_private/freertos_idf_additions_priv.h:66
+ (inlined by) prvNotifyQueueSetContainer at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:3366
+0x4200cb1f: decelerate_button_clicked at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:252
+0x4202b8bf: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:695
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x420113c2: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:261 (discriminator 1)
+0x420117d8: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:362
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x4037d34e: prvTaskEnterCriticalSafeSMPOnly at /home/tsystem/esp/esp-idf/components/freertos/esp_additions/include/esp_private/freertos_idf_additions_priv.h:66
+ (inlined by) prvNotifyQueueSetContainer at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:3366
+0x4200cb1f: decelerate_button_clicked at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:252
+0x4202b8bf: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:695
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x420113c2: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:261 (discriminator 1)
+0x420117d8: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:362
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x400559dd: _xtos_set_intlevel in ROM
+0x4037ba9a: esp_psram_impl_enable at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:320 (discriminator 1)
+0x403784fe: spi_flash_enable_interrupts_caches_and_other_cpu at /home/tsystem/esp/esp-idf/components/spi_flash/cache_utils.c:233 (discriminator 1)
+0x40378525: spi_flash_enable_interrupts_caches_and_other_cpu at /home/tsystem/esp/esp-idf/components/spi_flash/cache_utils.c:236
+0x4037d34e: prvTaskEnterCriticalSafeSMPOnly at /home/tsystem/esp/esp-idf/components/freertos/esp_additions/include/esp_private/freertos_idf_additions_priv.h:66
+ (inlined by) prvNotifyQueueSetContainer at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:3366
+0x4200cb1f: decelerate_button_clicked at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:252
+0x4202b8bf: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:695
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x420113c2: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:261 (discriminator 1)
+0x420117d8: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:362
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x4037d34e: prvTaskEnterCriticalSafeSMPOnly at /home/tsystem/esp/esp-idf/components/freertos/esp_additions/include/esp_private/freertos_idf_additions_priv.h:66
+ (inlined by) prvNotifyQueueSetContainer at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:3366
+0x4200cb1f: decelerate_button_clicked at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:252
+0x4202b8bf: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:695
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x420113c2: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:261 (discriminator 1)
+0x420117d8: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:362
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x400559dd: _xtos_set_intlevel in ROM
+0x4037ba9a: esp_psram_impl_enable at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:320 (discriminator 1)
+0x403784fe: spi_flash_enable_interrupts_caches_and_other_cpu at /home/tsystem/esp/esp-idf/components/spi_flash/cache_utils.c:233 (discriminator 1)
+0x40378525: spi_flash_enable_interrupts_caches_and_other_cpu at /home/tsystem/esp/esp-idf/components/spi_flash/cache_utils.c:236
+0x4037d34e: prvTaskEnterCriticalSafeSMPOnly at /home/tsystem/esp/esp-idf/components/freertos/esp_additions/include/esp_private/freertos_idf_additions_priv.h:66
+ (inlined by) prvNotifyQueueSetContainer at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:3366
+0x4200cb1f: decelerate_button_clicked at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:252
+0x4202b8bf: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:695
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x420113c2: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:261 (discriminator 1)
+0x420117d8: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:362
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x4037d34e: prvTaskEnterCriticalSafeSMPOnly at /home/tsystem/esp/esp-idf/components/freertos/esp_additions/include/esp_private/freertos_idf_additions_priv.h:66
+ (inlined by) prvNotifyQueueSetContainer at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:3366
+0x4200cb1f: decelerate_button_clicked at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:252
+0x4202b8bf: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:695
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x420113c2: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:261 (discriminator 1)
+0x420117d8: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:362
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x400559dd: _xtos_set_intlevel in ROM
+0x4037ba9a: esp_psram_impl_enable at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:320 (discriminator 1)
+0x403784fe: spi_flash_enable_interrupts_caches_and_other_cpu at /home/tsystem/esp/esp-idf/components/spi_flash/cache_utils.c:233 (discriminator 1)
+0x40378525: spi_flash_enable_interrupts_caches_and_other_cpu at /home/tsystem/esp/esp-idf/components/spi_flash/cache_utils.c:236
+0x4037d34e: prvTaskEnterCriticalSafeSMPOnly at /home/tsystem/esp/esp-idf/components/freertos/esp_additions/include/esp_private/freertos_idf_additions_priv.h:66
+ (inlined by) prvNotifyQueueSetContainer at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:3366
+0x4200cb1f: decelerate_button_clicked at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:252
+0x4202b8bf: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:695
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a76: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a76: ets_delay_us in ROM
+0x4200cbd2: kb_event_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:43
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a76: ets_delay_us in ROM
+0x4200cbd2: kb_event_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:43
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a76: ets_delay_us in ROM
+0x4200cbd2: kb_event_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:43
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a76: ets_delay_us in ROM
+0x4200cbd2: kb_event_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:43
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a76: ets_delay_us in ROM
+0x4200cbd2: kb_event_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:43
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a76: ets_delay_us in ROM
+0x4200cbd2: kb_event_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:43
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a76: ets_delay_us in ROM
+0x4200cbd2: kb_event_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:43
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a76: ets_delay_us in ROM
+0x4200cbd2: kb_event_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:43
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x4201138a: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:259 (discriminator 1)
+0x420117a0: esp_lcd_new_rgb_panel at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:355
+0x4037743d: lcd_rgb_panel_fill_bounce_buffer at /home/tsystem/esp/esp-idf/components/esp_lcd/rgb/esp_lcd_panel_rgb.c:842 (discriminator 1)
+0x40041a73: ets_delay_us in ROM
+0x4200cbad: ta_focus_handler at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:60
+0x4202b887: lv_area_get_height at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:135
+ (inlined by) invalidate_button_area at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:1042
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- 0x4037b8d5: s_get_psram_mode_reg at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:213
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4037b8d2: s_get_psram_mode_reg at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:213
+0x42012fa1: indev_proc_press at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_indev.c:875
+0x42012fc1: indev_proc_press at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_indev.c:879
+0x420131df: indev_pointer_proc at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_indev.c:381
+0x4200bf85: esp_psram_extram_add_to_heap_allocator at /home/tsystem/esp/esp-idf/components/esp_psram/esp_psram.c:391 (discriminator 1)
+0x4200d04e: ui_Screen1_screen_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:262
+0x4202bb2b: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:796
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[0;33m--- 0x40375ae4: xt_highint4 at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/highint_hdl.S:79
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[0;33m--- 0x4037b940: s_config_psram_spi_phases at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:357
+[0m
+[0;33m--- 0x400570e8: memset in ROM
+0x400570f3: memset in ROM
+[0m
+[0;33m--- 0x4037b93d: s_config_psram_spi_phases at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:357
+0x42012fa1: indev_proc_press at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_indev.c:875
+0x42012fc1: indev_proc_press at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_indev.c:879
+0x420131df: indev_pointer_proc at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_indev.c:381
+0x4200bf85: esp_psram_extram_add_to_heap_allocator at /home/tsystem/esp/esp-idf/components/esp_psram/esp_psram.c:391 (discriminator 1)
+0x4200d04e: ui_Screen1_screen_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:262
+0x4202bb2b: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:796
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x403786ea: flash_end_flush_cache at /home/tsystem/esp/esp-idf/components/spi_flash/esp_flash_api.c:235
+[0m
+[0;33m--- 0x40375f24: esp_ipc_isr_stall_abort at /home/tsystem/esp/esp-idf/components/esp_system/port/esp_ipc_isr.c:163
+[0m
+[0;33m--- 0x403786e7: flash_end_flush_cache at /home/tsystem/esp/esp-idf/components/spi_flash/esp_flash_api.c:235
+0x4200320e: xt_utils_get_core_id at /home/tsystem/esp/esp-idf/components/xtensa/include/xt_utils.h:37
+ (inlined by) esp_cpu_get_core_id at /home/tsystem/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:127
+ (inlined by) xPortGetCoreID at /home/tsystem/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:623
+ (inlined by) esp_register_freertos_tick_hook at /home/tsystem/esp/esp-idf/components/esp_system/freertos_hooks.c:104
+0x4037c679: prvSendAcquireGeneric at /home/tsystem/esp/esp-idf/components/esp_ringbuf/ringbuf.c:796
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[0;33m--- 0x40375ae4: xt_highint4 at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/highint_hdl.S:79
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m[0m
+[0;33m--- 0x4200d109: ui_Screen1_screen_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:288
+[0m
+[0;33m--- 0x4037ac8b: rtc_sleep_pu at /home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/rtc_sleep.c:37
+[0m
+[0;33m--- 0x40375ba5: uart_ll_is_enabled at /home/tsystem/esp/esp-idf/components/hal/esp32s3/include/hal/uart_ll.h:74 (discriminator 1)
+ (inlined by) esp_system_reset_modules_on_exit at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:38 (discriminator 1)
+0x4037ac95: rtc_sleep_pu at /home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/rtc_sleep.c:37
+0x40381469: gpspi_flash_ll_set_command at /home/tsystem/esp/esp-idf/components/hal/esp32s3/include/hal/gpspi_flash_ll.h:308
+ (inlined by) spi_flash_hal_gpspi_configure_host_io_mode at /home/tsystem/esp/esp-idf/components/hal/spi_flash_hal_common.inc:153
+0x4037ac8b: rtc_sleep_pu at /home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/rtc_sleep.c:37
+0x4200d109: ui_Screen1_screen_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:288
+0x4202bc17: lv_area_get_width at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/../core/../misc/../font/../misc/lv_area.h:125
+ (inlined by) draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:828
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[0;33m--- 0x40375ae4: xt_highint4 at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/highint_hdl.S:79
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m[0m
+[0;33m--- 0x4200d0a6: ui_Screen1_screen_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:275
+[0m
+[0;33m--- 0x4037ac8b: rtc_sleep_pu at /home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/rtc_sleep.c:37
+[0m
+[0;33m--- 0x40375ba5: uart_ll_is_enabled at /home/tsystem/esp/esp-idf/components/hal/esp32s3/include/hal/uart_ll.h:74 (discriminator 1)
+ (inlined by) esp_system_reset_modules_on_exit at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:38 (discriminator 1)
+0x4037ac95: rtc_sleep_pu at /home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/rtc_sleep.c:37
+0x40381469: gpspi_flash_ll_set_command at /home/tsystem/esp/esp-idf/components/hal/esp32s3/include/hal/gpspi_flash_ll.h:308
+ (inlined by) spi_flash_hal_gpspi_configure_host_io_mode at /home/tsystem/esp/esp-idf/components/hal/spi_flash_hal_common.inc:153
+0x4037ac8b: rtc_sleep_pu at /home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/rtc_sleep.c:37
+0x4200d0a6: ui_Screen1_screen_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:275
+0x4202bbe3: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:804
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[0;33m--- 0x40375ae4: xt_highint4 at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/highint_hdl.S:79
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[0;33m--- 0x403785fa: spi_flash_check_and_flush_cache at /home/tsystem/esp/esp-idf/components/spi_flash/flash_mmap.c:304
+[0m
+[0;33m--- 0x400570e8: memset in ROM
+0x400570f3: memset in ROM
+[0m
+[0;33m--- 0x403785f7: spi_flash_check_and_flush_cache at /home/tsystem/esp/esp-idf/components/spi_flash/flash_mmap.c:304
+0x4037b90a: s_config_psram_spi_phases at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:352
+0x42012883: indev_keypad_proc at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_indev.c:513 (discriminator 1)
+0x4200d066: ui_Screen1_screen_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:264
+0x4202bbe3: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:804
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[0;33m--- 0x40375ae4: xt_highint4 at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/highint_hdl.S:79
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[0;33m--- 0x403785fd: spi_flash_check_and_flush_cache at /home/tsystem/esp/esp-idf/components/spi_flash/flash_mmap.c:305
+[0m
+[0;33m--- 0x400570e8: memset in ROM
+0x400570f3: memset in ROM
+[0m
+[0;33m--- 0x403785fa: spi_flash_check_and_flush_cache at /home/tsystem/esp/esp-idf/components/spi_flash/flash_mmap.c:304
+0x4037b93d: s_config_psram_spi_phases at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:357
+0x420130fd: indev_proc_press at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_indev.c:938
+0x4201311d: indev_pointer_proc at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_indev.c:344
+0x4201333b: scroll_throw_predict_y at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_indev_scroll.c:586
+0x4200d0de: ui_Screen1_screen_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:283
+0x4202bc87: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:831 (discriminator 1)
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x403786ea: flash_end_flush_cache at /home/tsystem/esp/esp-idf/components/spi_flash/esp_flash_api.c:235
+[0m
+[0;33m--- 0x40375f24: esp_ipc_isr_stall_abort at /home/tsystem/esp/esp-idf/components/esp_system/port/esp_ipc_isr.c:163
+[0m
+[0;33m--- 0x403786e7: flash_end_flush_cache at /home/tsystem/esp/esp-idf/components/spi_flash/esp_flash_api.c:235
+0x4200321e: esp_deregister_freertos_idle_hook_for_cpu at /home/tsystem/esp/esp-idf/components/esp_system/freertos_hooks.c:108
+0x4037c679: prvSendAcquireGeneric at /home/tsystem/esp/esp-idf/components/esp_ringbuf/ringbuf.c:796
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[0;33m--- 0x40375ae4: xt_highint4 at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/highint_hdl.S:79
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[0;33m--- 0x403785f7: spi_flash_check_and_flush_cache at /home/tsystem/esp/esp-idf/components/spi_flash/flash_mmap.c:304
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x403785f4: spi_flash_check_and_flush_cache at /home/tsystem/esp/esp-idf/components/spi_flash/flash_mmap.c:304
+0x4037b93d: s_config_psram_spi_phases at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:357
+0x420130fd: indev_proc_press at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_indev.c:938
+0x4201311d: indev_pointer_proc at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_indev.c:344
+0x4201333b: scroll_throw_predict_y at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_indev_scroll.c:586
+0x4200d0de: ui_Screen1_screen_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:283
+0x4202bc87: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:831 (discriminator 1)
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- 0x403786ea: flash_end_flush_cache at /home/tsystem/esp/esp-idf/components/spi_flash/esp_flash_api.c:235
+[0m
+[0;33m--- 0x40375f24: esp_ipc_isr_stall_abort at /home/tsystem/esp/esp-idf/components/esp_system/port/esp_ipc_isr.c:163
+[0m
+[0;33m--- 0x403786e7: flash_end_flush_cache at /home/tsystem/esp/esp-idf/components/spi_flash/esp_flash_api.c:235
+0x4200321e: esp_deregister_freertos_idle_hook_for_cpu at /home/tsystem/esp/esp-idf/components/esp_system/freertos_hooks.c:108
+0x4037c679: prvSendAcquireGeneric at /home/tsystem/esp/esp-idf/components/esp_ringbuf/ringbuf.c:796
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[0;33m--- 0x40375ae4: xt_highint4 at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/highint_hdl.S:79
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[0;33m--- 0x4037b8d5: s_get_psram_mode_reg at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:213
+[0m
+[0;33m--- 0x400556d5: strlen in ROM
+0x400556e5: strlen in ROM
+[0m
+[0;33m--- 0x4037b8d2: s_get_psram_mode_reg at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:213
+0x420130fd: indev_proc_press at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_indev.c:938
+0x4201311d: indev_pointer_proc at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_indev.c:344
+0x4201333b: scroll_throw_predict_y at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/core/lv_indev_scroll.c:586
+0x4200d0de: ui_Screen1_screen_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:283
+0x4202bc87: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:831 (discriminator 1)
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[0;33m--- 0x40375ae4: xt_highint4 at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/highint_hdl.S:79
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[0;33m--- 0x4200d142: case_insensitive_strcmp at /home/tsystem/esp/esp-idf/components/json/cJSON/cJSON.c:140
+[0m
+[0;33m--- 0x4037ac8b: rtc_sleep_pu at /home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/rtc_sleep.c:37
+[0m
+[0;33m--- 0x40375ba5: uart_ll_is_enabled at /home/tsystem/esp/esp-idf/components/hal/esp32s3/include/hal/uart_ll.h:74 (discriminator 1)
+ (inlined by) esp_system_reset_modules_on_exit at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:38 (discriminator 1)
+0x4037ac95: rtc_sleep_pu at /home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/rtc_sleep.c:37
+0x40381469: gpspi_flash_ll_set_command at /home/tsystem/esp/esp-idf/components/hal/esp32s3/include/hal/gpspi_flash_ll.h:308
+ (inlined by) spi_flash_hal_gpspi_configure_host_io_mode at /home/tsystem/esp/esp-idf/components/hal/spi_flash_hal_common.inc:153
+0x4037ac8b: rtc_sleep_pu at /home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/rtc_sleep.c:37
+0x4200d142: case_insensitive_strcmp at /home/tsystem/esp/esp-idf/components/json/cJSON/cJSON.c:140
+0x4202bd2f: lv_btnmatrix_destructor at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:402
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[0;33m--- 0x40375ae4: xt_highint4 at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/highint_hdl.S:79
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[0;33m--- 0x4200d0b3: ui_Screen1_screen_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:277 (discriminator 1)
+[0m
+[0;33m--- 0x4037ac8b: rtc_sleep_pu at /home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/rtc_sleep.c:37
+[0m
+[0;33m--- 0x40375ba5: uart_ll_is_enabled at /home/tsystem/esp/esp-idf/components/hal/esp32s3/include/hal/uart_ll.h:74 (discriminator 1)
+ (inlined by) esp_system_reset_modules_on_exit at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:38 (discriminator 1)
+0x4037ac95: rtc_sleep_pu at /home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/rtc_sleep.c:37
+0x40381469: gpspi_flash_ll_set_command at /home/tsystem/esp/esp-idf/components/hal/esp32s3/include/hal/gpspi_flash_ll.h:308
+ (inlined by) spi_flash_hal_gpspi_configure_host_io_mode at /home/tsystem/esp/esp-idf/components/hal/spi_flash_hal_common.inc:153
+0x4037ac8b: rtc_sleep_pu at /home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/rtc_sleep.c:37
+0x4200d0b3: ui_Screen1_screen_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:277 (discriminator 1)
+0x4202bc63: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:830 (discriminator 1)
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[0;33m--- 0x40375ae4: xt_highint4 at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/highint_hdl.S:79
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[0;33m--- 0x4200ca88: gen_json_startup_config at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:220 (discriminator 1)
+[0m
+[0;33m--- 0x4037ac8b: rtc_sleep_pu at /home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/rtc_sleep.c:37
+[0m
+[0;33m--- 0x40375ba5: uart_ll_is_enabled at /home/tsystem/esp/esp-idf/components/hal/esp32s3/include/hal/uart_ll.h:74 (discriminator 1)
+ (inlined by) esp_system_reset_modules_on_exit at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:38 (discriminator 1)
+0x4037ac95: rtc_sleep_pu at /home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/rtc_sleep.c:37
+0x40381469: gpspi_flash_ll_set_command at /home/tsystem/esp/esp-idf/components/hal/esp32s3/include/hal/gpspi_flash_ll.h:308
+ (inlined by) spi_flash_hal_gpspi_configure_host_io_mode at /home/tsystem/esp/esp-idf/components/hal/spi_flash_hal_common.inc:153
+0x4037ac8b: rtc_sleep_pu at /home/tsystem/esp/esp-idf/components/esp_hw_support/port/esp32s3/rtc_sleep.c:37
+0x4200ca88: gen_json_startup_config at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/ui.c:220 (discriminator 1)
+0x4200cef2: ui_Screen1_screen_init at /home/tsystem/esp/MotorController_UI/MotorController_UI/main/ui/screens/ui_Screen1.c:202
+0x4202bbe7: draw_main at /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl/src/widgets/lv_btnmatrix.c:804
+0x4037b701: s_print_psram_info at /home/tsystem/esp/esp-idf/components/esp_psram/esp32s3/esp_psram_impl_octal.c:239 (discriminator 1)
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[0;33m--- 0x40375ae4: xt_highint4 at /home/tsystem/esp/esp-idf/components/esp_system/port/soc/esp32s3/highint_hdl.S:79
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 514857f6cba362bfbc3e7bb9463753f596aeab95b66eff6a19fbeac1357665c8[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0;33m--- Warning: Failed to decode multiple lines in a row. Try checking the baud rate and XTAL frequency setting in menuconfig[0m
+[0m

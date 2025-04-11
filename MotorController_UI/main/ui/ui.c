@@ -5,8 +5,21 @@
 
 #include "ui.h"
 #include "ui_helpers.h"
+#include "uart_manager.h"
+#include <stdio.h>
+#include "cJSON.h"
+#include "esp_log.h"
 
+#define TAG "UI_UPDATE"
 ///////////////////// VARIABLES ////////////////////
+
+// Структура для передачі даних в асинхронний callback
+typedef struct {
+    char current_speed[16];
+    char current_winding_length[16];
+    char used_cable_total_length[16];
+    char operating_time[32];
+} ui_data_t;
 
 // SCREEN: ui_Screen1
 void ui_Screen1_screen_init(void);
@@ -61,6 +74,13 @@ lv_obj_t * reset_info_panel_button_label;
 lv_obj_t * grinding_mode_checkbox;
 lv_obj_t * conical_winding_checkbox;
 
+void start_button_cliked(lv_event_t * e);
+void stop_button_cliked(lv_event_t * e);
+void accelerate_button_clicked(lv_event_t * e);
+void decelerate_button_clicked(lv_event_t * e);
+void immediate_stop_button_clicked(lv_event_t * e);
+void home_point_button_clicked(lv_event_t * e);
+
 // EVENTS
 lv_obj_t * ui____initial_actions0;
 
@@ -77,6 +97,184 @@ lv_obj_t * ui____initial_actions0;
 ///////////////////// ANIMATIONS ////////////////////
 
 ///////////////////// FUNCTIONS ////////////////////
+
+static void async_update_task(void *args) {
+    ui_data_t *data = (ui_data_t *)args;
+
+    char buffer[32]; // Буфер для форматованих рядків
+
+    // Speed: "Speed: X.XX rps"
+    if (data->current_speed[0] && strcmp(data->current_speed, "N/A") != 0) {
+        snprintf(buffer, sizeof(buffer), "Speed: %s rps", data->current_speed);
+        lv_label_set_text(current_speed_label, buffer);
+    }
+
+    // Current Length: "Current Length: XXXXX,XX m"
+    if (data->current_winding_length[0] && strcmp(data->current_winding_length, "N/A") != 0) {
+        // Замінюємо крапку на кому для десяткового роздільника
+        char *comma_ptr = strchr(data->current_winding_length, '.');
+        if (comma_ptr) *comma_ptr = ',';
+        snprintf(buffer, sizeof(buffer), "Current Length: %s m", data->current_winding_length);
+        lv_label_set_text(current_winding_length_label, buffer);
+    }
+
+    // Used Length: "Used Length: XXXXX,XX m"
+    if (data->used_cable_total_length[0] && strcmp(data->used_cable_total_length, "N/A") != 0) {
+        // Замінюємо крапку на кому
+        char *comma_ptr = strchr(data->used_cable_total_length, '.');
+        if (comma_ptr) *comma_ptr = ',';
+        snprintf(buffer, sizeof(buffer), "Used Length: %s m", data->used_cable_total_length);
+        lv_label_set_text(used_cable_total_length_label, buffer);
+    }
+
+    // Operating Time: "Operating Time: HH:MM:SS"
+    if (data->operating_time[0] && strcmp(data->operating_time, "N/A") != 0) {
+        int total_seconds = atoi(data->operating_time);
+        int hours = total_seconds / 3600;
+        int minutes = (total_seconds % 3600) / 60;
+        int seconds = total_seconds % 60;
+        snprintf(buffer, sizeof(buffer), "Operating Time: %02d:%02d:%02d", hours, minutes, seconds);
+        lv_label_set_text(operating_time_label, buffer);
+    }
+
+    free(data);
+}
+
+void update_ui_callback(const char *data) {
+    ESP_LOGI(TAG, "Received data: %s", data);
+    if (!data || data[0] == '\0') {
+        ESP_LOGE(TAG, "No data received");
+        return;
+    }
+
+    // Парсимо JSON
+    cJSON *root = cJSON_Parse(data);
+
+    if (!root) {
+        ESP_LOGE(TAG, "Failed to parse JSON: %s", cJSON_GetErrorPtr());
+        return;
+    }
+
+    ui_data_t *ui_data = calloc(1, sizeof(ui_data_t));
+    if (!ui_data) {
+        ESP_LOGE(TAG, "Failed to allocate memory");
+        cJSON_Delete(root);
+        return;
+    }
+
+    // Ініціалізація значень за замовчуванням
+    strcpy(ui_data->current_speed, "N/A");
+    strcpy(ui_data->current_winding_length, "N/A");
+    strcpy(ui_data->used_cable_total_length, "N/A");
+    strcpy(ui_data->operating_time, "N/A");
+
+    // Витягуємо значення з JSON
+    cJSON *speed = cJSON_GetObjectItem(root, "speed");
+    if (speed && cJSON_IsNumber(speed)) {
+        snprintf(ui_data->current_speed, sizeof(ui_data->current_speed), "%.1f", speed->valuedouble);
+        ESP_LOGI(TAG, "Parsed speed: %s", ui_data->current_speed);
+    }
+
+    cJSON *winding = cJSON_GetObjectItem(root, "current_winding");
+    if (winding && cJSON_IsNumber(winding)) {
+        snprintf(ui_data->current_winding_length, sizeof(ui_data->current_winding_length), "%.2f", winding->valuedouble);
+        ESP_LOGI(TAG, "Parsed winding: %s", ui_data->current_winding_length);
+    }
+
+    cJSON *cable = cJSON_GetObjectItem(root, "total_cable_length");
+    if (cable && cJSON_IsNumber(cable)) {
+        snprintf(ui_data->used_cable_total_length, sizeof(ui_data->used_cable_total_length), "%.2f", cable->valuedouble);
+        ESP_LOGI(TAG, "Parsed cable: %s", ui_data->used_cable_total_length);
+    }
+
+    cJSON *time = cJSON_GetObjectItem(root, "time");
+    if (time && cJSON_IsNumber(time)) {
+        snprintf(ui_data->operating_time, sizeof(ui_data->operating_time), "%d", time->valueint);
+        ESP_LOGI(TAG, "Parsed time: %s", ui_data->operating_time);
+    }
+
+    // Оновлюємо UI асинхронно
+    lv_async_call(async_update_task, ui_data);
+
+    // Очищаємо пам’ять JSON
+    cJSON_Delete(root);
+}
+
+void start_button_clicked(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        char *json = gen_json_startup_config();
+        uart_send_command(json);
+        free(json);
+    }
+}
+
+char* gen_json_startup_config() {
+    // Створюємо JSON-об'єкт
+    cJSON *root = cJSON_CreateObject();
+    
+    // Додаємо поля
+    cJSON_AddStringToObject(root, "command", "start");
+    cJSON_AddNumberToObject(root, "speed", atof(lv_textarea_get_text(rotate_per_sec_entry)));
+    cJSON_AddNumberToObject(root, "carriage_movement", atof(lv_textarea_get_text(carriage_movement_entry)));
+    cJSON_AddNumberToObject(root, "general_length", atof(lv_textarea_get_text(general_winding_length_entry)));
+    
+    // Перетворюємо в рядок
+    char *json_string = cJSON_PrintUnformatted(root);
+    
+    // Очищуємо пам'ять
+    cJSON_Delete(root);
+    
+    return json_string;
+}
+
+void stop_button_clicked(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        uart_send_command("{\"command\": \"stop\"}");
+    }
+}
+
+void accelerate_button_clicked(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        uart_send_command("{\"command\": \"accelerate\"}");
+    }
+}
+
+void decelerate_button_clicked(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        uart_send_command("{\"command\": \"decelerate\"}");
+    }
+}
+
+void immediate_stop_button_clicked(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        uart_send_command("{\"command\": \"immediate_stop\"}");
+    }
+}
+
+void home_point_button_clicked(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        uart_send_command("{\"command\": \"home_point\"}");
+    }
+}
+
 void ui_event_Button1(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
@@ -113,6 +311,8 @@ void ui_init(void)
                                                true, LV_FONT_DEFAULT);
     lv_disp_set_theme(dispp, theme);
     ui_Screen1_screen_init();
+    uart_register_data_callback(update_ui_callback);
+    uart_init();
     ui____initial_actions0 = lv_obj_create(NULL);
     lv_disp_load_scr(ui_Screen1);
 }

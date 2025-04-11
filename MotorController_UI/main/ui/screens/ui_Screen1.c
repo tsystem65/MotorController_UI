@@ -25,19 +25,6 @@
 // }
 // static lv_obj_t * kb;
 
-// static void ta_event_cb(lv_event_t * e)
-// {
-//     lv_event_code_t code = lv_event_get_code(e);
-//     lv_obj_t * ta = lv_event_get_target(e);
-//     if(code == LV_EVENT_CLICKED || code == LV_EVENT_FOCUSED) {
-//         /*Focus on the clicked text area*/
-//         if(kb != NULL) lv_keyboard_set_textarea(kb, ta);
-//     }
-
-//     lv_obj_clear_flag(kb, LV_OBJ_FLAG_HIDDEN); // Показуємо клавіатуру
-//     lv_obj_add_state(ta, LV_STATE_FOCUSED); // Фокус на полі
-// }
-
 static const lv_btnmatrix_ctrl_t custom_styles[] = {
     1, 1, 1, 1, // "1", "2", "3", "\n"
     1, 1, 1, 1, // "4", "5", "6", "\n"
@@ -201,6 +188,7 @@ void ui_Screen1_screen_init(void)
 
     start_button = lv_btn_create(control_buttons_cont);
     lv_obj_set_size(start_button, 200, 50);
+    lv_obj_add_event_cb(start_button, start_button_clicked, LV_EVENT_CLICKED, NULL);
     lv_obj_set_grid_cell(start_button, 
         LV_GRID_ALIGN_START, 0, 1,  // Колонка 0, ширина 1
         LV_GRID_ALIGN_CENTER, 0, 1   // Рядок 0, висота 1
@@ -212,6 +200,7 @@ void ui_Screen1_screen_init(void)
 
     stop_button = lv_btn_create(control_buttons_cont);
     lv_obj_set_size(stop_button, 200, 50);
+    lv_obj_add_event_cb(stop_button, stop_button_clicked, LV_EVENT_CLICKED, NULL);
     lv_obj_set_grid_cell(stop_button, 
         LV_GRID_ALIGN_START, 1, 1,
         LV_GRID_ALIGN_CENTER, 0, 1
@@ -223,6 +212,7 @@ void ui_Screen1_screen_init(void)
 
     manual_acceleration_button = lv_btn_create(control_buttons_cont);
     lv_obj_set_size(manual_acceleration_button, 200, 50);
+    lv_obj_add_event_cb(manual_acceleration_button, accelerate_button_clicked, LV_EVENT_CLICKED, NULL);
     lv_obj_set_grid_cell(manual_acceleration_button, 
         LV_GRID_ALIGN_START, 0, 1,
         LV_GRID_ALIGN_CENTER, 1, 1
@@ -234,6 +224,7 @@ void ui_Screen1_screen_init(void)
 
     manual_deceleration_button = lv_btn_create(control_buttons_cont);
     lv_obj_set_size(manual_deceleration_button, 200, 50);
+    lv_obj_add_event_cb(manual_deceleration_button, decelerate_button_clicked, LV_EVENT_CLICKED, NULL);
     lv_obj_set_grid_cell(manual_deceleration_button, 
         LV_GRID_ALIGN_START, 0, 1,
         LV_GRID_ALIGN_CENTER, 2, 1
@@ -245,6 +236,7 @@ void ui_Screen1_screen_init(void)
 
     immediate_stop_button = lv_btn_create(control_buttons_cont);
     lv_obj_set_size(immediate_stop_button, 200, 50);
+    lv_obj_add_event_cb(immediate_stop_button, immediate_stop_button_clicked, LV_EVENT_CLICKED, NULL);
     lv_obj_set_grid_cell(immediate_stop_button, 
         LV_GRID_ALIGN_START, 1, 1,
         LV_GRID_ALIGN_CENTER, 1, 1
@@ -256,6 +248,7 @@ void ui_Screen1_screen_init(void)
 
     home_point_button = lv_btn_create(control_buttons_cont);
     lv_obj_set_size(home_point_button, 200, 50);
+    lv_obj_add_event_cb(home_point_button, home_point_button_clicked, LV_EVENT_CLICKED, NULL);
     lv_obj_set_grid_cell(home_point_button, 
         LV_GRID_ALIGN_START, 1, 1,
         LV_GRID_ALIGN_CENTER, 2, 1
@@ -284,13 +277,6 @@ void ui_Screen1_screen_init(void)
     operating_time_label = lv_label_create(telemetry_cont);
     lv_label_set_text(operating_time_label, "Operating Time: 01:32:33");
     
-    /*Create a keyboard*/
-    // kb = lv_keyboard_create(ui_Screen1);
-    // lv_obj_set_size(kb,  LV_HOR_RES, LV_VER_RES / 2);
-
-    // lv_keyboard_set_textarea(kb, rotate_per_sec_entry);
-    // lv_obj_add_event_cb(rotate_per_sec_entry, ta_event_cb, LV_EVENT_ALL, NULL);
-
     lv_obj_t *kb = lv_keyboard_create(lv_layer_top());
     lv_keyboard_set_mode(kb, LV_KEYBOARD_MODE_USER_1);
     lv_keyboard_set_map(kb, LV_KEYBOARD_MODE_USER_1, custom_map, custom_styles);
@@ -302,6 +288,4 @@ void ui_Screen1_screen_init(void)
     lv_obj_add_event_cb(rotate_per_sec_entry, ta_focus_handler, LV_EVENT_CLICKED, kb);
     lv_obj_add_event_cb(carriage_movement_entry, ta_focus_handler, LV_EVENT_CLICKED, kb);
     lv_obj_add_event_cb(general_winding_length_entry, ta_focus_handler, LV_EVENT_CLICKED, kb);
-
-    //lv_obj_add_state(rotate_per_sec_entry, LV_STATE_FOCUSED);
 }

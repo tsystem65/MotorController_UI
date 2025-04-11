@@ -1,0 +1,1419 @@
+x����ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+load:0x403cb700,len:0x2ee4
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar  4 2025 14:11:09[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (27) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (33) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (37) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (78) boot: End of partition table[0m
+[0;32mI (81) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=14d00h ( 85248) map[0m
+[0;32mI (103) esp_image: segment 1: paddr=00024d28 vaddr=3fc95f00 size=034f4h ( 13556) load[0m
+[0;32mI (106) esp_image: segment 2: paddr=00028224 vaddr=40374000 size=07df4h ( 32244) load[0m
+[0;32mI (114) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=5c7ach (378796) map[0m
+[0;32mI (181) esp_image: segment 4: paddr=0008c7d4 vaddr=4037bdf4 size=0a0d0h ( 41168) load[0m
+[0;32mI (191) esp_image: segment 5: paddr=000968ac vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (198) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (198) boot: Disabling RNG early entropy source...[0m
+[0;32mI (209) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (209) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (209) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (214) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (219) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (224) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (229) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (235) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (241) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (246) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (253) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (258) MSPI Timing: PSRAM timing tuning index: 10[0m
+[0;32mI (263) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (268) esp_psram: Speed: 80MHz[0m
+[0;32mI (285) mmu_psram: Read only data copied and mapped to SPIRAM[0m
+[0;32mI (325) mmu_psram: Instructions copied and mapped to SPIRAM[0m
+[0;32mI (326) cpu_start: Multicore app[0m
+[0;32mI (725) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (734) cpu_start: Pro cpu start user code[0m
+[0;32mI (734) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (734) app_init: Application information:[0m
+[0;32mI (737) app_init: Project name:     MotorController_UI[0m
+[0;32mI (743) app_init: App version:      7e09904-dirty[0m
+[0;32mI (748) app_init: Compile time:     Apr  4 2025 13:40:53[0m
+[0;32mI (754) app_init: ELF file SHA256:  0a7f59329...[0m
+[0;32mI (759) app_init: ESP-IDF:          v5.4[0m
+[0;32mI (764) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (769) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (774) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (778) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (786) heap_init: At 3FC9A308 len 0004F408 (317 KiB): RAM[0m
+[0;32mI (792) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (798) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (804) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (810) esp_psram: Adding pool of 7680K of PSRAM memory to heap allocator[0m
+[0;32mI (818) spi_flash: detected chip: gd[0m
+[0;32mI (822) spi_flash: flash io: dio[0m
+[0;33mW (826) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (837) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (844) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (852) main_task: Started on CPU0[0m
+[0;32mI (862) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (862) main_task: Calling app_main()[0m
+[0;32mI (872) UART_TRANSMITTER: Starting app_main...[0m
+[0;32mI (872) UART_TRANSMITTER: Calling display...[0m
+[0;32mI (882) example: Install RGB LCD panel driver[0m
+[0;32mI (932) example: Register event callbacks[0m
+[0;32mI (932) example: Initialize RGB LCD panel[0m
+[0;32mI (932) example: I2C initialized successfully[0m
+[0;32mI (932) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1342) example: Initialize I2C[0m
+[0;32mI (1342) example: Initialize touch IO (I2C)[0m
+[0;32mI (1342) example: Initialize touch controller GT911[0m
+[0;32mI (1342) GT911: TouchPad_ID:0x39,0x31,0x31[0m
+[0;32mI (1352) GT911: TouchPad_Config_Version:88[0m
+[0;32mI (1352) example: Initialize LVGL library[0m
+[0;32mI (1362) example: Use frame buffers as LVGL draw buffers[0m
+[0;32mI (1362) example: Register display driver to LVGL[0m
+[0;32mI (1372) example: Install LVGL tick timer[0m
+[0;32mI (1372) example: Create LVGL task[0m
+[0;32mI (1382) example: Starting LVGL task[0m
+[0;32mI (1422) example: Display LVGL Scatter Chart[0m
+[0�I (6173) UART_TRANSMITTER: UART_DATA event, size: 2
+[0;32mI (6173) MCPWM: Received data: [0m
+[1;31mE (6173) MCPWM: No data received[0m
+[0;32mI (6173) UART_TRANSMITTER: Received: [0m
+[0;32mI (27663) UART_TRANSMITTER: UART_DATA event, size: 76[0m
+[0;32mI (27663) MCPWM: Received data: {"command":"start","speed":5,"carriage_movement":0.25,"general_length":555}[0m
+
+[0;32mI (27663) UART_TRANSMITTER: Received: {"command":"start","speed":5,"carriage_movement":0.25,"general_length":555}[0m
+
+[0;32mI (27713) MCPWM: Freq: 400.000000 Hz, period_ticks: 40000[0m
+[0;32mI (27713) MCPWM: Freq: 400.000000 Hz, period_ticks: 40000[0m
+[0;33mW (27713) mcpwm: adjust timer resolution to 655737Hz[0m
+[0;32mI (27713) MCPWM: Timer 0 started[0m
+[0;32mI (27713) MCPWM: Timer 1 started[0m
+[0;32mI (27723) MCPWM: Timer 2 started[0m
+[0;32mI (27723) gpio: GPIO[7]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (27733) gpio: GPIO[8]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (27743) gpio: GPIO[9]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (27743) gpio: GPIO[37]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (27753) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (27763) MCPWM: Freq: 800.000000 Hz, period_ticks: 20000[0m
+[0;32mI (27773) MCPWM: Frequency on GPIO 18 updated to 800.000000 Hz[0m
+[0;32mI (27773) MCPWM: Frequency on GPIO 5 updated to 800.000000 Hz[0m
+[0;32mI (27783) MCPWM: Calc time: 187 us[0m
+[0;32mI (27983) MCPWM: Freq: 1200.000000 Hz, period_ticks: 13333[0m
+[0;32mI (27983) MCPWM: Frequency on GPIO 18 updated to 1200.000000 Hz[0m
+[0;32mI (27983) MCPWM: Frequency on GPIO 5 updated to 1200.000000 Hz[0m
+[0;32mI (27983) MCPWM: Calc time: 117 us[0m
+[0;32mI (28183) MCPWM: Freq: 1600.000000 Hz, period_ticks: 10000[0m
+[0;32mI (28183) MCPWM: Frequency on GPIO 18 updated to 1600.000000 Hz[0m
+[0;32mI (28183) MCPWM: Frequency on GPIO 5 updated to 1600.000000 Hz[0m
+[0;32mI (28183) MCPWM: Calc time: 118 us[0m
+[0;32mI (28383) MCPWM: Freq: 2000.000000 Hz, period_ticks: 8000[0m
+[0;32mI (28383) MCPWM: Frequency on GPIO 18 updated to 2000.000000 Hz[0m
+[0;32mI (28383) MCPWM: Frequency on GPIO 5 updated to 2000.000000 Hz[0m
+[0;32mI (28383) MCPWM: Calc time: 117 us[0m
+[0;32mI (28583) MCPWM: Freq: 2400.000000 Hz, period_ticks: 6666[0m
+[0;32mI (28583) MCPWM: Frequency on GPIO 18 updated to 2400.000000 Hz[0m
+[0;32mI (28583) MCPWM: Frequency on GPIO 5 updated to 2400.000000 Hz[0m
+[0;32mI (28583) MCPWM: Calc time: 119 us[0m
+[0;32mI (28763) UART_TRANSMITTER: Sent command: {"speed":0.375,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (28783) MCPWM: Freq: 2800.000000 Hz, period_ticks: 5714[0m
+[0;32mI (28783) MCPWM: Frequency on GPIO 18 updated to 2800.000000 Hz[0m
+[0;32mI (28783) MCPWM: Frequency on GPIO 5 updated to 2800.000000 Hz[0m
+[0;32mI (28783) MCPWM: Calc time: 174 us[0m
+[0;32mI (28983) MCPWM: Freq: 3200.000000 Hz, period_ticks: 5000[0m
+[0;32mI (28983) MCPWM: Frequency on GPIO 18 updated to 3200.000000 Hz[0m
+[0;32mI (28983) MCPWM: Frequency on GPIO 5 updated to 3200.000000 Hz[0m
+[0;33mW (28983) MCPWM: Requested 11.876486 Hz, actual 11 Hz[0m
+[0;32mI (28993) MCPWM: Freq: 11.876486 Hz, period_ticks: 55180[0m
+[0;32mI (28993) MCPWM: Frequency on GPIO 36 updated to 11.876486 Hz[0m
+[0;32mI (29003) MCPWM: Calc time: 120 us[0m
+[0;32mI (29203) MCPWM: Freq: 3600.000000 Hz, period_ticks: 4444[0m
+[0;32mI (29203) MCPWM: Frequency on GPIO 18 updated to 3600.000000 Hz[0m
+[0;32mI (29203) MCPWM: Frequency on GPIO 5 updated to 3600.000000 Hz[0m
+[0;33mW (29203) MCPWM: Requested 13.361047 Hz, actual 13 Hz[0m
+[0;32mI (29213) MCPWM: Freq: 13.361047 Hz, period_ticks: 49049[0m
+[0;32mI (29213) MCPWM: Frequency on GPIO 36 updated to 13.361047 Hz[0m
+[0;32mI (29223) MCPWM: Calc time: 120 us[0m
+[0;32mI (29423) MCPWM: Freq: 4000.000000 Hz, period_ticks: 4000[0m
+[0;32mI (29423) MCPWM: Frequency on GPIO 18 updated to 4000.000000 Hz[0m
+[0;32mI (29423) MCPWM: Frequency on GPIO 5 updated to 4000.000000 Hz[0m
+[0;33mW (29423) MCPWM: Requested 14.845608 Hz, actual 14 Hz[0m
+[0;32mI (29433) MCPWM: Freq: 14.845608 Hz, period_ticks: 44144[0m
+[0;32mI (29433) MCPWM: Frequency on GPIO 36 updated to 14.845608 Hz[0m
+[0;32mI (29443) MCPWM: Calc time: 120 us[0m
+[0;32mI (29643) MCPWM: Freq: 4400.000000 Hz, period_ticks: 3636[0m
+[0;32mI (29643) MCPWM: Frequency on GPIO 18 updated to 4400.000000 Hz[0m
+[0;32mI (29643) MCPWM: Frequency on GPIO 5 updated to 4400.000000 Hz[0m
+[0;33mW (29643) MCPWM: Requested 16.330168 Hz, actual 16 Hz[0m
+[0;32mI (29653) MCPWM: Freq: 16.330168 Hz, period_ticks: 40131[0m
+[0;32mI (29653) MCPWM: Frequency on GPIO 36 updated to 16.330168 Hz[0m
+[0;32mI (29663) MCPWM: Calc time: 120 us[0m
+[0;32mI (29763) UART_TRANSMITTER: Sent command: {"speed":0.6875,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (29863) MCPWM: Freq: 4800.000000 Hz, period_ticks: 3333[0m
+[0;32mI (29863) MCPWM: Frequency on GPIO 18 updated to 4800.000000 Hz[0m
+[0;32mI (29863) MCPWM: Frequency on GPIO 5 updated to 4800.000000 Hz[0m
+[0;33mW (29863) MCPWM: Requested 17.814728 Hz, actual 17 Hz[0m
+[0;32mI (29873) MCPWM: Freq: 17.814728 Hz, period_ticks: 36786[0m
+[0;32mI (29873) MCPWM: Frequency on GPIO 36 updated to 17.814728 Hz[0m
+[0;32mI (29883) MCPWM: Calc time: 176 us[0m
+[0;33mW (30083) MCPWM: Requested 5200.000000 Hz, actual 5201 Hz[0m
+[0;32mI (30083) MCPWM: Freq: 5200.000000 Hz, period_ticks: 3076[0m
+[0;32mI (30083) MCPWM: Frequency on GPIO 18 updated to 5200.000000 Hz[0m
+[0;32mI (30083) MCPWM: Frequency on GPIO 5 updated to 5200.000000 Hz[0m
+[0;33mW (30093) MCPWM: Requested 19.299288 Hz, actual 19 Hz[0m
+[0;32mI (30093) MCPWM: Freq: 19.299288 Hz, period_ticks: 33957[0m
+[0;32mI (30103) MCPWM: Frequency on GPIO 36 updated to 19.299288 Hz[0m
+[0;32mI (30103) MCPWM: Calc time: 120 us[0m
+[0;32mI (30303) MCPWM: Freq: 5600.000000 Hz, period_ticks: 2857[0m
+[0;32mI (30303) MCPWM: Frequency on GPIO 18 updated to 5600.000000 Hz[0m
+[0;32mI (30303) MCPWM: Frequency on GPIO 5 updated to 5600.000000 Hz[0m
+[0;33mW (30303) MCPWM: Requested 20.783848 Hz, actual 20 Hz[0m
+[0;32mI (30313) MCPWM: Freq: 20.783848 Hz, period_ticks: 31531[0m
+[0;32mI (30313) MCPWM: Frequency on GPIO 36 updated to 20.783848 Hz[0m
+[0;32mI (30323) MCPWM: Calc time: 120 us[0m
+[0;33mW (30523) MCPWM: Requested 6000.000000 Hz, actual 6001 Hz[0m
+[0;32mI (30523) MCPWM: Freq: 6000.000000 Hz, period_ticks: 2666[0m
+[0;32mI (30523) MCPWM: Frequency on GPIO 18 updated to 6000.000000 Hz[0m
+[0;32mI (30523) MCPWM: Frequency on GPIO 5 updated to 6000.000000 Hz[0m
+[0;33mW (30533) MCPWM: Requested 22.268408 Hz, actual 22 Hz[0m
+[0;32mI (30533) MCPWM: Freq: 22.268408 Hz, period_ticks: 29429[0m
+[0;32mI (30543) MCPWM: Frequency on GPIO 36 updated to 22.268408 Hz[0m
+[0;32mI (30543) MCPWM: Calc time: 120 us[0m
+[0;32mI (30743) MCPWM: Freq: 6400.000000 Hz, period_ticks: 2500[0m
+[0;32mI (30743) MCPWM: Frequency on GPIO 18 updated to 6400.000000 Hz[0m
+[0;32mI (30743) MCPWM: Frequency on GPIO 5 updated to 6400.000000 Hz[0m
+[0;33mW (30743) MCPWM: Requested 23.752968 Hz, actual 23 Hz[0m
+[0;32mI (30753) MCPWM: Freq: 23.752968 Hz, period_ticks: 27590[0m
+[0;32mI (30753) MCPWM: Frequency on GPIO 36 updated to 23.752968 Hz[0m
+[0;32mI (30763) UART_TRANSMITTER: Sent command: {"speed":1,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;32mI (30773) MCPWM: Calc time: 129 us[0m
+[0;33mW (30973) MCPWM: Requested 6800.000000 Hz, actual 6802 Hz[0m
+[0;32mI (30973) MCPWM: Freq: 6800.000000 Hz, period_ticks: 2352[0m
+[0;32mI (30973) MCPWM: Frequency on GPIO 18 updated to 6800.000000 Hz[0m
+[0;32mI (30973) MCPWM: Frequency on GPIO 5 updated to 6800.000000 Hz[0m
+[0;33mW (30983) MCPWM: Requested 25.237528 Hz, actual 25 Hz[0m
+[0;32mI (30983) MCPWM: Freq: 25.237528 Hz, period_ticks: 25967[0m
+[0;32mI (30993) MCPWM: Frequency on GPIO 36 updated to 25.237528 Hz[0m
+[0;32mI (30993) MCPWM: Calc time: 133 us[0m
+[0;32mI (31193) MCPWM: Freq: 7200.000000 Hz, period_ticks: 2222[0m
+[0;32mI (31193) MCPWM: Frequency on GPIO 18 updated to 7200.000000 Hz[0m
+[0;32mI (31193) MCPWM: Frequency on GPIO 5 updated to 7200.000000 Hz[0m
+[0;33mW (31193) MCPWM: Requested 26.722088 Hz, actual 26 Hz[0m
+[0;32mI (31203) MCPWM: Freq: 26.722088 Hz, period_ticks: 24524[0m
+[0;32mI (31203) MCPWM: Frequency on GPIO 36 updated to 26.722088 Hz[0m
+[0;32mI (31213) MCPWM: Calc time: 121 us[0m
+[0;32mI (31413) MCPWM: Freq: 7600.000000 Hz, period_ticks: 2105[0m
+[0;32mI (31413) MCPWM: Frequency on GPIO 18 updated to 7600.000000 Hz[0m
+[0;32mI (31413) MCPWM: Frequency on GPIO 5 updated to 7600.000000 Hz[0m
+[0;33mW (31413) MCPWM: Requested 28.206648 Hz, actual 28 Hz[0m
+[0;32mI (31423) MCPWM: Freq: 28.206648 Hz, period_ticks: 23233[0m
+[0;32mI (31423) MCPWM: Frequency on GPIO 36 updated to 28.206648 Hz[0m
+[0;32mI (31433) MCPWM: Calc time: 118 us[0m
+[0;32mI (31633) MCPWM: Freq: 8000.000000 Hz, period_ticks: 2000[0m
+[0;32mI (31633) MCPWM: Frequency on GPIO 18 updated to 8000.000000 Hz[0m
+[0;32mI (31633) MCPWM: Frequency on GPIO 5 updated to 8000.000000 Hz[0m
+[0;33mW (31633) MCPWM: Requested 29.691208 Hz, actual 29 Hz[0m
+[0;32mI (31643) MCPWM: Freq: 29.691208 Hz, period_ticks: 22072[0m
+[0;32mI (31643) MCPWM: Frequency on GPIO 36 updated to 29.691208 Hz[0m
+[0;32mI (31653) MCPWM: Calc time: 120 us[0m
+[0;32mI (31773) UART_TRANSMITTER: Sent command: {"speed":1.25,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (31853) MCPWM: Requested 8400.000000 Hz, actual 8403 Hz[0m
+[0;32mI (31853) MCPWM: Freq: 8400.000000 Hz, period_ticks: 1904[0m
+[0;32mI (31853) MCPWM: Frequency on GPIO 18 updated to 8400.000000 Hz[0m
+[0;32mI (31853) MCPWM: Frequency on GPIO 5 updated to 8400.000000 Hz[0m
+[0;33mW (31863) MCPWM: Requested 31.175768 Hz, actual 31 Hz[0m
+[0;32mI (31863) MCPWM: Freq: 31.175768 Hz, period_ticks: 21021[0m
+[0;32mI (31873) MCPWM: Frequency on GPIO 36 updated to 31.175768 Hz[0m
+[0;32mI (31873) MCPWM: Calc time: 169 us[0m
+[0;32mI (32073) MCPWM: Freq: 8800.000000 Hz, period_ticks: 1818[0m
+[0;32mI (32073) MCPWM: Frequency on GPIO 18 updated to 8800.000000 Hz[0m
+[0;32mI (32073) MCPWM: Frequency on GPIO 5 updated to 8800.000000 Hz[0m
+[0;33mW (32073) MCPWM: Requested 32.660328 Hz, actual 32 Hz[0m
+[0;32mI (32083) MCPWM: Freq: 32.660328 Hz, period_ticks: 20065[0m
+[0;32mI (32083) MCPWM: Frequency on GPIO 36 updated to 32.660328 Hz[0m
+[0;32mI (32093) MCPWM: Calc time: 120 us[0m
+[0;32mI (32293) MCPWM: Freq: 9200.000000 Hz, period_ticks: 1739[0m
+[0;32mI (32293) MCPWM: Frequency on GPIO 18 updated to 9200.000000 Hz[0m
+[0;32mI (32293) MCPWM: Frequency on GPIO 5 updated to 9200.000000 Hz[0m
+[0;33mW (32293) MCPWM: Requested 34.144890 Hz, actual 34 Hz[0m
+[0;32mI (32303) MCPWM: Freq: 34.144890 Hz, period_ticks: 19193[0m
+[0;32mI (32303) MCPWM: Frequency on GPIO 36 updated to 34.144890 Hz[0m
+[0;32mI (32313) MCPWM: Calc time: 120 us[0m
+[0;33mW (32513) MCPWM: Requested 9600.000000 Hz, actual 9603 Hz[0m
+[0;32mI (32513) MCPWM: Freq: 9600.000000 Hz, period_ticks: 1666[0m
+[0;32mI (32513) MCPWM: Frequency on GPIO 18 updated to 9600.000000 Hz[0m
+[0;32mI (32513) MCPWM: Frequency on GPIO 5 updated to 9600.000000 Hz[0m
+[0;33mW (32523) MCPWM: Requested 35.629452 Hz, actual 35 Hz[0m
+[0;32mI (32523) MCPWM: Freq: 35.629452 Hz, period_ticks: 18393[0m
+[0;32mI (32533) MCPWM: Frequency on GPIO 36 updated to 35.629452 Hz[0m
+[0;32mI (32533) MCPWM: Calc time: 120 us[0m
+[0;32mI (32733) MCPWM: Freq: 10000.000000 Hz, period_ticks: 1600[0m
+[0;32mI (32733) MCPWM: Frequency on GPIO 18 updated to 10000.000000 Hz[0m
+[0;32mI (32733) MCPWM: Frequency on GPIO 5 updated to 10000.000000 Hz[0m
+[0;33mW (32733) MCPWM: Requested 37.114014 Hz, actual 37 Hz[0m
+[0;32mI (32743) MCPWM: Freq: 37.114014 Hz, period_ticks: 17657[0m
+[0;32mI (32743) MCPWM: Frequency on GPIO 36 updated to 37.114014 Hz[0m
+[0;32mI (32753) MCPWM: Calc time: 120 us[0m
+[0;32mI (32773) UART_TRANSMITTER: Sent command: {"speed":1.5625,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (32953) MCPWM: Requested 10400.000000 Hz, actual 10403 Hz[0m
+[0;32mI (32953) MCPWM: Freq: 10400.000000 Hz, period_ticks: 1538[0m
+[0;32mI (32953) MCPWM: Frequency on GPIO 18 updated to 10400.000000 Hz[0m
+[0;32mI (32953) MCPWM: Frequency on GPIO 5 updated to 10400.000000 Hz[0m
+[0;33mW (32963) MCPWM: Requested 38.598576 Hz, actual 38 Hz[0m
+[0;32mI (32963) MCPWM: Freq: 38.598576 Hz, period_ticks: 16978[0m
+[0;32mI (32973) MCPWM: Frequency on GPIO 36 updated to 38.598576 Hz[0m
+[0;32mI (32973) MCPWM: Calc time: 167 us[0m
+[0;33mW (33173) MCPWM: Requested 10800.000000 Hz, actual 10803 Hz[0m
+[0;32mI (33173) MCPWM: Freq: 10800.000000 Hz, period_ticks: 1481[0m
+[0;32mI (33173) MCPWM: Frequency on GPIO 18 updated to 10800.000000 Hz[0m
+[0;32mI (33173) MCPWM: Frequency on GPIO 5 updated to 10800.000000 Hz[0m
+[0;33mW (33183) MCPWM: Requested 40.083138 Hz, actual 40 Hz[0m
+[0;32mI (33183) MCPWM: Freq: 40.083138 Hz, period_ticks: 16349[0m
+[0;32mI (33193) MCPWM: Frequency on GPIO 36 updated to 40.083138 Hz[0m
+[0;32mI (33193) MCPWM: Calc time: 120 us[0m
+[0;33mW (33393) MCPWM: Requested 11200.000000 Hz, actual 11204 Hz[0m
+[0;32mI (33393) MCPWM: Freq: 11200.000000 Hz, period_ticks: 1428[0m
+[0;32mI (33393) MCPWM: Frequency on GPIO 18 updated to 11200.000000 Hz[0m
+[0;32mI (33393) MCPWM: Frequency on GPIO 5 updated to 11200.000000 Hz[0m
+[0;33mW (33403) MCPWM: Requested 41.567699 Hz, actual 41 Hz[0m
+[0;32mI (33403) MCPWM: Freq: 41.567699 Hz, period_ticks: 15765[0m
+[0;32mI (33413) MCPWM: Frequency on GPIO 36 updated to 41.567699 Hz[0m
+[0;32mI (33413) MCPWM: Calc time: 120 us[0m
+[0;33mW (33613) MCPWM: Requested 11600.000000 Hz, actual 11602 Hz[0m
+[0;32mI (33613) MCPWM: Freq: 11600.000000 Hz, period_ticks: 1379[0m
+[0;32mI (33613) MCPWM: Frequency on GPIO 18 updated to 11600.000000 Hz[0m
+[0;32mI (33613) MCPWM: Frequency on GPIO 5 updated to 11600.000000 Hz[0m
+[0;33mW (33623) MCPWM: Requested 43.052261 Hz, actual 43 Hz[0m
+[0;32mI (33623) MCPWM: Freq: 43.052261 Hz, period_ticks: 15222[0m
+[0;32mI (33633) MCPWM: Frequency on GPIO 36 updated to 43.052261 Hz[0m
+[0;32mI (33633) MCPWM: Calc time: 120 us[0m
+[0;32mI (33773) UART_TRANSMITTER: Sent command: {"speed":1.8125,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (33833) MCPWM: Requested 12000.000000 Hz, actual 12003 Hz[0m
+[0;32mI (33833) MCPWM: Freq: 12000.000000 Hz, period_ticks: 1333[0m
+[0;32mI (33833) MCPWM: Frequency on GPIO 18 updated to 12000.000000 Hz[0m
+[0;32mI (33833) MCPWM: Frequency on GPIO 5 updated to 12000.000000 Hz[0m
+[0;33mW (33843) MCPWM: Requested 44.536823 Hz, actual 44 Hz[0m
+[0;32mI (33843) MCPWM: Freq: 44.536823 Hz, period_ticks: 14714[0m
+[0;32mI (33853) MCPWM: Frequency on GPIO 36 updated to 44.536823 Hz[0m
+[0;32mI (33853) MCPWM: Calc time: 170 us[0m
+[0;33mW (34053) MCPWM: Requested 12400.000000 Hz, actual 12403 Hz[0m
+[0;32mI (34053) MCPWM: Freq: 12400.000000 Hz, period_ticks: 1290[0m
+[0;32mI (34053) MCPWM: Frequency on GPIO 18 updated to 12400.000000 Hz[0m
+[0;32mI (34053) MCPWM: Frequency on GPIO 5 updated to 12400.000000 Hz[0m
+[0;33mW (34063) MCPWM: Requested 46.021385 Hz, actual 46 Hz[0m
+[0;32mI (34063) MCPWM: Freq: 46.021385 Hz, period_ticks: 14240[0m
+[0;32mI (34073) MCPWM: Frequency on GPIO 36 updated to 46.021385 Hz[0m
+[0;32mI (34073) MCPWM: Calc time: 118 us[0m
+[0;32mI (34273) MCPWM: Freq: 12800.000000 Hz, period_ticks: 1250[0m
+[0;32mI (34273) MCPWM: Frequency on GPIO 18 updated to 12800.000000 Hz[0m
+[0;32mI (34273) MCPWM: Frequency on GPIO 5 updated to 12800.000000 Hz[0m
+[0;33mW (34273) MCPWM: Requested 47.505947 Hz, actual 47 Hz[0m
+[0;32mI (34283) MCPWM: Freq: 47.505947 Hz, period_ticks: 13795[0m
+[0;32mI (34283) MCPWM: Frequency on GPIO 36 updated to 47.505947 Hz[0m
+[0;32mI (34293) MCPWM: Calc time: 120 us[0m
+[0;33mW (34493) MCPWM: Requested 13200.000000 Hz, actual 13201 Hz[0m
+[0;32mI (34493) MCPWM: Freq: 13200.000000 Hz, period_ticks: 1212[0m
+[0;32mI (34493) MCPWM: Frequency on GPIO 18 updated to 13200.000000 Hz[0m
+[0;32mI (34493) MCPWM: Frequency on GPIO 5 updated to 13200.000000 Hz[0m
+[0;33mW (34503) MCPWM: Requested 48.990509 Hz, actual 48 Hz[0m
+[0;32mI (34503) MCPWM: Freq: 48.990509 Hz, period_ticks: 13377[0m
+[0;32mI (34513) MCPWM: Frequency on GPIO 36 updated to 48.990509 Hz[0m
+[0;32mI (34513) MCPWM: Calc time: 118 us[0m
+[0;33mW (34713) MCPWM: Requested 13600.000000 Hz, actual 13605 Hz[0m
+[0;32mI (34713) MCPWM: Freq: 13600.000000 Hz, period_ticks: 1176[0m
+[0;32mI (34713) MCPWM: Frequency on GPIO 18 updated to 13600.000000 Hz[0m
+[0;32mI (34713) MCPWM: Frequency on GPIO 5 updated to 13600.000000 Hz[0m
+[0;33mW (34723) MCPWM: Requested 50.475071 Hz, actual 50 Hz[0m
+[0;32mI (34723) MCPWM: Freq: 50.475071 Hz, period_ticks: 12983[0m
+[0;32mI (34733) MCPWM: Frequency on GPIO 36 updated to 50.475071 Hz[0m
+[0;32mI (34733) MCPWM: Calc time: 121 us[0m
+[0;32mI (34773) UART_TRANSMITTER: Sent command: {"speed":2.125,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (34933) MCPWM: Requested 14000.000000 Hz, actual 14010 Hz[0m
+[0;32mI (34933) MCPWM: Freq: 14000.000000 Hz, period_ticks: 1142[0m
+[0;32mI (34933) MCPWM: Frequency on GPIO 18 updated to 14000.000000 Hz[0m
+[0;32mI (34933) MCPWM: Frequency on GPIO 5 updated to 14000.000000 Hz[0m
+[0;33mW (34943) MCPWM: Requested 51.959633 Hz, actual 51 Hz[0m
+[0;32mI (34943) MCPWM: Freq: 51.959633 Hz, period_ticks: 12612[0m
+[0;32mI (34953) MCPWM: Frequency on GPIO 36 updated to 51.959633 Hz[0m
+[0;32mI (34953) MCPWM: Calc time: 167 us[0m
+[0;33mW (35153) MCPWM: Requested 14400.000000 Hz, actual 14401 Hz[0m
+[0;32mI (35153) MCPWM: Freq: 14400.000000 Hz, period_ticks: 1111[0m
+[0;32mI (35153) MCPWM: Frequency on GPIO 18 updated to 14400.000000 Hz[0m
+[0;32mI (35153) MCPWM: Frequency on GPIO 5 updated to 14400.000000 Hz[0m
+[0;33mW (35163) MCPWM: Requested 53.444195 Hz, actual 53 Hz[0m
+[0;32mI (35163) MCPWM: Freq: 53.444195 Hz, period_ticks: 12262[0m
+[0;32mI (35173) MCPWM: Frequency on GPIO 36 updated to 53.444195 Hz[0m
+[0;32mI (35173) MCPWM: Calc time: 120 us[0m
+[0;33mW (35373) MCPWM: Requested 14800.000000 Hz, actual 14801 Hz[0m
+[0;32mI (35373) MCPWM: Freq: 14800.000000 Hz, period_ticks: 1081[0m
+[0;32mI (35373) MCPWM: Frequency on GPIO 18 updated to 14800.000000 Hz[0m
+[0;32mI (35373) MCPWM: Frequency on GPIO 5 updated to 14800.000000 Hz[0m
+[0;33mW (35383) MCPWM: Requested 54.928757 Hz, actual 54 Hz[0m
+[0;32mI (35383) MCPWM: Freq: 54.928757 Hz, period_ticks: 11930[0m
+[0;32mI (35393) MCPWM: Frequency on GPIO 36 updated to 54.928757 Hz[0m
+[0;32mI (35393) MCPWM: Calc time: 120 us[0m
+[0;33mW (35593) MCPWM: Requested 15200.000000 Hz, actual 15209 Hz[0m
+[0;32mI (35593) MCPWM: Freq: 15200.000000 Hz, period_ticks: 1052[0m
+[0;32mI (35593) MCPWM: Frequency on GPIO 18 updated to 15200.000000 Hz[0m
+[0;32mI (35593) MCPWM: Frequency on GPIO 5 updated to 15200.000000 Hz[0m
+[0;33mW (35603) MCPWM: Requested 56.413319 Hz, actual 56 Hz[0m
+[0;32mI (35603) MCPWM: Freq: 56.413319 Hz, period_ticks: 11616[0m
+[0;32mI (35613) MCPWM: Frequency on GPIO 36 updated to 56.413319 Hz[0m
+[0;32mI (35613) MCPWM: Calc time: 120 us[0m
+[0;32mI (35773) UART_TRANSMITTER: Sent command: {"speed":2.375,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (35813) MCPWM: Requested 15600.000000 Hz, actual 15609 Hz[0m
+[0;32mI (35813) MCPWM: Freq: 15600.000000 Hz, period_ticks: 1025[0m
+[0;32mI (35813) MCPWM: Frequency on GPIO 18 updated to 15600.000000 Hz[0m
+[0;32mI (35813) MCPWM: Frequency on GPIO 5 updated to 15600.000000 Hz[0m
+[0;33mW (35823) MCPWM: Requested 57.897881 Hz, actual 57 Hz[0m
+[0;32mI (35823) MCPWM: Freq: 57.897881 Hz, period_ticks: 11319[0m
+[0;32mI (35833) MCPWM: Frequency on GPIO 36 updated to 57.897881 Hz[0m
+[0;32mI (35833) MCPWM: Calc time: 170 us[0m
+[0;32mI (36033) MCPWM: Freq: 16000.000000 Hz, period_ticks: 1000[0m
+[0;32mI (36033) MCPWM: Frequency on GPIO 18 updated to 16000.000000 Hz[0m
+[0;32mI (36033) MCPWM: Frequency on GPIO 5 updated to 16000.000000 Hz[0m
+[0;33mW (36033) MCPWM: Requested 59.382442 Hz, actual 59 Hz[0m
+[0;32mI (36043) MCPWM: Freq: 59.382442 Hz, period_ticks: 11036[0m
+[0;32mI (36043) MCPWM: Frequency on GPIO 36 updated to 59.382442 Hz[0m
+[0;32mI (36053) MCPWM: Calc time: 120 us[0m
+[0;33mW (36253) MCPWM: Requested 16400.000000 Hz, actual 16410 Hz[0m
+[0;32mI (36253) MCPWM: Freq: 16400.000000 Hz, period_ticks: 975[0m
+[0;32mI (36253) MCPWM: Frequency on GPIO 18 updated to 16400.000000 Hz[0m
+[0;32mI (36253) MCPWM: Frequency on GPIO 5 updated to 16400.000000 Hz[0m
+[0;33mW (36263) MCPWM: Requested 60.867004 Hz, actual 60 Hz[0m
+[0;32mI (36263) MCPWM: Freq: 60.867004 Hz, period_ticks: 10766[0m
+[0;32mI (36273) MCPWM: Frequency on GPIO 36 updated to 60.867004 Hz[0m
+[0;32mI (36273) MCPWM: Calc time: 120 us[0m
+[0;33mW (36473) MCPWM: Requested 16800.000000 Hz, actual 16806 Hz[0m
+[0;32mI (36473) MCPWM: Freq: 16800.000000 Hz, period_ticks: 952[0m
+[0;32mI (36473) MCPWM: Frequency on GPIO 18 updated to 16800.000000 Hz[0m
+[0;32mI (36473) MCPWM: Frequency on GPIO 5 updated to 16800.000000 Hz[0m
+[0;33mW (36483) MCPWM: Requested 62.351566 Hz, actual 62 Hz[0m
+[0;32mI (36483) MCPWM: Freq: 62.351566 Hz, period_ticks: 10510[0m
+[0;32mI (36493) MCPWM: Frequency on GPIO 36 updated to 62.351566 Hz[0m
+[0;32mI (36493) MCPWM: Calc time: 120 us[0m
+[0;33mW (36693) MCPWM: Requested 17200.000000 Hz, actual 17204 Hz[0m
+[0;32mI (36693) MCPWM: Freq: 17200.000000 Hz, period_ticks: 930[0m
+[0;32mI (36693) MCPWM: Frequency on GPIO 18 updated to 17200.000000 Hz[0m
+[0;32mI (36693) MCPWM: Frequency on GPIO 5 updated to 17200.000000 Hz[0m
+[0;33mW (36703) MCPWM: Requested 63.836128 Hz, actual 63 Hz[0m
+[0;32mI (36703) MCPWM: Freq: 63.836128 Hz, period_ticks: 10266[0m
+[0;32mI (36713) MCPWM: Frequency on GPIO 36 updated to 63.836128 Hz[0m
+[0;32mI (36713) MCPWM: Calc time: 120 us[0m
+[0;32mI (36773) UART_TRANSMITTER: Sent command: {"speed":2.6875,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (36913) MCPWM: Requested 17600.000000 Hz, actual 17601 Hz[0m
+[0;32mI (36913) MCPWM: Freq: 17600.000000 Hz, period_ticks: 909[0m
+[0;32mI (36913) MCPWM: Frequency on GPIO 18 updated to 17600.000000 Hz[0m
+[0;32mI (36913) MCPWM: Frequency on GPIO 5 updated to 17600.000000 Hz[0m
+[0;33mW (36923) MCPWM: Requested 65.320686 Hz, actual 65 Hz[0m
+[0;32mI (36923) MCPWM: Freq: 65.320686 Hz, period_ticks: 10032[0m
+[0;32mI (36933) MCPWM: Frequency on GPIO 36 updated to 65.320686 Hz[0m
+[0;32mI (36933) MCPWM: Calc time: 168 us[0m
+[0;33mW (37133) MCPWM: Requested 18000.000000 Hz, actual 18018 Hz[0m
+[0;32mI (37133) MCPWM: Freq: 18000.000000 Hz, period_ticks: 888[0m
+[0;32mI (37133) MCPWM: Frequency on GPIO 18 updated to 18000.000000 Hz[0m
+[0;32mI (37133) MCPWM: Frequency on GPIO 5 updated to 18000.000000 Hz[0m
+[0;33mW (37143) MCPWM: Requested 66.805244 Hz, actual 66 Hz[0m
+[0;32mI (37143) MCPWM: Freq: 66.805244 Hz, period_ticks: 9809[0m
+[0;32mI (37153) MCPWM: Frequency on GPIO 36 updated to 66.805244 Hz[0m
+[0;32mI (37153) MCPWM: Calc time: 120 us[0m
+[0;33mW (37353) MCPWM: Requested 18400.000000 Hz, actual 18411 Hz[0m
+[0;32mI (37353) MCPWM: Freq: 18400.000000 Hz, period_ticks: 869[0m
+[0;32mI (37353) MCPWM: Frequency on GPIO 18 updated to 18400.000000 Hz[0m
+[0;32mI (37353) MCPWM: Frequency on GPIO 5 updated to 18400.000000 Hz[0m
+[0;33mW (37363) MCPWM: Requested 68.289803 Hz, actual 68 Hz[0m
+[0;32mI (37363) MCPWM: Freq: 68.289803 Hz, period_ticks: 9596[0m
+[0;32mI (37373) MCPWM: Frequency on GPIO 36 updated to 68.289803 Hz[0m
+[0;32mI (37373) MCPWM: Calc time: 120 us[0m
+[0;33mW (37573) MCPWM: Requested 18800.000000 Hz, actual 18801 Hz[0m
+[0;32mI (37573) MCPWM: Freq: 18800.000000 Hz, period_ticks: 851[0m
+[0;32mI (37573) MCPWM: Frequency on GPIO 18 updated to 18800.000000 Hz[0m
+[0;32mI (37573) MCPWM: Frequency on GPIO 5 updated to 18800.000000 Hz[0m
+[0;33mW (37583) MCPWM: Requested 69.774361 Hz, actual 69 Hz[0m
+[0;32mI (37583) MCPWM: Freq: 69.774361 Hz, period_ticks: 9392[0m
+[0;32mI (37593) MCPWM: Frequency on GPIO 36 updated to 69.774361 Hz[0m
+[0;32mI (37593) MCPWM: Calc time: 120 us[0m
+[0;32mI (37773) UART_TRANSMITTER: Sent command: {"speed":2.9375,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (37793) MCPWM: Requested 19200.000000 Hz, actual 19207 Hz[0m
+[0;32mI (37793) MCPWM: Freq: 19200.000000 Hz, period_ticks: 833[0m
+[0;32mI (37793) MCPWM: Frequency on GPIO 18 updated to 19200.000000 Hz[0m
+[0;32mI (37793) MCPWM: Frequency on GPIO 5 updated to 19200.000000 Hz[0m
+[0;33mW (37803) MCPWM: Requested 71.258919 Hz, actual 71 Hz[0m
+[0;32mI (37803) MCPWM: Freq: 71.258919 Hz, period_ticks: 9196[0m
+[0;32mI (37813) MCPWM: Frequency on GPIO 36 updated to 71.258919 Hz[0m
+[0;32mI (37813) MCPWM: Calc time: 170 us[0m
+[0;33mW (38013) MCPWM: Requested 19600.000000 Hz, actual 19607 Hz[0m
+[0;32mI (38013) MCPWM: Freq: 19600.000000 Hz, period_ticks: 816[0m
+[0;32mI (38013) MCPWM: Frequency on GPIO 18 updated to 19600.000000 Hz[0m
+[0;32mI (38013) MCPWM: Frequency on GPIO 5 updated to 19600.000000 Hz[0m
+[0;33mW (38023) MCPWM: Requested 72.743477 Hz, actual 72 Hz[0m
+[0;32mI (38023) MCPWM: Freq: 72.743477 Hz, period_ticks: 9009[0m
+[0;32mI (38033) MCPWM: Frequency on GPIO 36 updated to 72.743477 Hz[0m
+[0;32mI (38033) MCPWM: Calc time: 120 us[0m
+[0;32mI (38233) MCPWM: Freq: 20000.000000 Hz, period_ticks: 800[0m
+[0;32mI (38233) MCPWM: Frequency on GPIO 18 updated to 20000.000000 Hz[0m
+[0;32mI (38233) MCPWM: Frequency on GPIO 5 updated to 20000.000000 Hz[0m
+[0;33mW (38233) MCPWM: Requested 74.228035 Hz, actual 74 Hz[0m
+[0;32mI (38243) MCPWM: Freq: 74.228035 Hz, period_ticks: 8828[0m
+[0;32mI (38243) MCPWM: Frequency on GPIO 36 updated to 74.228035 Hz[0m
+[0;32mI (38253) MCPWM: Calc time: 121 us[0m
+[0;33mW (38453) MCPWM: Requested 20400.000000 Hz, actual 20408 Hz[0m
+[0;32mI (38453) MCPWM: Freq: 20400.000000 Hz, period_ticks: 784[0m
+[0;32mI (38453) MCPWM: Frequency on GPIO 18 updated to 20400.000000 Hz[0m
+[0;32mI (38453) MCPWM: Frequency on GPIO 5 updated to 20400.000000 Hz[0m
+[0;33mW (38463) MCPWM: Requested 75.712593 Hz, actual 75 Hz[0m
+[0;32mI (38463) MCPWM: Freq: 75.712593 Hz, period_ticks: 8655[0m
+[0;32mI (38473) MCPWM: Frequency on GPIO 36 updated to 75.712593 Hz[0m
+[0;32mI (38473) MCPWM: Calc time: 120 us[0m
+[0;33mW (38673) MCPWM: Requested 20800.000000 Hz, actual 20806 Hz[0m
+[0;32mI (38673) MCPWM: Freq: 20800.000000 Hz, period_ticks: 769[0m
+[0;32mI (38673) MCPWM: Frequency on GPIO 18 updated to 20800.000000 Hz[0m
+[0;32mI (38673) MCPWM: Frequency on GPIO 5 updated to 20800.000000 Hz[0m
+[0;33mW (38683) MCPWM: Requested 77.197151 Hz, actual 77 Hz[0m
+[0;32mI (38683) MCPWM: Freq: 77.197151 Hz, period_ticks: 8489[0m
+[0;32mI (38693) MCPWM: Frequency on GPIO 36 updated to 77.197151 Hz[0m
+[0;32mI (38693) MCPWM: Calc time: 120 us[0m
+[0;32mI (38773) UART_TRANSMITTER: Sent command: {"speed":3.25,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (38893) MCPWM: Requested 21200.000000 Hz, actual 21220 Hz[0m
+[0;32mI (38893) MCPWM: Freq: 21200.000000 Hz, period_ticks: 754[0m
+[0;32mI (38893) MCPWM: Frequency on GPIO 18 updated to 21200.000000 Hz[0m
+[0;32mI (38893) MCPWM: Frequency on GPIO 5 updated to 21200.000000 Hz[0m
+[0;33mW (38903) MCPWM: Requested 78.681709 Hz, actual 78 Hz[0m
+[0;32mI (38903) MCPWM: Freq: 78.681709 Hz, period_ticks: 8329[0m
+[0;32mI (38913) MCPWM: Frequency on GPIO 36 updated to 78.681709 Hz[0m
+[0;32mI (38913) MCPWM: Calc time: 167 us[0m
+[0;33mW (39113) MCPWM: Requested 21600.000000 Hz, actual 21621 Hz[0m
+[0;32mI (39113) MCPWM: Freq: 21600.000000 Hz, period_ticks: 740[0m
+[0;32mI (39113) MCPWM: Frequency on GPIO 18 updated to 21600.000000 Hz[0m
+[0;32mI (39113) MCPWM: Frequency on GPIO 5 updated to 21600.000000 Hz[0m
+[0;33mW (39123) MCPWM: Requested 80.166267 Hz, actual 80 Hz[0m
+[0;32mI (39123) MCPWM: Freq: 80.166267 Hz, period_ticks: 8174[0m
+[0;32mI (39133) MCPWM: Frequency on GPIO 36 updated to 80.166267 Hz[0m
+[0;32mI (39133) MCPWM: Calc time: 120 us[0m
+[0;33mW (39333) MCPWM: Requested 22000.000000 Hz, actual 22008 Hz[0m
+[0;32mI (39333) MCPWM: Freq: 22000.000000 Hz, period_ticks: 727[0m
+[0;32mI (39333) MCPWM: Frequency on GPIO 18 updated to 22000.000000 Hz[0m
+[0;32mI (39333) MCPWM: Frequency on GPIO 5 updated to 22000.000000 Hz[0m
+[0;33mW (39343) MCPWM: Requested 81.650826 Hz, actual 81 Hz[0m
+[0;32mI (39343) MCPWM: Freq: 81.650826 Hz, period_ticks: 8026[0m
+[0;32mI (39353) MCPWM: Frequency on GPIO 36 updated to 81.650826 Hz[0m
+[0;32mI (39353) MCPWM: Calc time: 120 us[0m
+[0;33mW (39553) MCPWM: Requested 22400.000000 Hz, actual 22408 Hz[0m
+[0;32mI (39553) MCPWM: Freq: 22400.000000 Hz, period_ticks: 714[0m
+[0;32mI (39553) MCPWM: Frequency on GPIO 18 updated to 22400.000000 Hz[0m
+[0;32mI (39553) MCPWM: Frequency on GPIO 5 updated to 22400.000000 Hz[0m
+[0;33mW (39563) MCPWM: Requested 83.135384 Hz, actual 83 Hz[0m
+[0;32mI (39563) MCPWM: Freq: 83.135384 Hz, period_ticks: 7882[0m
+[0;32mI (39573) MCPWM: Frequency on GPIO 36 updated to 83.135384 Hz[0m
+[0;32mI (39573) MCPWM: Calc time: 120 us[0m
+[0;32mI (39773) UART_TRANSMITTER: Sent command: {"speed":3.5,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (39773) MCPWM: Requested 22800.000000 Hz, actual 22824 Hz[0m
+[0;32mI (39773) MCPWM: Freq: 22800.000000 Hz, period_ticks: 701[0m
+[0;32mI (39783) MCPWM: Frequency on GPIO 18 updated to 22800.000000 Hz[0m
+[0;32mI (39783) MCPWM: Frequency on GPIO 5 updated to 22800.000000 Hz[0m
+[0;33mW (39793) MCPWM: Requested 84.619942 Hz, actual 84 Hz[0m
+[0;32mI (39793) MCPWM: Freq: 84.619942 Hz, period_ticks: 7744[0m
+[0;32mI (39803) MCPWM: Frequency on GPIO 36 updated to 84.619942 Hz[0m
+[0;32mI (39803) MCPWM: Calc time: 169 us[0m
+[0;33mW (40003) MCPWM: Requested 23200.000000 Hz, actual 23222 Hz[0m
+[0;32mI (40003) MCPWM: Freq: 23200.000000 Hz, period_ticks: 689[0m
+[0;32mI (40003) MCPWM: Frequency on GPIO 18 updated to 23200.000000 Hz[0m
+[0;32mI (40003) MCPWM: Frequency on GPIO 5 updated to 23200.000000 Hz[0m
+[0;33mW (40013) MCPWM: Requested 86.104500 Hz, actual 86 Hz[0m
+[0;32mI (40013) MCPWM: Freq: 86.104500 Hz, period_ticks: 7611[0m
+[0;32mI (40023) MCPWM: Frequency on GPIO 36 updated to 86.104500 Hz[0m
+[0;32mI (40023) MCPWM: Calc time: 121 us[0m
+[0;33mW (40223) MCPWM: Requested 23600.000000 Hz, actual 23633 Hz[0m
+[0;32mI (40223) MCPWM: Freq: 23600.000000 Hz, period_ticks: 677[0m
+[0;32mI (40223) MCPWM: Frequency on GPIO 18 updated to 23600.000000 Hz[0m
+[0;32mI (40223) MCPWM: Frequency on GPIO 5 updated to 23600.000000 Hz[0m
+[0;33mW (40233) MCPWM: Requested 87.589058 Hz, actual 87 Hz[0m
+[0;32mI (40233) MCPWM: Freq: 87.589058 Hz, period_ticks: 7482[0m
+[0;32mI (40243) MCPWM: Frequency on GPIO 36 updated to 87.589058 Hz[0m
+[0;32mI (40243) MCPWM: Calc time: 120 us[0m
+[0;33mW (40443) MCPWM: Requested 24000.000000 Hz, actual 24024 Hz[0m
+[0;32mI (40443) MCPWM: Freq: 24000.000000 Hz, period_ticks: 666[0m
+[0;32mI (40443) MCPWM: Frequency on GPIO 18 updated to 24000.000000 Hz[0m
+[0;32mI (40443) MCPWM: Frequency on GPIO 5 updated to 24000.000000 Hz[0m
+[0;33mW (40453) MCPWM: Requested 89.073616 Hz, actual 89 Hz[0m
+[0;32mI (40453) MCPWM: Freq: 89.073616 Hz, period_ticks: 7357[0m
+[0;32mI (40463) MCPWM: Frequency on GPIO 36 updated to 89.073616 Hz[0m
+[0;32mI (40463) MCPWM: Calc time: 121 us[0m
+[0;33mW (40663) MCPWM: Requested 24400.000000 Hz, actual 24427 Hz[0m
+[0;32mI (40663) MCPWM: Freq: 24400.000000 Hz, period_ticks: 655[0m
+[0;32mI (40663) MCPWM: Frequency on GPIO 18 updated to 24400.000000 Hz[0m
+[0;32mI (40663) MCPWM: Frequency on GPIO 5 updated to 24400.000000 Hz[0m
+[0;33mW (40673) MCPWM: Requested 90.558174 Hz, actual 90 Hz[0m
+[0;32mI (40673) MCPWM: Freq: 90.558174 Hz, period_ticks: 7236[0m
+[0;32mI (40683) MCPWM: Frequency on GPIO 36 updated to 90.558174 Hz[0m
+[0;32mI (40683) MCPWM: Calc time: 120 us[0m
+[0;32mI (40773) UART_TRANSMITTER: Sent command: {"speed":3.8125,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (40883) MCPWM: Requested 24800.000000 Hz, actual 24806 Hz[0m
+[0;32mI (40883) MCPWM: Freq: 24800.000000 Hz, period_ticks: 645[0m
+[0;32mI (40883) MCPWM: Frequency on GPIO 18 updated to 24800.000000 Hz[0m
+[0;32mI (40883) MCPWM: Frequency on GPIO 5 updated to 24800.000000 Hz[0m
+[0;33mW (40893) MCPWM: Requested 92.042732 Hz, actual 92 Hz[0m
+[0;32mI (40893) MCPWM: Freq: 92.042732 Hz, period_ticks: 7120[0m
+[0;32mI (40903) MCPWM: Frequency on GPIO 36 updated to 92.042732 Hz[0m
+[0;32mI (40903) MCPWM: Calc time: 167 us[0m
+[0;33mW (41103) MCPWM: Requested 25200.000000 Hz, actual 25236 Hz[0m
+[0;32mI (41103) MCPWM: Freq: 25200.000000 Hz, period_ticks: 634[0m
+[0;32mI (41103) MCPWM: Frequency on GPIO 18 updated to 25200.000000 Hz[0m
+[0;32mI (41103) MCPWM: Frequency on GPIO 5 updated to 25200.000000 Hz[0m
+[0;33mW (41113) MCPWM: Requested 93.527290 Hz, actual 93 Hz[0m
+[0;32mI (41113) MCPWM: Freq: 93.527290 Hz, period_ticks: 7007[0m
+[0;32mI (41123) MCPWM: Frequency on GPIO 36 updated to 93.527290 Hz[0m
+[0;32mI (41123) MCPWM: Calc time: 120 us[0m
+[0;32mI (41323) MCPWM: Freq: 25600.000000 Hz, period_ticks: 625[0m
+[0;32mI (41323) MCPWM: Frequency on GPIO 18 updated to 25600.000000 Hz[0m
+[0;32mI (41323) MCPWM: Frequency on GPIO 5 updated to 25600.000000 Hz[0m
+[0;33mW (41323) MCPWM: Requested 95.011848 Hz, actual 95 Hz[0m
+[0;32mI (41333) MCPWM: Freq: 95.011848 Hz, period_ticks: 6897[0m
+[0;32mI (41333) MCPWM: Frequency on GPIO 36 updated to 95.011848 Hz[0m
+[0;32mI (41343) MCPWM: Calc time: 120 us[0m
+[0;33mW (41543) MCPWM: Requested 26000.000000 Hz, actual 26016 Hz[0m
+[0;32mI (41543) MCPWM: Freq: 26000.000000 Hz, period_ticks: 615[0m
+[0;32mI (41543) MCPWM: Frequency on GPIO 18 updated to 26000.000000 Hz[0m
+[0;32mI (41543) MCPWM: Frequency on GPIO 5 updated to 26000.000000 Hz[0m
+[0;33mW (41553) MCPWM: Requested 96.496407 Hz, actual 96 Hz[0m
+[0;32mI (41553) MCPWM: Freq: 96.496407 Hz, period_ticks: 6791[0m
+[0;32mI (41563) MCPWM: Frequency on GPIO 36 updated to 96.496407 Hz[0m
+[0;32mI (41563) MCPWM: Calc time: 120 us[0m
+[0;33mW (41763) MCPWM: Requested 26400.000000 Hz, actual 26402 Hz[0m
+[0;32mI (41763) MCPWM: Freq: 26400.000000 Hz, period_ticks: 606[0m
+[0;32mI (41763) MCPWM: Frequency on GPIO 18 updated to 26400.000000 Hz[0m
+[0;32mI (41763) MCPWM: Frequency on GPIO 5 updated to 26400.000000 Hz[0m
+[0;32mI (41773) UART_TRANSMITTER: Sent command: {"speed":4.125,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (41783) MCPWM: Requested 97.980965 Hz, actual 97 Hz[0m
+[0;32mI (41783) MCPWM: Freq: 97.980965 Hz, period_ticks: 6688[0m
+[0;32mI (41793) MCPWM: Frequency on GPIO 36 updated to 97.980965 Hz[0m
+[0;32mI (41793) MCPWM: Calc time: 167 us[0m
+[0;32mI (41993) MCPWM: Freq: 26800.000000 Hz, period_ticks: 597[0m
+[0;32mI (41993) MCPWM: Frequency on GPIO 18 updated to 26800.000000 Hz[0m
+[0;32mI (41993) MCPWM: Frequency on GPIO 5 updated to 26800.000000 Hz[0m
+[0;33mW (41993) MCPWM: Requested 99.465523 Hz, actual 99 Hz[0m
+[0;32mI (42003) MCPWM: Freq: 99.465523 Hz, period_ticks: 6588[0m
+[0;32mI (42003) MCPWM: Frequency on GPIO 36 updated to 99.465523 Hz[0m
+[0;32mI (42013) MCPWM: Calc time: 120 us[0m
+[0;33mW (42213) MCPWM: Requested 27200.000000 Hz, actual 27210 Hz[0m
+[0;32mI (42213) MCPWM: Freq: 27200.000000 Hz, period_ticks: 588[0m
+[0;32mI (42213) MCPWM: Frequency on GPIO 18 updated to 27200.000000 Hz[0m
+[0;32mI (42213) MCPWM: Frequency on GPIO 5 updated to 27200.000000 Hz[0m
+[0;33mW (42223) MCPWM: Requested 100.950081 Hz, actual 100 Hz[0m
+[0;32mI (42223) MCPWM: Freq: 100.950081 Hz, period_ticks: 6491[0m
+[0;32mI (42233) MCPWM: Frequency on GPIO 36 updated to 100.950081 Hz[0m
+[0;32mI (42233) MCPWM: Calc time: 120 us[0m
+[0;33mW (42433) MCPWM: Requested 27600.000000 Hz, actual 27633 Hz[0m
+[0;32mI (42433) MCPWM: Freq: 27600.000000 Hz, period_ticks: 579[0m
+[0;32mI (42433) MCPWM: Frequency on GPIO 18 updated to 27600.000000 Hz[0m
+[0;32mI (42433) MCPWM: Frequency on GPIO 5 updated to 27600.000000 Hz[0m
+[0;33mW (42443) MCPWM: Requested 102.434639 Hz, actual 102 Hz[0m
+[0;32mI (42443) MCPWM: Freq: 102.434639 Hz, period_ticks: 6397[0m
+[0;32mI (42453) MCPWM: Frequency on GPIO 36 updated to 102.434639 Hz[0m
+[0;32mI (42453) MCPWM: Calc time: 120 us[0m
+[0;33mW (42653) MCPWM: Requested 28000.000000 Hz, actual 28021 Hz[0m
+[0;32mI (42653) MCPWM: Freq: 28000.000000 Hz, period_ticks: 571[0m
+[0;32mI (42653) MCPWM: Frequency on GPIO 18 updated to 28000.000000 Hz[0m
+[0;32mI (42653) MCPWM: Frequency on GPIO 5 updated to 28000.000000 Hz[0m
+[0;33mW (42663) MCPWM: Requested 103.919197 Hz, actual 103 Hz[0m
+[0;32mI (42663) MCPWM: Freq: 103.919197 Hz, period_ticks: 6306[0m
+[0;32mI (42673) MCPWM: Frequency on GPIO 36 updated to 103.919197 Hz[0m
+[0;32mI (42673) MCPWM: Calc time: 120 us[0m
+[0;32mI (42783) UART_TRANSMITTER: Sent command: {"speed":4.375,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (42873) MCPWM: Requested 28400.000000 Hz, actual 28419 Hz[0m
+[0;32mI (42873) MCPWM: Freq: 28400.000000 Hz, period_ticks: 563[0m
+[0;32mI (42873) MCPWM: Frequency on GPIO 18 updated to 28400.000000 Hz[0m
+[0;32mI (42873) MCPWM: Frequency on GPIO 5 updated to 28400.000000 Hz[0m
+[0;33mW (42883) MCPWM: Requested 105.403755 Hz, actual 105 Hz[0m
+[0;32mI (42883) MCPWM: Freq: 105.403755 Hz, period_ticks: 6217[0m
+[0;32mI (42893) MCPWM: Frequency on GPIO 36 updated to 105.403755 Hz[0m
+[0;32mI (42893) MCPWM: Calc time: 167 us[0m
+[0;33mW (43093) MCPWM: Requested 28800.000000 Hz, actual 28828 Hz[0m
+[0;32mI (43093) MCPWM: Freq: 28800.000000 Hz, period_ticks: 555[0m
+[0;32mI (43093) MCPWM: Frequency on GPIO 18 updated to 28800.000000 Hz[0m
+[0;32mI (43093) MCPWM: Frequency on GPIO 5 updated to 28800.000000 Hz[0m
+[0;33mW (43103) MCPWM: Requested 106.888313 Hz, actual 106 Hz[0m
+[0;32mI (43103) MCPWM: Freq: 106.888313 Hz, period_ticks: 6131[0m
+[0;32mI (43113) MCPWM: Frequency on GPIO 36 updated to 106.888313 Hz[0m
+[0;32mI (43113) MCPWM: Calc time: 120 us[0m
+[0;33mW (43313) MCPWM: Requested 29200.000000 Hz, actual 29250 Hz[0m
+[0;32mI (43313) MCPWM: Freq: 29200.000000 Hz, period_ticks: 547[0m
+[0;32mI (43313) MCPWM: Frequency on GPIO 18 updated to 29200.000000 Hz[0m
+[0;32mI (43313) MCPWM: Frequency on GPIO 5 updated to 29200.000000 Hz[0m
+[0;33mW (43323) MCPWM: Requested 108.372871 Hz, actual 108 Hz[0m
+[0;32mI (43323) MCPWM: Freq: 108.372871 Hz, period_ticks: 6047[0m
+[0;32mI (43333) MCPWM: Frequency on GPIO 36 updated to 108.372871 Hz[0m
+[0;32mI (43333) MCPWM: Calc time: 120 us[0m
+[0;33mW (43533) MCPWM: Requested 29600.000000 Hz, actual 29629 Hz[0m
+[0;32mI (43533) MCPWM: Freq: 29600.000000 Hz, period_ticks: 540[0m
+[0;32mI (43533) MCPWM: Frequency on GPIO 18 updated to 29600.000000 Hz[0m
+[0;32mI (43533) MCPWM: Frequency on GPIO 5 updated to 29600.000000 Hz[0m
+[0;33mW (43543) MCPWM: Requested 109.857430 Hz, actual 109 Hz[0m
+[0;32mI (43543) MCPWM: Freq: 109.857430 Hz, period_ticks: 5965[0m
+[0;32mI (43553) MCPWM: Frequency on GPIO 36 updated to 109.857430 Hz[0m
+[0;32mI (43553) MCPWM: Calc time: 120 us[0m
+[0;33mW (43753) MCPWM: Requested 30000.000000 Hz, actual 30018 Hz[0m
+[0;32mI (43753) MCPWM: Freq: 30000.000000 Hz, period_ticks: 533[0m
+[0;32mI (43753) MCPWM: Frequency on GPIO 18 updated to 30000.000000 Hz[0m
+[0;32mI (43753) MCPWM: Frequency on GPIO 5 updated to 30000.000000 Hz[0m
+[0;33mW (43763) MCPWM: Requested 111.341988 Hz, actual 111 Hz[0m
+[0;32mI (43763) MCPWM: Freq: 111.341988 Hz, period_ticks: 5885[0m
+[0;32mI (43773) MCPWM: Frequency on GPIO 36 updated to 111.341988 Hz[0m
+[0;32mI (43773) MCPWM: Calc time: 120 us[0m
+[0;32mI (43783) UART_TRANSMITTER: Sent command: {"speed":4.6875,"current_winding":0,"total_cable_length":0,"time":3600}[0m
+[0;33mW (43973) MCPWM: Requested 30400.000000 Hz, actual 30418 Hz[0m
+[0;32mI (43973) MCPWM: Freq: 30400.000000 Hz, period_ticks: 526[0m
+[0;32mI (43973) MCPWM: Frequency on GPIO 18 updated to 30400.000000 Hz[0m
+[0;32mI (43973) MCPWM: Frequency on GPIO 5 updated to 30400.000000 Hz[0m
+[0;33mW (43983) MCPWM: Requested 112.826546 Hz, actual 112 Hz[0m
+[0;32mI (43983) MCPWM: Freq: 112.826546 Hz, period_ticks: 5808[0m
+[0;32mI (43993) MCPWM: Frequency on GPIO 36 updated to 112.826546 Hz[0m
+[0;32mI (43993) MCPWM: Calc time: 170 us[0m
+[0;33mW (44193) MCPWM: Requested 30800.000000 Hz, actual 30828 Hz[0m
+[0;32mI (44193) MCPWM: Freq: 30800.000000 Hz, period_ticks: 519[0m
+[0;32mI (44193) MCPWM: Frequency on GPIO 18 updated to 30800.000000 Hz[0m
+[0;32mI (44193) MCPWM: Frequency on GPIO 5 updated to 30800.000000 Hz[0m
+[0;33mW (44203) MCPWM: Requested 114.311104 Hz, actual 114 Hz[0m
+[0;32mI (44203) MCPWM: Freq: 114.311104 Hz, period_ticks: 5733[0m
+[0;32mI (44213) MCPWM: Frequency on GPIO 36 updated to 114.311104 Hz[0m
+[0;32mI (44213) MCPWM: Calc time: 118 us[0m
+[0;33mW (44413) MCPWM: Requested 31200.000000 Hz, actual 31250 Hz[0m
+[0;32mI (44413) MCPWM: Freq: 31200.000000 Hz, period_ticks: 512[0m
+[0;32mI (44413) MCPWM: Frequency on GPIO 18 updated to 31200.000000 Hz[0m
+[0;32mI (44413) MCPWM: Frequency on GPIO 5 updated to 31200.000000 Hz[0m
+[0;33mW (44423) MCPWM: Requested 115.795662 Hz, actual 115 Hz[0m
+[0;32mI (44423) MCPWM: Freq: 115.795662 Hz, period_ticks: 5659[0m
+[0;32mI (44433) MCPWM: Frequency on GPIO 36 updated to 115.795662 Hz[0m
+[0;32mI (44433) MCPWM: Calc time: 120 us[0m
+[0;33mW (44633) MCPWM: Requested 31600.000000 Hz, actual 31620 Hz[0m
+[0;32mI (44633) MCPWM: Freq: 31600.000000 Hz, period_ticks: 506[0m
+[0;32mI (44633) MCPWM: Frequency on GPIO 18 updated to 31600.000000 Hz[0m
+[0;32mI (44633) MCPWM: Frequency on GPIO 5 updated to 31600.000000 Hz[0m
+[0;33mW (44643) MCPWM: Requested 117.280220 Hz, actual 117 Hz[0m
+[0;32mI (44643) MCPWM: Freq: 117.280220 Hz, period_ticks: 5587[0m
+[0;32mI (44653) MCPWM: Frequency on GPIO 36 updated to 117.280220 Hz[0m
+[0;32mI (44653) MCPWM: Calc time: 118 us[0m
+[0;32mI (44783) UART_TRANSMITTER: Sent command: {"speed":4.9375,"current_winding":0.223199,"total_cable_length":0.223199,"time":3600}[0m
+[0;32mI (44853) MCPWM: Freq: 32000.000000 Hz, period_ticks: 500[0m
+[0;32mI (44853) MCPWM: Frequency on GPIO 18 updated to 32000.000000 Hz[0m
+[0;32mI (44853) MCPWM: Frequency on GPIO 5 updated to 32000.000000 Hz[0m
+[0;33mW (44853) MCPWM: Requested 118.764778 Hz, actual 118 Hz[0m
+[0;32mI (44863) MCPWM: Freq: 118.764778 Hz, period_ticks: 5518[0m
+[0;32mI (44863) MCPWM: Frequency on GPIO 36 updated to 118.764778 Hz[0m
+[0;32mI (44873) MCPWM: Calc time: 173 us[0m
+[0;33mW (45073) MCPWM: Requested 32400.000000 Hz, actual 32454 Hz[0m
+[0;32mI (45073) MCPWM: Freq: 32400.000000 Hz, period_ticks: 493[0m
+[0;32mI (45073) MCPWM: Frequency on GPIO 18 updated to 32400.000000 Hz[0m
+[0;32mI (45073) MCPWM: Frequency on GPIO 5 updated to 32400.000000 Hz[0m
+[0;33mW (45083) MCPWM: Requested 120.249336 Hz, actual 120 Hz[0m
+[0;32mI (45083) MCPWM: Freq: 120.249336 Hz, period_ticks: 5449[0m
+[0;32mI (45093) MCPWM: Frequency on GPIO 36 updated to 120.249336 Hz[0m
+[0;32mI (45093) MCPWM: Calc time: 118 us[0m
+[0;32mI (45293) MCPWM: Max frequency reached. Waiting for stop signal[0m
+[0;32mI (45783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":0.669597,"total_cable_length":0.669597,"time":3600}[0m
+[0;32mI (46783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":13.615138999999985,"total_cable_length":13.615138999999985,"time":3600}[0m
+[0;32mI (47783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":14.284735999999983,"total_cable_length":14.284735999999983,"time":3600}[0m
+[0;32mI (48783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":14.731133999999981,"total_cable_length":14.731133999999981,"time":3600}[0m
+[0;32mI (49783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":15.847128999999978,"total_cable_length":15.847128999999978,"time":3600}[0m
+[0;32mI (50783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":18.079118999999988,"total_cable_length":18.079118999999988,"time":3600}[0m
+[0;32mI (51783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":19.641512,"total_cable_length":19.641512,"time":3600}[0m
+[0;32mI (52783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (53783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (54783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (55783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (56783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (57783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (58783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (59783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (60783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (61783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (62783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (63783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (64783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (65783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (66783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (67783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (68783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (69783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (70783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (71783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (72783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (73783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (74783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (75783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (76783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (77783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (78783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (79783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (80783) UART_TRANSMITTER: Sent command: {"speed":5.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (81113) UART_TRANSMITTER: UART_DATA event, size: 20[0m
+[0;32mI (81113) MCPWM: Received data: {"command": "stop"}[0m
+
+[0;32mI (81113) UART_TRANSMITTER: Received: {"command": "stop"}[0m
+
+[0;32mI (81193) MCPWM: Freq: 32000.000000 Hz, period_ticks: 500[0m
+[0;33mW (81193) MCPWM: Requested 118.764778 Hz, actual 118 Hz[0m
+[0;32mI (81193) MCPWM: Freq: 118.764778 Hz, period_ticks: 5518[0m
+[0;32mI (81193) MCPWM: Calc time: 180 us[0m
+[0;32mI (81193) MCPWM: Frequency on GPIO 18 updated to 32000.000000 Hz[0m
+[0;32mI (81203) MCPWM: Frequency on GPIO 5 updated to 32000.000000 Hz[0m
+[0;32mI (81203) MCPWM: Frequency on GPIO 36 updated to 118.764778 Hz[0m
+[0;33mW (81313) MCPWM: Requested 31600.000000 Hz, actual 31620 Hz[0m
+[0;32mI (81313) MCPWM: Freq: 31600.000000 Hz, period_ticks: 506[0m
+[0;33mW (81313) MCPWM: Requested 117.280220 Hz, actual 117 Hz[0m
+[0;32mI (81313) MCPWM: Freq: 117.280220 Hz, period_ticks: 5587[0m
+[0;32mI (81313) MCPWM: Calc time: 117 us[0m
+[0;32mI (81323) MCPWM: Frequency on GPIO 18 updated to 31600.000000 Hz[0m
+[0;32mI (81323) MCPWM: Frequency on GPIO 5 updated to 31600.000000 Hz[0m
+[0;32mI (81333) MCPWM: Frequency on GPIO 36 updated to 117.280220 Hz[0m
+[0;33mW (81433) MCPWM: Requested 31200.000000 Hz, actual 31250 Hz[0m
+[0;32mI (81433) MCPWM: Freq: 31200.000000 Hz, period_ticks: 512[0m
+[0;33mW (81433) MCPWM: Requested 115.795662 Hz, actual 115 Hz[0m
+[0;32mI (81433) MCPWM: Freq: 115.795662 Hz, period_ticks: 5659[0m
+[0;32mI (81433) MCPWM: Calc time: 117 us[0m
+[0;32mI (81443) MCPWM: Frequency on GPIO 18 updated to 31200.000000 Hz[0m
+[0;32mI (81443) MCPWM: Frequency on GPIO 5 updated to 31200.000000 Hz[0m
+[0;32mI (81453) MCPWM: Frequency on GPIO 36 updated to 115.795662 Hz[0m
+[0;33mW (81553) MCPWM: Requested 30800.000000 Hz, actual 30828 Hz[0m
+[0;32mI (81553) MCPWM: Freq: 30800.000000 Hz, period_ticks: 519[0m
+[0;33mW (81553) MCPWM: Requested 114.311104 Hz, actual 114 Hz[0m
+[0;32mI (81553) MCPWM: Freq: 114.311104 Hz, period_ticks: 5733[0m
+[0;32mI (81553) MCPWM: Calc time: 117 us[0m
+[0;32mI (81563) MCPWM: Frequency on GPIO 18 updated to 30800.000000 Hz[0m
+[0;32mI (81563) MCPWM: Frequency on GPIO 5 updated to 30800.000000 Hz[0m
+[0;32mI (81573) MCPWM: Frequency on GPIO 36 updated to 114.311104 Hz[0m
+[0;33mW (81673) MCPWM: Requested 30400.000000 Hz, actual 30418 Hz[0m
+[0;32mI (81673) MCPWM: Freq: 30400.000000 Hz, period_ticks: 526[0m
+[0;33mW (81673) MCPWM: Requested 112.826546 Hz, actual 112 Hz[0m
+[0;32mI (81673) MCPWM: Freq: 112.826546 Hz, period_ticks: 5808[0m
+[0;32mI (81673) MCPWM: Calc time: 117 us[0m
+[0;32mI (81683) MCPWM: Frequency on GPIO 18 updated to 30400.000000 Hz[0m
+[0;32mI (81683) MCPWM: Frequency on GPIO 5 updated to 30400.000000 Hz[0m
+[0;32mI (81693) MCPWM: Frequency on GPIO 36 updated to 112.826546 Hz[0m
+[0;32mI (81783) UART_TRANSMITTER: Sent command: {"speed":4.75,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;33mW (81793) MCPWM: Requested 30000.000000 Hz, actual 30018 Hz[0m
+[0;32mI (81793) MCPWM: Freq: 30000.000000 Hz, period_ticks: 533[0m
+[0;33mW (81793) MCPWM: Requested 111.341988 Hz, actual 111 Hz[0m
+[0;32mI (81793) MCPWM: Freq: 111.341988 Hz, period_ticks: 5885[0m
+[0;32mI (81803) MCPWM: Calc time: 183 us[0m
+[0;32mI (81803) MCPWM: Frequency on GPIO 18 updated to 30000.000000 Hz[0m
+[0;32mI (81813) MCPWM: Frequency on GPIO 5 updated to 30000.000000 Hz[0m
+[0;32mI (81813) MCPWM: Frequency on GPIO 36 updated to 111.341988 Hz[0m
+[0;33mW (81923) MCPWM: Requested 29600.000000 Hz, actual 29629 Hz[0m
+[0;32mI (81923) MCPWM: Freq: 29600.000000 Hz, period_ticks: 540[0m
+[0;33mW (81923) MCPWM: Requested 109.857430 Hz, actual 109 Hz[0m
+[0;32mI (81923) MCPWM: Freq: 109.857430 Hz, period_ticks: 5965[0m
+[0;32mI (81923) MCPWM: Calc time: 117 us[0m
+[0;32mI (81933) MCPWM: Frequency on GPIO 18 updated to 29600.000000 Hz[0m
+[0;32mI (81933) MCPWM: Frequency on GPIO 5 updated to 29600.000000 Hz[0m
+[0;32mI (81943) MCPWM: Frequency on GPIO 36 updated to 109.857430 Hz[0m
+[0;33mW (82043) MCPWM: Requested 29200.000000 Hz, actual 29250 Hz[0m
+[0;32mI (82043) MCPWM: Freq: 29200.000000 Hz, period_ticks: 547[0m
+[0;33mW (82043) MCPWM: Requested 108.372871 Hz, actual 108 Hz[0m
+[0;32mI (82043) MCPWM: Freq: 108.372871 Hz, period_ticks: 6047[0m
+[0;32mI (82043) MCPWM: Calc time: 117 us[0m
+[0;32mI (82053) MCPWM: Frequency on GPIO 18 updated to 29200.000000 Hz[0m
+[0;32mI (82053) MCPWM: Frequency on GPIO 5 updated to 29200.000000 Hz[0m
+[0;32mI (82063) MCPWM: Frequency on GPIO 36 updated to 108.372871 Hz[0m
+[0;33mW (82163) MCPWM: Requested 28800.000000 Hz, actual 28828 Hz[0m
+[0;32mI (82163) MCPWM: Freq: 28800.000000 Hz, period_ticks: 555[0m
+[0;33mW (82163) MCPWM: Requested 106.888313 Hz, actual 106 Hz[0m
+[0;32mI (82163) MCPWM: Freq: 106.888313 Hz, period_ticks: 6131[0m
+[0;32mI (82163) MCPWM: Calc time: 117 us[0m
+[0;32mI (82173) MCPWM: Frequency on GPIO 18 updated to 28800.000000 Hz[0m
+[0;32mI (82173) MCPWM: Frequency on GPIO 5 updated to 28800.000000 Hz[0m
+[0;32mI (82183) MCPWM: Frequency on GPIO 36 updated to 106.888313 Hz[0m
+[0;33mW (82283) MCPWM: Requested 28400.000000 Hz, actual 28419 Hz[0m
+[0;32mI (82283) MCPWM: Freq: 28400.000000 Hz, period_ticks: 563[0m
+[0;33mW (82283) MCPWM: Requested 105.403755 Hz, actual 105 Hz[0m
+[0;32mI (82283) MCPWM: Freq: 105.403755 Hz, period_ticks: 6217[0m
+[0;32mI (82283) MCPWM: Calc time: 117 us[0m
+[0;32mI (82293) MCPWM: Frequency on GPIO 18 updated to 28400.000000 Hz[0m
+[0;32mI (82293) MCPWM: Frequency on GPIO 5 updated to 28400.000000 Hz[0m
+[0;32mI (82303) MCPWM: Frequency on GPIO 36 updated to 105.403755 Hz[0m
+[0;33mW (82403) MCPWM: Requested 28000.000000 Hz, actual 28021 Hz[0m
+[0;32mI (82403) MCPWM: Freq: 28000.000000 Hz, period_ticks: 571[0m
+[0;33mW (82403) MCPWM: Requested 103.919197 Hz, actual 103 Hz[0m
+[0;32mI (82403) MCPWM: Freq: 103.919197 Hz, period_ticks: 6306[0m
+[0;32mI (82403) MCPWM: Calc time: 117 us[0m
+[0;32mI (82413) MCPWM: Frequency on GPIO 18 updated to 28000.000000 Hz[0m
+[0;32mI (82413) MCPWM: Frequency on GPIO 5 updated to 28000.000000 Hz[0m
+[0;32mI (82423) MCPWM: Frequency on GPIO 36 updated to 103.919197 Hz[0m
+[0;33mW (82523) MCPWM: Requested 27600.000000 Hz, actual 27633 Hz[0m
+[0;32mI (82523) MCPWM: Freq: 27600.000000 Hz, period_ticks: 579[0m
+[0;33mW (82523) MCPWM: Requested 102.434639 Hz, actual 102 Hz[0m
+[0;32mI (82523) MCPWM: Freq: 102.434639 Hz, period_ticks: 6397[0m
+[0;32mI (82523) MCPWM: Calc time: 117 us[0m
+[0;32mI (82533) MCPWM: Frequency on GPIO 18 updated to 27600.000000 Hz[0m
+[0;32mI (82533) MCPWM: Frequency on GPIO 5 updated to 27600.000000 Hz[0m
+[0;32mI (82543) MCPWM: Frequency on GPIO 36 updated to 102.434639 Hz[0m
+[0;33mW (82643) MCPWM: Requested 27200.000000 Hz, actual 27210 Hz[0m
+[0;32mI (82643) MCPWM: Freq: 27200.000000 Hz, period_ticks: 588[0m
+[0;33mW (82643) MCPWM: Requested 100.950081 Hz, actual 100 Hz[0m
+[0;32mI (82643) MCPWM: Freq: 100.950081 Hz, period_ticks: 6491[0m
+[0;32mI (82643) MCPWM: Calc time: 117 us[0m
+[0;32mI (82653) MCPWM: Frequency on GPIO 18 updated to 27200.000000 Hz[0m
+[0;32mI (82653) MCPWM: Frequency on GPIO 5 updated to 27200.000000 Hz[0m
+[0;32mI (82663) MCPWM: Frequency on GPIO 36 updated to 100.950081 Hz[0m
+[0;32mI (82763) MCPWM: Freq: 26800.000000 Hz, period_ticks: 597[0m
+[0;33mW (82763) MCPWM: Requested 99.465523 Hz, actual 99 Hz[0m
+[0;32mI (82763) MCPWM: Freq: 99.465523 Hz, period_ticks: 6588[0m
+[0;32mI (82763) MCPWM: Calc time: 117 us[0m
+[0;32mI (82763) MCPWM: Frequency on GPIO 18 updated to 26800.000000 Hz[0m
+[0;32mI (82773) MCPWM: Frequency on GPIO 5 updated to 26800.000000 Hz[0m
+[0;32mI (82773) MCPWM: Frequency on GPIO 36 updated to 99.465523 Hz[0m
+[0;32mI (82783) UART_TRANSMITTER: Sent command: {"speed":4.1875,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;33mW (82893) MCPWM: Requested 26400.000000 Hz, actual 26402 Hz[0m
+[0;32mI (82893) MCPWM: Freq: 26400.000000 Hz, period_ticks: 606[0m
+[0;33mW (82893) MCPWM: Requested 97.980965 Hz, actual 97 Hz[0m
+[0;32mI (82893) MCPWM: Freq: 97.980965 Hz, period_ticks: 6688[0m
+[0;32mI (82893) MCPWM: Calc time: 174 us[0m
+[0;32mI (82903) MCPWM: Frequency on GPIO 18 updated to 26400.000000 Hz[0m
+[0;32mI (82903) MCPWM: Frequency on GPIO 5 updated to 26400.000000 Hz[0m
+[0;32mI (82913) MCPWM: Frequency on GPIO 36 updated to 97.980965 Hz[0m
+[0;33mW (83013) MCPWM: Requested 26000.000000 Hz, actual 26016 Hz[0m
+[0;32mI (83013) MCPWM: Freq: 26000.000000 Hz, period_ticks: 615[0m
+[0;33mW (83013) MCPWM: Requested 96.496407 Hz, actual 96 Hz[0m
+[0;32mI (83013) MCPWM: Freq: 96.496407 Hz, period_ticks: 6791[0m
+[0;32mI (83013) MCPWM: Calc time: 117 us[0m
+[0;32mI (83023) MCPWM: Frequency on GPIO 18 updated to 26000.000000 Hz[0m
+[0;32mI (83023) MCPWM: Frequency on GPIO 5 updated to 26000.000000 Hz[0m
+[0;32mI (83033) MCPWM: Frequency on GPIO 36 updated to 96.496407 Hz[0m
+[0;32mI (83133) MCPWM: Freq: 25600.000000 Hz, period_ticks: 625[0m
+[0;33mW (83133) MCPWM: Requested 95.011848 Hz, actual 95 Hz[0m
+[0;32mI (83133) MCPWM: Freq: 95.011848 Hz, period_ticks: 6897[0m
+[0;32mI (83133) MCPWM: Calc time: 117 us[0m
+[0;32mI (83133) MCPWM: Frequency on GPIO 18 updated to 25600.000000 Hz[0m
+[0;32mI (83143) MCPWM: Frequency on GPIO 5 updated to 25600.000000 Hz[0m
+[0;32mI (83143) MCPWM: Frequency on GPIO 36 updated to 95.011848 Hz[0m
+[0;33mW (83253) MCPWM: Requested 25200.000000 Hz, actual 25236 Hz[0m
+[0;32mI (83253) MCPWM: Freq: 25200.000000 Hz, period_ticks: 634[0m
+[0;33mW (83253) MCPWM: Requested 93.527290 Hz, actual 93 Hz[0m
+[0;32mI (83253) MCPWM: Freq: 93.527290 Hz, period_ticks: 7007[0m
+[0;32mI (83253) MCPWM: Calc time: 117 us[0m
+[0;32mI (83263) MCPWM: Frequency on GPIO 18 updated to 25200.000000 Hz[0m
+[0;32mI (83263) MCPWM: Frequency on GPIO 5 updated to 25200.000000 Hz[0m
+[0;32mI (83273) MCPWM: Frequency on GPIO 36 updated to 93.527290 Hz[0m
+[0;33mW (83373) MCPWM: Requested 24800.000000 Hz, actual 24806 Hz[0m
+[0;32mI (83373) MCPWM: Freq: 24800.000000 Hz, period_ticks: 645[0m
+[0;33mW (83373) MCPWM: Requested 92.042732 Hz, actual 92 Hz[0m
+[0;32mI (83373) MCPWM: Freq: 92.042732 Hz, period_ticks: 7120[0m
+[0;32mI (83373) MCPWM: Calc time: 117 us[0m
+[0;32mI (83383) MCPWM: Frequency on GPIO 18 updated to 24800.000000 Hz[0m
+[0;32mI (83383) MCPWM: Frequency on GPIO 5 updated to 24800.000000 Hz[0m
+[0;32mI (83393) MCPWM: Frequency on GPIO 36 updated to 92.042732 Hz[0m
+[0;33mW (83493) MCPWM: Requested 24400.000000 Hz, actual 24427 Hz[0m
+[0;32mI (83493) MCPWM: Freq: 24400.000000 Hz, period_ticks: 655[0m
+[0;33mW (83493) MCPWM: Requested 90.558174 Hz, actual 90 Hz[0m
+[0;32mI (83493) MCPWM: Freq: 90.558174 Hz, period_ticks: 7236[0m
+[0;32mI (83493) MCPWM: Calc time: 117 us[0m
+[0;32mI (83503) MCPWM: Frequency on GPIO 18 updated to 24400.000000 Hz[0m
+[0;32mI (83503) MCPWM: Frequency on GPIO 5 updated to 24400.000000 Hz[0m
+[0;32mI (83513) MCPWM: Frequency on GPIO 36 updated to 90.558174 Hz[0m
+[0;33mW (83613) MCPWM: Requested 24000.000000 Hz, actual 24024 Hz[0m
+[0;32mI (83613) MCPWM: Freq: 24000.000000 Hz, period_ticks: 666[0m
+[0;33mW (83613) MCPWM: Requested 89.073616 Hz, actual 89 Hz[0m
+[0;32mI (83613) MCPWM: Freq: 89.073616 Hz, period_ticks: 7357[0m
+[0;32mI (83613) MCPWM: Calc time: 117 us[0m
+[0;32mI (83623) MCPWM: Frequency on GPIO 18 updated to 24000.000000 Hz[0m
+[0;32mI (83623) MCPWM: Frequency on GPIO 5 updated to 24000.000000 Hz[0m
+[0;32mI (83633) MCPWM: Frequency on GPIO 36 updated to 89.073616 Hz[0m
+[0;33mW (83733) MCPWM: Requested 23600.000000 Hz, actual 23633 Hz[0m
+[0;32mI (83733) MCPWM: Freq: 23600.000000 Hz, period_ticks: 677[0m
+[0;33mW (83733) MCPWM: Requested 87.589058 Hz, actual 87 Hz[0m
+[0;32mI (83733) MCPWM: Freq: 87.589058 Hz, period_ticks: 7482[0m
+[0;32mI (83733) MCPWM: Calc time: 117 us[0m
+[0;32mI (83743) MCPWM: Frequency on GPIO 18 updated to 23600.000000 Hz[0m
+[0;32mI (83743) MCPWM: Frequency on GPIO 5 updated to 23600.000000 Hz[0m
+[0;32mI (83753) MCPWM: Frequency on GPIO 36 updated to 87.589058 Hz[0m
+[0;32mI (83793) UART_TRANSMITTER: Sent command: {"speed":3.6875,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;33mW (83853) MCPWM: Requested 23200.000000 Hz, actual 23222 Hz[0m
+[0;32mI (83853) MCPWM: Freq: 23200.000000 Hz, period_ticks: 689[0m
+[0;33mW (83853) MCPWM: Requested 86.104500 Hz, actual 86 Hz[0m
+[0;32mI (83853) MCPWM: Freq: 86.104500 Hz, period_ticks: 7611[0m
+[0;32mI (83853) MCPWM: Calc time: 174 us[0m
+[0;32mI (83863) MCPWM: Frequency on GPIO 18 updated to 23200.000000 Hz[0m
+[0;32mI (83863) MCPWM: Frequency on GPIO 5 updated to 23200.000000 Hz[0m
+[0;32mI (83873) MCPWM: Frequency on GPIO 36 updated to 86.104500 Hz[0m
+[0;33mW (83973) MCPWM: Requested 22800.000000 Hz, actual 22824 Hz[0m
+[0;32mI (83973) MCPWM: Freq: 22800.000000 Hz, period_ticks: 701[0m
+[0;33mW (83973) MCPWM: Requested 84.619942 Hz, actual 84 Hz[0m
+[0;32mI (83973) MCPWM: Freq: 84.619942 Hz, period_ticks: 7744[0m
+[0;32mI (83973) MCPWM: Calc time: 117 us[0m
+[0;32mI (83983) MCPWM: Frequency on GPIO 18 updated to 22800.000000 Hz[0m
+[0;32mI (83983) MCPWM: Frequency on GPIO 5 updated to 22800.000000 Hz[0m
+[0;32mI (83993) MCPWM: Frequency on GPIO 36 updated to 84.619942 Hz[0m
+[0;33mW (84093) MCPWM: Requested 22400.000000 Hz, actual 22408 Hz[0m
+[0;32mI (84093) MCPWM: Freq: 22400.000000 Hz, period_ticks: 714[0m
+[0;33mW (84093) MCPWM: Requested 83.135384 Hz, actual 83 Hz[0m
+[0;32mI (84093) MCPWM: Freq: 83.135384 Hz, period_ticks: 7882[0m
+[0;32mI (84093) MCPWM: Calc time: 117 us[0m
+[0;32mI (84103) MCPWM: Frequency on GPIO 18 updated to 22400.000000 Hz[0m
+[0;32mI (84103) MCPWM: Frequency on GPIO 5 updated to 22400.000000 Hz[0m
+[0;32mI (84113) MCPWM: Frequency on GPIO 36 updated to 83.135384 Hz[0m
+[0;33mW (84213) MCPWM: Requested 22000.000000 Hz, actual 22008 Hz[0m
+[0;32mI (84213) MCPWM: Freq: 22000.000000 Hz, period_ticks: 727[0m
+[0;33mW (84213) MCPWM: Requested 81.650826 Hz, actual 81 Hz[0m
+[0;32mI (84213) MCPWM: Freq: 81.650826 Hz, period_ticks: 8026[0m
+[0;32mI (84213) MCPWM: Calc time: 117 us[0m
+[0;32mI (84223) MCPWM: Frequency on GPIO 18 updated to 22000.000000 Hz[0m
+[0;32mI (84223) MCPWM: Frequency on GPIO 5 updated to 22000.000000 Hz[0m
+[0;32mI (84233) MCPWM: Frequency on GPIO 36 updated to 81.650826 Hz[0m
+[0;33mW (84333) MCPWM: Requested 21600.000000 Hz, actual 21621 Hz[0m
+[0;32mI (84333) MCPWM: Freq: 21600.000000 Hz, period_ticks: 740[0m
+[0;33mW (84333) MCPWM: Requested 80.166267 Hz, actual 80 Hz[0m
+[0;32mI (84333) MCPWM: Freq: 80.166267 Hz, period_ticks: 8174[0m
+[0;32mI (84333) MCPWM: Calc time: 117 us[0m
+[0;32mI (84343) MCPWM: Frequency on GPIO 18 updated to 21600.000000 Hz[0m
+[0;32mI (84343) MCPWM: Frequency on GPIO 5 updated to 21600.000000 Hz[0m
+[0;32mI (84353) MCPWM: Frequency on GPIO 36 updated to 80.166267 Hz[0m
+[0;33mW (84453) MCPWM: Requested 21200.000000 Hz, actual 21220 Hz[0m
+[0;32mI (84453) MCPWM: Freq: 21200.000000 Hz, period_ticks: 754[0m
+[0;33mW (84453) MCPWM: Requested 78.681709 Hz, actual 78 Hz[0m
+[0;32mI (84453) MCPWM: Freq: 78.681709 Hz, period_ticks: 8329[0m
+[0;32mI (84453) MCPWM: Calc time: 117 us[0m
+[0;32mI (84463) MCPWM: Frequency on GPIO 18 updated to 21200.000000 Hz[0m
+[0;32mI (84463) MCPWM: Frequency on GPIO 5 updated to 21200.000000 Hz[0m
+[0;32mI (84473) MCPWM: Frequency on GPIO 36 updated to 78.681709 Hz[0m
+[0;33mW (84573) MCPWM: Requested 20800.000000 Hz, actual 20806 Hz[0m
+[0;32mI (84573) MCPWM: Freq: 20800.000000 Hz, period_ticks: 769[0m
+[0;33mW (84573) MCPWM: Requested 77.197151 Hz, actual 77 Hz[0m
+[0;32mI (84573) MCPWM: Freq: 77.197151 Hz, period_ticks: 8489[0m
+[0;32mI (84573) MCPWM: Calc time: 117 us[0m
+[0;32mI (84583) MCPWM: Frequency on GPIO 18 updated to 20800.000000 Hz[0m
+[0;32mI (84583) MCPWM: Frequency on GPIO 5 updated to 20800.000000 Hz[0m
+[0;32mI (84593) MCPWM: Frequency on GPIO 36 updated to 77.197151 Hz[0m
+[0;33mW (84693) MCPWM: Requested 20400.000000 Hz, actual 20408 Hz[0m
+[0;32mI (84693) MCPWM: Freq: 20400.000000 Hz, period_ticks: 784[0m
+[0;33mW (84693) MCPWM: Requested 75.712593 Hz, actual 75 Hz[0m
+[0;32mI (84693) MCPWM: Freq: 75.712593 Hz, period_ticks: 8655[0m
+[0;32mI (84693) MCPWM: Calc time: 117 us[0m
+[0;32mI (84703) MCPWM: Frequency on GPIO 18 updated to 20400.000000 Hz[0m
+[0;32mI (84703) MCPWM: Frequency on GPIO 5 updated to 20400.000000 Hz[0m
+[0;32mI (84713) MCPWM: Frequency on GPIO 36 updated to 75.712593 Hz[0m
+[0;32mI (84793) UART_TRANSMITTER: Sent command: {"speed":3.1875,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (84813) MCPWM: Freq: 20000.000000 Hz, period_ticks: 800[0m
+[0;33mW (84813) MCPWM: Requested 74.228035 Hz, actual 74 Hz[0m
+[0;32mI (84813) MCPWM: Freq: 74.228035 Hz, period_ticks: 8828[0m
+[0;32mI (84813) MCPWM: Calc time: 175 us[0m
+[0;32mI (84813) MCPWM: Frequency on GPIO 18 updated to 20000.000000 Hz[0m
+[0;32mI (84823) MCPWM: Frequency on GPIO 5 updated to 20000.000000 Hz[0m
+[0;32mI (84823) MCPWM: Frequency on GPIO 36 updated to 74.228035 Hz[0m
+[0;33mW (84933) MCPWM: Requested 19600.000000 Hz, actual 19607 Hz[0m
+[0;32mI (84933) MCPWM: Freq: 19600.000000 Hz, period_ticks: 816[0m
+[0;33mW (84933) MCPWM: Requested 72.743477 Hz, actual 72 Hz[0m
+[0;32mI (84933) MCPWM: Freq: 72.743477 Hz, period_ticks: 9009[0m
+[0;32mI (84933) MCPWM: Calc time: 117 us[0m
+[0;32mI (84943) MCPWM: Frequency on GPIO 18 updated to 19600.000000 Hz[0m
+[0;32mI (84943) MCPWM: Frequency on GPIO 5 updated to 19600.000000 Hz[0m
+[0;32mI (84953) MCPWM: Frequency on GPIO 36 updated to 72.743477 Hz[0m
+[0;33mW (85053) MCPWM: Requested 19200.000000 Hz, actual 19207 Hz[0m
+[0;32mI (85053) MCPWM: Freq: 19200.000000 Hz, period_ticks: 833[0m
+[0;33mW (85053) MCPWM: Requested 71.258919 Hz, actual 71 Hz[0m
+[0;32mI (85053) MCPWM: Freq: 71.258919 Hz, period_ticks: 9196[0m
+[0;32mI (85053) MCPWM: Calc time: 117 us[0m
+[0;32mI (85063) MCPWM: Frequency on GPIO 18 updated to 19200.000000 Hz[0m
+[0;32mI (85063) MCPWM: Frequency on GPIO 5 updated to 19200.000000 Hz[0m
+[0;32mI (85073) MCPWM: Frequency on GPIO 36 updated to 71.258919 Hz[0m
+[0;33mW (85173) MCPWM: Requested 18800.000000 Hz, actual 18801 Hz[0m
+[0;32mI (85173) MCPWM: Freq: 18800.000000 Hz, period_ticks: 851[0m
+[0;33mW (85173) MCPWM: Requested 69.774361 Hz, actual 69 Hz[0m
+[0;32mI (85173) MCPWM: Freq: 69.774361 Hz, period_ticks: 9392[0m
+[0;32mI (85173) MCPWM: Calc time: 117 us[0m
+[0;32mI (85183) MCPWM: Frequency on GPIO 18 updated to 18800.000000 Hz[0m
+[0;32mI (85183) MCPWM: Frequency on GPIO 5 updated to 18800.000000 Hz[0m
+[0;32mI (85193) MCPWM: Frequency on GPIO 36 updated to 69.774361 Hz[0m
+[0;33mW (85293) MCPWM: Requested 18400.000000 Hz, actual 18411 Hz[0m
+[0;32mI (85293) MCPWM: Freq: 18400.000000 Hz, period_ticks: 869[0m
+[0;33mW (85293) MCPWM: Requested 68.289803 Hz, actual 68 Hz[0m
+[0;32mI (85293) MCPWM: Freq: 68.289803 Hz, period_ticks: 9596[0m
+[0;32mI (85293) MCPWM: Calc time: 117 us[0m
+[0;32mI (85303) MCPWM: Frequency on GPIO 18 updated to 18400.000000 Hz[0m
+[0;32mI (85303) MCPWM: Frequency on GPIO 5 updated to 18400.000000 Hz[0m
+[0;32mI (85313) MCPWM: Frequency on GPIO 36 updated to 68.289803 Hz[0m
+[0;33mW (85413) MCPWM: Requested 18000.000000 Hz, actual 18018 Hz[0m
+[0;32mI (85413) MCPWM: Freq: 18000.000000 Hz, period_ticks: 888[0m
+[0;33mW (85413) MCPWM: Requested 66.805244 Hz, actual 66 Hz[0m
+[0;32mI (85413) MCPWM: Freq: 66.805244 Hz, period_ticks: 9809[0m
+[0;32mI (85413) MCPWM: Calc time: 117 us[0m
+[0;32mI (85423) MCPWM: Frequency on GPIO 18 updated to 18000.000000 Hz[0m
+[0;32mI (85423) MCPWM: Frequency on GPIO 5 updated to 18000.000000 Hz[0m
+[0;32mI (85433) MCPWM: Frequency on GPIO 36 updated to 66.805244 Hz[0m
+[0;33mW (85533) MCPWM: Requested 17600.000000 Hz, actual 17601 Hz[0m
+[0;32mI (85533) MCPWM: Freq: 17600.000000 Hz, period_ticks: 909[0m
+[0;33mW (85533) MCPWM: Requested 65.320686 Hz, actual 65 Hz[0m
+[0;32mI (85533) MCPWM: Freq: 65.320686 Hz, period_ticks: 10032[0m
+[0;32mI (85533) MCPWM: Calc time: 117 us[0m
+[0;32mI (85543) MCPWM: Frequency on GPIO 18 updated to 17600.000000 Hz[0m
+[0;32mI (85543) MCPWM: Frequency on GPIO 5 updated to 17600.000000 Hz[0m
+[0;32mI (85553) MCPWM: Frequency on GPIO 36 updated to 65.320686 Hz[0m
+[0;33mW (85653) MCPWM: Requested 17200.000000 Hz, actual 17204 Hz[0m
+[0;32mI (85653) MCPWM: Freq: 17200.000000 Hz, period_ticks: 930[0m
+[0;33mW (85653) MCPWM: Requested 63.836124 Hz, actual 63 Hz[0m
+[0;32mI (85653) MCPWM: Freq: 63.836124 Hz, period_ticks: 10266[0m
+[0;32mI (85653) MCPWM: Calc time: 117 us[0m
+[0;32mI (85663) MCPWM: Frequency on GPIO 18 updated to 17200.000000 Hz[0m
+[0;32mI (85663) MCPWM: Frequency on GPIO 5 updated to 17200.000000 Hz[0m
+[0;32mI (85673) MCPWM: Frequency on GPIO 36 updated to 63.836124 Hz[0m
+[0;33mW (85773) MCPWM: Requested 16800.000000 Hz, actual 16806 Hz[0m
+[0;32mI (85773) MCPWM: Freq: 16800.000000 Hz, period_ticks: 952[0m
+[0;33mW (85773) MCPWM: Requested 62.351562 Hz, actual 62 Hz[0m
+[0;32mI (85773) MCPWM: Freq: 62.351562 Hz, period_ticks: 10510[0m
+[0;32mI (85773) MCPWM: Calc time: 128 us[0m
+[0;32mI (85783) MCPWM: Frequency on GPIO 18 updated to 16800.000000 Hz[0m
+[0;32mI (85783) MCPWM: Frequency on GPIO 5 updated to 16800.000000 Hz[0m
+[0;32mI (85793) UART_TRANSMITTER: Sent command: {"speed":2.625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (85803) MCPWM: Frequency on GPIO 36 updated to 62.351562 Hz[0m
+[0;33mW (85913) MCPWM: Requested 16400.000000 Hz, actual 16410 Hz[0m
+[0;32mI (85913) MCPWM: Freq: 16400.000000 Hz, period_ticks: 975[0m
+[0;33mW (85913) MCPWM: Requested 60.867001 Hz, actual 60 Hz[0m
+[0;32mI (85913) MCPWM: Freq: 60.867001 Hz, period_ticks: 10766[0m
+[0;32mI (85913) MCPWM: Calc time: 175 us[0m
+[0;32mI (85923) MCPWM: Frequency on GPIO 18 updated to 16400.000000 Hz[0m
+[0;32mI (85923) MCPWM: Frequency on GPIO 5 updated to 16400.000000 Hz[0m
+[0;32mI (85933) MCPWM: Frequency on GPIO 36 updated to 60.867001 Hz[0m
+[0;32mI (86033) MCPWM: Freq: 16000.000000 Hz, period_ticks: 1000[0m
+[0;33mW (86033) MCPWM: Requested 59.382439 Hz, actual 59 Hz[0m
+[0;32mI (86033) MCPWM: Freq: 59.382439 Hz, period_ticks: 11036[0m
+[0;32mI (86033) MCPWM: Calc time: 115 us[0m
+[0;32mI (86033) MCPWM: Frequency on GPIO 18 updated to 16000.000000 Hz[0m
+[0;32mI (86043) MCPWM: Frequency on GPIO 5 updated to 16000.000000 Hz[0m
+[0;32mI (86043) MCPWM: Frequency on GPIO 36 updated to 59.382439 Hz[0m
+[0;33mW (86153) MCPWM: Requested 15600.000000 Hz, actual 15609 Hz[0m
+[0;32mI (86153) MCPWM: Freq: 15600.000000 Hz, period_ticks: 1025[0m
+[0;33mW (86153) MCPWM: Requested 57.897877 Hz, actual 57 Hz[0m
+[0;32mI (86153) MCPWM: Freq: 57.897877 Hz, period_ticks: 11319[0m
+[0;32mI (86153) MCPWM: Calc time: 117 us[0m
+[0;32mI (86163) MCPWM: Frequency on GPIO 18 updated to 15600.000000 Hz[0m
+[0;32mI (86163) MCPWM: Frequency on GPIO 5 updated to 15600.000000 Hz[0m
+[0;32mI (86173) MCPWM: Frequency on GPIO 36 updated to 57.897877 Hz[0m
+[0;33mW (86273) MCPWM: Requested 15200.000000 Hz, actual 15209 Hz[0m
+[0;32mI (86273) MCPWM: Freq: 15200.000000 Hz, period_ticks: 1052[0m
+[0;33mW (86273) MCPWM: Requested 56.413315 Hz, actual 56 Hz[0m
+[0;32mI (86273) MCPWM: Freq: 56.413315 Hz, period_ticks: 11616[0m
+[0;32mI (86273) MCPWM: Calc time: 117 us[0m
+[0;32mI (86283) MCPWM: Frequency on GPIO 18 updated to 15200.000000 Hz[0m
+[0;32mI (86283) MCPWM: Frequency on GPIO 5 updated to 15200.000000 Hz[0m
+[0;32mI (86293) MCPWM: Frequency on GPIO 36 updated to 56.413315 Hz[0m
+[0;33mW (86393) MCPWM: Requested 14800.000000 Hz, actual 14801 Hz[0m
+[0;32mI (86393) MCPWM: Freq: 14800.000000 Hz, period_ticks: 1081[0m
+[0;33mW (86393) MCPWM: Requested 54.928753 Hz, actual 54 Hz[0m
+[0;32mI (86393) MCPWM: Freq: 54.928753 Hz, period_ticks: 11930[0m
+[0;32mI (86393) MCPWM: Calc time: 117 us[0m
+[0;32mI (86403) MCPWM: Frequency on GPIO 18 updated to 14800.000000 Hz[0m
+[0;32mI (86403) MCPWM: Frequency on GPIO 5 updated to 14800.000000 Hz[0m
+[0;32mI (86413) MCPWM: Frequency on GPIO 36 updated to 54.928753 Hz[0m
+[0;33mW (86513) MCPWM: Requested 14400.000000 Hz, actual 14401 Hz[0m
+[0;32mI (86513) MCPWM: Freq: 14400.000000 Hz, period_ticks: 1111[0m
+[0;33mW (86513) MCPWM: Requested 53.444191 Hz, actual 53 Hz[0m
+[0;32mI (86513) MCPWM: Freq: 53.444191 Hz, period_ticks: 12262[0m
+[0;32mI (86513) MCPWM: Calc time: 117 us[0m
+[0;32mI (86523) MCPWM: Frequency on GPIO 18 updated to 14400.000000 Hz[0m
+[0;32mI (86523) MCPWM: Frequency on GPIO 5 updated to 14400.000000 Hz[0m
+[0;32mI (86533) MCPWM: Frequency on GPIO 36 updated to 53.444191 Hz[0m
+[0;33mW (86633) MCPWM: Requested 14000.000000 Hz, actual 14010 Hz[0m
+[0;32mI (86633) MCPWM: Freq: 14000.000000 Hz, period_ticks: 1142[0m
+[0;33mW (86633) MCPWM: Requested 51.959629 Hz, actual 51 Hz[0m
+[0;32mI (86633) MCPWM: Freq: 51.959629 Hz, period_ticks: 12612[0m
+[0;32mI (86633) MCPWM: Calc time: 117 us[0m
+[0;32mI (86643) MCPWM: Frequency on GPIO 18 updated to 14000.000000 Hz[0m
+[0;32mI (86643) MCPWM: Frequency on GPIO 5 updated to 14000.000000 Hz[0m
+[0;32mI (86653) MCPWM: Frequency on GPIO 36 updated to 51.959629 Hz[0m
+[0;33mW (86753) MCPWM: Requested 13600.000000 Hz, actual 13605 Hz[0m
+[0;32mI (86753) MCPWM: Freq: 13600.000000 Hz, period_ticks: 1176[0m
+[0;33mW (86753) MCPWM: Requested 50.475067 Hz, actual 50 Hz[0m
+[0;32mI (86753) MCPWM: Freq: 50.475067 Hz, period_ticks: 12983[0m
+[0;32mI (86753) MCPWM: Calc time: 117 us[0m
+[0;32mI (86763) MCPWM: Frequency on GPIO 18 updated to 13600.000000 Hz[0m
+[0;32mI (86763) MCPWM: Frequency on GPIO 5 updated to 13600.000000 Hz[0m
+[0;32mI (86773) MCPWM: Frequency on GPIO 36 updated to 50.475067 Hz[0m
+[0;32mI (86803) UART_TRANSMITTER: Sent command: {"speed":2.125,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;33mW (86873) MCPWM: Requested 13200.000000 Hz, actual 13201 Hz[0m
+[0;32mI (86873) MCPWM: Freq: 13200.000000 Hz, period_ticks: 1212[0m
+[0;33mW (86873) MCPWM: Requested 48.990505 Hz, actual 48 Hz[0m
+[0;32mI (86873) MCPWM: Freq: 48.990505 Hz, period_ticks: 13377[0m
+[0;32mI (86873) MCPWM: Calc time: 174 us[0m
+[0;32mI (86883) MCPWM: Frequency on GPIO 18 updated to 13200.000000 Hz[0m
+[0;32mI (86883) MCPWM: Frequency on GPIO 5 updated to 13200.000000 Hz[0m
+[0;32mI (86893) MCPWM: Frequency on GPIO 36 updated to 48.990505 Hz[0m
+[0;32mI (86993) MCPWM: Freq: 12800.000000 Hz, period_ticks: 1250[0m
+[0;33mW (86993) MCPWM: Requested 47.505943 Hz, actual 47 Hz[0m
+[0;32mI (86993) MCPWM: Freq: 47.505943 Hz, period_ticks: 13795[0m
+[0;32mI (86993) MCPWM: Calc time: 117 us[0m
+[0;32mI (86993) MCPWM: Frequency on GPIO 18 updated to 12800.000000 Hz[0m
+[0;32mI (87003) MCPWM: Frequency on GPIO 5 updated to 12800.000000 Hz[0m
+[0;32mI (87003) MCPWM: Frequency on GPIO 36 updated to 47.505943 Hz[0m
+[0;33mW (87113) MCPWM: Requested 12400.000000 Hz, actual 12403 Hz[0m
+[0;32mI (87113) MCPWM: Freq: 12400.000000 Hz, period_ticks: 1290[0m
+[0;33mW (87113) MCPWM: Requested 46.021381 Hz, actual 46 Hz[0m
+[0;32mI (87113) MCPWM: Freq: 46.021381 Hz, period_ticks: 14240[0m
+[0;32mI (87113) MCPWM: Calc time: 117 us[0m
+[0;32mI (87123) MCPWM: Frequency on GPIO 18 updated to 12400.000000 Hz[0m
+[0;32mI (87123) MCPWM: Frequency on GPIO 5 updated to 12400.000000 Hz[0m
+[0;32mI (87133) MCPWM: Frequency on GPIO 36 updated to 46.021381 Hz[0m
+[0;33mW (87233) MCPWM: Requested 12000.000000 Hz, actual 12003 Hz[0m
+[0;32mI (87233) MCPWM: Freq: 12000.000000 Hz, period_ticks: 1333[0m
+[0;33mW (87233) MCPWM: Requested 44.536819 Hz, actual 44 Hz[0m
+[0;32mI (87233) MCPWM: Freq: 44.536819 Hz, period_ticks: 14714[0m
+[0;32mI (87233) MCPWM: Calc time: 117 us[0m
+[0;32mI (87243) MCPWM: Frequency on GPIO 18 updated to 12000.000000 Hz[0m
+[0;32mI (87243) MCPWM: Frequency on GPIO 5 updated to 12000.000000 Hz[0m
+[0;32mI (87253) MCPWM: Frequency on GPIO 36 updated to 44.536819 Hz[0m
+[0;33mW (87353) MCPWM: Requested 11600.000000 Hz, actual 11602 Hz[0m
+[0;32mI (87353) MCPWM: Freq: 11600.000000 Hz, period_ticks: 1379[0m
+[0;33mW (87353) MCPWM: Requested 43.052258 Hz, actual 43 Hz[0m
+[0;32mI (87353) MCPWM: Freq: 43.052258 Hz, period_ticks: 15222[0m
+[0;32mI (87353) MCPWM: Calc time: 117 us[0m
+[0;32mI (87363) MCPWM: Frequency on GPIO 18 updated to 11600.000000 Hz[0m
+[0;32mI (87363) MCPWM: Frequency on GPIO 5 updated to 11600.000000 Hz[0m
+[0;32mI (87373) MCPWM: Frequency on GPIO 36 updated to 43.052258 Hz[0m
+[0;33mW (87473) MCPWM: Requested 11200.000000 Hz, actual 11204 Hz[0m
+[0;32mI (87473) MCPWM: Freq: 11200.000000 Hz, period_ticks: 1428[0m
+[0;33mW (87473) MCPWM: Requested 41.567696 Hz, actual 41 Hz[0m
+[0;32mI (87473) MCPWM: Freq: 41.567696 Hz, period_ticks: 15765[0m
+[0;32mI (87473) MCPWM: Calc time: 117 us[0m
+[0;32mI (87483) MCPWM: Frequency on GPIO 18 updated to 11200.000000 Hz[0m
+[0;32mI (87483) MCPWM: Frequency on GPIO 5 updated to 11200.000000 Hz[0m
+[0;32mI (87493) MCPWM: Frequency on GPIO 36 updated to 41.567696 Hz[0m
+[0;33mW (87593) MCPWM: Requested 10800.000000 Hz, actual 10803 Hz[0m
+[0;32mI (87593) MCPWM: Freq: 10800.000000 Hz, period_ticks: 1481[0m
+[0;33mW (87593) MCPWM: Requested 40.083134 Hz, actual 40 Hz[0m
+[0;32mI (87593) MCPWM: Freq: 40.083134 Hz, period_ticks: 16349[0m
+[0;32mI (87593) MCPWM: Calc time: 117 us[0m
+[0;32mI (87603) MCPWM: Frequency on GPIO 18 updated to 10800.000000 Hz[0m
+[0;32mI (87603) MCPWM: Frequency on GPIO 5 updated to 10800.000000 Hz[0m
+[0;32mI (87613) MCPWM: Frequency on GPIO 36 updated to 40.083134 Hz[0m
+[0;33mW (87713) MCPWM: Requested 10400.000000 Hz, actual 10403 Hz[0m
+[0;32mI (87713) MCPWM: Freq: 10400.000000 Hz, period_ticks: 1538[0m
+[0;33mW (87713) MCPWM: Requested 38.598572 Hz, actual 38 Hz[0m
+[0;32mI (87713) MCPWM: Freq: 38.598572 Hz, period_ticks: 16978[0m
+[0;32mI (87713) MCPWM: Calc time: 117 us[0m
+[0;32mI (87723) MCPWM: Frequency on GPIO 18 updated to 10400.000000 Hz[0m
+[0;32mI (87723) MCPWM: Frequency on GPIO 5 updated to 10400.000000 Hz[0m
+[0;32mI (87733) MCPWM: Frequency on GPIO 36 updated to 38.598572 Hz[0m
+[0;32mI (87803) UART_TRANSMITTER: Sent command: {"speed":1.625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (87833) MCPWM: Freq: 10000.000000 Hz, period_ticks: 1600[0m
+[0;33mW (87833) MCPWM: Requested 37.114010 Hz, actual 37 Hz[0m
+[0;32mI (87833) MCPWM: Freq: 37.114010 Hz, period_ticks: 17657[0m
+[0;32mI (87833) MCPWM: Calc time: 175 us[0m
+[0;32mI (87833) MCPWM: Frequency on GPIO 18 updated to 10000.000000 Hz[0m
+[0;32mI (87843) MCPWM: Frequency on GPIO 5 updated to 10000.000000 Hz[0m
+[0;32mI (87843) MCPWM: Frequency on GPIO 36 updated to 37.114010 Hz[0m
+[0;33mW (87953) MCPWM: Requested 9600.000000 Hz, actual 9603 Hz[0m
+[0;32mI (87953) MCPWM: Freq: 9600.000000 Hz, period_ticks: 1666[0m
+[0;33mW (87953) MCPWM: Requested 35.629448 Hz, actual 35 Hz[0m
+[0;32mI (87953) MCPWM: Freq: 35.629448 Hz, period_ticks: 18393[0m
+[0;32mI (87953) MCPWM: Calc time: 117 us[0m
+[0;32mI (87963) MCPWM: Frequency on GPIO 18 updated to 9600.000000 Hz[0m
+[0;32mI (87963) MCPWM: Frequency on GPIO 5 updated to 9600.000000 Hz[0m
+[0;32mI (87973) MCPWM: Frequency on GPIO 36 updated to 35.629448 Hz[0m
+[0;32mI (88073) MCPWM: Freq: 9200.000000 Hz, period_ticks: 1739[0m
+[0;33mW (88073) MCPWM: Requested 34.144886 Hz, actual 34 Hz[0m
+[0;32mI (88073) MCPWM: Freq: 34.144886 Hz, period_ticks: 19193[0m
+[0;32mI (88073) MCPWM: Calc time: 117 us[0m
+[0;32mI (88073) MCPWM: Frequency on GPIO 18 updated to 9200.000000 Hz[0m
+[0;32mI (88083) MCPWM: Frequency on GPIO 5 updated to 9200.000000 Hz[0m
+[0;32mI (88083) MCPWM: Frequency on GPIO 36 updated to 34.144886 Hz[0m
+[0;32mI (88193) MCPWM: Freq: 8800.000000 Hz, period_ticks: 1818[0m
+[0;33mW (88193) MCPWM: Requested 32.660324 Hz, actual 32 Hz[0m
+[0;32mI (88193) MCPWM: Freq: 32.660324 Hz, period_ticks: 20065[0m
+[0;32mI (88193) MCPWM: Calc time: 117 us[0m
+[0;32mI (88193) MCPWM: Frequency on GPIO 18 updated to 8800.000000 Hz[0m
+[0;32mI (88203) MCPWM: Frequency on GPIO 5 updated to 8800.000000 Hz[0m
+[0;32mI (88203) MCPWM: Frequency on GPIO 36 updated to 32.660324 Hz[0m
+[0;33mW (88313) MCPWM: Requested 8400.000000 Hz, actual 8403 Hz[0m
+[0;32mI (88313) MCPWM: Freq: 8400.000000 Hz, period_ticks: 1904[0m
+[0;33mW (88313) MCPWM: Requested 31.175764 Hz, actual 31 Hz[0m
+[0;32mI (88313) MCPWM: Freq: 31.175764 Hz, period_ticks: 21021[0m
+[0;32mI (88313) MCPWM: Calc time: 117 us[0m
+[0;32mI (88323) MCPWM: Frequency on GPIO 18 updated to 8400.000000 Hz[0m
+[0;32mI (88323) MCPWM: Frequency on GPIO 5 updated to 8400.000000 Hz[0m
+[0;32mI (88333) MCPWM: Frequency on GPIO 36 updated to 31.175764 Hz[0m
+[0;32mI (88433) MCPWM: Freq: 8000.000000 Hz, period_ticks: 2000[0m
+[0;33mW (88433) MCPWM: Requested 29.691204 Hz, actual 29 Hz[0m
+[0;32mI (88433) MCPWM: Freq: 29.691204 Hz, period_ticks: 22072[0m
+[0;32mI (88433) MCPWM: Calc time: 117 us[0m
+[0;32mI (88433) MCPWM: Frequency on GPIO 18 updated to 8000.000000 Hz[0m
+[0;32mI (88443) MCPWM: Frequency on GPIO 5 updated to 8000.000000 Hz[0m
+[0;32mI (88443) MCPWM: Frequency on GPIO 36 updated to 29.691204 Hz[0m
+[0;32mI (88553) MCPWM: Freq: 7600.000000 Hz, period_ticks: 2105[0m
+[0;33mW (88553) MCPWM: Requested 28.206644 Hz, actual 28 Hz[0m
+[0;32mI (88553) MCPWM: Freq: 28.206644 Hz, period_ticks: 23233[0m
+[0;32mI (88553) MCPWM: Calc time: 117 us[0m
+[0;32mI (88553) MCPWM: Frequency on GPIO 18 updated to 7600.000000 Hz[0m
+[0;32mI (88563) MCPWM: Frequency on GPIO 5 updated to 7600.000000 Hz[0m
+[0;32mI (88563) MCPWM: Frequency on GPIO 36 updated to 28.206644 Hz[0m
+[0;32mI (88673) MCPWM: Freq: 7200.000000 Hz, period_ticks: 2222[0m
+[0;33mW (88673) MCPWM: Requested 26.722084 Hz, actual 26 Hz[0m
+[0;32mI (88673) MCPWM: Freq: 26.722084 Hz, period_ticks: 24524[0m
+[0;32mI (88673) MCPWM: Calc time: 117 us[0m
+[0;32mI (88673) MCPWM: Frequency on GPIO 18 updated to 7200.000000 Hz[0m
+[0;32mI (88683) MCPWM: Frequency on GPIO 5 updated to 7200.000000 Hz[0m
+[0;32mI (88683) MCPWM: Frequency on GPIO 36 updated to 26.722084 Hz[0m
+[0;33mW (88793) MCPWM: Requested 6800.000000 Hz, actual 6802 Hz[0m
+[0;32mI (88793) MCPWM: Freq: 6800.000000 Hz, period_ticks: 2352[0m
+[0;33mW (88793) MCPWM: Requested 25.237524 Hz, actual 25 Hz[0m
+[0;32mI (88793) MCPWM: Freq: 25.237524 Hz, period_ticks: 25967[0m
+[0;32mI (88793) MCPWM: Calc time: 117 us[0m
+[0;32mI (88803) UART_TRANSMITTER: Sent command: {"speed":1.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (88813) MCPWM: Frequency on GPIO 18 updated to 6800.000000 Hz[0m
+[0;32mI (88823) MCPWM: Frequency on GPIO 5 updated to 6800.000000 Hz[0m
+[0;32mI (88823) MCPWM: Frequency on GPIO 36 updated to 25.237524 Hz[0m
+[0;32mI (88933) MCPWM: Freq: 6400.000000 Hz, period_ticks: 2500[0m
+[0;33mW (88933) MCPWM: Requested 23.752964 Hz, actual 23 Hz[0m
+[0;32mI (88933) MCPWM: Freq: 23.752964 Hz, period_ticks: 27590[0m
+[0;32mI (88933) MCPWM: Calc time: 175 us[0m
+[0;32mI (88933) MCPWM: Frequency on GPIO 18 updated to 6400.000000 Hz[0m
+[0;32mI (88943) MCPWM: Frequency on GPIO 5 updated to 6400.000000 Hz[0m
+[0;32mI (88943) MCPWM: Frequency on GPIO 36 updated to 23.752964 Hz[0m
+[0;33mW (89053) MCPWM: Requested 6000.000000 Hz, actual 6001 Hz[0m
+[0;32mI (89053) MCPWM: Freq: 6000.000000 Hz, period_ticks: 2666[0m
+[0;33mW (89053) MCPWM: Requested 22.268404 Hz, actual 22 Hz[0m
+[0;32mI (89053) MCPWM: Freq: 22.268404 Hz, period_ticks: 29429[0m
+[0;32mI (89053) MCPWM: Calc time: 117 us[0m
+[0;32mI (89063) MCPWM: Frequency on GPIO 18 updated to 6000.000000 Hz[0m
+[0;32mI (89063) MCPWM: Frequency on GPIO 5 updated to 6000.000000 Hz[0m
+[0;32mI (89073) MCPWM: Frequency on GPIO 36 updated to 22.268404 Hz[0m
+[0;32mI (89173) MCPWM: Freq: 5600.000000 Hz, period_ticks: 2857[0m
+[0;33mW (89173) MCPWM: Requested 20.783844 Hz, actual 20 Hz[0m
+[0;32mI (89173) MCPWM: Freq: 20.783844 Hz, period_ticks: 31531[0m
+[0;32mI (89173) MCPWM: Calc time: 117 us[0m
+[0;32mI (89173) MCPWM: Frequency on GPIO 18 updated to 5600.000000 Hz[0m
+[0;32mI (89183) MCPWM: Frequency on GPIO 5 updated to 5600.000000 Hz[0m
+[0;32mI (89183) MCPWM: Frequency on GPIO 36 updated to 20.783844 Hz[0m
+[0;33mW (89293) MCPWM: Requested 5200.000000 Hz, actual 5201 Hz[0m
+[0;32mI (89293) MCPWM: Freq: 5200.000000 Hz, period_ticks: 3076[0m
+[0;33mW (89293) MCPWM: Requested 19.299284 Hz, actual 19 Hz[0m
+[0;32mI (89293) MCPWM: Freq: 19.299284 Hz, period_ticks: 33957[0m
+[0;32mI (89293) MCPWM: Calc time: 117 us[0m
+[0;32mI (89303) MCPWM: Frequency on GPIO 18 updated to 5200.000000 Hz[0m
+[0;32mI (89303) MCPWM: Frequency on GPIO 5 updated to 5200.000000 Hz[0m
+[0;32mI (89313) MCPWM: Frequency on GPIO 36 updated to 19.299284 Hz[0m
+[0;32mI (89413) MCPWM: Freq: 4800.000000 Hz, period_ticks: 3333[0m
+[0;33mW (89413) MCPWM: Requested 17.814724 Hz, actual 17 Hz[0m
+[0;32mI (89413) MCPWM: Freq: 17.814724 Hz, period_ticks: 36786[0m
+[0;32mI (89413) MCPWM: Calc time: 117 us[0m
+[0;32mI (89413) MCPWM: Frequency on GPIO 18 updated to 4800.000000 Hz[0m
+[0;32mI (89423) MCPWM: Frequency on GPIO 5 updated to 4800.000000 Hz[0m
+[0;32mI (89423) MCPWM: Frequency on GPIO 36 updated to 17.814724 Hz[0m
+[0;32mI (89533) MCPWM: Freq: 4400.000000 Hz, period_ticks: 3636[0m
+[0;33mW (89533) MCPWM: Requested 16.330164 Hz, actual 16 Hz[0m
+[0;32mI (89533) MCPWM: Freq: 16.330164 Hz, period_ticks: 40131[0m
+[0;32mI (89533) MCPWM: Calc time: 117 us[0m
+[0;32mI (89533) MCPWM: Frequency on GPIO 18 updated to 4400.000000 Hz[0m
+[0;32mI (89543) MCPWM: Frequency on GPIO 5 updated to 4400.000000 Hz[0m
+[0;32mI (89543) MCPWM: Frequency on GPIO 36 updated to 16.330164 Hz[0m
+[0;32mI (89653) MCPWM: Freq: 4000.000000 Hz, period_ticks: 4000[0m
+[0;33mW (89653) MCPWM: Requested 14.845603 Hz, actual 14 Hz[0m
+[0;32mI (89653) MCPWM: Freq: 14.845603 Hz, period_ticks: 44144[0m
+[0;32mI (89653) MCPWM: Calc time: 117 us[0m
+[0;32mI (89653) MCPWM: Frequency on GPIO 18 updated to 4000.000000 Hz[0m
+[0;32mI (89663) MCPWM: Frequency on GPIO 5 updated to 4000.000000 Hz[0m
+[0;32mI (89663) MCPWM: Frequency on GPIO 36 updated to 14.845603 Hz[0m
+[0;32mI (89773) MCPWM: Freq: 3600.000000 Hz, period_ticks: 4444[0m
+[0;33mW (89773) MCPWM: Requested 13.361042 Hz, actual 13 Hz[0m
+[0;32mI (89773) MCPWM: Freq: 13.361042 Hz, period_ticks: 49049[0m
+[0;32mI (89773) MCPWM: Calc time: 117 us[0m
+[0;32mI (89773) MCPWM: Frequency on GPIO 18 updated to 3600.000000 Hz[0m
+[0;32mI (89783) MCPWM: Frequency on GPIO 5 updated to 3600.000000 Hz[0m
+[0;32mI (89783) MCPWM: Frequency on GPIO 36 updated to 13.361042 Hz[0m
+[0;32mI (89813) UART_TRANSMITTER: Sent command: {"speed":0.5625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (89893) MCPWM: Freq: 3200.000000 Hz, period_ticks: 5000[0m
+[0;33mW (89893) MCPWM: Requested 11.876481 Hz, actual 11 Hz[0m
+[0;32mI (89893) MCPWM: Freq: 11.876481 Hz, period_ticks: 55180[0m
+[0;32mI (89893) MCPWM: Calc time: 176 us[0m
+[0;32mI (89893) MCPWM: Frequency on GPIO 18 updated to 3200.000000 Hz[0m
+[0;32mI (89903) MCPWM: Frequency on GPIO 5 updated to 3200.000000 Hz[0m
+[0;32mI (89903) MCPWM: Frequency on GPIO 36 updated to 11.876481 Hz[0m
+[0;32mI (90013) MCPWM: Freq: 2800.000000 Hz, period_ticks: 5714[0m
+[0;33mW (90013) MCPWM: Requested 10.391920 Hz, actual 10 Hz[0m
+[0;32mI (90013) MCPWM: Freq: 10.391920 Hz, period_ticks: 63063[0m
+[0;32mI (90013) MCPWM: Calc time: 117 us[0m
+[0;32mI (90013) MCPWM: Frequency on GPIO 18 updated to 2800.000000 Hz[0m
+[0;32mI (90023) MCPWM: Frequency on GPIO 5 updated to 2800.000000 Hz[0m
+[0;32mI (90023) MCPWM: Frequency on GPIO 36 updated to 10.391920 Hz[0m
+[0;32mI (90133) MCPWM: Freq: 2400.000000 Hz, period_ticks: 6666[0m
+[0;32mI (90133) MCPWM: Calc time: 117 us[0m
+[0;32mI (90133) MCPWM: Frequency on GPIO 18 updated to 2400.000000 Hz[0m
+[0;32mI (90133) MCPWM: Frequency on GPIO 5 updated to 2400.000000 Hz[0m
+[0;32mI (90133) MCPWM: Frequency on GPIO 36 updated to 8.907359 Hz[0m
+[0;32mI (90243) MCPWM: Freq: 2000.000000 Hz, period_ticks: 8000[0m
+[0;32mI (90243) MCPWM: Calc time: 117 us[0m
+[0;32mI (90243) MCPWM: Frequency on GPIO 18 updated to 2000.000000 Hz[0m
+[0;32mI (90243) MCPWM: Frequency on GPIO 5 updated to 2000.000000 Hz[0m
+[0;32mI (90243) MCPWM: Frequency on GPIO 36 updated to 7.422799 Hz[0m
+[0;32mI (90353) MCPWM: Freq: 1600.000000 Hz, period_ticks: 10000[0m
+[0;32mI (90353) MCPWM: Calc time: 118 us[0m
+[0;32mI (90353) MCPWM: Frequency on GPIO 18 updated to 1600.000000 Hz[0m
+[0;32mI (90353) MCPWM: Frequency on GPIO 5 updated to 1600.000000 Hz[0m
+[0;32mI (90353) MCPWM: Frequency on GPIO 36 updated to 5.938238 Hz[0m
+[0;32mI (90463) MCPWM: Freq: 1200.000000 Hz, period_ticks: 13333[0m
+[0;32mI (90463) MCPWM: Calc time: 117 us[0m
+[0;32mI (90463) MCPWM: Frequency on GPIO 18 updated to 1200.000000 Hz[0m
+[0;32mI (90463) MCPWM: Frequency on GPIO 5 updated to 1200.000000 Hz[0m
+[0;32mI (90463) MCPWM: Frequency on GPIO 36 updated to 4.453678 Hz[0m
+[0;32mI (90573) MCPWM: Freq: 800.000000 Hz, period_ticks: 20000[0m
+[0;32mI (90573) MCPWM: Calc time: 117 us[0m
+[0;32mI (90573) MCPWM: Frequency on GPIO 18 updated to 800.000000 Hz[0m
+[0;32mI (90573) MCPWM: Frequency on GPIO 5 updated to 800.000000 Hz[0m
+[0;32mI (90573) MCPWM: Frequency on GPIO 36 updated to 2.969117 Hz[0m
+[0;32mI (90683) MCPWM: Freq: 400.000000 Hz, period_ticks: 40000[0m
+[0;32mI (90683) MCPWM: Calc time: 117 us[0m
+[0;32mI (90683) MCPWM: Frequency on GPIO 18 updated to 400.000000 Hz[0m
+[0;32mI (90683) MCPWM: Frequency on GPIO 5 updated to 400.000000 Hz[0m
+[0;32mI (90683) MCPWM: Frequency on GPIO 36 updated to 1.484557 Hz[0m
+[0;32mI (90793) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (90793) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (90793) gpio: GPIO[36]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (90803) MCPWM: PWM signals stopped, GPIO 18 and 5 set to LOW[0m
+[0;32mI (90813) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (91823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (92823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (93823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (94823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (95823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (96823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (97823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (98823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (99823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (100823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (101823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (102823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (103823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (104823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (105823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (106823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (107823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (108823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (109823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (110823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (111823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (112823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (113823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (114823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (115823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (116823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (117823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (118823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (119823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (120823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (121823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
+[0;32mI (122823) UART_TRANSMITTER: Sent command: {"speed":0.0625,"current_winding":26.560681000000027,"total_cable_length":26.560681000000027,"time":3600}[0m
