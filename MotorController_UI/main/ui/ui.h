@@ -75,12 +75,19 @@ extern lv_obj_t * reset_info_panel_button_label;
 extern lv_obj_t * grinding_mode_checkbox;
 extern lv_obj_t * conical_winding_checkbox;
 
+// +++++ Reset Confirm Dialog +++++
+
+// --- 
+
 void start_button_clicked(lv_event_t * e);
 void stop_button_clicked(lv_event_t * e);
 void accelerate_button_clicked(lv_event_t * e);
 void decelerate_button_clicked(lv_event_t * e);
 void immediate_stop_button_clicked(lv_event_t * e);
 void home_point_button_clicked(lv_event_t * e);
+void reset_button_clicked(lv_event_t *e);
+void conical_winding_checkbox_handler(lv_event_t *e);
+void grinding_mode_checkbox_handler(lv_event_t *e);
 
 char* gen_json_startup_config();
 

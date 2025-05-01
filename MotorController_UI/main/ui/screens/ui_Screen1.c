@@ -164,17 +164,20 @@ void ui_Screen1_screen_init(void)
 
     grinding_mode_checkbox = lv_checkbox_create(operation_mode_cont);
     lv_checkbox_set_text(grinding_mode_checkbox, " Grinding mode");
+    lv_obj_add_event_cb(grinding_mode_checkbox, grinding_mode_checkbox_handler, LV_EVENT_VALUE_CHANGED, NULL);
 
     conical_winding_checkbox = lv_checkbox_create(operation_mode_cont);
     lv_checkbox_set_text(conical_winding_checkbox, " Conical winding");
+    lv_obj_add_event_cb(conical_winding_checkbox, conical_winding_checkbox_handler, LV_EVENT_VALUE_CHANGED, NULL);
 
     buttons_telemetry_cont = lv_obj_create(main_screen_cont);
     lv_obj_set_size(buttons_telemetry_cont, 800, LV_SIZE_CONTENT);
     lv_obj_set_align(buttons_telemetry_cont, LV_ALIGN_TOP_MID);
     lv_obj_set_layout(buttons_telemetry_cont, LV_LAYOUT_FLEX);
     lv_obj_set_flex_flow(buttons_telemetry_cont, LV_FLEX_FLOW_ROW);
-    lv_obj_set_flex_align(buttons_telemetry_cont, LV_FLEX_ALIGN_SPACE_EVENLY, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_START);
-    lv_obj_set_style_pad_row(buttons_telemetry_cont, 15, 0);
+    lv_obj_set_flex_align(buttons_telemetry_cont, LV_FLEX_ALIGN_SPACE_EVENLY, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START);
+    lv_obj_set_style_pad_row(buttons_telemetry_cont, 0, 0);
+    lv_obj_set_style_pad_top(buttons_telemetry_cont, 0, 0);
     //lv_obj_set_style_bg_opa(buttons_telemetry_cont, LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
     //lv_obj_set_style_border_opa(buttons_telemetry_cont, LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_clear_flag(buttons_telemetry_cont, LV_OBJ_FLAG_SCROLLABLE);
@@ -265,17 +268,26 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_flex_align(telemetry_cont, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START);
     lv_obj_set_style_pad_row(telemetry_cont, 20, 0);
 
+    //////////// TELEMETRY //////////////
+
     current_winding_length_label = lv_label_create(telemetry_cont);
-    lv_label_set_text(current_winding_length_label, "Current Length: 10021,22 m");
+    lv_label_set_text(current_winding_length_label, "Current Length: N/A");
 
     used_cable_total_length_label = lv_label_create(telemetry_cont);
-    lv_label_set_text(used_cable_total_length_label, "Used Length: 22154,22 m");
+    lv_label_set_text(used_cable_total_length_label, "Used Length: N/A");
 
     current_speed_label = lv_label_create(telemetry_cont);
-    lv_label_set_text(current_speed_label, "Speed: 4.71 rps");
+    lv_label_set_text(current_speed_label, "Speed: N/A");
 
     operating_time_label = lv_label_create(telemetry_cont);
-    lv_label_set_text(operating_time_label, "Operating Time: 01:32:33");
+    lv_label_set_text(operating_time_label, "Operating Time: N/A");
+
+    lv_obj_t *reset_btn = lv_btn_create(telemetry_cont);
+    lv_obj_set_size(reset_btn, 100, 40);
+    lv_obj_add_event_cb(reset_btn, reset_button_clicked, LV_EVENT_CLICKED, NULL);
+    lv_obj_t *reset_label = lv_label_create(reset_btn);
+    lv_label_set_text(reset_label, "RESET");
+    lv_obj_center(reset_label);
     
     lv_obj_t *kb = lv_keyboard_create(lv_layer_top());
     lv_keyboard_set_mode(kb, LV_KEYBOARD_MODE_USER_1);

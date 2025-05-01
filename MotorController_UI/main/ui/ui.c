@@ -9,6 +9,8 @@
 #include <stdio.h>
 #include "cJSON.h"
 #include "esp_log.h"
+#include "esp_heap_caps.h" // Для esp_get_free_heap_size
+#include "freertos/FreeRTOS.h" // Для BaseType_t і pdPASS
 
 #define TAG "UI_UPDATE"
 ///////////////////// VARIABLES ////////////////////
@@ -20,6 +22,12 @@ typedef struct {
     char used_cable_total_length[16];
     char operating_time[32];
 } ui_data_t;
+
+// Структура для передачі modal і checkbox
+typedef struct {
+    lv_obj_t *modal;
+    lv_obj_t *checkbox;
+} dialog_data_t;
 
 // SCREEN: ui_Screen1
 void ui_Screen1_screen_init(void);
@@ -100,8 +108,16 @@ lv_obj_t * ui____initial_actions0;
 
 static void async_update_task(void *args) {
     ui_data_t *data = (ui_data_t *)args;
+    char buffer[32];
 
-    char buffer[32]; // Буфер для форматованих рядків
+    // Перевірка ініціалізації об’єктів LVGL
+    if (!current_speed_label || !current_winding_length_label || !used_cable_total_length_label || !operating_time_label) {
+        ESP_LOGE(TAG, "One or more UI labels are not initialized");
+        free(data);
+        return;
+    }
+
+    ESP_LOGI(TAG, "async_update_task started, heap: %u", esp_get_free_heap_size());
 
     // Speed: "Speed: X.XX rps"
     if (data->current_speed[0] && strcmp(data->current_speed, "N/A") != 0) {
@@ -111,33 +127,163 @@ static void async_update_task(void *args) {
 
     // Current Length: "Current Length: XXXXX,XX m"
     if (data->current_winding_length[0] && strcmp(data->current_winding_length, "N/A") != 0) {
-        // Замінюємо крапку на кому для десяткового роздільника
-        char *comma_ptr = strchr(data->current_winding_length, '.');
+        char temp[16];
+        strncpy(temp, data->current_winding_length, sizeof(temp));
+        char *comma_ptr = strchr(temp, '.');
         if (comma_ptr) *comma_ptr = ',';
-        snprintf(buffer, sizeof(buffer), "Current Length: %s m", data->current_winding_length);
+        snprintf(buffer, sizeof(buffer), "Current Length: %s m", temp);
         lv_label_set_text(current_winding_length_label, buffer);
     }
 
     // Used Length: "Used Length: XXXXX,XX m"
     if (data->used_cable_total_length[0] && strcmp(data->used_cable_total_length, "N/A") != 0) {
-        // Замінюємо крапку на кому
-        char *comma_ptr = strchr(data->used_cable_total_length, '.');
+        char temp[16];
+        strncpy(temp, data->used_cable_total_length, sizeof(temp));
+        char *comma_ptr = strchr(temp, '.');
         if (comma_ptr) *comma_ptr = ',';
-        snprintf(buffer, sizeof(buffer), "Used Length: %s m", data->used_cable_total_length);
+        snprintf(buffer, sizeof(buffer), "Used Length: %s m", temp);
         lv_label_set_text(used_cable_total_length_label, buffer);
     }
 
     // Operating Time: "Operating Time: HH:MM:SS"
     if (data->operating_time[0] && strcmp(data->operating_time, "N/A") != 0) {
         int total_seconds = atoi(data->operating_time);
-        int hours = total_seconds / 3600;
-        int minutes = (total_seconds % 3600) / 60;
-        int seconds = total_seconds % 60;
-        snprintf(buffer, sizeof(buffer), "Operating Time: %02d:%02d:%02d", hours, minutes, seconds);
-        lv_label_set_text(operating_time_label, buffer);
+        if (total_seconds >= 0) {
+            int hours = total_seconds / 3600;
+            int minutes = (total_seconds % 3600) / 60;
+            int seconds = total_seconds % 60;
+            snprintf(buffer, sizeof(buffer), "Operating Time: %02d:%02d:%02d", hours, minutes, seconds);
+            lv_label_set_text(operating_time_label, buffer);
+        }
     }
 
     free(data);
+    ESP_LOGI(TAG, "async_update_task finished, heap: %u", esp_get_free_heap_size());
+}
+
+static void dialog_event_handler(lv_event_t *e) {
+    dialog_data_t *data = lv_event_get_user_data(e);
+    lv_obj_t *btn = lv_event_get_target(e);
+    const char *txt = lv_label_get_text(lv_obj_get_child(btn, 0));
+
+    if (strcmp(txt, "OK") == 0) {
+        bool is_checked = lv_obj_has_state(data->checkbox, LV_STATE_CHECKED);
+        if (is_checked) {
+            uart_send_command("{\"command\": \"reset_all\"}");
+        } else {
+            uart_send_command("{\"command\": \"reset\"}");
+        }
+    } else if (strcmp(txt, "Cancel") == 0) {
+        ESP_LOGI("Dialog", "Reset canceled");
+    }
+
+    lv_obj_del(data->modal);
+    free(data); // Звільняємо пам’ять структури
+}
+
+void conical_winding_checkbox_handler(lv_event_t *e) {
+    lv_obj_t *checkbox = lv_event_get_target(e); // Отримуємо об’єкт, який викликав подію
+    bool is_checked = lv_obj_has_state(checkbox, LV_STATE_CHECKED);
+
+    if (is_checked) {
+        ESP_LOGI("CHECKBOX", "Conical winding enabled");
+        uart_send_command("{\"command\": \"conical_on\"}");
+    } else {
+        ESP_LOGI("CHECKBOX", "Conical winding disabled");
+        uart_send_command("{\"command\": \"conical_off\"}");
+    }
+}
+
+void grinding_mode_checkbox_handler(lv_event_t *e) {
+    lv_obj_t *checkbox = lv_event_get_target(e); // Отримуємо об’єкт, який викликав подію
+    bool is_checked = lv_obj_has_state(checkbox, LV_STATE_CHECKED);
+
+    if (is_checked) {
+        ESP_LOGI("CHECKBOX", "Grinding mode enabled");
+        uart_send_command("{\"command\": \"grinding_on\"}");
+    } else {
+        ESP_LOGI("CHECKBOX", "Grinding mode disabled");
+        uart_send_command("{\"command\": \"grinding_off\"}");
+    }
+}
+
+
+static void create_confirm_dialog(const char *message) {
+    // Модальне тло
+    lv_obj_t *modal = lv_obj_create(ui_Screen1);
+    lv_obj_add_flag(modal, LV_OBJ_FLAG_FLOATING);
+    lv_obj_set_size(modal, LV_PCT(100), LV_PCT(100));
+    lv_obj_set_style_bg_color(modal, lv_color_black(), 0);
+    lv_obj_set_style_bg_opa(modal, LV_OPA_50, 0);
+
+    // Контейнер діалогу (вертикальна Flex-розмітка)
+    lv_obj_t *dialog = lv_obj_create(modal);
+    lv_obj_set_size(dialog, LV_PCT(40), LV_PCT(50));
+    lv_obj_center(dialog);
+    lv_obj_set_style_bg_color(dialog, lv_color_hex(0x2b2b2b), 0);
+    lv_obj_set_style_border_width(dialog, 0, 0);
+    lv_obj_set_style_pad_all(dialog, 10, 0);
+    lv_obj_set_layout(dialog, LV_LAYOUT_FLEX);
+    lv_obj_set_flex_flow(dialog, LV_FLEX_FLOW_COLUMN);
+    lv_obj_set_flex_align(dialog, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
+    lv_obj_set_style_pad_row(dialog, 0, 0);
+
+    // Контейнер для тексту
+    lv_obj_t *text_cont = lv_obj_create(dialog);
+    lv_obj_set_size(text_cont, LV_PCT(100), LV_SIZE_CONTENT);
+    lv_obj_set_style_bg_opa(text_cont, LV_OPA_TRANSP, 0);
+    lv_obj_set_style_border_width(text_cont, 0, 0);
+
+    lv_obj_t *label = lv_label_create(text_cont);
+    lv_label_set_text(label, message);
+    lv_label_set_long_mode(label, LV_LABEL_LONG_WRAP);
+    lv_obj_set_style_text_align(label, LV_TEXT_ALIGN_CENTER, 0);
+    lv_obj_set_width(label, LV_PCT(100));
+
+    // Контейнер для прапорця
+    lv_obj_t *checkbox_cont = lv_obj_create(dialog);
+    lv_obj_set_size(checkbox_cont, LV_PCT(100), LV_SIZE_CONTENT);
+    lv_obj_set_layout(checkbox_cont, LV_LAYOUT_FLEX);
+    lv_obj_set_flex_flow(checkbox_cont, LV_FLEX_FLOW_ROW);
+    lv_obj_set_flex_align(checkbox_cont, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
+    lv_obj_set_style_bg_opa(checkbox_cont, LV_OPA_TRANSP, 0);
+    lv_obj_set_style_border_width(checkbox_cont, 0, 0);
+    lv_obj_set_style_pad_column(checkbox_cont, 5, 0);
+
+    lv_obj_t *checkbox = lv_checkbox_create(checkbox_cont);
+    lv_checkbox_set_text(checkbox, "Reset Total Used Length");
+    lv_obj_set_style_text_align(checkbox, LV_TEXT_ALIGN_LEFT, 0);
+
+    // Контейнер для кнопок
+    lv_obj_t *btn_cont = lv_obj_create(dialog);
+    lv_obj_set_size(btn_cont, LV_PCT(100), LV_SIZE_CONTENT);
+    lv_obj_set_layout(btn_cont, LV_LAYOUT_FLEX);
+    lv_obj_set_flex_flow(btn_cont, LV_FLEX_FLOW_ROW);
+    lv_obj_set_flex_align(btn_cont, LV_FLEX_ALIGN_SPACE_EVENLY, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
+    lv_obj_set_style_bg_opa(btn_cont, LV_OPA_TRANSP, 0);
+    lv_obj_set_style_border_width(btn_cont, 0, 0);
+    lv_obj_set_style_pad_column(btn_cont, 10, 0);
+
+    // Створюємо структуру для передачі даних
+    dialog_data_t *data = malloc(sizeof(dialog_data_t));
+    data->modal = modal;
+    data->checkbox = checkbox;
+
+    // Кнопка "OK"
+    lv_obj_t *btn_ok = lv_btn_create(btn_cont);
+    lv_obj_set_size(btn_ok, 80, 40);
+    lv_obj_add_event_cb(btn_ok, dialog_event_handler, LV_EVENT_CLICKED, data);
+    lv_obj_t *label_ok = lv_label_create(btn_ok);
+    lv_label_set_text(label_ok, "OK");
+    lv_obj_center(label_ok);
+
+    // Кнопка "Cancel"
+    lv_obj_t *btn_cancel = lv_btn_create(btn_cont);
+    lv_obj_set_size(btn_cancel, 80, 40);
+    lv_obj_add_event_cb(btn_cancel, dialog_event_handler, LV_EVENT_CLICKED, data);
+    lv_obj_t *label_cancel = lv_label_create(btn_cancel);
+    lv_label_set_text(label_cancel, "Cancel");
+    lv_obj_center(label_cancel);
 }
 
 void update_ui_callback(const char *data) {
@@ -149,7 +295,6 @@ void update_ui_callback(const char *data) {
 
     // Парсимо JSON
     cJSON *root = cJSON_Parse(data);
-
     if (!root) {
         ESP_LOGE(TAG, "Failed to parse JSON: %s", cJSON_GetErrorPtr());
         return;
@@ -193,8 +338,23 @@ void update_ui_callback(const char *data) {
         ESP_LOGI(TAG, "Parsed time: %s", ui_data->operating_time);
     }
 
-    // Оновлюємо UI асинхронно
-    lv_async_call(async_update_task, ui_data);
+    // Перевірка ініціалізації LVGL
+    if (!lv_is_initialized()) {
+        ESP_LOGE(TAG, "LVGL not initialized");
+        free(ui_data);
+        cJSON_Delete(root);
+        return;
+    }
+
+    // Логування перед асинхронним викликом
+    ESP_LOGI(TAG, "Before lv_async_call, heap: %u", esp_get_free_heap_size());
+
+    // Виклик асинхронного оновлення
+    BaseType_t res = lv_async_call(async_update_task, ui_data);
+    if (res != pdPASS) {
+        ESP_LOGE(TAG, "lv_async_call failed");
+        free(ui_data);
+    }
 
     // Очищаємо пам’ять JSON
     cJSON_Delete(root);
@@ -273,6 +433,10 @@ void home_point_button_clicked(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         uart_send_command("{\"command\": \"home_point\"}");
     }
+}
+
+void reset_button_clicked(lv_event_t *e) {
+    create_confirm_dialog("Are you sure you want to reset?");
 }
 
 void ui_event_Button1(lv_event_t * e)
