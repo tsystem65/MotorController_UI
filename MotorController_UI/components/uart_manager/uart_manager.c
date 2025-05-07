@@ -10,8 +10,8 @@
 #define UART_TX_PIN 43  // Використовуємо стандартні піни USB-to-UART
 #define UART_RX_PIN 44
 #define UART_BAUD_RATE 115200
-#define UART_BUFFER_SIZE (1024)
-#define UART_TASK_STACK_SIZE 4096
+#define UART_BUFFER_SIZE 2048
+#define UART_TASK_STACK_SIZE 8192
 
 static QueueHandle_t uart_queue = NULL;
 static void (*data_callback)(const char*) = NULL;
@@ -24,6 +24,11 @@ static void uart_event_task(void *arg) {
         if (xQueueReceive(uart_queue, &event, 100 / portTICK_PERIOD_MS)) {
             switch (event.type) {
                 case UART_DATA:
+                    if(event.size >= UART_BUFFER_SIZE) {
+                        ESP_LOGW(TAG, "Incoming UART data too large: %d", event.size);
+                        uart_flush_input(UART_NUM);
+                        break;
+                    }
                     ESP_LOGI(TAG, "UART_DATA event, size: %d", event.size);
                     int len = uart_read_bytes(UART_NUM, data, event.size, pdMS_TO_TICKS(100));
                     if (len > 0) {
@@ -59,7 +64,6 @@ static void uart_event_task(void *arg) {
         }
         ESP_LOGD(TAG, "Stack remaining: %u bytes", uxTaskGetStackHighWaterMark(NULL));
     }
-    vTaskDelete(NULL);
 }
 
 // Ініціалізація UART

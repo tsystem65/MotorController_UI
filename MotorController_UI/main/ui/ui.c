@@ -107,8 +107,11 @@ lv_obj_t * ui____initial_actions0;
 ///////////////////// FUNCTIONS ////////////////////
 
 static void async_update_task(void *args) {
+
+    if(!args) {return;}
+
     ui_data_t *data = (ui_data_t *)args;
-    char buffer[32];
+    char buffer[48];
 
     // Перевірка ініціалізації об’єктів LVGL
     if (!current_speed_label || !current_winding_length_label || !used_cable_total_length_label || !operating_time_label) {
@@ -117,7 +120,7 @@ static void async_update_task(void *args) {
         return;
     }
 
-    ESP_LOGI(TAG, "async_update_task started, heap: %u", esp_get_free_heap_size());
+    //ESP_LOGI(TAG, "async_update_task started, heap: %u", esp_get_free_heap_size());
 
     // Speed: "Speed: X.XX rps"
     if (data->current_speed[0] && strcmp(data->current_speed, "N/A") != 0) {
@@ -128,7 +131,8 @@ static void async_update_task(void *args) {
     // Current Length: "Current Length: XXXXX,XX m"
     if (data->current_winding_length[0] && strcmp(data->current_winding_length, "N/A") != 0) {
         char temp[16];
-        strncpy(temp, data->current_winding_length, sizeof(temp));
+        strncpy(temp, data->current_winding_length, sizeof(temp) - 1);
+        temp[sizeof(temp) - 1] = '\0';
         char *comma_ptr = strchr(temp, '.');
         if (comma_ptr) *comma_ptr = ',';
         snprintf(buffer, sizeof(buffer), "Current Length: %s m", temp);
@@ -138,7 +142,8 @@ static void async_update_task(void *args) {
     // Used Length: "Used Length: XXXXX,XX m"
     if (data->used_cable_total_length[0] && strcmp(data->used_cable_total_length, "N/A") != 0) {
         char temp[16];
-        strncpy(temp, data->used_cable_total_length, sizeof(temp));
+        strncpy(temp, data->used_cable_total_length, sizeof(temp) - 1);
+        temp[sizeof(temp) - 1] = '\0';
         char *comma_ptr = strchr(temp, '.');
         if (comma_ptr) *comma_ptr = ',';
         snprintf(buffer, sizeof(buffer), "Used Length: %s m", temp);
@@ -158,7 +163,7 @@ static void async_update_task(void *args) {
     }
 
     free(data);
-    ESP_LOGI(TAG, "async_update_task finished, heap: %u", esp_get_free_heap_size());
+    //ESP_LOGI(TAG, "async_update_task finished, heap: %u", esp_get_free_heap_size());
 }
 
 static void dialog_event_handler(lv_event_t *e) {
@@ -316,26 +321,26 @@ void update_ui_callback(const char *data) {
     // Витягуємо значення з JSON
     cJSON *speed = cJSON_GetObjectItem(root, "speed");
     if (speed && cJSON_IsNumber(speed)) {
-        snprintf(ui_data->current_speed, sizeof(ui_data->current_speed), "%.1f", speed->valuedouble);
-        ESP_LOGI(TAG, "Parsed speed: %s", ui_data->current_speed);
+        snprintf(ui_data->current_speed, sizeof(ui_data->current_speed), "%.2f", speed->valuedouble);
+        //ESP_LOGI(TAG, "Parsed speed: %s", ui_data->current_speed);
     }
 
     cJSON *winding = cJSON_GetObjectItem(root, "current_winding");
     if (winding && cJSON_IsNumber(winding)) {
         snprintf(ui_data->current_winding_length, sizeof(ui_data->current_winding_length), "%.2f", winding->valuedouble);
-        ESP_LOGI(TAG, "Parsed winding: %s", ui_data->current_winding_length);
+        //ESP_LOGI(TAG, "Parsed winding: %s", ui_data->current_winding_length);
     }
 
     cJSON *cable = cJSON_GetObjectItem(root, "total_cable_length");
     if (cable && cJSON_IsNumber(cable)) {
         snprintf(ui_data->used_cable_total_length, sizeof(ui_data->used_cable_total_length), "%.2f", cable->valuedouble);
-        ESP_LOGI(TAG, "Parsed cable: %s", ui_data->used_cable_total_length);
+        //ESP_LOGI(TAG, "Parsed cable: %s", ui_data->used_cable_total_length);
     }
 
     cJSON *time = cJSON_GetObjectItem(root, "time");
     if (time && cJSON_IsNumber(time)) {
         snprintf(ui_data->operating_time, sizeof(ui_data->operating_time), "%d", time->valueint);
-        ESP_LOGI(TAG, "Parsed time: %s", ui_data->operating_time);
+        //ESP_LOGI(TAG, "Parsed time: %s", ui_data->operating_time);
     }
 
     // Перевірка ініціалізації LVGL
@@ -347,7 +352,7 @@ void update_ui_callback(const char *data) {
     }
 
     // Логування перед асинхронним викликом
-    ESP_LOGI(TAG, "Before lv_async_call, heap: %u", esp_get_free_heap_size());
+    //ESP_LOGI(TAG, "Before lv_async_call, heap: %u", esp_get_free_heap_size());
 
     // Виклик асинхронного оновлення
     BaseType_t res = lv_async_call(async_update_task, ui_data);
@@ -476,6 +481,7 @@ void ui_init(void)
     lv_disp_set_theme(dispp, theme);
     ui_Screen1_screen_init();
     uart_register_data_callback(update_ui_callback);
+    ESP_LOGI("TEST DEBUG: ", "-------- TEST INFO -------\n");
     uart_init();
     ui____initial_actions0 = lv_obj_create(NULL);
     lv_disp_load_scr(ui_Screen1);

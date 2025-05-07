@@ -1,30 +1,5 @@
 #include "../ui.h"
 
-// static void start_button_event_handler(lv_event_t *e) {
-//     send_command("Start");
-// }
-
-// static void stop_button_event_handler(lv_event_t *e) {
-//     send_command("Stop");
-// }
-
-// static void accelerate_button_event_handler(lv_event_t *e) {
-//     send_command("Accelerate");
-// }
-
-// static void immediate_stop_button_event_handler(lv_event_t *e) {
-//     send_command("Immediate Stop");
-// }
-
-// static void decelerate_button_event_handler(lv_event_t *e) {
-//     send_command("Decelerate");
-// }
-
-// static void home_point_button_event_handler(lv_event_t *e) {
-//     send_command("Home Point");
-// }
-// static lv_obj_t * kb;
-
 static const lv_btnmatrix_ctrl_t custom_styles[] = {
     1, 1, 1, 1, // "1", "2", "3", "\n"
     1, 1, 1, 1, // "4", "5", "6", "\n"
@@ -81,6 +56,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_flex_flow(main_screen_cont, LV_FLEX_FLOW_COLUMN);
     lv_obj_set_flex_align(main_screen_cont, LV_ALIGN_TOP_MID, LV_ALIGN_CENTER, LV_ALIGN_DEFAULT);
     lv_obj_set_style_pad_all(main_screen_cont, 0, 0); 
+    //lv_obj_set_style_border_opa(main_screen_cont, LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     lv_obj_t * operation_params_cont = lv_obj_create(main_screen_cont);
     lv_obj_set_size(operation_params_cont, 800, LV_SIZE_CONTENT);
@@ -89,12 +65,14 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_flex_flow(operation_params_cont, LV_FLEX_FLOW_ROW);
     lv_obj_set_flex_align(operation_params_cont, LV_FLEX_ALIGN_SPACE_EVENLY, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_START);
     lv_obj_set_style_pad_row(operation_params_cont, 15, 0);
-    //lv_obj_set_style_bg_opa(operation_params_cont, LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
     //lv_obj_set_style_border_opa(operation_params_cont, LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
+    //lv_obj_set_style_bg_opa(operation_params_cont, LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
+    ////lv_obj_set_style_border_opa(operation_params_cont, LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
     //lv_obj_clear_flag(operation_params_cont, LV_OBJ_FLAG_SCROLLABLE);
     
     operation_params_input_cont = lv_obj_create(operation_params_cont);
     lv_obj_set_size(operation_params_input_cont, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+    //lv_obj_set_style_border_opa(operation_params_input_cont, LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     // Визначаємо колонки (лейбл: 180px, поле вводу: 220px) і рядки (по 50px)
     static lv_coord_t operation_params_input_cont_col_dsc[] = {180, 220, LV_GRID_TEMPLATE_LAST};
@@ -158,6 +136,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_flex_flow(operation_mode_cont, LV_FLEX_FLOW_COLUMN);
     lv_obj_set_flex_align(operation_mode_cont, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START);
     lv_obj_set_style_pad_row(operation_mode_cont, 40, 0);
+    //lv_obj_set_style_border_opa(operation_mode_cont, LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     lv_obj_t * operation_mode_header_label = lv_label_create(operation_mode_cont);
     lv_label_set_text(operation_mode_header_label, "-- Operation Modes --");
@@ -179,11 +158,12 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_style_pad_row(buttons_telemetry_cont, 0, 0);
     lv_obj_set_style_pad_top(buttons_telemetry_cont, 0, 0);
     //lv_obj_set_style_bg_opa(buttons_telemetry_cont, LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
-    //lv_obj_set_style_border_opa(buttons_telemetry_cont, LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_opa(buttons_telemetry_cont, LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_clear_flag(buttons_telemetry_cont, LV_OBJ_FLAG_SCROLLABLE);
 
     control_buttons_cont = lv_obj_create(buttons_telemetry_cont);
     lv_obj_set_size(control_buttons_cont, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+    //lv_obj_set_style_border_opa(control_buttons_cont, LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     static lv_coord_t control_buttons_cont_col_dsc[] = {200, 200, LV_GRID_TEMPLATE_LAST};
     static lv_coord_t control_buttons_cont_row_dsc[] = {50, 50, 50, LV_GRID_TEMPLATE_LAST};
@@ -262,11 +242,12 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_align(home_point_button_label, LV_ALIGN_CENTER);
 
     telemetry_cont = lv_obj_create(buttons_telemetry_cont);
-    lv_obj_set_size(telemetry_cont, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+    lv_obj_set_size(telemetry_cont, 230, LV_SIZE_CONTENT);
     lv_obj_set_layout(telemetry_cont, LV_LAYOUT_FLEX);
     lv_obj_set_flex_flow(telemetry_cont, LV_FLEX_FLOW_COLUMN);
     lv_obj_set_flex_align(telemetry_cont, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START);
     lv_obj_set_style_pad_row(telemetry_cont, 20, 0);
+    //lv_obj_set_style_border_opa(telemetry_cont, LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     //////////// TELEMETRY //////////////
 

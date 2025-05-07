@@ -2,13 +2,13 @@ dependencies:
   espressif/esp_lcd_touch:
     dependencies: []
     source:
-      path: /home/tsystem/esp/MotorController_UI/MotorController_UI/components/espressif__esp_lcd_touch
+      path: /home/voznyi/MotorController_UI/MotorController_UI/components/espressif__esp_lcd_touch
       type: local
     version: 1.1.1
   espressif/esp_lcd_touch_gt911:
     dependencies: []
     source:
-      path: /home/tsystem/esp/MotorController_UI/MotorController_UI/components/espressif__esp_lcd_touch_gt911
+      path: /home/voznyi/MotorController_UI/MotorController_UI/components/espressif__esp_lcd_touch_gt911
       type: local
     version: 1.1.0
   idf:
@@ -18,7 +18,7 @@ dependencies:
   lvgl/lvgl:
     dependencies: []
     source:
-      path: /home/tsystem/esp/MotorController_UI/MotorController_UI/components/lvgl__lvgl
+      path: /home/voznyi/MotorController_UI/MotorController_UI/components/lvgl__lvgl
       type: local
     version: 8.3.11
 direct_dependencies:
@@ -26,6 +26,6 @@ direct_dependencies:
 - espressif/esp_lcd_touch_gt911
 - idf
 - lvgl/lvgl
-manifest_hash: 1886ac470a2756680d370f8ac57f5a227c03bcc7d6ebbe275be057bf0483bf3c
+manifest_hash: df4f3184deede84bf3a494bdfed3fbca9bf3fb3185fe7e6bda4fe26dafaf77ca
 target: esp32s3
 version: 2.0.0

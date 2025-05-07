@@ -1,13 +1,13 @@
 # Target labels
  bootloader
 # Source files and their labels
-/home/tsystem/esp/MotorController_UI/MotorController_UI/build/CMakeFiles/bootloader
-/home/tsystem/esp/MotorController_UI/MotorController_UI/build/CMakeFiles/bootloader.rule
-/home/tsystem/esp/MotorController_UI/MotorController_UI/build/CMakeFiles/bootloader-complete.rule
-/home/tsystem/esp/MotorController_UI/MotorController_UI/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
-/home/tsystem/esp/MotorController_UI/MotorController_UI/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
-/home/tsystem/esp/MotorController_UI/MotorController_UI/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
-/home/tsystem/esp/MotorController_UI/MotorController_UI/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
-/home/tsystem/esp/MotorController_UI/MotorController_UI/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
-/home/tsystem/esp/MotorController_UI/MotorController_UI/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
-/home/tsystem/esp/MotorController_UI/MotorController_UI/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/home/voznyi/MotorController_UI/MotorController_UI/build/CMakeFiles/bootloader
+/home/voznyi/MotorController_UI/MotorController_UI/build/CMakeFiles/bootloader.rule
+/home/voznyi/MotorController_UI/MotorController_UI/build/CMakeFiles/bootloader-complete.rule
+/home/voznyi/MotorController_UI/MotorController_UI/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/voznyi/MotorController_UI/MotorController_UI/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/voznyi/MotorController_UI/MotorController_UI/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/voznyi/MotorController_UI/MotorController_UI/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/voznyi/MotorController_UI/MotorController_UI/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/voznyi/MotorController_UI/MotorController_UI/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/voznyi/MotorController_UI/MotorController_UI/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
