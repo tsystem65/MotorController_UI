@@ -52,6 +52,8 @@ extern lv_obj_t * operating_time_label;
 extern lv_obj_t * rotate_per_sec_entry;
 extern lv_obj_t * carriage_movement_entry;
 extern lv_obj_t * general_winding_length_entry;
+extern lv_obj_t * revers_conical_layers_entry;
+extern lv_obj_t * revers_conical_delay_mm_entry;
 
 // --- Buttons ---
 extern lv_obj_t * start_button;
@@ -74,6 +76,7 @@ extern lv_obj_t * reset_info_panel_button_label;
 // --- Checkboxes ---
 extern lv_obj_t * grinding_mode_checkbox;
 extern lv_obj_t * conical_winding_checkbox;
+extern lv_obj_t * revers_conical_winding_checkbox;
 
 // +++++ Reset Confirm Dialog +++++
 
@@ -86,8 +89,10 @@ void decelerate_button_clicked(lv_event_t * e);
 void immediate_stop_button_clicked(lv_event_t * e);
 void home_point_button_clicked(lv_event_t * e);
 void reset_button_clicked(lv_event_t *e);
+void accept_revers_conical_params_btn_cb(lv_event_t *e);
 void conical_winding_checkbox_handler(lv_event_t *e);
 void grinding_mode_checkbox_handler(lv_event_t *e);
+void revers_conical_winding_checkbox_handler(lv_event_t *e);
 
 char* gen_json_startup_config();
 

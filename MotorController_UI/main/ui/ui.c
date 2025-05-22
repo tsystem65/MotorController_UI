@@ -17,10 +17,18 @@
 
 // Структура для передачі даних в асинхронний callback
 typedef struct {
+    char rotation_speed[8];
+    char winding_step[8];
+    char total_length[12];
     char current_speed[16];
     char current_winding_length[16];
     char used_cable_total_length[16];
     char operating_time[32];
+    char switch_dir_delay_mm[8];
+    char layers_to_increase_delay[8];
+    bool grinding_status;
+    bool conical_winding_status;
+    bool revers_conical_winding_status;
 } ui_data_t;
 
 // Структура для передачі modal і checkbox
@@ -62,6 +70,8 @@ lv_obj_t * operating_time_label;
 lv_obj_t * rotate_per_sec_entry;
 lv_obj_t * carriage_movement_entry;
 lv_obj_t * general_winding_length_entry;
+lv_obj_t * revers_conical_layers_entry;
+lv_obj_t * revers_conical_delay_mm_entry;
 
 lv_obj_t * start_button;
 lv_obj_t * stop_button;
@@ -81,6 +91,7 @@ lv_obj_t * reset_info_panel_button_label;
 
 lv_obj_t * grinding_mode_checkbox;
 lv_obj_t * conical_winding_checkbox;
+lv_obj_t * revers_conical_winding_checkbox;
 
 void start_button_cliked(lv_event_t * e);
 void stop_button_cliked(lv_event_t * e);
@@ -109,8 +120,10 @@ lv_obj_t * ui____initial_actions0;
 static void async_update_task(void *args) {
 
     if(!args) {return;}
-
+    
+    static bool is_firts_update = true;
     ui_data_t *data = (ui_data_t *)args;
+
     char buffer[48];
 
     // Перевірка ініціалізації об’єктів LVGL
@@ -119,8 +132,50 @@ static void async_update_task(void *args) {
         free(data);
         return;
     }
+    if ((!rotate_per_sec_entry || !carriage_movement_entry || !general_winding_length_entry) && is_firts_update) {
+        ESP_LOGE(TAG, "One or more UI entry are not initialized");
+        free(data);
+        return;
+    }
 
-    //ESP_LOGI(TAG, "async_update_task started, heap: %u", esp_get_free_heap_size());
+    if(is_firts_update) {
+        if(data->current_speed[0]) {
+            snprintf(buffer, sizeof(buffer), "%s", data->rotation_speed);
+            lv_textarea_add_text(rotate_per_sec_entry, buffer);
+        }
+        if(data->winding_step[0]) {
+            snprintf(buffer, sizeof(buffer), "%s", data->winding_step);
+            lv_textarea_add_text(carriage_movement_entry, buffer);
+        }
+        if(data->total_length[0]) {
+            snprintf(buffer, sizeof(buffer), "%s", data->total_length);
+            lv_textarea_add_text(general_winding_length_entry, buffer);
+        }
+        if(data->switch_dir_delay_mm[0]) {
+            snprintf(buffer, sizeof(buffer), "%s", data->switch_dir_delay_mm);
+            lv_textarea_add_text(revers_conical_delay_mm_entry, buffer);
+        }
+        if(data->layers_to_increase_delay[0]) {
+            snprintf(buffer, sizeof(buffer), "%s", data->layers_to_increase_delay);
+            lv_textarea_add_text(revers_conical_layers_entry, buffer);
+        }
+        if(data->grinding_status) {
+            lv_obj_add_state(grinding_mode_checkbox, LV_STATE_CHECKED);
+        } else {
+            lv_obj_add_state(grinding_mode_checkbox, LV_STATE_DEFAULT);
+        }
+        if(data->conical_winding_status) {
+            lv_obj_add_state(conical_winding_checkbox, LV_STATE_CHECKED);
+        } else {
+            lv_obj_add_state(conical_winding_checkbox, LV_STATE_DEFAULT);
+        }
+        if(data->revers_conical_winding_status) {
+            lv_obj_add_state(revers_conical_winding_checkbox, LV_STATE_CHECKED);
+        } else {
+            lv_obj_add_state(revers_conical_winding_checkbox, LV_STATE_DEFAULT);
+        }
+        is_firts_update = false;
+    }
 
     // Speed: "Speed: X.XX rps"
     if (data->current_speed[0] && strcmp(data->current_speed, "N/A") != 0) {
@@ -212,6 +267,18 @@ void grinding_mode_checkbox_handler(lv_event_t *e) {
     }
 }
 
+void revers_conical_winding_checkbox_handler(lv_event_t *e) {
+    lv_obj_t *checkbox = lv_event_get_target(e); // Отримуємо об’єкт, який викликав подію
+    bool is_checked = lv_obj_has_state(checkbox, LV_STATE_CHECKED);
+
+    if (is_checked) {
+        ESP_LOGI("CHECKBOX", "Revers conical mode enabled");
+        uart_send_command("{\"command\": \"revers_conical_on\"}");
+    } else {
+        ESP_LOGI("CHECKBOX", "Revers conical mode disabled");
+        uart_send_command("{\"command\": \"revers_conical_off\"}");
+    }
+}
 
 static void create_confirm_dialog(const char *message) {
     // Модальне тло
@@ -307,16 +374,93 @@ void update_ui_callback(const char *data) {
 
     ui_data_t *ui_data = calloc(1, sizeof(ui_data_t));
     if (!ui_data) {
-        ESP_LOGE(TAG, "Failed to allocate memory");
+        uart_send_command("Failed to allocate memory");
         cJSON_Delete(root);
         return;
     }
+
+    static bool is_first_update = true;
 
     // Ініціалізація значень за замовчуванням
     strcpy(ui_data->current_speed, "N/A");
     strcpy(ui_data->current_winding_length, "N/A");
     strcpy(ui_data->used_cable_total_length, "N/A");
     strcpy(ui_data->operating_time, "N/A");
+
+    if(is_first_update) {
+        cJSON *rotation_speed = cJSON_GetObjectItem(root, "rotation_speed_entry");
+        if (rotation_speed && cJSON_IsNumber(rotation_speed)) {
+            if(rotation_speed->valuedouble <= 0) {
+                strcpy(ui_data->rotation_speed, "");
+            } else {
+                snprintf(ui_data->rotation_speed, sizeof(ui_data->rotation_speed), "%d", rotation_speed->valueint);
+            }
+        }
+
+        cJSON *winding_step = cJSON_GetObjectItem(root, "winding_step_entry");
+        if (winding_step && cJSON_IsNumber(winding_step)) {
+            if(winding_step->valuedouble <= 0) {
+                strcpy(ui_data->winding_step, "");
+            } else {
+                snprintf(ui_data->winding_step, sizeof(ui_data->winding_step), "%.2f", winding_step->valuedouble);
+            }
+        }
+
+        cJSON *total_length = cJSON_GetObjectItem(root, "total_length_entry");
+        if (total_length && cJSON_IsNumber(total_length)) {
+            if(total_length->valueint <= 0) {
+                strcpy(ui_data->total_length, "");
+            } else {
+                snprintf(ui_data->total_length, sizeof(ui_data->total_length), "%d", total_length->valueint);
+            }
+        }
+
+        cJSON *grinding_status = cJSON_GetObjectItem(root, "grinding_status");
+        if (grinding_status && cJSON_IsNumber(grinding_status)) {
+            if(grinding_status->valueint) {
+                ui_data->grinding_status = true;
+            } else {
+                ui_data->grinding_status = false;
+            }
+        }
+
+        cJSON *conical_winding_status = cJSON_GetObjectItem(root, "conical_status");
+        if (conical_winding_status && cJSON_IsNumber(conical_winding_status)) {
+            if(conical_winding_status->valueint) {
+                ui_data->conical_winding_status = true;
+            } else {
+                ui_data->conical_winding_status = false;
+            }
+        }
+
+        cJSON *revers_conical_winding_status = cJSON_GetObjectItem(root, "revers_conical_status");
+        if (revers_conical_winding_status && cJSON_IsNumber(revers_conical_winding_status)) {
+            if(revers_conical_winding_status->valueint) {
+                ui_data->revers_conical_winding_status = true;
+            } else {
+                ui_data->revers_conical_winding_status = false;
+            }
+        }
+
+        cJSON *switch_dir_delay_mm = cJSON_GetObjectItem(root, "switch_dir_delay_mm");
+        if (switch_dir_delay_mm && cJSON_IsNumber(switch_dir_delay_mm)) {
+            if(switch_dir_delay_mm->valuedouble <= 0) {
+                strcpy(ui_data->switch_dir_delay_mm, "");
+            } else {
+                snprintf(ui_data->switch_dir_delay_mm, sizeof(ui_data->switch_dir_delay_mm), "%.2f", switch_dir_delay_mm->valuedouble);
+            }
+        }
+
+        cJSON *layers_to_increase_delay = cJSON_GetObjectItem(root, "layers_to_increase_delay");
+        if (layers_to_increase_delay && cJSON_IsNumber(layers_to_increase_delay)) {
+            if(layers_to_increase_delay->valueint <= 0) {
+                strcpy(ui_data->layers_to_increase_delay, "");
+            } else {
+                snprintf(ui_data->layers_to_increase_delay, sizeof(ui_data->layers_to_increase_delay), "%d", layers_to_increase_delay->valueint);
+            }
+        }
+        is_first_update = false;
+    }
 
     // Витягуємо значення з JSON
     cJSON *speed = cJSON_GetObjectItem(root, "speed");
@@ -350,9 +494,6 @@ void update_ui_callback(const char *data) {
         cJSON_Delete(root);
         return;
     }
-
-    // Логування перед асинхронним викликом
-    //ESP_LOGI(TAG, "Before lv_async_call, heap: %u", esp_get_free_heap_size());
 
     // Виклик асинхронного оновлення
     BaseType_t res = lv_async_call(async_update_task, ui_data);
@@ -393,6 +534,34 @@ char* gen_json_startup_config() {
     cJSON_Delete(root);
     
     return json_string;
+}
+
+static char* gen_json_revers_conical_config() {
+    // Створюємо JSON-об'єкт
+    cJSON *root = cJSON_CreateObject();
+    
+    // Додаємо поля
+    cJSON_AddStringToObject(root, "command", "set_revers_conical_params");
+    cJSON_AddNumberToObject(root, "layers", atof(lv_textarea_get_text(revers_conical_layers_entry)));
+    cJSON_AddNumberToObject(root, "delay_mm", atof(lv_textarea_get_text(revers_conical_delay_mm_entry)));
+    
+    // Перетворюємо в рядок
+    char *json_string = cJSON_PrintUnformatted(root);
+    
+    // Очищуємо пам'ять
+    cJSON_Delete(root);
+    
+    return json_string;
+}
+
+void accept_revers_conical_params_btn_cb(lv_event_t *e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        char *json = gen_json_revers_conical_config();
+        uart_send_command(json);
+        free(json);
+    }
 }
 
 void stop_button_clicked(lv_event_t * e)

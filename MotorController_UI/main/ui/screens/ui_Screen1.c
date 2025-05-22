@@ -63,7 +63,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_align(operation_params_cont, LV_ALIGN_TOP_MID);
     lv_obj_set_layout(operation_params_cont, LV_LAYOUT_FLEX);
     lv_obj_set_flex_flow(operation_params_cont, LV_FLEX_FLOW_ROW);
-    lv_obj_set_flex_align(operation_params_cont, LV_FLEX_ALIGN_SPACE_EVENLY, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_START);
+    lv_obj_set_flex_align(operation_params_cont, LV_FLEX_ALIGN_SPACE_EVENLY, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START);
     lv_obj_set_style_pad_row(operation_params_cont, 15, 0);
     //lv_obj_set_style_border_opa(operation_params_cont, LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
     //lv_obj_set_style_bg_opa(operation_params_cont, LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -131,11 +131,11 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_style_line_width(operation_params_cont_separator, 1, 0);
 
     operation_mode_cont = lv_obj_create(operation_params_cont);
-    lv_obj_set_size(operation_mode_cont, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+    lv_obj_set_size(operation_mode_cont, LV_SIZE_CONTENT, 200);
     lv_obj_set_layout(operation_mode_cont, LV_LAYOUT_FLEX);
     lv_obj_set_flex_flow(operation_mode_cont, LV_FLEX_FLOW_COLUMN);
     lv_obj_set_flex_align(operation_mode_cont, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START);
-    lv_obj_set_style_pad_row(operation_mode_cont, 40, 0);
+    lv_obj_set_style_pad_row(operation_mode_cont, 15, 0);
     //lv_obj_set_style_border_opa(operation_mode_cont, LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     lv_obj_t * operation_mode_header_label = lv_label_create(operation_mode_cont);
@@ -148,6 +148,42 @@ void ui_Screen1_screen_init(void)
     conical_winding_checkbox = lv_checkbox_create(operation_mode_cont);
     lv_checkbox_set_text(conical_winding_checkbox, " Conical winding");
     lv_obj_add_event_cb(conical_winding_checkbox, conical_winding_checkbox_handler, LV_EVENT_VALUE_CHANGED, NULL);
+
+    revers_conical_winding_checkbox = lv_checkbox_create(operation_mode_cont);
+    lv_checkbox_set_text(revers_conical_winding_checkbox, " Revers conical");
+    lv_obj_add_event_cb(revers_conical_winding_checkbox, revers_conical_winding_checkbox_handler, LV_EVENT_VALUE_CHANGED, NULL);
+
+    lv_obj_t *revers_conical_mode_cont = lv_obj_create(operation_mode_cont);
+    lv_obj_set_size(revers_conical_mode_cont, 170, LV_SIZE_CONTENT);
+    lv_obj_set_layout(revers_conical_mode_cont, LV_LAYOUT_FLEX);
+    lv_obj_set_flex_flow(revers_conical_mode_cont, LV_FLEX_FLOW_ROW);
+    lv_obj_set_flex_align(revers_conical_mode_cont, LV_FLEX_ALIGN_SPACE_BETWEEN, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START);
+    
+    // Видаляємо всі відступи
+    lv_obj_set_style_pad_all(revers_conical_mode_cont, 0, 0); // Зовнішні відступи (padding)
+    lv_obj_set_style_pad_row(revers_conical_mode_cont, 0, 0); // Відступ між рядками
+    lv_obj_set_style_pad_column(revers_conical_mode_cont, 0, 0); // Відступ між стовпцями
+    
+    // Видаляємо рамку
+    lv_obj_set_style_border_width(revers_conical_mode_cont, 0, 0);
+    
+    revers_conical_delay_mm_entry = lv_textarea_create(revers_conical_mode_cont);
+    lv_textarea_set_one_line(revers_conical_delay_mm_entry, true);
+    lv_obj_set_width(revers_conical_delay_mm_entry, 80);
+    lv_textarea_set_placeholder_text(revers_conical_delay_mm_entry, "Step (mm)");
+    
+    revers_conical_layers_entry = lv_textarea_create(revers_conical_mode_cont);
+    lv_textarea_set_one_line(revers_conical_layers_entry, true);
+    lv_obj_set_width(revers_conical_layers_entry, 80);
+    lv_textarea_set_placeholder_text(revers_conical_layers_entry, "Layers");
+
+    lv_obj_t * accept_revers_conical_params_btn = lv_btn_create(operation_mode_cont);
+    lv_obj_set_size(accept_revers_conical_params_btn, 165, 50);
+    lv_obj_add_event_cb(accept_revers_conical_params_btn, accept_revers_conical_params_btn_cb, LV_EVENT_CLICKED, NULL);
+
+    lv_obj_t * accept_revers_conical_params_btn_label = lv_label_create(accept_revers_conical_params_btn);
+    lv_label_set_text(accept_revers_conical_params_btn_label, "Accept");
+    lv_obj_set_align(accept_revers_conical_params_btn_label, LV_ALIGN_CENTER);
 
     buttons_telemetry_cont = lv_obj_create(main_screen_cont);
     lv_obj_set_size(buttons_telemetry_cont, 800, LV_SIZE_CONTENT);
@@ -281,4 +317,6 @@ void ui_Screen1_screen_init(void)
     lv_obj_add_event_cb(rotate_per_sec_entry, ta_focus_handler, LV_EVENT_CLICKED, kb);
     lv_obj_add_event_cb(carriage_movement_entry, ta_focus_handler, LV_EVENT_CLICKED, kb);
     lv_obj_add_event_cb(general_winding_length_entry, ta_focus_handler, LV_EVENT_CLICKED, kb);
+    lv_obj_add_event_cb(revers_conical_layers_entry, ta_focus_handler, LV_EVENT_CLICKED, kb);
+    lv_obj_add_event_cb(revers_conical_delay_mm_entry, ta_focus_handler, LV_EVENT_CLICKED, kb);
 }

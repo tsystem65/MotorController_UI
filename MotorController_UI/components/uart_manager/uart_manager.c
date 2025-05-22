@@ -19,47 +19,72 @@ static void (*data_callback)(const char*) = NULL;
 static void uart_event_task(void *arg) {
     uart_event_t event;
     uint8_t data[UART_BUFFER_SIZE];
-    
+    size_t total_len = 0;
+    TickType_t last_activity = xTaskGetTickCount();
+
     while (1) {
         if (xQueueReceive(uart_queue, &event, 100 / portTICK_PERIOD_MS)) {
             switch (event.type) {
                 case UART_DATA:
-                    if(event.size >= UART_BUFFER_SIZE) {
-                        ESP_LOGW(TAG, "Incoming UART data too large: %d", event.size);
+                    ESP_LOGI(TAG, "UART_DATA event, size: %d, total_len: %d", event.size, total_len);
+                    if (total_len + event.size >= UART_BUFFER_SIZE) {
+                        ESP_LOGW(TAG, "Incoming UART data too large: %d, flushing input", event.size);
                         uart_flush_input(UART_NUM);
+                        total_len = 0;
                         break;
                     }
-                    ESP_LOGI(TAG, "UART_DATA event, size: %d", event.size);
-                    int len = uart_read_bytes(UART_NUM, data, event.size, pdMS_TO_TICKS(100));
+
+                    int len = uart_read_bytes(UART_NUM, data + total_len, event.size, pdMS_TO_TICKS(100));
                     if (len > 0) {
-                        data[len] = '\0';
-                        if (data_callback) {
-                            data_callback((const char*)data);
+                        total_len += len;
+                        last_activity = xTaskGetTickCount();
+
+                        // Перевіряємо, чи є завершення (наприклад, '}' або '\n')
+                        if (memchr(data, '}', total_len) || (xTaskGetTickCount() - last_activity) > (100 / portTICK_PERIOD_MS)) {
+                            data[total_len] = '\0';
+                            ESP_LOGI(TAG, "Received: %.*s", total_len, data);
+                            if (data_callback) {
+                                data_callback((const char*)data);
+                            }
+                            total_len = 0;
                         }
-                        ESP_LOGI(TAG, "Received: %.*s", len, data);
                     } else {
                         ESP_LOGW(TAG, "No data read, len: %d", len);
                     }
                     break;
+
                 case UART_FIFO_OVF:
                     ESP_LOGE(TAG, "FIFO Overflow");
                     uart_flush_input(UART_NUM);
                     xQueueReset(uart_queue);
+                    total_len = 0;
                     break;
-                    
+
                 case UART_BUFFER_FULL:
                     ESP_LOGE(TAG, "RX Buffer Full - data may be lost");
-                    uart_flush_input(UART_NUM);  // Очищаємо буфер
+                    uart_flush_input(UART_NUM);
+                    total_len = 0;
                     break;
 
                 case UART_BREAK:
                     ESP_LOGW(TAG, "UART Break detected");
+                    total_len = 0;
                     break;
+
                 default:
                     ESP_LOGI(TAG, "Unhandled event type: %d", event.type);
                     break;
             }
         } else {
+            // Таймаут, перевіряємо, чи є не закінчені дані
+            if (total_len > 0 && (xTaskGetTickCount() - last_activity) > (100 / portTICK_PERIOD_MS)) {
+                data[total_len] = '\0';
+                ESP_LOGI(TAG, "Timeout, received partial: %.*s", total_len, data);
+                if (data_callback) {
+                    data_callback((const char*)data);
+                }
+                total_len = 0;
+            }
             ESP_LOGD(TAG, "No event in queue after timeout");
         }
         ESP_LOGD(TAG, "Stack remaining: %u bytes", uxTaskGetStackHighWaterMark(NULL));
