@@ -526,6 +526,8 @@ char* gen_json_startup_config() {
     cJSON_AddNumberToObject(root, "speed", atof(lv_textarea_get_text(rotate_per_sec_entry)));
     cJSON_AddNumberToObject(root, "carriage_movement", atof(lv_textarea_get_text(carriage_movement_entry)));
     cJSON_AddNumberToObject(root, "general_length", atof(lv_textarea_get_text(general_winding_length_entry)));
+    cJSON_AddNumberToObject(root, "layers", atof(lv_textarea_get_text(revers_conical_layers_entry)));
+    cJSON_AddNumberToObject(root, "delay_mm", atof(lv_textarea_get_text(revers_conical_delay_mm_entry)));
     
     // Перетворюємо в рядок
     char *json_string = cJSON_PrintUnformatted(root);
