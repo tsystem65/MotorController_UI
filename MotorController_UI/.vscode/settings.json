@@ -1,9 +1,10 @@
 {
-    "idf.pythonInstallPath": "/home/tsystem/.espressif/python_env/idf5.4_py3.12_env/bin/python",
+    "idf.pythonInstallPath": "D:\\Espressif\\tools\\idf-python\\3.11.2\\python.exe",
     "files.associations": {
         "display.h": "c",
         "array": "c",
         "string": "c",
-        "string_view": "c"
+        "string_view": "c",
+        "lv_async.h": "c"
     }
 }

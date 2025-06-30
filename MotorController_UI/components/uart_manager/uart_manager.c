@@ -23,7 +23,7 @@ static void uart_event_task(void *arg) {
     TickType_t last_activity = xTaskGetTickCount();
 
     while (1) {
-        if (xQueueReceive(uart_queue, &event, 100 / portTICK_PERIOD_MS)) {
+        if (xQueueReceive(uart_queue, &event, portMAX_DELAY)) {
             switch (event.type) {
                 case UART_DATA:
                     ESP_LOGI(TAG, "UART_DATA event, size: %d, total_len: %d", event.size, total_len);
