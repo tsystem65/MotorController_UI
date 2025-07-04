@@ -15,7 +15,6 @@ extern "C" {
 #include "ui_helpers.h"
 #include "ui_events.h"
 
-
 // SCREEN: ui_Screen1
 void ui_Screen1_screen_init(void);
 extern lv_obj_t * ui_Screen1;
@@ -31,9 +30,12 @@ extern lv_obj_t * ui_ImmediateStopButtonLabel;
 // CUSTOM VARIABLES
 
 // --- Containers ---
+extern lv_obj_t * cont_main;
+
+
 extern lv_obj_t * operation_params_cont;
 extern lv_obj_t * operation_params_input_cont;
-extern lv_obj_t * operation_mode_cont;
+extern lv_obj_t * cont_operation_mode;
 extern lv_obj_t * control_buttons_cont;
 extern lv_obj_t * buttons_telemetry_cont;
 extern lv_obj_t * control_buttons_cont;

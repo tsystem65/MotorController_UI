@@ -54,9 +54,12 @@ lv_obj_t * ui_Button3;
 lv_obj_t * ui_ImmediateStopButtonLabel;
 // CUSTOM VARIABLES
 
+lv_obj_t * cont_main;
+
+
 lv_obj_t * operation_params_cont;
 lv_obj_t * operation_params_input_cont;
-lv_obj_t * operation_mode_cont;
+lv_obj_t * cont_operation_mode;
 lv_obj_t * control_buttons_cont;
 lv_obj_t * buttons_telemetry_cont;
 lv_obj_t * control_buttons_cont;
@@ -180,7 +183,7 @@ static void async_update_task() {
 
     // Speed: "Speed: X.XX rps"
     if (ui_data_for_update.current_speed[0] && strcmp(ui_data_for_update.current_speed, "N/A") != 0) {
-        snprintf(buffer, sizeof(buffer), "Speed: %s rps", ui_data_for_update.current_speed);
+        snprintf(buffer, sizeof(buffer), "Rotation Speed: %s rps", ui_data_for_update.current_speed);
         lv_label_set_text(current_speed_label, buffer);
     }
 
