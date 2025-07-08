@@ -29,9 +29,11 @@ extern lv_obj_t * ui_Button3;
 extern lv_obj_t * ui_ImmediateStopButtonLabel;
 // CUSTOM VARIABLES
 
+extern lv_obj_t * wifi_dialog;
+
 // --- Containers ---
 extern lv_obj_t * cont_main;
-
+extern lv_obj_t * cont_wifi_networks_list;
 
 extern lv_obj_t * operation_params_cont;
 extern lv_obj_t * operation_params_input_cont;
@@ -56,6 +58,8 @@ extern lv_obj_t * carriage_movement_entry;
 extern lv_obj_t * general_winding_length_entry;
 extern lv_obj_t * revers_conical_layers_entry;
 extern lv_obj_t * revers_conical_delay_mm_entry;
+extern lv_obj_t * wifi_ssid_ta;
+extern lv_obj_t * wifi_password_ta;
 
 // --- Buttons ---
 extern lv_obj_t * start_button;
@@ -84,6 +88,9 @@ extern lv_obj_t * revers_conical_winding_checkbox;
 
 // --- 
 
+extern lv_style_t btn_style, btn_pr_style;
+extern lv_style_t ta_style_def, ta_style_focus;
+
 void start_button_clicked(lv_event_t * e);
 void stop_button_clicked(lv_event_t * e);
 void accelerate_button_clicked(lv_event_t * e);
@@ -91,10 +98,12 @@ void decelerate_button_clicked(lv_event_t * e);
 void immediate_stop_button_clicked(lv_event_t * e);
 void home_point_button_clicked(lv_event_t * e);
 void reset_button_clicked(lv_event_t *e);
+void wifi_button_clicked(lv_event_t *e);
 void accept_revers_conical_params_btn_cb(lv_event_t *e);
 void conical_winding_checkbox_handler(lv_event_t *e);
 void grinding_mode_checkbox_handler(lv_event_t *e);
 void revers_conical_winding_checkbox_handler(lv_event_t *e);
+void wifi_button_clicked(lv_event_t * e);
 
 char* gen_json_startup_config();
 

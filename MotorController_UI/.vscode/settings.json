@@ -5,6 +5,10 @@
         "array": "c",
         "string": "c",
         "string_view": "c",
-        "lv_async.h": "c"
+        "lv_async.h": "c",
+        "list": "c",
+        "algorithm": "c",
+        "format": "c",
+        "random": "c"
     }
 }

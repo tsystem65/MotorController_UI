@@ -45,7 +45,6 @@ void ui_Screen1_screen_init(void)
    //LV_FONT_DECLARE(lv_font_montserrat_18);
     static char btn_label_buf[64];
 
-    static lv_style_t btn_style, btn_pr_style;
     lv_style_init(&btn_style);
     lv_style_init(&btn_pr_style);
 
@@ -67,6 +66,21 @@ void ui_Screen1_screen_init(void)
     lv_style_set_bg_opa(&btn_pr_style,      LV_OPA_30);
     lv_style_set_border_color(&btn_pr_style,lv_color_hex(0x008BF5));
     lv_style_set_border_width(&btn_pr_style,2);
+
+    lv_style_init(&ta_style_def);
+    lv_style_set_bg_opa(&ta_style_def,      LV_OPA_TRANSP);
+    lv_style_set_border_width(&ta_style_def, 1);
+    lv_style_set_border_color(&ta_style_def, lv_color_hex(0x008BF5));
+
+    lv_style_init(&ta_style_focus);
+    lv_style_set_border_width(&ta_style_focus, 1);
+    lv_style_set_border_color(&ta_style_focus, lv_color_hex(0xAEDCFF));;
+    lv_style_set_shadow_color(&ta_style_focus, lv_color_hex(0x9BC6FF));
+    lv_style_set_shadow_width(&ta_style_focus, 10);
+    lv_style_set_shadow_ofs_x(&ta_style_focus, 0);
+    lv_style_set_shadow_ofs_y(&ta_style_focus, 0);
+    lv_style_set_shadow_spread(&ta_style_focus, 2);
+    lv_style_set_shadow_opa(&ta_style_focus, LV_OPA_50);
 
     ui_Screen1 = lv_obj_create(NULL);
     lv_obj_clear_flag(ui_Screen1, LV_OBJ_FLAG_SCROLLABLE);
@@ -106,7 +120,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_size(wifi_btn, 40, 40);
     lv_obj_add_style(wifi_btn, &btn_style, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_add_style(wifi_btn, &btn_pr_style, LV_PART_MAIN | LV_STATE_PRESSED);
-    lv_obj_add_event_cb(wifi_btn, reset_button_clicked, LV_EVENT_CLICKED, NULL);
+    lv_obj_add_event_cb(wifi_btn, wifi_button_clicked, LV_EVENT_CLICKED, NULL);
 
     lv_obj_t *wifi_btn_label = lv_label_create(wifi_btn);
     lv_label_set_text(wifi_btn_label, LV_SYMBOL_WIFI);
@@ -183,22 +197,6 @@ void ui_Screen1_screen_init(void)
     // 2. Створення елементів безпосередньо в сітці
     // Перший рядок - Rotation Speed
 
-    static lv_style_t st_def, st_focus;
-    lv_style_init(&st_def);
-    lv_style_set_bg_opa(&st_def,      LV_OPA_TRANSP);
-    lv_style_set_border_width(&st_def, 1);
-    lv_style_set_border_color(&st_def, lv_color_hex(0x008BF5));
-
-    lv_style_init(&st_focus);
-    lv_style_set_border_width(&st_focus, 1);
-    lv_style_set_border_color(&st_focus, lv_color_hex(0xAEDCFF));;
-    lv_style_set_shadow_color(&st_focus, lv_color_hex(0x9BC6FF));
-    lv_style_set_shadow_width(&st_focus, 10);
-    lv_style_set_shadow_ofs_x(&st_focus, 0);
-    lv_style_set_shadow_ofs_y(&st_focus, 0);
-    lv_style_set_shadow_spread(&st_focus, 2);
-    lv_style_set_shadow_opa(&st_focus, LV_OPA_50);
-
     rotate_per_sec_label = lv_label_create(operation_params_input_cont);
     lv_label_set_text(rotate_per_sec_label, "Rotation Speed (rps):");
     lv_obj_set_style_text_font(rotate_per_sec_label,
@@ -216,8 +214,8 @@ void ui_Screen1_screen_init(void)
         LV_GRID_ALIGN_CENTER, 0, 1
     );
 
-    lv_obj_add_style(rotate_per_sec_entry, &st_def, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_add_style(rotate_per_sec_entry, &st_focus, LV_PART_MAIN | LV_STATE_FOCUSED);
+    lv_obj_add_style(rotate_per_sec_entry, &ta_style_def, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_add_style(rotate_per_sec_entry, &ta_style_focus, LV_PART_MAIN | LV_STATE_FOCUSED);
     //lv_obj_add_style(rotate_per_sec_entry, &op_params_ta_style, LV_PART_PLACEHOLDER | LV_STATE_DEFAULT);
 
     // Другий рядок - Winding Step
@@ -238,8 +236,8 @@ void ui_Screen1_screen_init(void)
         LV_GRID_ALIGN_CENTER, 1, 1
     );
 
-    lv_obj_add_style(carriage_movement_entry, &st_def, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_add_style(carriage_movement_entry, &st_focus, LV_PART_MAIN | LV_STATE_FOCUSED);
+    lv_obj_add_style(carriage_movement_entry, &ta_style_def, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_add_style(carriage_movement_entry, &ta_style_focus, LV_PART_MAIN | LV_STATE_FOCUSED);
 
     // Третій рядок - Total Length
     general_winding_length_label = lv_label_create(operation_params_input_cont);
@@ -259,8 +257,8 @@ void ui_Screen1_screen_init(void)
         LV_GRID_ALIGN_CENTER, 2, 1
     );
 
-    lv_obj_add_style(general_winding_length_entry, &st_def, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_add_style(general_winding_length_entry, &st_focus, LV_PART_MAIN | LV_STATE_FOCUSED);
+    lv_obj_add_style(general_winding_length_entry, &ta_style_def, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_add_style(general_winding_length_entry, &ta_style_focus, LV_PART_MAIN | LV_STATE_FOCUSED);
 
     // lv_obj_t * operation_params_cont_separator = lv_line_create(operation_params_cont);
     // static lv_point_t operation_params_cont_separator_points[] = {{0, 0}, {0, 200}};  // Вертикальна лінія 100px
@@ -327,8 +325,8 @@ void ui_Screen1_screen_init(void)
 
     revers_conical_delay_mm_entry = lv_textarea_create(revers_conical_mode_cont);
     lv_textarea_set_one_line(revers_conical_delay_mm_entry, true);
-    lv_obj_add_style(revers_conical_delay_mm_entry, &st_def, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_add_style(revers_conical_delay_mm_entry, &st_focus, LV_PART_MAIN | LV_STATE_FOCUSED);
+    lv_obj_add_style(revers_conical_delay_mm_entry, &ta_style_def, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_add_style(revers_conical_delay_mm_entry, &ta_style_focus, LV_PART_MAIN | LV_STATE_FOCUSED);
     lv_textarea_set_placeholder_text(revers_conical_delay_mm_entry, "Step (mm)");
     lv_obj_set_grid_cell(revers_conical_delay_mm_entry,
         LV_GRID_ALIGN_STRETCH, 0, 1,
@@ -337,8 +335,8 @@ void ui_Screen1_screen_init(void)
     
     revers_conical_layers_entry = lv_textarea_create(revers_conical_mode_cont);
     lv_textarea_set_one_line(revers_conical_layers_entry, true);
-    lv_obj_add_style(revers_conical_layers_entry, &st_def, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_add_style(revers_conical_layers_entry, &st_focus, LV_PART_MAIN | LV_STATE_FOCUSED);
+    lv_obj_add_style(revers_conical_layers_entry, &ta_style_def, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_add_style(revers_conical_layers_entry, &ta_style_focus, LV_PART_MAIN | LV_STATE_FOCUSED);
     lv_textarea_set_placeholder_text(revers_conical_layers_entry, "Layers");
     lv_obj_set_grid_cell(revers_conical_layers_entry,
         LV_GRID_ALIGN_STRETCH, 1, 1,
