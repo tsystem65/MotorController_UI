@@ -51,6 +51,7 @@ extern lv_obj_t * current_speed_label;
 extern lv_obj_t * current_winding_length_label;
 extern lv_obj_t * used_cable_total_length_label;
 extern lv_obj_t * operating_time_label;
+extern lv_obj_t * status_info_label;
 
 // --- Entry (Textarea) ---
 extern lv_obj_t * rotate_per_sec_entry;
@@ -69,6 +70,7 @@ extern lv_obj_t * manual_acceleration_button;
 extern lv_obj_t * manual_deceleration_button;
 extern lv_obj_t * home_point_button;
 extern lv_obj_t * reset_info_panel_button;
+extern lv_obj_t * wifi_button;
 
 // --- Buttons Labels ---
 extern lv_obj_t * start_button_label;
@@ -99,14 +101,13 @@ void immediate_stop_button_clicked(lv_event_t * e);
 void home_point_button_clicked(lv_event_t * e);
 void reset_button_clicked(lv_event_t *e);
 void wifi_button_clicked(lv_event_t *e);
+void notification_button_clicked(lv_event_t *e);
 void accept_revers_conical_params_btn_cb(lv_event_t *e);
 void conical_winding_checkbox_handler(lv_event_t *e);
 void grinding_mode_checkbox_handler(lv_event_t *e);
 void revers_conical_winding_checkbox_handler(lv_event_t *e);
-void wifi_button_clicked(lv_event_t * e);
 
 char* gen_json_startup_config();
-
 // EVENTS
 
 extern lv_obj_t * ui____initial_actions0;

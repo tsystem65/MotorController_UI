@@ -12,13 +12,15 @@
 #include "esp_heap_caps.h" // Для esp_get_free_heap_size
 #include "freertos/FreeRTOS.h" // Для BaseType_t і pdPASS
 #include "esp_timer.h"
+#include "t_system_logo.h"
 
 #define TAG "UI_UPDATE"
 ///////////////////// VARIABLES ////////////////////
 
-#define MAX_WIFI_NETWORKS_COUNT 5
+#define MAX_WIFI_NETWORKS_COUNT 10
 
 static volatile bool wifi_update_pending = false;
+static volatile bool notify_update_pending = false;
 
 typedef struct
 {
@@ -30,7 +32,25 @@ typedef struct
 {
     wifi_network_item_t wifi_networks_list[MAX_WIFI_NETWORKS_COUNT];
     uint8_t count;
+    char wifi_status[32];
+    char wifi_status_info[128];
+    char connected_ssid[32];
+    char disconect_reason[128];
 } wifi_ui_update_data_t;
+
+typedef enum {
+    DIALOG_INFO,
+    DIALOG_WARNING,
+    DIALOG_ERROR,
+    DIALOG_CONFIRM
+} notify_dialog_type_t;
+
+typedef struct
+{
+    notify_dialog_type_t dialog_type;
+    char dialog_header[48];
+    char dialog_message[256];
+} notify_dialog_data_t;
 
 // Структура для передачі даних в асинхронний callback
 typedef struct {
@@ -47,6 +67,7 @@ typedef struct {
     bool conical_winding_status;
     bool revers_conical_winding_status;
     wifi_ui_update_data_t wifi_data;
+    notify_dialog_data_t notify_data;
 } ui_data_t;
 
 static ui_data_t ui_data_for_update = {0};
@@ -95,6 +116,7 @@ lv_obj_t * current_speed_label;
 lv_obj_t * current_winding_length_label;
 lv_obj_t * used_cable_total_length_label;
 lv_obj_t * operating_time_label;
+lv_obj_t * status_info_label = NULL;
 
 lv_obj_t * rotate_per_sec_entry;
 lv_obj_t * carriage_movement_entry;
@@ -111,6 +133,7 @@ lv_obj_t * manual_acceleration_button;
 lv_obj_t * manual_deceleration_button;
 lv_obj_t * home_point_button;
 lv_obj_t * reset_info_panel_button;
+lv_obj_t * wifi_button;
 
 lv_obj_t * start_button_label;
 lv_obj_t * stop_button_label;
@@ -131,6 +154,7 @@ void decelerate_button_clicked(lv_event_t * e);
 void immediate_stop_button_clicked(lv_event_t * e);
 void home_point_button_clicked(lv_event_t * e);
 
+static void update_wifi_status(cJSON* json_data);
 // EVENTS
 lv_obj_t * ui____initial_actions0;
 
@@ -147,6 +171,8 @@ lv_obj_t * ui____initial_actions0;
 ///////////////////// ANIMATIONS ////////////////////
 
 ///////////////////// FUNCTIONS ////////////////////
+
+void ui_show_notify_dialog(const notify_dialog_data_t *dialog);
 
 static void keyboard_event_cb(lv_event_t * e) {
     lv_event_send(wifi_password_ta, LV_EVENT_DEFOCUSED, NULL);
@@ -231,12 +257,85 @@ static void update_wifi_networks_list() {
     }
 }
 
+static notify_dialog_data_t update_notify_dialog_data(cJSON* json_data)
+{
+    notify_dialog_data_t dialog = {0};
+    cJSON* status = cJSON_GetObjectItemCaseSensitive(json_data, "status");
+
+    if (!cJSON_IsString(status) || status->valuestring == NULL) {
+        dialog.dialog_type = DIALOG_ERROR;
+        strncpy(dialog.dialog_header, "Error", sizeof(dialog.dialog_header) - 1);
+        strncpy(dialog.dialog_message, "Invalid or missing status field.", sizeof(dialog.dialog_message) - 1);
+        return dialog;
+    }
+
+    const char* s = status->valuestring;
+
+    if (strcmp(s, "granted") == 0) {
+        dialog.dialog_type = DIALOG_INFO;
+        strncpy(dialog.dialog_header, "Access Granted", sizeof(dialog.dialog_header) - 1);
+        strncpy(dialog.dialog_message, "User has been successfully granted access.", sizeof(dialog.dialog_message) - 1);
+    }
+    else if (strcmp(s, "denied") == 0) {
+        dialog.dialog_type = DIALOG_WARNING;
+        strncpy(dialog.dialog_header, "Access Denied", sizeof(dialog.dialog_header) - 1);
+        strncpy(dialog.dialog_message, "Access has been denied. Please try again.", sizeof(dialog.dialog_message) - 1);
+    }
+    else if (strcmp(s, "http_fail") == 0) {
+        dialog.dialog_type = DIALOG_ERROR;
+        strncpy(dialog.dialog_header, "HTTP Error", sizeof(dialog.dialog_header) - 1);
+        strncpy(dialog.dialog_message, "Failed to connect to the server or received an error.", sizeof(dialog.dialog_message) - 1);
+    }
+    else if (strcmp(s, "parse_fail") == 0) {
+        dialog.dialog_type = DIALOG_ERROR;
+        strncpy(dialog.dialog_header, "Parsing Error", sizeof(dialog.dialog_header) - 1);
+        strncpy(dialog.dialog_message, "Unable to parse the server response.", sizeof(dialog.dialog_message) - 1);
+    }
+    else if (strcmp(s, "not_found") == 0) {
+        dialog.dialog_type = DIALOG_WARNING;
+        strncpy(dialog.dialog_header, "Device Not Found", sizeof(dialog.dialog_header) - 1);
+        strncpy(dialog.dialog_message, "No matching device found in the database.", sizeof(dialog.dialog_message) - 1);
+    }
+    else {
+        dialog.dialog_type = DIALOG_ERROR;
+        strncpy(dialog.dialog_header, "Unknown Status", sizeof(dialog.dialog_header) - 1);
+        strncpy(dialog.dialog_message, "Unrecognized status received from access manager.", sizeof(dialog.dialog_message) - 1);
+    }
+
+    return dialog;
+}
+
+
+static void update_wifi_status(cJSON* json_data) {
+    cJSON* status = cJSON_GetObjectItemCaseSensitive(json_data, "status");
+    cJSON* reason = cJSON_GetObjectItemCaseSensitive(json_data, "reason");
+
+    if (cJSON_IsString(status) && status->valuestring != NULL) {
+        strlcpy(ui_data_for_update.wifi_data.wifi_status,
+                status->valuestring,
+                sizeof(ui_data_for_update.wifi_data.wifi_status));
+    }
+
+    if (cJSON_IsString(reason) && reason->valuestring != NULL) {
+        strlcpy(ui_data_for_update.wifi_data.disconect_reason,
+                reason->valuestring,
+                sizeof(ui_data_for_update.wifi_data.disconect_reason));
+    } else {
+        ui_data_for_update.wifi_data.disconect_reason[0] = '\0';  // якщо відсутнє
+    }
+}
+
+
 static void gui_timer_cb(lv_timer_t * timer) {
     
     (void)timer;
     if(wifi_update_pending) {
         wifi_update_pending = false;
         update_wifi_networks_list();
+    }
+    if(notify_update_pending) {
+        notify_update_pending = false;
+        ui_show_notify_dialog(&ui_data_for_update.notify_data);
     }
 
     static bool is_firts_update = true;
@@ -331,6 +430,56 @@ static void gui_timer_cb(lv_timer_t * timer) {
             lv_label_set_text(operating_time_label, buffer);
         }
     }
+
+    if (strcmp(ui_data_for_update.wifi_data.wifi_status, "connected") == 0) {
+        char buffer[64];
+        snprintf(buffer, sizeof(buffer), "Connected to: %s", ui_data_for_update.wifi_data.connected_ssid);
+        if (status_info_label != NULL) {
+            lv_label_set_text(status_info_label, buffer);
+            lv_obj_set_style_text_color(status_info_label, lv_color_hex(0x00de00), 0);
+        }
+        lv_obj_set_style_bg_color(wifi_button, lv_color_hex(0x008BF5), 0);
+        lv_obj_set_style_bg_opa(wifi_button, LV_OPA_10, 0);
+        lv_obj_set_style_border_color(wifi_button, lv_color_hex(0x008BF5), 0);
+        lv_obj_set_style_shadow_color(wifi_button, lv_color_hex(0x008BF5), 0);
+        lv_obj_set_style_shadow_width(wifi_button, 10, 0);
+        lv_obj_set_style_shadow_ofs_x(wifi_button, 0, 0);
+        lv_obj_set_style_shadow_ofs_y(wifi_button, 0, 0);
+        lv_obj_set_style_shadow_spread(wifi_button, 2, 0);
+        lv_obj_set_style_shadow_opa(wifi_button, LV_OPA_40, 0);
+
+        lv_obj_set_style_bg_color(wifi_button,    lv_color_hex(0x008BF5), LV_PART_MAIN | LV_STATE_PRESSED);
+        lv_obj_set_style_bg_opa(wifi_button,      LV_OPA_30, LV_PART_MAIN | LV_STATE_PRESSED);
+        lv_obj_set_style_border_color(wifi_button, lv_color_hex(0x008BF5), LV_PART_MAIN | LV_STATE_PRESSED);
+        lv_obj_set_style_border_width(wifi_button, 2, LV_PART_MAIN | LV_STATE_PRESSED);  
+    } else if (strcmp(ui_data_for_update.wifi_data.wifi_status, "disconnected") == 0) {
+        if (ui_data_for_update.wifi_data.disconect_reason[0] == '\0') {
+            if (status_info_label != NULL) {
+                lv_label_set_text(status_info_label, "Not Connected");
+            }
+        } else {
+            if (status_info_label != NULL) {
+                lv_label_set_text(status_info_label, ui_data_for_update.wifi_data.disconect_reason);
+            }
+        }
+        if (status_info_label != NULL) {
+            lv_obj_set_style_text_color(status_info_label, lv_color_hex(0xFF0000), 0);
+        }
+        lv_obj_set_style_bg_color(wifi_button, lv_color_hex(0xFF0000), 0);
+        lv_obj_set_style_bg_opa(wifi_button, LV_OPA_10, 0);
+        lv_obj_set_style_border_color(wifi_button, lv_color_hex(0xFF0000), 0);
+        lv_obj_set_style_shadow_color(wifi_button, lv_color_hex(0xFF0000), 0);
+        lv_obj_set_style_shadow_width(wifi_button, 10, 0);
+        lv_obj_set_style_shadow_ofs_x(wifi_button, 0, 0);
+        lv_obj_set_style_shadow_ofs_y(wifi_button, 0, 0);
+        lv_obj_set_style_shadow_spread(wifi_button, 2, 0);
+        lv_obj_set_style_shadow_opa(wifi_button, LV_OPA_40, 0);
+
+        lv_obj_set_style_bg_color(wifi_button,    lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_PRESSED);
+        lv_obj_set_style_bg_opa(wifi_button,      LV_OPA_30, LV_PART_MAIN | LV_STATE_PRESSED);
+        lv_obj_set_style_border_color(wifi_button, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_PRESSED);
+        lv_obj_set_style_border_width(wifi_button, 2, LV_PART_MAIN | LV_STATE_PRESSED);           
+    }
 }
 
 static void dialog_event_handler(lv_event_t *e) {
@@ -353,11 +502,19 @@ static void dialog_event_handler(lv_event_t *e) {
     free(data); // Звільняємо пам’ять структури
 }
 
+static void notifications_dialog_handler(lv_event_t *e) {
+    lv_obj_t * modal = lv_event_get_user_data(e);
+    if(modal) {
+        lv_obj_del(modal);
+    }
+}
+
 static void close_dialog_cb(lv_event_t *e) {
     lv_obj_t * modal = lv_event_get_user_data(e);
     if(modal) {
         lv_obj_del(modal);
         cont_wifi_networks_list = NULL;
+        status_info_label = NULL;
     }
 }
 
@@ -400,19 +557,201 @@ void revers_conical_winding_checkbox_handler(lv_event_t *e) {
     }
 }
 
-static void create_confirm_dialog(const char *message) {
+void ui_show_notify_dialog(const notify_dialog_data_t *dialog)
+{
+    // 2. Вибір іконки / кольору по типу
+    const char *icon = "";
+    lv_color_t color = lv_color_black();
+
+    switch (dialog->dialog_type) {
+        case DIALOG_INFO:
+            icon = LV_SYMBOL_BELL;
+            color = lv_color_hex(0x008BF5);
+            break;
+        case DIALOG_WARNING:
+            icon = LV_SYMBOL_WARNING;
+            color = lv_color_hex(0xfcba03);
+            break;
+        case DIALOG_ERROR:
+            icon = LV_SYMBOL_CLOSE;
+            color = lv_color_hex(0xd60b00);
+            break;
+        case DIALOG_CONFIRM:
+            icon = "?";
+            color = lv_palette_main(LV_PALETTE_GREEN);
+            break;
+        default:
+            break;
+    }
+
     // Модальне тло
     lv_obj_t *modal = lv_obj_create(ui_Screen1);
     lv_obj_add_flag(modal, LV_OBJ_FLAG_FLOATING);
     lv_obj_set_size(modal, LV_PCT(100), LV_PCT(100));
     lv_obj_set_style_bg_color(modal, lv_color_black(), 0);
     lv_obj_set_style_bg_opa(modal, LV_OPA_50, 0);
+    lv_obj_set_style_border_width(modal, 0, 0);
+
+    // Контейнер діалогу (вертикальна Flex-розмітка)
+    lv_obj_t * dialog_win = lv_obj_create(modal);
+    lv_obj_set_size(dialog_win, LV_PCT(50), LV_PCT(60));
+    lv_obj_center(dialog_win);
+    lv_obj_set_style_clip_corner(dialog_win, true, 0);
+    lv_obj_set_style_bg_color(dialog_win, lv_color_hex(0x2b2b2b), 0);
+    lv_obj_set_style_border_width(dialog_win, 0, 0);
+    lv_obj_set_style_pad_all(dialog_win, 0, 0);
+    lv_obj_set_style_pad_gap(dialog_win, 0, 0);
+    lv_obj_set_layout(dialog_win, LV_LAYOUT_FLEX);
+    lv_obj_set_flex_flow(dialog_win, LV_FLEX_FLOW_COLUMN);
+    lv_obj_set_flex_align(dialog_win, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
+    lv_obj_set_style_pad_all(dialog_win, 0, 0);
+
+    lv_obj_t * cont_header = lv_obj_create(dialog_win);
+    lv_obj_set_size(cont_header, LV_PCT(100), LV_PCT(20));
+    lv_obj_set_style_pad_all(cont_header, 20, 0);
+    lv_obj_set_style_radius(cont_header, 0, 0);
+    lv_obj_set_style_border_width(cont_header, 1, 0);
+    lv_obj_set_style_border_side(cont_header, LV_BORDER_SIDE_BOTTOM, 0);
+    lv_obj_set_style_border_color(cont_header, color, 0);
+    lv_obj_clear_flag(cont_header, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_style_bg_opa(cont_header, LV_OPA_TRANSP, 0);
+
+    lv_obj_t * header_label = lv_label_create(cont_header);
+
+    lv_label_set_text_fmt(header_label, "%s  %s", icon, dialog->dialog_header);
+    lv_obj_align(header_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_text_color(header_label, color, 0);
+    lv_obj_set_style_text_align(header_label, LV_TEXT_ALIGN_CENTER, 0);
+    lv_obj_set_style_text_font(header_label,
+                           &lv_font_montserrat_20,
+                           LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    lv_obj_t * close_btn = lv_btn_create(cont_header);
+    lv_obj_set_size(close_btn, 35, 35);
+    lv_obj_align(close_btn, LV_ALIGN_RIGHT_MID, 0, 0);
+    lv_obj_set_style_bg_color(close_btn, lv_color_hex(0xfc0303), 0);
+    lv_obj_set_style_bg_opa(close_btn, LV_OPA_70, 0);
+    lv_obj_set_style_border_width(close_btn, 0, 0);
+    lv_obj_set_style_border_color(close_btn, lv_color_hex(0xfc0303), 0);
+    lv_obj_add_event_cb(close_btn, close_dialog_cb, LV_EVENT_CLICKED, modal);
+
+    lv_obj_t * close_btn_label = lv_label_create(close_btn);
+    lv_label_set_text(close_btn_label, LV_SYMBOL_CLOSE);
+    lv_obj_align(close_btn_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_text_align(close_btn_label, LV_TEXT_ALIGN_CENTER, 0);
+    lv_obj_set_style_text_font(close_btn_label,
+                           &lv_font_montserrat_18,
+                           LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    lv_obj_t * cont_dialog_text = lv_obj_create(dialog_win);
+    lv_obj_add_flag(cont_dialog_text, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_scroll_dir(cont_dialog_text, LV_DIR_VER);
+    lv_obj_set_layout(cont_dialog_text, LV_LAYOUT_FLEX);
+    lv_obj_set_flex_flow(cont_dialog_text, LV_FLEX_FLOW_COLUMN);
+    lv_obj_set_flex_align(cont_dialog_text, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
+    lv_obj_set_style_pad_all(cont_dialog_text, 10, 0);
+    lv_obj_set_style_pad_gap(cont_dialog_text, 0, 0);
+    lv_obj_set_width(cont_dialog_text, LV_PCT(100));
+    lv_obj_set_flex_grow(cont_dialog_text, 1);
+    lv_obj_set_style_bg_color(cont_dialog_text, lv_color_hex(0x1B1B1B), 0);
+    lv_obj_set_style_border_width(cont_dialog_text, 0, 0);
+    lv_obj_set_style_radius(cont_dialog_text, 0, 0);
+
+    // 4. Основне повідомлення
+    lv_obj_t *message = lv_label_create(cont_dialog_text);
+    lv_label_set_text(message, dialog->dialog_message);
+    lv_label_set_long_mode(message, LV_LABEL_LONG_WRAP);
+    lv_obj_set_width(message, LV_PCT(90));
+    lv_obj_set_style_text_font(message,
+                           &lv_font_montserrat_18,
+                           LV_PART_MAIN | LV_STATE_DEFAULT);
+    //lv_obj_align(message, LV_ALIGN_CENTER, 0, 10);
+
+    // 5. Кнопка закриття (або підтвердження)
+    // lv_obj_t *btn = lv_btn_create(dialog_win);
+    // lv_obj_align(btn, LV_ALIGN_BOTTOM_MID, 0, -10);
+    // lv_obj_t *btn_label = lv_label_create(btn);
+    // lv_label_set_text(btn_label, dialog->dialog_type == DIALOG_CONFIRM ? "OK" : "Close");
+    // lv_obj_center(btn_label);
+
+    // lv_obj_add_event_cb(btn, [](lv_event_t *e) {
+    //     lv_obj_del(lv_event_get_target(e));
+    // }, LV_EVENT_CLICKED, NULL);
+}
+
+void create_notifications_dialog() {
+    // Модальне тло
+    lv_obj_t *modal = lv_obj_create(ui_Screen1);
+    lv_obj_add_flag(modal, LV_OBJ_FLAG_FLOATING);
+    lv_obj_set_size(modal, LV_PCT(100), LV_PCT(100));
+    lv_obj_set_style_bg_color(modal, lv_color_black(), 0);
+    lv_obj_set_style_bg_opa(modal, LV_OPA_60, 0);
+    lv_obj_set_style_border_width(modal, 0, 0);
 
     // Контейнер діалогу (вертикальна Flex-розмітка)
     lv_obj_t *dialog = lv_obj_create(modal);
-    lv_obj_set_size(dialog, LV_PCT(40), LV_PCT(50));
+    lv_obj_clear_flag(dialog, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_size(dialog, LV_PCT(45), LV_PCT(50));
     lv_obj_center(dialog);
-    lv_obj_set_style_bg_color(dialog, lv_color_hex(0x2b2b2b), 0);
+    lv_obj_set_style_bg_color(dialog, lv_color_hex(0x1B1B1B), 0);
+    lv_obj_set_style_border_width(dialog, 0, 0);
+    lv_obj_set_style_pad_all(dialog, 10, 0);
+    lv_obj_set_layout(dialog, LV_LAYOUT_FLEX);
+    lv_obj_set_flex_flow(dialog, LV_FLEX_FLOW_COLUMN);
+    lv_obj_set_flex_align(dialog, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
+    lv_obj_set_style_pad_row(dialog, 0, 0);
+
+    // Контейнер для тексту
+    lv_obj_t *text_cont = lv_obj_create(dialog);
+    lv_obj_set_size(text_cont, LV_PCT(100), LV_SIZE_CONTENT);
+    lv_obj_set_style_bg_opa(text_cont, LV_OPA_TRANSP, 0);
+    lv_obj_set_style_border_width(text_cont, 0, 0);
+
+    lv_obj_t *label = lv_label_create(text_cont);
+    lv_label_set_text(label, "No updates or notifications");
+    lv_label_set_long_mode(label, LV_LABEL_LONG_WRAP);
+    lv_obj_set_style_text_align(label, LV_TEXT_ALIGN_CENTER, 0);
+    lv_obj_set_width(label, LV_PCT(100));
+        lv_obj_set_style_text_font(label,
+                           &lv_font_montserrat_20,
+                           LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    // Контейнер для кнопок
+    lv_obj_t *btn_cont = lv_obj_create(dialog);
+    lv_obj_set_size(btn_cont, LV_PCT(100), LV_SIZE_CONTENT);
+    lv_obj_set_layout(btn_cont, LV_LAYOUT_FLEX);
+    lv_obj_set_flex_flow(btn_cont, LV_FLEX_FLOW_ROW);
+    lv_obj_set_flex_align(btn_cont, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
+    lv_obj_set_style_bg_opa(btn_cont, LV_OPA_TRANSP, 0);
+    lv_obj_set_style_border_width(btn_cont, 0, 0);
+    lv_obj_set_style_pad_column(btn_cont, 10, 0);
+
+    // Кнопка "OK"
+    lv_obj_t *btn_ok = lv_btn_create(btn_cont);
+    lv_obj_set_size(btn_ok, LV_PCT(60), 40);
+    lv_obj_add_event_cb(btn_ok, notifications_dialog_handler, LV_EVENT_CLICKED, modal);
+    lv_obj_add_style(btn_ok, &btn_style,    LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_add_style(btn_ok, &btn_pr_style, LV_PART_MAIN | LV_STATE_PRESSED);
+    lv_obj_t *label_ok = lv_label_create(btn_ok);
+    lv_label_set_text(label_ok, "OK");
+    lv_obj_center(label_ok);
+}
+
+static void create_confirm_dialog(const char *message) {
+    // Модальне тло
+    lv_obj_t *modal = lv_obj_create(ui_Screen1);
+    lv_obj_add_flag(modal, LV_OBJ_FLAG_FLOATING);
+    lv_obj_set_size(modal, LV_PCT(100), LV_PCT(100));
+    lv_obj_set_style_bg_color(modal, lv_color_black(), 0);
+    lv_obj_set_style_bg_opa(modal, LV_OPA_60, 0);
+    lv_obj_set_style_border_width(modal, 0, 0);
+
+    // Контейнер діалогу (вертикальна Flex-розмітка)
+    lv_obj_t *dialog = lv_obj_create(modal);
+    lv_obj_clear_flag(dialog, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_size(dialog, LV_PCT(45), LV_PCT(55));
+    lv_obj_center(dialog);
+    lv_obj_set_style_bg_color(dialog, lv_color_hex(0x1B1B1B), 0);
     lv_obj_set_style_border_width(dialog, 0, 0);
     lv_obj_set_style_pad_all(dialog, 10, 0);
     lv_obj_set_layout(dialog, LV_LAYOUT_FLEX);
@@ -431,6 +770,9 @@ static void create_confirm_dialog(const char *message) {
     lv_label_set_long_mode(label, LV_LABEL_LONG_WRAP);
     lv_obj_set_style_text_align(label, LV_TEXT_ALIGN_CENTER, 0);
     lv_obj_set_width(label, LV_PCT(100));
+        lv_obj_set_style_text_font(label,
+                           &lv_font_montserrat_20,
+                           LV_PART_MAIN | LV_STATE_DEFAULT);
 
     // Контейнер для прапорця
     lv_obj_t *checkbox_cont = lv_obj_create(dialog);
@@ -463,16 +805,20 @@ static void create_confirm_dialog(const char *message) {
 
     // Кнопка "OK"
     lv_obj_t *btn_ok = lv_btn_create(btn_cont);
-    lv_obj_set_size(btn_ok, 80, 40);
+    lv_obj_set_size(btn_ok, LV_PCT(35), 40);
     lv_obj_add_event_cb(btn_ok, dialog_event_handler, LV_EVENT_CLICKED, data);
+    lv_obj_add_style(btn_ok, &btn_style,    LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_add_style(btn_ok, &btn_pr_style, LV_PART_MAIN | LV_STATE_PRESSED);
     lv_obj_t *label_ok = lv_label_create(btn_ok);
     lv_label_set_text(label_ok, "OK");
     lv_obj_center(label_ok);
 
     // Кнопка "Cancel"
     lv_obj_t *btn_cancel = lv_btn_create(btn_cont);
-    lv_obj_set_size(btn_cancel, 80, 40);
+    lv_obj_set_size(btn_cancel, LV_PCT(35), 40);
     lv_obj_add_event_cb(btn_cancel, dialog_event_handler, LV_EVENT_CLICKED, data);
+    lv_obj_add_style(btn_cancel, &btn_style,    LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_add_style(btn_cancel, &btn_pr_style, LV_PART_MAIN | LV_STATE_PRESSED);
     lv_obj_t *label_cancel = lv_label_create(btn_cancel);
     lv_label_set_text(label_cancel, "Cancel");
     lv_obj_center(label_cancel);
@@ -556,8 +902,9 @@ static void create_wifi_settings_dialog() {
     lv_obj_t * close_btn = lv_btn_create(cont_header);
     lv_obj_set_size(close_btn, 35, 35);
     lv_obj_align(close_btn, LV_ALIGN_RIGHT_MID, 0, 0);
-    lv_obj_set_style_bg_opa(close_btn, LV_OPA_TRANSP, 0);
-    lv_obj_set_style_border_width(close_btn, 1, 0);
+    lv_obj_set_style_bg_color(close_btn, lv_color_hex(0xfc0303), 0);
+    lv_obj_set_style_bg_opa(close_btn, LV_OPA_70, 0);
+    lv_obj_set_style_border_width(close_btn, 0, 0);
     lv_obj_set_style_border_color(close_btn, lv_color_hex(0xfc0303), 0);
     lv_obj_add_event_cb(close_btn, close_dialog_cb, LV_EVENT_CLICKED, modal);
 
@@ -579,13 +926,14 @@ static void create_wifi_settings_dialog() {
     lv_obj_set_style_pad_gap(cont_wifi_settings_main, 0, 0);
     lv_obj_set_width(cont_wifi_settings_main, LV_PCT(100));
     lv_obj_set_flex_grow(cont_wifi_settings_main, 1);
-    lv_obj_set_style_bg_color(cont_wifi_settings_main, lv_color_hex(0x242424), 0);
+    lv_obj_set_style_bg_color(cont_wifi_settings_main, lv_color_hex(0x1B1B1B), 0);
     lv_obj_set_style_border_width(cont_wifi_settings_main, 0, 0);
+    lv_obj_set_style_radius(cont_wifi_settings_main, 0, 0);
 
     lv_obj_t * cont_wifi_params = lv_obj_create(cont_wifi_settings_main);
     lv_obj_set_size(cont_wifi_params, LV_PCT(50), LV_PCT(100));
     lv_obj_set_style_pad_all(cont_wifi_params, 20, 0);
-    lv_obj_set_style_pad_top(cont_wifi_params, 10, 0);
+    lv_obj_set_style_pad_top(cont_wifi_params, 25, 0);
     lv_obj_set_style_pad_gap(cont_wifi_params, 0, 0);
     lv_obj_set_layout(cont_wifi_params, LV_LAYOUT_FLEX);
     lv_obj_set_flex_flow(cont_wifi_params, LV_FLEX_FLOW_COLUMN);
@@ -594,7 +942,7 @@ static void create_wifi_settings_dialog() {
     lv_obj_set_style_border_width(cont_wifi_params, 0, 0);
 
     lv_obj_t * cont_wifi_credentials = lv_obj_create(cont_wifi_params);
-    lv_obj_set_size(cont_wifi_credentials, LV_PCT(100), LV_PCT(70));
+    lv_obj_set_size(cont_wifi_credentials, LV_PCT(100), LV_PCT(50));
     lv_obj_set_style_pad_all(cont_wifi_credentials, 0, 0);
     lv_obj_set_style_pad_gap(cont_wifi_credentials, 0, 0);
     lv_obj_set_layout(cont_wifi_credentials, LV_LAYOUT_FLEX);
@@ -632,13 +980,13 @@ static void create_wifi_settings_dialog() {
     lv_obj_clear_flag(cont_password_form, LV_OBJ_FLAG_SCROLLABLE);
     lv_obj_set_size(cont_password_form, LV_PCT(100), LV_PCT(50));
     lv_obj_set_style_pad_all(cont_password_form, 5, 0);
-    lv_obj_set_style_pad_top(cont_password_form, -20, 0);
     lv_obj_set_style_pad_gap(cont_password_form, 5, 0);
     lv_obj_set_layout(cont_password_form, LV_LAYOUT_FLEX);
     lv_obj_set_flex_flow(cont_password_form, LV_FLEX_FLOW_COLUMN);
     lv_obj_set_flex_align(cont_password_form, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_CENTER);
     lv_obj_set_style_border_width(cont_password_form, 0, 0);
     lv_obj_set_style_bg_opa(cont_password_form, LV_OPA_TRANSP, 0);
+    lv_obj_set_style_border_width(cont_password_form, 0, 0);
 
     lv_obj_t * wifi_password_label = lv_label_create(cont_password_form);
     lv_obj_set_size(wifi_password_label, LV_PCT(100), LV_SIZE_CONTENT);
@@ -653,6 +1001,53 @@ static void create_wifi_settings_dialog() {
     lv_obj_add_style(wifi_password_ta, &ta_style_focus, LV_PART_MAIN | LV_STATE_FOCUSED);
     lv_textarea_set_one_line(wifi_password_ta, true);
     lv_obj_add_event_cb(wifi_password_ta, ta_event_cb, LV_EVENT_ALL, kb);
+
+    lv_obj_t * cont_wifi_status = lv_obj_create(cont_wifi_params);
+    lv_obj_clear_flag(cont_wifi_status, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_size(cont_wifi_status, LV_PCT(100), 70);
+    lv_obj_set_style_pad_all(cont_wifi_status, 5, 0);
+    lv_obj_set_style_pad_top(cont_wifi_status, 0, 0);
+    lv_obj_set_style_pad_gap(cont_wifi_status, 5, 0);
+    lv_obj_set_layout(cont_wifi_status, LV_LAYOUT_FLEX);
+    lv_obj_set_flex_flow(cont_wifi_status, LV_FLEX_FLOW_COLUMN);
+    lv_obj_set_flex_align(cont_wifi_status, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_CENTER);
+    lv_obj_set_style_border_width(cont_wifi_status, 0, 0);
+    lv_obj_set_style_bg_opa(cont_wifi_status, LV_OPA_TRANSP, 0);
+
+    lv_obj_t * status_label = lv_label_create(cont_wifi_status);
+    lv_obj_set_size(status_label, LV_PCT(100), LV_SIZE_CONTENT);
+    lv_label_set_text(status_label, "Status");
+    //lv_obj_set_style_text_align(status_label, LV_TEXT_ALIGN_CENTER, 0);
+    lv_obj_set_style_text_font(status_label,
+                           &lv_font_montserrat_18,
+                           LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    
+    lv_obj_t * cont_status_info = lv_obj_create(cont_wifi_status);
+    //lv_obj_clear_flag(cont_status_info, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_size(cont_status_info, LV_PCT(100), LV_PCT(60));
+    lv_obj_set_style_pad_all(cont_status_info, 0, 0);
+    lv_obj_set_style_pad_gap(cont_status_info, 0, 0);
+    lv_obj_set_style_bg_color(cont_status_info, lv_color_hex(0x008BF5), 0);
+    lv_obj_set_style_bg_opa(cont_status_info, LV_OPA_10, 0);
+    lv_obj_set_style_border_width(cont_status_info, 1, 0);
+    lv_obj_set_style_border_color(cont_status_info, lv_color_hex(0x008BF5), 0);
+    lv_obj_set_style_border_side(cont_status_info, LV_BORDER_SIDE_BOTTOM, 0);
+    lv_obj_set_style_border_side(cont_status_info, LV_BORDER_SIDE_TOP, 0);
+    lv_obj_set_style_radius(cont_status_info, 3, 0);
+
+    status_info_label = lv_label_create(cont_status_info);
+    lv_obj_set_size(status_info_label, LV_PCT(100), LV_SIZE_CONTENT);
+    lv_label_set_text(status_info_label, "");
+    lv_obj_set_align(status_info_label, LV_ALIGN_LEFT_MID);
+    //lv_obj_set_style_text_color(status_info_label, lv_color_hex(0x00de00), 0);
+    lv_label_set_long_mode(status_info_label, LV_LABEL_LONG_SCROLL_CIRCULAR);
+    //lv_obj_set_align(status_info_label, LV_GRID_ALIGN_START);
+    //lv_obj_set_style_text_align(status_info_label, LV_TEXT_ALIGN_CENTER, 0);
+    lv_obj_set_style_pad_all(status_info_label, 0, 0);
+    lv_obj_set_style_text_font(status_info_label,
+                           &lv_font_montserrat_16,
+                           LV_PART_MAIN | LV_STATE_DEFAULT);
 
     lv_obj_t * connect_btn = lv_btn_create(cont_wifi_params);
     lv_obj_add_style(connect_btn, &btn_style,    LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -765,6 +1160,22 @@ void update_ui_callback(const char *data) {
         }
     }
 
+    if(strcmp(jtype->valuestring, "wifi_status") == 0) {
+        update_wifi_status(root);
+        cJSON_Delete(root);
+        
+        return;
+    }
+
+    if(strcmp(jtype->valuestring, "access_status") == 0) {
+        ui_data_for_update.notify_data = update_notify_dialog_data(root);
+        notify_update_pending = true;
+        cJSON_Delete(root);
+        
+        return;
+    }
+
+
     static bool is_first_update = true;
 
     // Ініціалізація значень за замовчуванням
@@ -871,6 +1282,22 @@ void update_ui_callback(const char *data) {
     if (time && cJSON_IsNumber(time)) {
         snprintf(ui_data_for_update.operating_time, sizeof(ui_data_for_update.operating_time), "%d", time->valueint);
         //ESP_LOGI(TAG, "Parsed time: %s", ui_data->operating_time);
+    }
+
+    cJSON* wifi_status = cJSON_GetObjectItemCaseSensitive(root, "wifi_status");
+    if (cJSON_IsString(wifi_status) && wifi_status->valuestring != NULL) {
+        strlcpy(ui_data_for_update.wifi_data.wifi_status, wifi_status->valuestring, sizeof(ui_data_for_update.wifi_data.wifi_status));
+
+        if (strcmp(wifi_status->valuestring, "connected") == 0) {
+            cJSON* ssid = cJSON_GetObjectItemCaseSensitive(root, "wifi_ssid");
+            if (cJSON_IsString(ssid) && ssid->valuestring != NULL) {
+                strlcpy(ui_data_for_update.wifi_data.connected_ssid, ssid->valuestring, sizeof(ui_data_for_update.wifi_data.connected_ssid));
+            } else {
+                ui_data_for_update.wifi_data.connected_ssid[0] = '\0';
+            }
+        } else {
+            ui_data_for_update.wifi_data.connected_ssid[0] = '\0';
+        }
     }
 
     // Очищаємо пам’ять JSON
@@ -993,6 +1420,14 @@ void wifi_button_clicked(lv_event_t *e) {
 
     if(event_code == LV_EVENT_CLICKED) {
         uart_send_command("{\"command\": \"start_wifi_scan\"}");
+    }
+}
+
+void notification_button_clicked(lv_event_t *e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        create_notifications_dialog();
     }
 }
 
