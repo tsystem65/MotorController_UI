@@ -9,6 +9,10 @@
         "list": "c",
         "algorithm": "c",
         "format": "c",
-        "random": "c"
+        "random": "c",
+        "system_error": "c",
+        "esp_lcd_touch_gt911.h": "c",
+        "wifi_manager.h": "c",
+        "ota_manager.h": "c"
     }
 }

@@ -30,6 +30,7 @@ extern lv_obj_t * ui_ImmediateStopButtonLabel;
 // CUSTOM VARIABLES
 
 extern lv_obj_t * wifi_dialog;
+extern lv_obj_t * ota_dialog;
 
 // --- Containers ---
 extern lv_obj_t * cont_main;
@@ -52,6 +53,7 @@ extern lv_obj_t * current_winding_length_label;
 extern lv_obj_t * used_cable_total_length_label;
 extern lv_obj_t * operating_time_label;
 extern lv_obj_t * status_info_label;
+extern lv_obj_t * ota_progress_label;
 
 // --- Entry (Textarea) ---
 extern lv_obj_t * rotate_per_sec_entry;
@@ -80,6 +82,7 @@ extern lv_obj_t * manual_acceleration_button_label;
 extern lv_obj_t * manual_deceleration_button_label;
 extern lv_obj_t * home_point_button_label;
 extern lv_obj_t * reset_info_panel_button_label;
+extern lv_obj_t * device_id_label;
 
 // --- Checkboxes ---
 extern lv_obj_t * grinding_mode_checkbox;

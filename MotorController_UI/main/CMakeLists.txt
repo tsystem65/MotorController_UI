@@ -3,4 +3,4 @@ file(GLOB_RECURSE SRC_UI ${CMAKE_SOURCE_DIR} "ui/*.c")
 
 idf_component_register(SRCS "main.c" ${SRC_UI}
                       INCLUDE_DIRS "." "ui"
-                      REQUIRES uart_manager json)
+                      REQUIRES uart_manager wifi_manager nvs_manager ota_manager json)

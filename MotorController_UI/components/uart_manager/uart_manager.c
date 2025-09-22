@@ -2,7 +2,6 @@
 #include "esp_err.h"
 #include "esp_log.h"
 #include "uart_manager.h"
-//#include "ui.h"
 #include <string.h>
 
 #define TAG "UART_TRANSMITTER"

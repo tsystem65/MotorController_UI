@@ -13,6 +13,8 @@
 #include "freertos/FreeRTOS.h" // Для BaseType_t і pdPASS
 #include "esp_timer.h"
 #include "t_system_logo.h"
+#include "ota_manager.h"
+#include "wifi_manager.h"
 
 #define TAG "UI_UPDATE"
 ///////////////////// VARIABLES ////////////////////
@@ -52,6 +54,13 @@ typedef struct
     char dialog_message[256];
 } notify_dialog_data_t;
 
+typedef struct
+{
+    int total_image_size_bytes;
+    int bytes_downloaded;
+} ota_dialog_data_t;
+
+
 // Структура для передачі даних в асинхронний callback
 typedef struct {
     char rotation_speed[8];
@@ -66,8 +75,12 @@ typedef struct {
     bool grinding_status;
     bool conical_winding_status;
     bool revers_conical_winding_status;
+    bool is_ota_active;
+    int device_restart_required;
+    int device_id;
     wifi_ui_update_data_t wifi_data;
     notify_dialog_data_t notify_data;
+    ota_dialog_data_t ota_data;
 } ui_data_t;
 
 static ui_data_t ui_data_for_update = {0};
@@ -94,8 +107,11 @@ void ui_event_Button3(lv_event_t * e);
 lv_obj_t * ui_Button3;
 lv_obj_t * ui_ImmediateStopButtonLabel;
 // CUSTOM VARIABLES
+esp_timer_handle_t ota_timer_handle;
+
 
 lv_obj_t * wifi_dialog;
+lv_obj_t * ota_dialog;
 
 lv_obj_t * cont_main;
 lv_obj_t * cont_wifi_networks_list;
@@ -117,6 +133,8 @@ lv_obj_t * current_winding_length_label;
 lv_obj_t * used_cable_total_length_label;
 lv_obj_t * operating_time_label;
 lv_obj_t * status_info_label = NULL;
+lv_obj_t * device_id_label;
+lv_obj_t * ota_progress_label;
 
 lv_obj_t * rotate_per_sec_entry;
 lv_obj_t * carriage_movement_entry;
@@ -173,6 +191,7 @@ lv_obj_t * ui____initial_actions0;
 ///////////////////// FUNCTIONS ////////////////////
 
 void ui_show_notify_dialog(const notify_dialog_data_t *dialog);
+void ui_show_ota_dialog();
 
 static void keyboard_event_cb(lv_event_t * e) {
     lv_event_send(wifi_password_ta, LV_EVENT_DEFOCUSED, NULL);
@@ -260,31 +279,74 @@ static void update_wifi_networks_list() {
 static notify_dialog_data_t update_notify_dialog_data(cJSON* json_data)
 {
     notify_dialog_data_t dialog = {0};
+
     cJSON* status = cJSON_GetObjectItemCaseSensitive(json_data, "status");
 
-    if (!cJSON_IsString(status) || status->valuestring == NULL) {
-        dialog.dialog_type = DIALOG_ERROR;
-        strncpy(dialog.dialog_header, "Error", sizeof(dialog.dialog_header) - 1);
-        strncpy(dialog.dialog_message, "Invalid or missing status field.", sizeof(dialog.dialog_message) - 1);
-        return dialog;
-    }
+    // if (!cJSON_IsString(status) || status->valuestring == NULL) {
+    //     dialog.dialog_type = DIALOG_ERROR;
+    //     strncpy(dialog.dialog_header, "Error", sizeof(dialog.dialog_header) - 1);
+    //     strncpy(dialog.dialog_message, "Invalid or missing status field.", sizeof(dialog.dialog_message) - 1);
+    //     return dialog;
+    // }
 
     const char* s = status->valuestring;
+
+    cJSON* json_data_type = cJSON_GetObjectItemCaseSensitive(json_data, "type");
+    if (strcmp(json_data_type->valuestring, "ota_status") == 0) {
+        if (strcmp(s, "started") == 0) {
+            ui_data_for_update.is_ota_active = true;
+            dialog.dialog_type = DIALOG_INFO;
+            strncpy(dialog.dialog_header, "OTA update started", sizeof(dialog.dialog_header) - 1);
+            strncpy(dialog.dialog_message, "The OTA update process has been initiated.", sizeof(dialog.dialog_message) - 1);
+        }
+        else if (strcmp(s, "begin_failed") == 0) {
+            ui_data_for_update.is_ota_active = false;
+            dialog.dialog_type = DIALOG_ERROR;
+            strncpy(dialog.dialog_header, "OTA begin failed", sizeof(dialog.dialog_header) - 1);
+            strncpy(dialog.dialog_message, "Failed to initialize the OTA update. Please retry or contact support.", sizeof(dialog.dialog_message) - 1);
+        }
+        else if (strcmp(s, "perform_failed") == 0) {
+            ui_data_for_update.is_ota_active = false;
+            dialog.dialog_type = DIALOG_ERROR;
+            strncpy(dialog.dialog_header, "OTA perform failed", sizeof(dialog.dialog_header) - 1);
+            strncpy(dialog.dialog_message, "An error occurred while downloading the update. Check your network connection and try again.", sizeof(dialog.dialog_message) - 1);
+        }
+        else if (strcmp(s, "completed") == 0) {
+            ui_data_for_update.is_ota_active = false;
+            dialog.dialog_type = DIALOG_INFO;
+            strncpy(dialog.dialog_header, "OTA update completed", sizeof(dialog.dialog_header) - 1);
+            strncpy(dialog.dialog_message, "The device has successfully downloaded and installed the update. A restart may be required.", sizeof(dialog.dialog_message) - 1);
+        }
+        else if (strcmp(s, "complete_data_not_received") == 0) {
+            ui_data_for_update.is_ota_active = false;
+            dialog.dialog_type = DIALOG_ERROR;
+            strncpy(dialog.dialog_header, "OTA incomplete data", sizeof(dialog.dialog_header) - 1);
+            strncpy(dialog.dialog_message, "The update did not finish because some data was missing. Please try again.", sizeof(dialog.dialog_message) - 1);
+        }
+        else if (strcmp(s, "finish_failed") == 0) {
+            ui_data_for_update.is_ota_active = false;
+            dialog.dialog_type = DIALOG_ERROR;
+            strncpy(dialog.dialog_header, "OTA finish failed", sizeof(dialog.dialog_header) - 1);
+            strncpy(dialog.dialog_message, "The update process could not be finalized. Please retry or contact support.", sizeof(dialog.dialog_message) - 1);
+        }
+        
+        return dialog;
+    }
 
     if (strcmp(s, "granted") == 0) {
         dialog.dialog_type = DIALOG_INFO;
         strncpy(dialog.dialog_header, "Access Granted", sizeof(dialog.dialog_header) - 1);
-        strncpy(dialog.dialog_message, "User has been successfully granted access.", sizeof(dialog.dialog_message) - 1);
+        strncpy(dialog.dialog_message, "Device has been granted access successfully.", sizeof(dialog.dialog_message) - 1);
     }
     else if (strcmp(s, "denied") == 0) {
         dialog.dialog_type = DIALOG_WARNING;
         strncpy(dialog.dialog_header, "Access Denied", sizeof(dialog.dialog_header) - 1);
-        strncpy(dialog.dialog_message, "Access has been denied. Please try again.", sizeof(dialog.dialog_message) - 1);
+        strncpy(dialog.dialog_message, "Access has been denied. Please try again or contact support.", sizeof(dialog.dialog_message) - 1);
     }
     else if (strcmp(s, "http_fail") == 0) {
         dialog.dialog_type = DIALOG_ERROR;
         strncpy(dialog.dialog_header, "HTTP Error", sizeof(dialog.dialog_header) - 1);
-        strncpy(dialog.dialog_message, "Failed to connect to the server or received an error.", sizeof(dialog.dialog_message) - 1);
+        strncpy(dialog.dialog_message, "Failed to connect to the server or received an error. Unable to connect to the server. Please check your internet connection.", sizeof(dialog.dialog_message) - 1);
     }
     else if (strcmp(s, "parse_fail") == 0) {
         dialog.dialog_type = DIALOG_ERROR;
@@ -329,6 +391,20 @@ static void update_wifi_status(cJSON* json_data) {
 static void gui_timer_cb(lv_timer_t * timer) {
     
     (void)timer;
+    if(ui_data_for_update.device_restart_required) {
+        esp_restart();
+    }
+    if(ui_data_for_update.is_ota_active && ota_dialog == NULL) {
+        ui_show_ota_dialog();
+    } else if(ui_data_for_update.is_ota_active && ota_dialog != NULL) {
+        if(ui_data_for_update.ota_data.total_image_size_bytes > 0) {
+            int progress = (100 * ui_data_for_update.ota_data.bytes_downloaded) / ui_data_for_update.ota_data.total_image_size_bytes;
+            lv_label_set_text_fmt(ota_progress_label, "Progress: %d%% (%d/%d bytes)", progress, ui_data_for_update.ota_data.bytes_downloaded, ui_data_for_update.ota_data.total_image_size_bytes);
+        }
+    } else if (!ui_data_for_update.is_ota_active && ota_dialog != NULL) {
+        lv_obj_del(ota_dialog);
+        ota_dialog = NULL;
+    }
     if(wifi_update_pending) {
         wifi_update_pending = false;
         update_wifi_networks_list();
@@ -431,6 +507,11 @@ static void gui_timer_cb(lv_timer_t * timer) {
         }
     }
 
+    if (ui_data_for_update.device_id > 0) {
+        snprintf(buffer, sizeof(buffer), "Device ID: %d", ui_data_for_update.device_id);
+        lv_label_set_text(device_id_label, buffer);
+    }
+
     if (strcmp(ui_data_for_update.wifi_data.wifi_status, "connected") == 0) {
         char buffer[64];
         snprintf(buffer, sizeof(buffer), "Connected to: %s", ui_data_for_update.wifi_data.connected_ssid);
@@ -500,6 +581,14 @@ static void dialog_event_handler(lv_event_t *e) {
 
     lv_obj_del(data->modal);
     free(data); // Звільняємо пам’ять структури
+}
+
+static void close_ota_dialog_cb(lv_event_t *e) {
+    lv_obj_t * modal = lv_event_get_user_data(e);
+    if(modal) {
+        lv_obj_del(modal);
+        ota_dialog = NULL;
+    }
 }
 
 static void notifications_dialog_handler(lv_event_t *e) {
@@ -677,6 +766,93 @@ void ui_show_notify_dialog(const notify_dialog_data_t *dialog)
     // lv_obj_add_event_cb(btn, [](lv_event_t *e) {
     //     lv_obj_del(lv_event_get_target(e));
     // }, LV_EVENT_CLICKED, NULL);
+}
+
+void ui_show_ota_dialog()
+{
+    // Модальне тло
+    ota_dialog = lv_obj_create(ui_Screen1);
+    lv_obj_add_flag(ota_dialog, LV_OBJ_FLAG_FLOATING);
+    lv_obj_set_size(ota_dialog, LV_PCT(100), LV_PCT(100));
+    lv_obj_set_style_bg_color(ota_dialog, lv_color_black(), 0);
+    lv_obj_set_style_bg_opa(ota_dialog, LV_OPA_50, 0);
+    lv_obj_set_style_border_width(ota_dialog, 0, 0);
+
+    // Контейнер діалогу (вертикальна Flex-розмітка)
+    lv_obj_t * dialog_win = lv_obj_create(ota_dialog);
+    lv_obj_set_size(dialog_win, LV_PCT(70), LV_PCT(70));
+    lv_obj_center(dialog_win);
+    lv_obj_set_style_clip_corner(dialog_win, true, 0);
+    lv_obj_set_style_bg_color(dialog_win, lv_color_hex(0x2b2b2b), 0);
+    lv_obj_set_style_border_width(dialog_win, 0, 0);
+    lv_obj_set_style_pad_all(dialog_win, 0, 0);
+    lv_obj_set_style_pad_gap(dialog_win, 0, 0);
+    lv_obj_set_layout(dialog_win, LV_LAYOUT_FLEX);
+    lv_obj_set_flex_flow(dialog_win, LV_FLEX_FLOW_COLUMN);
+    lv_obj_set_flex_align(dialog_win, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
+    lv_obj_set_style_pad_all(dialog_win, 0, 0);
+
+    lv_obj_t * cont_header = lv_obj_create(dialog_win);
+    lv_obj_set_size(cont_header, LV_PCT(100), LV_PCT(20));
+    lv_obj_set_style_pad_all(cont_header, 20, 0);
+    lv_obj_set_style_radius(cont_header, 0, 0);
+    lv_obj_set_style_border_width(cont_header, 1, 0);
+    lv_obj_set_style_border_side(cont_header, LV_BORDER_SIDE_BOTTOM, 0);
+    lv_obj_set_style_border_color(cont_header, lv_color_hex(0x008BF5), 0);
+    lv_obj_clear_flag(cont_header, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_style_bg_opa(cont_header, LV_OPA_TRANSP, 0);
+
+    lv_obj_t * header_label = lv_label_create(cont_header);
+
+    lv_label_set_text_fmt(header_label, "%s  %s", LV_SYMBOL_BELL, "OTA update");
+    lv_obj_align(header_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_text_color(header_label, lv_color_hex(0x008BF5), 0);
+    lv_obj_set_style_text_align(header_label, LV_TEXT_ALIGN_CENTER, 0);
+    lv_obj_set_style_text_font(header_label,
+                           &lv_font_montserrat_20,
+                           LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    lv_obj_t * close_btn = lv_btn_create(cont_header);
+    lv_obj_set_size(close_btn, 35, 35);
+    lv_obj_align(close_btn, LV_ALIGN_RIGHT_MID, 0, 0);
+    lv_obj_set_style_bg_color(close_btn, lv_color_hex(0xfc0303), 0);
+    lv_obj_set_style_bg_opa(close_btn, LV_OPA_70, 0);
+    lv_obj_set_style_border_width(close_btn, 0, 0);
+    lv_obj_set_style_border_color(close_btn, lv_color_hex(0xfc0303), 0);
+    lv_obj_add_event_cb(close_btn, close_ota_dialog_cb, LV_EVENT_CLICKED, ota_dialog);
+
+    lv_obj_t * close_btn_label = lv_label_create(close_btn);
+    lv_label_set_text(close_btn_label, LV_SYMBOL_CLOSE);
+    lv_obj_align(close_btn_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_text_align(close_btn_label, LV_TEXT_ALIGN_CENTER, 0);
+    lv_obj_set_style_text_font(close_btn_label,
+                           &lv_font_montserrat_18,
+                           LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    lv_obj_t * cont_dialog_text = lv_obj_create(dialog_win);
+    lv_obj_add_flag(cont_dialog_text, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_scroll_dir(cont_dialog_text, LV_DIR_VER);
+    lv_obj_set_layout(cont_dialog_text, LV_LAYOUT_FLEX);
+    lv_obj_set_flex_flow(cont_dialog_text, LV_FLEX_FLOW_COLUMN);
+    lv_obj_set_flex_align(cont_dialog_text, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
+    lv_obj_set_style_pad_all(cont_dialog_text, 10, 0);
+    lv_obj_set_style_pad_gap(cont_dialog_text, 0, 0);
+    lv_obj_set_width(cont_dialog_text, LV_PCT(100));
+    lv_obj_set_flex_grow(cont_dialog_text, 1);
+    lv_obj_set_style_bg_color(cont_dialog_text, lv_color_hex(0x1B1B1B), 0);
+    lv_obj_set_style_border_width(cont_dialog_text, 0, 0);
+    lv_obj_set_style_radius(cont_dialog_text, 0, 0);
+
+    
+    // 4. Основне повідомлення
+    ota_progress_label = lv_label_create(cont_dialog_text);
+    lv_label_set_text(ota_progress_label, "Progress: 0%% (0/0 bytes)");
+    lv_label_set_long_mode(ota_progress_label, LV_LABEL_LONG_WRAP);
+    lv_obj_set_width(ota_progress_label, LV_PCT(90));
+    lv_obj_set_style_text_font(ota_progress_label,
+                           &lv_font_montserrat_18,
+                           LV_PART_MAIN | LV_STATE_DEFAULT);
+    //lv_obj_align(message, LV_ALIGN_CENTER, 0, 10);
 }
 
 void create_notifications_dialog() {
@@ -1175,6 +1351,50 @@ void update_ui_callback(const char *data) {
         return;
     }
 
+    if(strcmp(jtype->valuestring, "ota_status") == 0) {
+        ui_data_for_update.notify_data = update_notify_dialog_data(root);
+        notify_update_pending = true;
+        cJSON_Delete(root);
+        
+        return;
+    }
+
+    if(strcmp(jtype->valuestring, "ota_perform_info") == 0) {
+        cJSON *total_img_size = cJSON_GetObjectItemCaseSensitive(root, "total_image_size_bytes");
+        if(total_img_size && cJSON_IsNumber(total_img_size)) {
+            ui_data_for_update.ota_data.total_image_size_bytes = total_img_size->valueint;
+        }
+        cJSON *bytes_downloaded = cJSON_GetObjectItemCaseSensitive(root, "bytes_downloaded");
+        if(bytes_downloaded && cJSON_IsNumber(bytes_downloaded)) {
+            ui_data_for_update.ota_data.bytes_downloaded = bytes_downloaded->valueint;
+        }
+        cJSON_Delete(root);
+        
+        return;
+    }
+
+    if(strcmp(jtype->valuestring, "display_ota_data") == 0) {
+        char wifi_ssid[32] = {0};
+        char wifi_password[64] = {0};
+
+        cJSON *ssid = cJSON_GetObjectItem(root, "wifi_ssid");
+        if (ssid && cJSON_IsString(ssid)) {
+            strlcpy(wifi_ssid, ssid->valuestring, sizeof(wifi_ssid));
+        }
+        cJSON *password = cJSON_GetObjectItem(root, "wifi_password");
+        if (password && cJSON_IsString(password)) {
+            strlcpy(wifi_password, password->valuestring, sizeof(wifi_password));
+        }
+
+        if(wifi_ssid[0] != '\0' && wifi_password[0] != '\0') {
+            wifi_manager_connect(wifi_ssid, wifi_password);
+            esp_timer_start_once(ota_timer_handle, 15 * 1000 * 1000);    
+        }
+        
+        cJSON_Delete(root);
+        
+        return;
+    }
 
     static bool is_first_update = true;
 
@@ -1298,6 +1518,16 @@ void update_ui_callback(const char *data) {
         } else {
             ui_data_for_update.wifi_data.connected_ssid[0] = '\0';
         }
+    }
+
+    cJSON *dev_id = cJSON_GetObjectItem(root, "device_id");
+    if (dev_id && cJSON_IsNumber(dev_id)) {
+        ui_data_for_update.device_id = dev_id->valueint;
+    }
+
+    cJSON *device_restart_req = cJSON_GetObjectItem(root, "device_restarted");
+    if (device_restart_req && cJSON_IsNumber(device_restart_req)) {
+        ui_data_for_update.device_restart_required = device_restart_req->valueint;
     }
 
     // Очищаємо пам’ять JSON
@@ -1470,6 +1700,15 @@ void ui_init(void)
     uart_register_data_callback(update_ui_callback);
 
     lv_timer_create(gui_timer_cb, 1000, NULL);
+
+    esp_timer_create_args_t ota_timer_args = {
+        .callback = do_https_ota,
+        .name = "ota_timer"
+    };
+
+    esp_timer_create(&ota_timer_args, &ota_timer_handle);
+    
+    wifi_manager_init();
 
     uart_init();
     ui____initial_actions0 = lv_obj_create(NULL);

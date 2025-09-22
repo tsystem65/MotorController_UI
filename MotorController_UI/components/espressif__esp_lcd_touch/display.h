@@ -63,7 +63,7 @@ static const char *TAG = "example";
 #define EXAMPLE_LVGL_TASK_PRIORITY     2
 
 static SemaphoreHandle_t lvgl_mux = NULL;
-
+esp_lcd_panel_handle_t panel_handle = NULL;
 // we use two semaphores to sync the VSYNC event and the LVGL task, to avoid potential tearing effect
 #if CONFIG_EXAMPLE_AVOID_TEAR_EFFECT_WITH_SEM
 SemaphoreHandle_t sem_vsync_end;
@@ -196,6 +196,7 @@ static void example_lvgl_touch_cb(lv_indev_drv_t * drv, lv_indev_data_t * data)
         data->state = LV_INDEV_STATE_REL;
     }
 }
+
 void display(void)
 {
     static lv_disp_draw_buf_t disp_buf; // contains internal graphic buffer(s) called draw buffer(s)
@@ -219,7 +220,6 @@ void display(void)
 #endif
 
     ESP_LOGI(TAG, "Install RGB LCD panel driver");
-    esp_lcd_panel_handle_t panel_handle = NULL;
     esp_lcd_rgb_panel_config_t panel_config = {
         .data_width = 16, // RGB565 in parallel mode, thus 16bit in width
         .psram_trans_align = 64,
